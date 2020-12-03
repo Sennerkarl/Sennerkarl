@@ -1,0 +1,134 @@
+<!naming post_detail is convention and is expected by the class view func>
+
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    
+    
+    <div class="behind-content">
+        <h5 class="article-metadata pb-2">Post</h5>
+
+        <article class="media content-section">
+            <img class="rounded-circle article-img" src="{{object.author.profile.image.url}}">
+            <div class="media-body">
+              <div class="article-metadata">
+                <a class="mr-2 text-secondary" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+                <small class="text-muted">{{ object.date_posted|date:'d F Y' }}</small>
+                {% if object.author == user %}
+                <div>
+                  <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}"> Update</a>
+                  <a class="btn btn-warning btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}"> Delete</a>
+                  </div>
+                {% endif %}
+                
+                <form action="{% url 'like_post' post.pk %}" method="POST">
+                  {%csrf_token%}
+                  {%if user in post.likes.all %}
+                  <button type="submit" name="post_id" class="btn btn-warning btn-small float-right align-baseline" value="{{post.id}}"> <! post.id to pass the post which is being liked to backend>
+                    <i class="p-1" data-feather="feather"></i> {{post.total_likes}}
+                  </button>
+                  
+                  {% else %}
+                  <button type="submit" name="post_id" class="btn btn-secondary btn-small float-right align-baseline" value="{{post.id}}"> <! post.id to pass the post which is being liked to backend>
+                    <i class="p-1" data-feather="feather"></i> {{post.total_likes}}
+                  </button>
+                  {% endif %}
+                </form>
+              </div>
+              <h2><a class="article-title" href="">{{ object.title }}</a></h2>
+              <p class="article-content">{{ object.content }}</p>
+            
+        
+            <ul class="list-unstyled">
+            {% for comment in object.comments.all %}
+            
+            <li class="media mt-3 article-metadata">
+            <img class="rounded-circle content-img" src="{{comment.author.profile.image.url}}">
+              <div class="">
+                <a class="mr-1 text-secondary" href="">{{ comment.author }}</a>
+                <small class="text-muted">{{ comment.date_posted|date:'d N Y' }}</small>
+                {% if comment.author == user %}
+                <div>
+                  <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'comment-update' comment.id %}"> Update</a>
+                  <a class="btn btn-warning btn-sm mt-1 mb-1" href="{% url 'comment-delete' comment.id %}"> Delete</a>
+                  </div>
+                {% endif %}
+                <p>{{ comment.content }}</p>
+                </div>
+            </li>
+            
+            {% endfor %} 
+            <li class="media mt-3 article-metadata">
+              <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group row pl-4">
+                  <div class="col-sm-8">{% crispy form form.helper %}</div>
+                  <div class="col-sm-4"><button class="btn btn-outline-info col-4 mx-2 align-self-end " type="submit">Post</button></div>
+                </fieldset>
+              </form>
+            </li>
+            </ul> 
+            
+                
+              </div>
+            </div>
+        </article> 
+        
+
+      
+    </div>
+
+    <div class="behind-content my-4">
+        <h5 class="article-metadata pb-2" >Posts by {{object.author.username}}</h5>
+
+    {% for post in object.author.post_set.all %}
+
+    <article class="media content-section">
+        <img class="rounded-circle article-img" src="{{post.author.profile.image.url}}">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2 text-secondary" href="">{{ post.author }}</a>
+            <small class="text-muted">{{ post.date_posted|date:'d F Y' }}</small>
+            <form action="{% url 'like_post' post.pk%}" method="POST">
+              {%csrf_token%}
+              <button type="submit" name="post_id" value="{{post.id}}" class="btn btn-secondary btn-small float-right align-baseline"> <! post.id to pass the post which is being liked to backend>
+                <i class="p-1" data-feather="feather"></i> 
+              </button>
+            </form>
+          </div>
+          <h2><a class="article-title" href="">{{ post.title }}</a></h2>
+          <p class="article-content">{{ post.content }}</p>
+        
+    
+        <ul class="list-unstyled">
+        {% for comment in post.comments.all %}
+        
+        <li class="media mt-3 article-metadata">
+        <img class="rounded-circle content-img" src="{{comment.author.profile.image.url}}">
+          <div class="">
+            <a class="mr-1 text-secondary" href="">{{ comment.author }}</a>
+            <small class="text-muted">{{ comment.date_posted|date:'d N Y' }}</small>
+            <p>{{ comment.content }}</p>
+            </div>
+        </li>
+        
+        {% endfor %} 
+        </ul> 
+
+        </div>
+    </article>  
+    {% endfor %}
+
+    </div>
+
+
+    <div class="jumbotron" style="margin-bottom:10px"> 
+        <i class="float-right smaller" data-feather="feather"></i>
+        <h1 class="display-4">Like what you see?!</h1> 
+        <hr class="my-4"> 
+        <p class="lead">
+            <a class="btn btn-secondary" href="{% url 'blog-about' %}" role="button">Get to know the people behind the scenes</a>
+          </p>  
+          
+    </div>
+{% endblock content %}
