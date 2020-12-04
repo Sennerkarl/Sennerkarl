@@ -1,8 +1,18 @@
 {% extends "blog/base.html" %}
-{% block content %}
-    <h1>Data all the way</h1>
 
-    <!-- example icon -->
-    <i data-feather="circle"></i>
-    <i data-feather="feather"></i>
+{% block content %}  
+    <h1 class='jumbotron'>Get a look at our data</h1>
+    
+    <div class="col-md-12">{{worldmap|safe}}</div>
+   
+    <div class="col-md-12">
+        {{linegraph|safe}}
+    </div>
+
+   
+
+  
+   
 {% endblock content %}
+
+<! The data for our dataset [field.name for field in SBPRI._meta.get_fields()] [{% for item in SBPRI %}{{item.Bolivia}},{% endfor %}]  {% for item in SBPRI %}{{item.Bolivia}},{% endfor %} >
