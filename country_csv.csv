@@ -169,7 +169,7 @@ Norway,NO,NOR,578,10,62
 Oman,OM,OMN,512,57,21
 Pakistan,PK,PAK,586,70,30
 Palau,PW,PLW,585,134.5,7.5
-"Palestinian Territory, Occupied",PS,PSE,275,35.25,32
+Palestinian Territory,PS,PSE,275,35.25,32
 Panama,PA,PAN,591,-80,9
 Papua New Guinea,PG,PNG,598,147,-6
 Paraguay,PY,PRY,600,-58,-23
@@ -189,8 +189,6 @@ Saint Helena,SH,SHN,654,-5.7,-15.9333
 Saint Kitts and Nevis,KN,KNA,659,-62.75,17.3333
 Saint Lucia,LC,LCA,662,-61.1333,13.8833
 Saint Pierre and Miquelon,PM,SPM,666,-56.3333,46.8333
-Saint Vincent and the Grenadines,VC,VCT,670,-61.2,13.25
-Saint Vincent & the Grenadines,VC,VCT,670,-61.2,13.25
 St. Vincent and the Grenadines,VC,VCT,670,-61.2,13.25
 Samoa,WS,WSM,882,-172.3333,-13.5833
 San Marino,SM,SMR,674,12.4167,43.7667
@@ -241,7 +239,6 @@ Uruguay,UY,URY,858,-56,-33
 Uzbekistan,UZ,UZB,860,64,41
 Vanuatu,VU,VUT,548,167,-16
 Venezuela,VE,VEN,862,-66,8
-Viet Nam,VN,VNM,704,106,16
 Vietnam,VN,VNM,704,106,16
 Virgin Islands,VI,VIR,850,-64.8333,18.3333
 Wallis and Futuna,WF,WLF,876,-176.2,-13.3
