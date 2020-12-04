@@ -155,7 +155,3 @@ def LikeView(request, pk):
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About the World Info'})
 
-
-
-# Create your views here. Neg: Überrepresentation und Unterrepresentation von Staaten durch unklare Aufteilung der Wahlmänner
-# Neg: Durch Wahlmännersystem kann ein Kandidat gewinnen, der von keiner Bevölkerungsmehrheit gewählt wurde
