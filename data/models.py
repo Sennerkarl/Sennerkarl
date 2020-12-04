@@ -17,7 +17,7 @@ class SBPRI(models.Model):
 class WorldBorder(models.Model):
     # Regular Django fields corresponding to the attributes in the
     # world borders shapefile.
-    Country = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
     iso2 = models.CharField('2 Digit ISO', max_length=5)
     iso3 = models.CharField('3 Digit ISO', max_length=5)
     un = models.IntegerField('United Nations Code')
