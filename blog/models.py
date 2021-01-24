@@ -11,6 +11,7 @@ class Post(models.Model):
     date_posted = models.DateTimeField(default=timezone.now) # get the right time as default
     author = models.ForeignKey(User, on_delete=CASCADE) #relate to User, and set what to do when deleted
     likes = models.ManyToManyField(User, related_name='blog_post')
+    picture = models.ImageField(default='default.jpg', upload_to='post_pics')
     
 
     def __str__(self):

@@ -25,7 +25,7 @@ class DataView(ListView):
         
         #build worldmap
         fig2 = go.Figure()
-        for datepoints in SBPRI.objects.values():   
+        for datepoints in SBPRI.objects.values():   # SBPRI.objects.values() are the dates
             fig2.add_trace(go.Choropleth(
                             locations = iso3s, #borders to use
                             z = list( map(datepoints.get, countrylist) ), #data with clever mapping function to get the data 
@@ -42,8 +42,8 @@ class DataView(ListView):
 
         
 
-        # Create and add slider
-        steps = []
+        # Create and add slider 
+        steps = [] #https://plotly.com/python/sliders/
         for i in range(len(fig2.data)):
             step = dict(
                 method="update",

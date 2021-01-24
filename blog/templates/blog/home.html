@@ -36,6 +36,7 @@
             </form>
           </div>
           <h2><a class="article-title" href="{% url 'post-detail' post.id%}">{{ post.title }}</a></h2>
+          <img src="{{post.picture.url}}" alt="">
           <p class="article-content">{{ post.content }}</p>
           
         
