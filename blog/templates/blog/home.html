@@ -75,4 +75,61 @@
     {% endif %}
 
     </div>
+
+    <div class="container-fluid backgroundimg position-relative d-flex align-items-center justify-content-center"> <!--nur so ist es möglich, dass der Content auch gecentert ist!-->
+      <div class="row d-flex justify-content-center">
+          <div class="col-md-12 text-center bg-light rounded opacity-bg py-4">
+              <h1 class="align-middle pb-2 fontcolor">create CERTAINTY with UNCERTAINTY</h1>
+              <h5>We want to redefine the approach of measuring, speacifiing, monitoring and forecasting Political Risk</h5>
+              <h5>Our approach is to measure political risk with the 
+                  power of the population and not experts</h5>
+              </div>
+                  <div class="pt-2">
+              <a href="{% url 'data-main'%}" type="button" class="mt-3 btn btn-secondary">VIEW DATA</a>
+          </div>
+      </div>
+  </div>
+
+  <!--Section 2 Keymessages-->
+  <div class="container padding">
+    <div class="text-center">
+        <!--<img class="svgsizing" src="svg/worldmap_01.svg"> d-flex und flex-fill-> Cards with different Text-lenghts same heigt when word wrapping-->
+    </div>
+    <div class="row" data-aos="fade-up">
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center pt-2 d-flex">
+            <div class="card">
+                <div class="card-body flex-fill">
+                    <div class="pt-2 pb-1">
+                        <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/worldmap_01.png">
+                    </div>
+                    <h4 class="card-title">Understand</h4>
+                    <p class="card-text text-muted">the importance of political risk with our unique political risk tools</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 text-center pt-2 d-flex">
+            <div class="card">
+                <div class="card-body flex-fill">
+                    <div class="pt-2 pb-1">
+                        <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_05.png">
+                    </div>
+                    <h4 class="card-title">Create</h4> <!--Monitor-->
+                    <p class="card-text text-muted">easily, quickly and specifically your political risks with our political risk tools</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-12 text-center pt-2 d-flex">
+            <div class="card">
+                <div class="card-body flex-fill">
+                    <div class="pt-2 pb-1">
+                        <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_03.png">
+                    </div>
+                    <h4 class="card-title">Use</h4> <!--Forecast-->
+                    <p class="card-text text-muted"> the monitoring, forecasting and predicting possibilities with our political risk tools</p>
+                </div>
+                <!--<img class="card-img-bottom imgblack" src="img/trade_01.jpg" alt="Card image">--> <!--falls wir hier doch Bilder haben wollen-->
+            </div>
+        </div>
+    </div>
+  </div>
 {% endblock content %}

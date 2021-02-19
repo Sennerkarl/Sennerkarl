@@ -5,7 +5,7 @@ from plotly.offline import plot
 import plotly.graph_objects as go
 import plotly.io as pio
 from .models import SBPRI, WorldBorder
-import numpy as np
+import pandas as pd
 
 class DataView(ListView):
     template_name = 'data/data.html'
@@ -23,9 +23,47 @@ class DataView(ListView):
             iso3 = qs.values('iso3')                    #queryset of iso3 in that row
             iso3s += [iso3[0]['iso3']]                  #grab first value (only value) in new qs
         
+        #build trendmap
+        fig4 = go.Figure()
+        second = list(SBPRI.objects.values_list().order_by('-id')[1:2][0])[2:]
+        last = list(SBPRI.objects.values_list().last())[2:]
+        diff = [((new / sec) - 1)*100 for (new, sec) in zip(last, second)]
+        fig4.add_trace(go.Choropleth(
+                            locations = iso3s, #borders to use
+                            z = diff, #data with clever mapping function to get the data 
+                            text = countrylist, #text when hovering
+                            autocolorscale=True,
+                            reversescale=True,
+                            marker_line_color='darkgray',
+                            marker_line_width=0.5,
+                            colorbar_tickprefix = '',
+                            colorbar_title = 'SBPRI<br>Month<br>Trend',
+                            zmin = -30,
+                            zmax = 30,
+                        ))
+
+        fig4.update_layout(
+                        template='plotly',
+                        autosize=True,
+                        height=600,
+                        geo=dict(
+                            showframe=False,
+                            showcoastlines=False,
+                            projection_type='equirectangular'
+                        ),
+                        annotations = [dict(
+                            x=0.55,
+                            y=0.1,
+                            xref='paper',
+                            yref='paper',
+                            text='Source: <a href="">Google Trend Analysis by Senne & Reinthaler</a>',
+                            showarrow = False
+                        )]
+                    )
+
         #build worldmap
         fig2 = go.Figure()
-        for datepoints in SBPRI.objects.values():   # SBPRI.objects.values() are the dates
+        for datepoints in SBPRI.objects.values():   # SBPRI.objects.values() are the rows for each date
             fig2.add_trace(go.Choropleth(
                             locations = iso3s, #borders to use
                             z = list( map(datepoints.get, countrylist) ), #data with clever mapping function to get the data 
@@ -81,6 +119,14 @@ class DataView(ListView):
                         )]
                     )
 
+        fig3 = go.Figure(go.Indicator(
+        mode = "gauge+number",
+        value = 450,
+        title = {'text': "Trend"},
+        domain = {'x': [0, 1], 'y': [0, 1]}
+        ))
+
+
         fig = go.Figure()
         fig.update_layout(height=400, template='plotly_white')
 
@@ -94,6 +140,14 @@ class DataView(ListView):
 
         linegraph = plot(fig, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
         context['linegraph'] = linegraph
+
+        trend =  plot(fig3, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+        context['trend'] = trend
+
+        trendmap =  plot(fig4, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+        context['trend'] = trendmap
+
+        #testing
         context['array'] = SBPRI.objects.values_list('date', flat=True).get(id=1)
         return context
 
