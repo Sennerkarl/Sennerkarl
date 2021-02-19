@@ -130,57 +130,6 @@ body {
   opacity:0.7;
 }
 
-/*Section 2*/
-/*Background Image 2*/
-.backgroundimg2{
-  position:relative;
-  background: url('../img/city_05.jpeg') no-repeat center center;
-  background-position:center;
-  -webkit-background-size:cover;
-  -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
-  -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
-  height:60vh;
-  opacity:0.7;
-}
-
-
-/*Background Image 3*/
-.backgroundimg3{
-  position:relative;
-  background: url('../img/harbour_03.jpeg') no-repeat center center;
-  background-position:center;
-  -webkit-background-size:cover;
-  -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
-  -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
-  height:60vh;
-  opacity:0.7;
-}
-
-/*Background Image 4*/
-.backgroundimg4{
-  position:relative;
-  background: url('../img/city_10.jpeg') no-repeat center center;
-  background-position:center;
-  -webkit-background-size:cover;
-  -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
-  -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
-  height:60vh;
-  opacity:0.7;
-}
-
-
-/*Background Image 5*/
-
-.backgroundimg5{
-  background: url('../img/city_07.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
-  background-position:center;
-  -webkit-background-size:cover;
-  -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
-  -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
-  height:50vh;
-  opacity:0.7;
-}
-
 
 /*Pictures Section 2 (Card)*/
 .imgblack {
