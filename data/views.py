@@ -16,9 +16,10 @@ class DataView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)    # open context data which is sent to frontend  
         countrylist = list(SBPRI.objects.values().last())[2:] # get country list from database
-        
+        countrylist_space = [x.replace('_', ' ') for x in countrylist] #replace _ with spaces for each element of the countrylist
+
         iso3s = [] # empty list
-        for cty in countrylist:
+        for cty in countrylist_space:
             qs = WorldBorder.objects.filter(name=cty) #queryset of country row
             iso3 = qs.values('iso3')                    #queryset of iso3 in that row
             iso3s += [iso3[0]['iso3']]                  #grab first value (only value) in new qs
@@ -31,7 +32,7 @@ class DataView(ListView):
         fig4.add_trace(go.Choropleth(
                             locations = iso3s, #borders to use
                             z = diff, #data with clever mapping function to get the data 
-                            text = countrylist, #text when hovering
+                            text = countrylist_space, #text when hovering
                             autocolorscale=True,
                             reversescale=True,
                             marker_line_color='darkgray',
@@ -67,7 +68,7 @@ class DataView(ListView):
             fig2.add_trace(go.Choropleth(
                             locations = iso3s, #borders to use
                             z = list( map(datepoints.get, countrylist) ), #data with clever mapping function to get the data 
-                            text = countrylist, #text when hovering
+                            text = countrylist_space, #text when hovering
                             autocolorscale=True,
                             reversescale=True,
                             marker_line_color='darkgray',
