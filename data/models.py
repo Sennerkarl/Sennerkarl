@@ -24,6 +24,7 @@ class SBPRI(models.Model):
     Germany = models.DecimalField(max_digits=8, decimal_places=5, blank=True, null=True, default='nan')
     Austria = models.DecimalField(max_digits=8, decimal_places=5, blank=True, null=True, default='nan')
     Switzerland = models.DecimalField(max_digits=8, decimal_places=5, blank=True, null=True, default='nan')
+    Spain = models.DecimalField(max_digits=8, decimal_places=5, blank=True, null=True, default='nan')
 
 
 class WorldBorder(models.Model):
