@@ -49,7 +49,7 @@
           <div class="">
             <a class="mr-1 text-secondary" href="{% url 'user-posts' comment.author.username %}">{{ comment.author }}</a>
             <small class="text-muted">{{ comment.date_posted|date:'d N Y' }}</small>
-            <p>{{ comment.content|slice:":200" }}</p>
+            <p>{{ comment.content|truncatewords:50 }}</p>
             </div>
         </li>
         

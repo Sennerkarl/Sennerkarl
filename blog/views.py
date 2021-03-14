@@ -135,7 +135,8 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView): #s
             return True
         return False
 
-    
+def comingsoon(request):
+    return render(request, 'blog/coming-soon.html', {'title': 'Coming-Soon'})    
 
 
 @login_required

@@ -19,3 +19,10 @@ def saveWorld(verbose=True):
     WorldBorder.objects.bulk_create(WorldBorder(**vals) for vals in df.to_dict('records'))
 
 
+def update_SBPRI():
+    SBPRI.objects.all().delete()
+
+    df = pd.read_csv('SBPRI-2021-01.csv') #as set now
+    df.rename(columns=lambda x: x.replace(' ', '_'), inplace=True)
+    df['id'] = range(1, 1+len(df))
+    SBPRI.objects.bulk_create(SBPRI(**vals) for vals in df.to_dict('records'))

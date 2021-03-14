@@ -1,0 +1,405 @@
+/*GENERAL*/
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    line-height:1.5;
+    font: 15px/1.5;
+    background-color:#ffffff;
+
+}
+/*hover: if you go over, it changes the color; color doesn't change!!!!*/
+
+.nav a:hover{
+    color:rgb(240, 240, 240);
+}
+
+.navbar{
+    background-color:rgb(231, 231, 231);
+    padding-top: .1rem !important;
+    padding-bottom: .1rem !important;
+}
+
+.navbar-nav {
+    margin-left: auto !important;
+}
+
+/*Navbar active change color*/
+#navmenu li.active > a {
+	color: #ff7f64;
+}
+
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+
+.background-color-attention {
+    background-color:rgb(231, 231, 231);
+}
+
+.fs-small {
+    font-size: 11px !important;
+}
+
+/*Cookie Consent*/
+
+
+/*Section 1*/
+/*Background Image 1*/
+/*no-repeat center center fixed! mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
+.backgroundimg{
+    background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/city_05.jpeg') no-repeat center center;
+    background-position:center;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height:90vh;
+    opacity:0.7;
+}
+
+/*Section 2*/
+/*Background Image 2*/
+.backgroundimg2{
+    background: url('../img/city_05.jpeg') no-repeat center center;
+    background-position:center;
+    background-attachment: fixed; /*damit wird das hintergrundbild fixiert*/
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height:60vh;
+    opacity:0.7;
+}
+
+/*Background Image 3*/
+.backgroundimg3{
+    background: url('../img/harbour_03.jpeg') no-repeat center center;
+    background-position:center;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height:60vh;
+    opacity:0.7;
+}
+
+/*Background Image 4*/
+.backgroundimg4{
+    background: url('../img/city_10.jpeg') no-repeat center center;
+    background-position:center;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height:60vh;
+    opacity:0.7;
+}
+
+
+/*Background Image 5*/
+.backgroundimg5{
+    background: url('../img/city_07.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
+    background-position:center;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height:50vh;
+    opacity:0.7;
+}
+
+/*Background Image 6*/
+
+.backgroundimg6{
+    background: url('../img/dark_03.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
+    background-position:center;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height:70vh;
+    opacity:0.7;
+}
+
+/*Background Image 7*/
+
+.backgroundimg7{
+    background: url('../img/harbour_03.jpeg') no-repeat center center;
+    background-position:center;
+    background-attachment: fixed;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height:50vh;
+    opacity:0.7;
+}
+
+.backgroundimg9{
+    background: url('../img/coming-soon_01.jpeg') no-repeat center center;
+    background-position:center;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    min-height:90vh;
+    opacity:0.7;
+}
+
+.backgroundimg10{
+    background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/city_08.jpeg') no-repeat center center;
+    background-position:center;
+    background-attachment: fixed; /*damit wird das hintergrundbild fixiert*/
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height:50vh;
+    opacity:0.7;
+}
+
+/*Background Image 11*/
+
+.backgroundimg11{
+    background: url('../img/coming-soon_02.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
+    background-position:center;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height:70vh;
+    opacity:0.7;
+}
+
+
+
+div.card_4,
+div.card_5,
+div.card_6,
+div.card_7{
+    background:rgb(255, 255, 255, 0.6);
+}
+
+/*responsive sizing*/
+.padding {
+    padding-top: 8%;
+    padding-bottom: 8%;
+}
+
+/*Sizing of SVG's*/
+.svgsizing {
+    width: 45%;
+}
+
+.svgsizing_01 {
+    width:10%;
+}
+
+/*Political Risk Image Opacity*/
+.img_opct_70{
+    opacity:0.7;
+}
+
+/*Pictures Section 2 (Card)*/
+.imgblack {
+    filter: grayscale(100%);
+    opacity:0.8;
+}
+
+/*overall opacity of icons*/
+.fa {
+    opacity: 0.6;
+}
+
+/*Description padding (oben und unten), padding-bottom oder padding-top (nur oben oder unten)*/
+.hr_sizing{
+    border-width: 2px;
+    width:10%;
+}
+
+/*font-color und opacity bei den BREAKS*/
+.fontcolor {
+    color:black;
+}
+
+.opacity-bg {
+    opacity:0.7;
+}
+
+/*Nav-pills*/
+
+.nav-pills > li.active > a {
+    background-color: #ff7f64 !important;
+}
+
+.nav-pills > li > a.active {
+    background-color: #ff7f64 !important;
+    color: white !important;
+}
+
+.nav-pills > li > a:hover {
+    color: grey !important;
+}
+
+/*Option falls die Schriftfarbe nicht passt*/
+.pill-link-color {
+    color: grey !important;
+}
+
+
+/* footer social icons */
+ul.social-network {
+	list-style: none;
+	display: inline;
+}
+ul.social-network li {
+	display: inline;
+	margin: 0 5px;
+}
+
+.social-network a.icoFacebook:hover {
+	background-color:#3B5998;
+}
+.social-network a.icoTwitter:hover {
+	background-color:#33ccff;
+}
+.social-network a.icoGoogle:hover {
+	background-color:#BD3518;
+}
+.social-network a.icoVimeo:hover {
+	background-color:#0590B8;
+}
+.social-network a.icoLinkedin:hover {
+	background-color:#007bb7;
+}
+
+.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
+	color:#fff;
+}
+
+.social-circle li a {
+	display:inline-block;
+	position:relative;
+	margin:0 auto 0 auto;
+	-moz-border-radius:50%;
+	-webkit-border-radius:50%;
+	border-radius:50%;
+	text-align:center;
+	width: 50px;
+	height: 50px;
+	font-size:20px;
+}
+.social-circle li i {
+	margin:0;
+	line-height:50px;
+	text-align: center;
+}
+
+.social-network a {
+ background-color: #D3D3D3;   
+}
+
+  .fa-facebook,
+  .fa-twitter,
+  .fa-instagram,
+  .fa-google-plus,
+  .fa-linkedin{
+      color: white;
+  }
+
+/*footer*/
+footer{
+    color:#ffffff;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+footer a {
+    color: #ffffff;
+}
+
+/*Padding class 6*/
+.pt-6,
+.py-6 {
+    padding-top: 5rem !important;
+}
+
+.pr-6,
+.px-6 {
+    padding-right: 5rem !important;
+}
+
+.pb-6,
+.py-6 {
+    padding-bottom: 5rem !important;
+}
+
+.pl-6,
+.px-6 {
+    padding-left: 5rem !important;
+}
+
+  /*2 Blog*/
+
+  .content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+  
+  .article-title {
+    color: #444444;
+  }
+  
+  a.article-title:hover {
+    color: #428bca;
+    text-decoration: none;
+  }
+  
+  .article-content {
+    white-space: pre-line;
+  }
+  
+  .article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+  }
+  
+  .article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e3e3e3
+  }
+  
+  .article-metadata a:hover {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+  }
+  
+  .account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .account-heading {
+    font-size: 2.5rem;
+  }
+
+  /*3 Register*/
+
+  /*background image*/
+.backgroundimg8{
+    background: url('../img/login.jpeg');
+    background-size: cover;
+}
+
+/*4 Logout*/
+.padding_logout {
+    padding-top: 23%;
+    padding-bottom: 23%;
+}
