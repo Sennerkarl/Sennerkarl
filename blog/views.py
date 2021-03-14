@@ -17,13 +17,13 @@ from django.db.models import Count
 
 
 
-def home(request):
+def blogs(request):
     context = {'posts':Post.objects.all()} #grab all posts from the post model (DB) and put them in a variable
-    return render(request, 'blog/home.html', context) # first request then, 'directory/template' , accessible data
+    return render(request, 'blog/blogs.html', context) # first request then, 'directory/template' , accessible data
 
 class PostListView(ListView):
     model = Post #this is all we need to create a Listview
-    template_name = 'blog/home.html' # set new template to look for
+    template_name = 'blog/blogs.html' # set new template to look for
     context_object_name = 'posts' #tell what should be used as
     ordering = ['-date_posted']
     paginate_by = 5
@@ -135,8 +135,6 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView): #s
             return True
         return False
 
-def comingsoon(request):
-    return render(request, 'blog/coming-soon.html', {'title': 'Coming-Soon'})    
 
 
 @login_required
@@ -154,5 +152,17 @@ def LikeView(request, pk):
 
 
 def about(request):
-    return render(request, 'blog/about.html', {'title': 'About the World Info'})
+    return render(request, 'blog/about.html', {'title': 'About'}) #value for the title
+
+def home(request):
+    return render(request, 'blog/home.html', {'title': 'Home'})
+
+def archive(request):
+    return render(request, 'blog/archive.html', {'title': 'Archive'})
+
+def impressum(request):
+    return render(request, 'blog/impressum.html', {'title': 'Impressum'})
+
+def comingsoon(request):
+    return render(request, 'blog/coming-soon.html', {'title': 'Coming-Soon'})
 
