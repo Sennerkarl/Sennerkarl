@@ -1,3 +1,4 @@
+from users.models import Profile
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db.models.expressions import OrderBy
@@ -17,9 +18,10 @@ from django.db.models import Count
 
 
 
-def blogs(request):
-    context = {'posts':Post.objects.all()} #grab all posts from the post model (DB) and put them in a variable
-    return render(request, 'blog/blogs.html', context) # first request then, 'directory/template' , accessible data
+
+# def blogs(request):
+#     context = {'posts':Post.objects.all()} #grab all posts from the post model (DB) and put them in a variable
+#     return render(request, 'blog/blogs.html', context) # first request then, 'directory/template' , accessible data
 
 class PostListView(ListView):
     model = Post #this is all we need to create a Listview
@@ -151,8 +153,15 @@ def LikeView(request, pk):
 
 
 
-def about(request):
-    return render(request, 'blog/about.html', {'title': 'About'}) #value for the title
+class AboutListView(ListView):
+    model = Profile #this is all we need to create a Listview
+    template_name = 'blog/about.html' # set new template to look for
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profilesenne'] = Profile.objects.get(user_id=User.objects.get(username='Senner').id)
+        #context['profilereinthaler'] = Profile.objects.get(user_id=2)
+        return context
+     #value for the title
 
 def home(request):
     return render(request, 'blog/home.html', {'title': 'Home'})

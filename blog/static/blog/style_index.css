@@ -17,6 +17,8 @@ body{
     background-color:rgb(231, 231, 231);
     padding-top: .1rem !important;
     padding-bottom: .1rem !important;
+    border-bottom-width: thin ;
+    border-bottom-color: #ff7f64;
 }
 
 .navbar-nav {
@@ -47,7 +49,7 @@ body{
 /*Background Image 1*/
 /*no-repeat center center fixed! mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
 .backgroundimg{
-    background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/homescreen_02.jpeg') no-repeat center center;
+    background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/CityCloud.jpg') no-repeat center center;
     background-position:center;
     background-attachment:fixed;
     -webkit-background-size:cover;
@@ -74,6 +76,7 @@ body{
 .backgroundimg3{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/harbour_03.jpeg') no-repeat center center;
     background-position:center;
+    background-attachment:fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -85,6 +88,7 @@ body{
 .backgroundimg4{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/city_10.jpeg') no-repeat center center;
     background-position:center;
+    background-attachment:fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -97,6 +101,7 @@ body{
 .backgroundimg5{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/city_07.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
     background-position:center;
+    background-attachment:fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -109,6 +114,7 @@ body{
 .backgroundimg6{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/dark_03.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
     background-position:center;
+    background-attachment:fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -132,6 +138,7 @@ body{
 .backgroundimg9{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/coming-soon_01.jpeg') no-repeat center center;
     background-position:center;
+    background-attachment:fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -155,6 +162,7 @@ body{
 .backgroundimg11{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/coming-soon_02.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
     background-position:center;
+    background-attachment:fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -184,6 +192,10 @@ div.card_7{
 
 .svgsizing_01 {
     width:10%;
+}
+
+.svgsizing_005 {
+    width:5%;
 }
 
 /*Political Risk Image Opacity*/
@@ -403,4 +415,16 @@ footer a {
 .padding_logout {
     padding-top: 23%;
     padding-bottom: 23%;
+}
+
+.colorlight1 {
+    color: #ff7f64;
+}
+
+.colorlight2 {
+    color: #c6b2eb;
+}
+
+.bg-color-light {
+    background-color: #c6b2eb;
 }

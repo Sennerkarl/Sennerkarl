@@ -2,21 +2,42 @@
 {% extends "blog/base.html" %}
 {% block content %}
 
-<!-- Navbar Right Side -->
+<!--Blog-->
         <div class="bg-light">
             <div role="main" class="container">
-                <div class="row padding">
-                    <div class="col-md-8">
+                <div class="row padding d-flex justify-content-center">
+                    <div class="col-md-10">
                     {% for post in posts %} <!--loop over posts-->
                         <article class="media content-section">
                             <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}" alt="">
                             <div class="media-body">
-                                    <div class="article-metadata">
-                                        <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
-                                        <small class="text-muted">{{ post.date_posted|date:"d. F, Y" }}</small>
-                                    </div>
+                                <div class="article-metadata">
+                                    <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+                                    <small class="text-muted">{{ post.date_posted|date:"d. F, Y" }}</small>
+                                </div>
                                 <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2> <!--post.id is the primary key-->
-                                <p class="article-content">{{ post.content|slice:":200" }}</p> <!--slice hört genau bei 200 buchstaben auf!-->
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="container-fluid backgroundimg-blog rounded" style="background: url({{ post.picture.url }}) no-repeat center center">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <p class="article-content pt-2 text-justify text-muted">{{ post.content|truncatewords:20 }}
+                                            <a class="article-title" href="{% url 'post-detail' post.id %}">Read more</a>
+                                        </p> 
+                                    </div>
+                                </div>
+                                <!--<div class="row pt-3">
+                                    <div class="col-lg-10">
+                                        <img class="img-fluid rounded blog-image justify-content-center" src="{{ post.picture.url }}" alt="#">
+                                        <div>
+                                            <p class="article-content pt-2 text-justify text-muted">{{ post.content|truncatewords:20 }}
+                                                <a class="article-title" href="{% url 'post-detail' post.id %}">Read more</a>
+                                            </p> 
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <!--slice hört genau bei 200 buchstaben auf!-->
                             </div>
                         </article>
                     {% endfor %}
@@ -42,21 +63,9 @@
 
                     {% endif %}
                     </div>
-                    <div class="col-md-4">
-                        <div class="content-section">
-                        <h3>Our Sidebar</h3>
-                        <p class='text-muted'>You can put any information here you'd like.
-                            <ul class="list-group">
-                            <li class="list-group-item list-group-item-light">Latest Posts</li>
-                            <li class="list-group-item list-group-item-light">Announcements</li>
-                            <li class="list-group-item list-group-item-light">Calendars</li>
-                            <li class="list-group-item list-group-item-light">etc</li>
-                            </ul>
-                        </p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-
+        
+        
 {% endblock content %}

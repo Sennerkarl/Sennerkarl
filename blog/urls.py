@@ -1,6 +1,7 @@
 from django.urls import path # from urls from mainproject
 from .import views
-from .views import CommentDeleteView, CommentUpdateView, LikeView, PostCreateView, PostDeleteView, PostDetailView, PostListView, PostUpdateView, UserPostListView
+from .views import AboutListView, CommentDeleteView, CommentUpdateView, LikeView, PostCreateView, PostDeleteView, PostDetailView, PostListView, PostUpdateView, UserPostListView
+
 
 urlpatterns = [
     path('', views.home, name='blog-home'), #load class PostListView as a view , and it is looking for a template with naming convention app/model_viewtype.html  this can be changed
@@ -19,7 +20,7 @@ urlpatterns = [
 
     path('archive/', views.archive, name='blog-archive'),
     path('impressum/', views.impressum, name='blog-impressum'),
-    path('about/', views.about, name='blog-about'),
+    path('about/', AboutListView.as_view(), name='blog-about'),
     path('coming-soon/', views.comingsoon, name='blog-coming-soon'),
     path('blog/', PostListView.as_view(), name='blog-blogs'),
 ]
