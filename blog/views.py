@@ -1,4 +1,5 @@
 
+from users.forms import EmailSignupForm
 from users.models import Profile
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -12,7 +13,6 @@ from .models import Post, Comment
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse
 from .forms import CommentForm
-from users.forms import EmailSignupForm, UserRegisterForm
 
 
 
@@ -164,7 +164,7 @@ class AboutListView(ListView):
 
 def home(request):
     form = EmailSignupForm
-    return render(request, 'blog/home.html', {'form':form})
+    return render(request, 'blog/home.html', {'form': form})
 
 def archive(request):
     return render(request, 'blog/archive.html', {'title': 'Archive'})

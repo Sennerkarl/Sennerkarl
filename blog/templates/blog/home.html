@@ -1,5 +1,4 @@
 {% extends "blog/base.html" %}
-{% load crispy_forms_tags %}
 {% block content %}
 <!--Section 1 - Background image-->
             <div class="container-fluid backgroundimg position-relative d-flex align-items-center justify-content-center"> <!--nur so ist es möglich, dass der Content auch gecentert ist!-->
@@ -494,13 +493,14 @@
                         <div class="text-center">
                             <form action="{% url 'subscription'%}" method="POST">
                                 {% csrf_token %}
+                                {% for field in subscribeform %}
                                 <div class="form-group">
-                                    {{ form|crispy }}   
-                                    <input type="submit" value="Submit">
+                                    {{ field }}   
+                                    <input class="btn btn-light" type="submit" value="Subscribe now">
                                 </div>
+                                {% endfor %}
                             </form>
-                            
-                            <a href="#" type="button" class="btn btn-outline-secondary">Subscribe now</a>
+        
                             <a href="#" type="button" class="ml-3 btn btn-outline-primary">Donate</a>
                         </div>
                     </div>

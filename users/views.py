@@ -55,7 +55,7 @@ server = settings.MC_DATACENTER
 list_id = settings.MC_EMAIL_LIST_ID
 
 
-# Subscription Logic
+# Subscription Logic Mailchimp
 def subscribe(email):
     """
      Contains code handling the communication to the mailchimp api
@@ -79,7 +79,7 @@ def subscribe(email):
     except ApiClientError as error:
         print("An exception occurred: {}".format(error.text))
 
-
+#Subscription Form and backend
 def subscription(request):
     form = EmailSignupForm(request.POST or None)
     if request.method == "POST":
@@ -92,13 +92,6 @@ def subscription(request):
                 form.save()
         
 
-    return HttpResponseRedirect(request.Meta.get("HTTP_REFERER"))
+    return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
 
-
-
-
-class SubscribeView(CreateView):
-    model = Subscribed
-    fields = ['email']
-    

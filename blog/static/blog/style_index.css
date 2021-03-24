@@ -99,7 +99,7 @@ body{
 
 /*Background Image 5*/
 .backgroundimg5{
-    background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/city_07.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
+    background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/Leopold.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
     background-position:center;
     background-attachment:fixed;
     -webkit-background-size:cover;

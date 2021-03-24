@@ -92,7 +92,17 @@
           <div class="col-sm-6">
               <div class="text-center">
                   <h2>STAY UP TO DATE</h2>
+                  <form action="{% url 'subscription'%}" method="POST">
+                    {% csrf_token %}
+                    {% for field in subscribeform %}
+                    <div class="form-group">
+                        {{ field }}
+                        <input class="btn btn-light" type="submit" value="Subscribe now">
+                    </div>
+                    {% endfor %}
+                </form>
               <div class="input-group">
+                
                   <input type="email" class="form-control" placeholder="Enter your email">
                   <div class="input-group-append">
                       <button class="btn btn-light" type="submit">Subscribe now</button>
@@ -118,22 +128,21 @@
       <div class="row pt-1 pb-2">
           <div class="col-lg-3 d-flex justify-content-center">
               <ul class="list-unstyled m-0 p-0">
-                  <h5>Home</h5>
-                  <li>- <a href="#">Data</a></li>
-                  <li>- <a href="#">Blog</a></li>
-                  <li>- <a href="#">Archive</a></li>
-                  <li>- <a href="#">About</a></li>
-                  <li>- <a href="#">four</a></li>
+                <h5> <a href="{% url 'blog-home' %}">Home</a></h5>
+                  <li>- <a href="{% url 'data-main' %}">Data</a></li>
+                  <li>- <a href="{% url 'blog-blogs' %}">Blog</a></li>
+                  <li>- <a href="{% url 'blog-archive' %}">Archive</a></li>
+                  <li>- <a href="{% url 'blog-about' %}">About Us</a></li>
+                  <li>- <a href="{% url 'blog-coming-soon' %}">Coming Soon</a></li>
               </ul>
           </div>
           <div class="col-lg-3 d-flex justify-content-center">
               <ul class="list-unstyled m-0 p-0">
-                  <h5>Blog</h5>
-                  <li>- <a href="#">one</a></li>
-                  <li>- <a href="#">two</a></li>
-                  <li>- <a href="#">three</a></li>
-                  <li>- <a href="#">four</a></li>
-                  <li>- <a href="#">five</a></li>
+                  <h5> <a href="{% url 'blog-blogs' %}">Blog</a></h5>
+                  {{ grabpost }}
+                  {% for posts in Posts %}
+                  <li><a href="{% url 'post-detail' posts.id %}">{{posts.title}}</a></li>
+                  {% endfor %}
               </ul>
           </div>
           <div class="col-lg-3 d-flex justify-content-center">
@@ -154,7 +163,7 @@
           </div>
       </div>
       <hr>
-      <p class="mt-3 text-small">Political Risk Corporation, Copyright &copy; {% now "jS F Y" %} |<a class="pl-1" href="{% url 'blog-impressum' %}">Impressum |</a><a class="pl-1" href="">AGB |</a><a class="pl-1" href="">Data Privacy</a></p>
+      <p class="mt-3 text-small">Sure - Political Risk Corporation, Copyright &copy; {% now "jS F Y" %} |<a class="pl-1" href="{% url 'blog-impressum' %}">Impressum |</a><a class="pl-1" href="">AGB |</a><a class="pl-1" href="">Data Privacy</a></p>
   </div>
 </footer> 
 
