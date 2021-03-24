@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'storages'
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -155,5 +155,9 @@ AWS_S3_SIGNATURE_VERSION = 's3v4'
 AWS_S3_REGION_NAME = 'eu-central-1'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' #to use django-storages
+
+MC_KEY = os.environ.get('MC_KEY')
+MC_DATACENTER = os.environ.get('MC_DATACENTER')
+MC_EMAIL_LIST_ID = os.environ.get('MC_EMAIL_LIST_ID')
 
 django_heroku.settings(locals())

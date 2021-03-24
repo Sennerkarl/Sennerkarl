@@ -1,10 +1,10 @@
+
 from users.models import Profile
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.db.models.expressions import OrderBy
-from django.http import request
+
 from django.http.response import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render, redirect # to insert template and render it
+from django.shortcuts import get_object_or_404, render # to insert template and render it
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, FormMixin, UpdateView
@@ -12,11 +12,8 @@ from .models import Post, Comment
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse
 from .forms import CommentForm
-from django.contrib import  messages
-from django import forms
-from django.db.models import Count
+from users.forms import EmailSignupForm, UserRegisterForm
 
-import datetime
 
 
 
@@ -151,7 +148,7 @@ def LikeView(request, pk):
     else:
         post.likes.add(request.user) #we are saving a like from a user
         liked = True
-    return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
+    return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
 
 
@@ -166,7 +163,8 @@ class AboutListView(ListView):
      #value for the title
 
 def home(request):
-    return render(request, 'blog/home.html', {'title': 'Home'})
+    form = EmailSignupForm
+    return render(request, 'blog/home.html', {'form':form})
 
 def archive(request):
     return render(request, 'blog/archive.html', {'title': 'Archive'})

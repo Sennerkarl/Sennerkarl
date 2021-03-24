@@ -1,9 +1,18 @@
+from django.http.response import HttpResponse, HttpResponseRedirect
+from django.views.generic.edit import CreateView
+from users.models import Subscribed
 from django.http import request
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .forms import ProfileUpdateForm, UserRegisterForm, UserUpdateForm
+from .forms import EmailSignupForm, ProfileUpdateForm, UserRegisterForm, UserUpdateForm
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+import requests
+import json
+
+import mailchimp_marketing as MailchimpMarketing
+from mailchimp_marketing.api_client import ApiClientError
+
 
 def register(request):
     if request.method == 'POST': # if is the method used by online user (HTTP) - as defined in template
@@ -39,3 +48,57 @@ def profile(request):
     }
 
     return render(request, 'users/profile.html', context)
+
+# Mailchimp Settings
+api_key = settings.MC_KEY
+server = settings.MC_DATACENTER
+list_id = settings.MC_EMAIL_LIST_ID
+
+
+# Subscription Logic
+def subscribe(email):
+    """
+     Contains code handling the communication to the mailchimp api
+     to create a contact/member in an audience/list.
+    """
+
+    client = MailchimpMarketing.Client()
+    client.set_config({
+        "api_key": api_key,
+        "server": server,
+    })
+
+    member_info = {
+        "email_address": email,
+        "status": "subscribed",
+    }
+
+    try:
+        response = client.lists.add_list_member(list_id, member_info)
+        print("response: {}".format(response))
+    except ApiClientError as error:
+        print("An exception occurred: {}".format(error.text))
+
+
+def subscription(request):
+    form = EmailSignupForm(request.POST or None)
+    if request.method == "POST":
+        if form.is_valid():
+            emailsignupquiryset = Subscribed.objects.filter(email=form.instance.email)
+            if emailsignupquiryset.exists():
+                messages.info(request, "You are already subscribed")
+            else:
+                subscribe(form.instance.email)
+                form.save()
+        
+
+    return HttpResponseRedirect(request.Meta.get("HTTP_REFERER"))
+
+
+
+
+
+class SubscribeView(CreateView):
+    model = Subscribed
+    fields = ['email']
+    

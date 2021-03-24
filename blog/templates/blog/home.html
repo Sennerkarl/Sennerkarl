@@ -1,11 +1,11 @@
 {% extends "blog/base.html" %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 <!--Section 1 - Background image-->
             <div class="container-fluid backgroundimg position-relative d-flex align-items-center justify-content-center"> <!--nur so ist es möglich, dass der Content auch gecentert ist!-->
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-12 text-center bg-light rounded opacity-bg py-4 px-6">
-                        <h1 class="align-middle pb-2 fontcolor">Unraveling Political (Un)<span style="color: #ff7f64">certainty</span></h1>
+                        <h1 class="align-middle pb-2 fontcolor">Unraveling Political Un<span style="color: #ff7f64">certainty</span></h1>
                         <h5>Rethinking the political risk perspective</h5>
                         <h5>We measure, monitor and forecast political risks based on the view of the population</h5>
                         <p class="pt-5">Want to know more?
@@ -492,6 +492,14 @@
                             Therefore, we rely on cooperation, funding and donations – feel free to contact us for exciting new cooperation possibilities or make a donation. Support us so that we can further support your business.
                         </p>
                         <div class="text-center">
+                            <form action="{% url 'subscription'%}" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    {{ form|crispy }}   
+                                    <input type="submit" value="Submit">
+                                </div>
+                            </form>
+                            
                             <a href="#" type="button" class="btn btn-outline-secondary">Subscribe now</a>
                             <a href="#" type="button" class="ml-3 btn btn-outline-primary">Donate</a>
                         </div>
