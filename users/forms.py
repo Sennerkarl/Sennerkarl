@@ -28,7 +28,8 @@ class EmailSignupForm(forms.ModelForm):
     email = forms.EmailField(required=True, widget=forms.EmailInput(
             attrs={
                 'placeholder': 'Your email goes here',
-                'style': 'width: 200px; height:40px; border-style:none; border-radius:5px; margin-right:-10px; padding-left:5px'
+                'class': "form-control",
+                #'style': 'width: 200px; height:40px; border-style:none; border-radius:5px; margin-right:-10px; padding-left:5px'
             }))
     class Meta:
         model = Subscribed

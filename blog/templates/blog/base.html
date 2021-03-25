@@ -95,19 +95,15 @@
                   <form action="{% url 'subscription'%}" method="POST">
                     {% csrf_token %}
                     {% for field in subscribeform %}
-                    <div class="form-group">
+                    <div class="input-group">
                         {{ field }}
-                        <input class="btn btn-light" type="submit" value="Subscribe now">
+                        <div class="input-group-append">
+                            <input class="btn btn-light" type="submit" value="Subscribe now">
+                        </div>
                     </div>
                     {% endfor %}
                 </form>
-              <div class="input-group">
-                
-                  <input type="email" class="form-control" placeholder="Enter your email">
-                  <div class="input-group-append">
-                      <button class="btn btn-light" type="submit">Subscribe now</button>
-                  </div>
-              </div>
+              
               </div>
           </div>
       </div>
@@ -141,7 +137,7 @@
                   <h5> <a href="{% url 'blog-blogs' %}">Blog</a></h5>
                   {{ grabpost }}
                   {% for posts in Posts %}
-                  <li><a href="{% url 'post-detail' posts.id %}">{{posts.title}}</a></li>
+                  <li>- <a href="{% url 'post-detail' posts.id %}">{{posts.title}}</a></li>
                   {% endfor %}
               </ul>
           </div>

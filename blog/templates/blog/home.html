@@ -494,9 +494,11 @@
                             <form action="{% url 'subscription'%}" method="POST">
                                 {% csrf_token %}
                                 {% for field in subscribeform %}
-                                <div class="form-group">
-                                    {{ field }}   
-                                    <input class="btn btn-light" type="submit" value="Subscribe now">
+                                <div class="input-group">
+                                    {{ field }}
+                                    <div class="input-group-append">
+                                        <input class="btn btn-secondary" type="submit" value="Subscribe now">
+                                    </div>
                                 </div>
                                 {% endfor %}
                             </form>
@@ -682,9 +684,9 @@
                 <p class="text-justify text-muted">There are many ways of measuring political risks. 
                     In the past years some methods have established. 
                     Primarily there are expert-based, news-based and data-based political risk measurements. 
-                    Since many of these political risk measures often rely on different parameters, like experts or newspaper authors, we wanted to create a different approach of measuring political risk.
-                    Therefore, our political risk index is search-based, which means that the data is collected via search requests made on one of the biggest search enginges Google&trade;. 
-                    That means our poltical risk index does not rely on the opinion of experts or news article writers, but only relies on the uncertainty of a portion of the population in a country.
+                    Since many of these political risk measures often rely on different parameters, like experts or newspaper authors, we wanted to find a different approach for measuring political risk.
+                    Our political risk index is search-based, which means that the data is collected via search requests made the global population on one of the biggest search enginges Google&trade;. 
+                    That means our poltical risk index does not rely on the opinion of experts or journalists, but relies on the felt uncertainty of the population in a country.
                     If you want to learn more about the creation of our political risk tools, you can download our white paper with the link below.
                 </p>
                 <div class="d-flex justify-content-start pt-2"><!--mit dem "download" Attribut wird es direkt runtergeladen, ohne kann es zuerst angeschaut werden-->

@@ -89,6 +89,7 @@ def subscription(request):
                 messages.info(request, "You are already subscribed")
             else:
                 subscribe(form.instance.email)
+                messages.info(request, "Thanks for subscribing - We can't wait to send you our next report!")
                 form.save()
         
 
