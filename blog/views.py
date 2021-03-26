@@ -1,9 +1,11 @@
+
+from users.forms import EmailSignupForm
+from users.models import Profile
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.db.models.expressions import OrderBy
-from django.http import request
+
 from django.http.response import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render, redirect # to insert template and render it
+from django.shortcuts import get_object_or_404, render # to insert template and render it
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, FormMixin, UpdateView
@@ -11,19 +13,18 @@ from .models import Post, Comment
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse
 from .forms import CommentForm
-from django.contrib import  messages
-from django import forms
-from django.db.models import Count
 
 
 
-def home(request):
-    context = {'posts':Post.objects.all()} #grab all posts from the post model (DB) and put them in a variable
-    return render(request, 'blog/home.html', context) # first request then, 'directory/template' , accessible data
+
+
+# def blogs(request):
+#     context = {'posts':Post.objects.all()} #grab all posts from the post model (DB) and put them in a variable
+#     return render(request, 'blog/blogs.html', context) # first request then, 'directory/template' , accessible data
 
 class PostListView(ListView):
     model = Post #this is all we need to create a Listview
-    template_name = 'blog/home.html' # set new template to look for
+    template_name = 'blog/blogs.html' # set new template to look for
     context_object_name = 'posts' #tell what should be used as
     ordering = ['-date_posted']
     paginate_by = 5
@@ -40,7 +41,7 @@ class UserPostListView(ListView):
         return Post.objects.filter(author=user).order_by('-date_posted')
     
 
-class PostDetailView(LoginRequiredMixin, FormMixin, DetailView):
+class PostDetailView(FormMixin, DetailView):
     model = Post
     form_class = CommentForm
 
@@ -135,8 +136,6 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView): #s
             return True
         return False
 
-def comingsoon(request):
-    return render(request, 'blog/coming-soon.html', {'title': 'Coming-Soon'})    
 
 
 @login_required
@@ -149,10 +148,30 @@ def LikeView(request, pk):
     else:
         post.likes.add(request.user) #we are saving a like from a user
         liked = True
-    return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
+    return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
 
 
-def about(request):
-    return render(request, 'blog/about.html', {'title': 'About the World Info'})
+class AboutListView(ListView):
+    model = Profile #this is all we need to create a Listview
+    template_name = 'blog/about.html' # set new template to look for
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profilesenne'] = Profile.objects.get(user_id=User.objects.get(username='Senner').id)
+        #context['profilereinthaler'] = Profile.objects.get(user_id=2)
+        return context
+     #value for the title
+
+def home(request):
+    form = EmailSignupForm
+    return render(request, 'blog/home.html', {'form': form})
+
+def archive(request):
+    return render(request, 'blog/archive.html', {'title': 'Archive'})
+
+def impressum(request):
+    return render(request, 'blog/impressum.html', {'title': 'Impressum'})
+
+def comingsoon(request):
+    return render(request, 'blog/coming-soon.html', {'title': 'Coming-Soon'})
 

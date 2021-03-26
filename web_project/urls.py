@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from users.views import register
+
 from django.contrib import admin
 from django.urls import path, include #include other routes to our other apps
 from users import views as user_views # other option which makes possible to create urls in main project directory without creating urls.py in the app
@@ -27,6 +27,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', user_views.register, name="register"),
     path('profile/', user_views.profile, name="profile"),
+
+    path('subscription/', user_views.subscription, name="subscription"),
+
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name="login"), #classbased views, template_name is to tell django where to look for template
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name="logout"),
     path('password-reset/', auth_views.PasswordResetView.as_view(template_name='users/password_reset.html'), name="password_reset"),

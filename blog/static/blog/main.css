@@ -121,7 +121,7 @@ body {
 /*Background Image 1*/
 
 .backgroundimg{
-  background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/city_02.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
+  background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/CityCloud.jpg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
   background-position:center;
   -webkit-background-size:cover;
   -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
