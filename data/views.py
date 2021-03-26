@@ -24,11 +24,11 @@ class DataView(ListView):
             iso3 = qs.values('iso3')                    #queryset of iso3 in that row
             iso3s += [iso3[0]['iso3']]                  #grab first value (only value) in new qs
         
-        #build trendmap
+        #build trendmap monthly
         fig4 = go.Figure()
-        second = list(SBPRI.objects.values_list().order_by('-id')[1:2][0])[2:]
-        last = list(SBPRI.objects.values_list().last())[2:]
-        diff = [((new / sec) - 1)*100 for (new, sec) in zip(last, second)]
+        second = list(SBPRI.objects.values_list().order_by('-id')[1:2][0])[2:] #grab second last row from database by ordering by -id and picking the second one [1:2] and running it [0]
+        last = list(SBPRI.objects.values_list().last())[2:] #grab last row
+        diff = [((new / sec) - 1)*100 for (new, sec) in zip(last, second)] # divide the last and the second last value and rescale
         fig4.add_trace(go.Choropleth(
                             locations = iso3s, #borders to use
                             z = diff, #data with clever mapping function to get the data 
@@ -44,6 +44,44 @@ class DataView(ListView):
                         ))
 
         fig4.update_layout(
+                        template='plotly',
+                        autosize=True,
+                        height=600,
+                        geo=dict(
+                            showframe=False,
+                            showcoastlines=False,
+                            projection_type='equirectangular'
+                        ),
+                        annotations = [dict(
+                            x=0.55,
+                            y=0.1,
+                            xref='paper',
+                            yref='paper',
+                            text='Source: <a href="">Google Trend Analysis by Senne & Reinthaler</a>',
+                            showarrow = False
+                        )]
+                    )
+
+        #build trendmap annually
+        fig5 = go.Figure()
+        second = list(SBPRI.objects.values_list().order_by('-id')[11:12][0])[2:]
+        last = list(SBPRI.objects.values_list().last())[2:]
+        diff = [((new / sec) - 1)*100 for (new, sec) in zip(last, second)]
+        fig5.add_trace(go.Choropleth(
+                            locations = iso3s, #borders to use
+                            z = diff, #data with clever mapping function to get the data 
+                            text = countrylist_space, #text when hovering
+                            autocolorscale=True,
+                            reversescale=True,
+                            marker_line_color='darkgray',
+                            marker_line_width=0.5,
+                            colorbar_tickprefix = '',
+                            colorbar_title = 'SBPRI<br>Annual<br>Trend',
+                            zmin = -30,
+                            zmax = 30,
+                        ))
+
+        fig5.update_layout(
                         template='plotly',
                         autosize=True,
                         height=600,
@@ -146,10 +184,14 @@ class DataView(ListView):
         context['trend'] = trend
 
         trendmap =  plot(fig4, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
-        context['trend'] = trendmap
+        context['trendmap'] = trendmap
+
+        trendmapannual =  plot(fig5, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+        context['trendmapannual'] = trendmapannual
 
         #testing
         context['array'] = SBPRI.objects.values_list('date', flat=True).get(id=1)
+        
         return context
 
 # Create your views here.
