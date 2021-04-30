@@ -537,10 +537,21 @@
             Subscribe to our newsletter to receive information when new services are available.
             In order to keep our services free of charge, we are thankful for every donation to keep up doing what we love (See the imprint section).
             </p>
-            <div class="text-center">
-                <a href="#" type="" class="word-hover1 text-decoration-none">Subscribe now</a>
-                <a href="#" type="" class="ml-3 word-hover1 text-decoration-none">Donate</a>
-            </div>
+                <div class="text-center">
+                        <form action="{% url 'subscription'%}" method="POST">
+                            {% csrf_token %}
+                            {% for field in subscribeform %}
+                            <div class="input-group">
+                                {{ field }}
+                                <div class="input-group-append">
+                                    <input class="btn btn-secondary" type="submit" value="Subscribe now">
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </form>
+
+                        <a href="#" type="" class="ml-3 word-hover1 text-decoration-none">Donate</a>
+                </div>
         </div>
         <div class="d-lg-block d-none text-center">
             <img class="w-25 " src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/start_01.png">
@@ -589,7 +600,7 @@
             <!--Maybe consulting services?-->
         </div>
     </div>    
-</div>
+
 
 <!--Section 12 Methodology - könnte wieder eingeführt werden, aber passt momentan nicht dazu
     <div class="bg-light">  
@@ -709,13 +720,12 @@
         </div> 
         <div class="row d-felx align-items-center pb-4">
             <div class="col-lg-8 col-md-12 text-center">
-                <p class="text-justify text-muted">There are many ways of measuring political risks. 
-                    In the past years some methods have established. 
+                <p class="text-justify text-muted">In the past years a few methods have established. 
                     Primarily there are expert-based, news-based and data-based political risk measurements. 
-                    Since many of these political risk measures often rely on different parameters, like experts or newspaper authors, we wanted to create a different approach of measuring political risk.
-                    Therefore, our political risk index is search-based, which means that the data is collected via search requests made on one of the biggest search enginges Google&trade;. 
-                    That means our poltical risk index does not rely on the opinion of experts or news article writers, but only relies on the uncertainty of a portion of the population in a country.
-                    If you want to learn more about the creation of our political risk tools, you can download our white paper with the link bellow.
+                    Since many of these political risk measures often rely on different parameters, like experts or newspaper authors, we wanted to find a different approach for measuring political risk.
+                    Our political risk index is search-based, which means that the data is collected via search requests made the global population on one of the biggest search enginges Google&trade;. 
+                    That means our poltical risk index does not rely on the opinion of experts or journalists, but relies on the felt uncertainty of the population in a country.
+                    If you want to learn more about the creation of our political risk tools, you can download our white paper with the link below.
                 </p>
                 <div class="d-flex justify-content-start pt-2"><!--mit dem "download" Attribut wird es direkt runtergeladen, ohne kann es zuerst angeschaut werden-->
                     <a href="test_white paper.pdf" download="text_white paper.pdf" type="" class="word-hover1 text-decoration-none">Download White Paper</a>
