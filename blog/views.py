@@ -175,3 +175,6 @@ def impressum(request):
 def comingsoon(request):
     return render(request, 'blog/coming-soon.html', {'title': 'Coming-Soon'})
 
+def politicalrisk(request):
+    return render(request, 'blog/political-risk.html', {'title': 'Political-Risk'})
+

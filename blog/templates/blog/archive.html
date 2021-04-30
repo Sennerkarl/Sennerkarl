@@ -3,12 +3,21 @@
 {% block content %}
 <!--Section 1-->
         <div class="container-fluid backgroundimg11 position-relative d-flex align-items-center justify-content-center"> <!--nur so ist es möglich, dass der Content auch gecentert ist!-->
-            <div class="row d-flex justify-content-center position-absolute">
-                <div class="col-md-12 text-center text-white" data-aos="zoom-in">
-                    <h1 class="align-middle pb-2">KNOWLEDGE is the KEY</h1>
-                    <div class="card card_7">
-                        <div class="card-body bg-ligth text-dark">
-                            <h5 class="card-text">Experience our Download Section AND recommended literatures, political risk providers</h5>
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-md-12 text-center rounded py-4 px-6">
+                    <h1 class="align-middle pb-2 text-white">knowledge is the Key</h1>
+                    <div class="card_7 rounded py-3 px-3">
+                        <h5>Experience our Download Section and recommended literatures, political risk providers.</h5>
+                        <div class="row d-inline-flex">
+                            <div class="col-lg-4 col-sm-12 pt-2">
+                                <a href="#downloads" type="_blank" class="btn btn-secondary data_button_custom">Downloads</a> 
+                            </div>
+                            <div class="col-lg-4 col-sm-12 pt-2">
+                                <a href="#recommendedliterature" type="_blank" class="btn btn-secondary data_button_custom">Risk Literature</a>
+                            </div>
+                            <div class="col-lg-4 col-sm-12 pt-2">
+                                <a href="#riskproviders" type="_blank" class="btn btn-secondary data_button_custom">Risk Providers</a> 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -34,7 +43,7 @@
                             <p class="card-text text-muted">Quarterly Report of the Second Quarter</p>
                         </div>
                         <div class="pb-3 pt-1">
-                            <a href="text_white paper.pdf" download="text_white paper.pdf" type="button" class="btn btn-outline-secondary">Download</a>
+                            <a href="{% url 'blog-coming-soon' %}" type="button" class="btn btn-outline-danger">coming soon</a>
                         </div>
                     </div>
                 </div>
@@ -52,8 +61,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div class="col-lg-4 col-sm-12 text-center pt-2 d-flex">
                     <div class="card">
                         <div class="card-body flex-fill">
@@ -74,7 +81,7 @@
 
 <!--Section 5-->
         <div class="bg-light">
-            <div class="container padding">
+            <div class="container padding" id="recommendedliterature">
                 <div class="text-center">
                     <h3>Recommended Literature</h3>
                     <p class="text-muted">Bellow is a selection of literatures which provide a useful insight in the world of political risks</p>
@@ -86,10 +93,11 @@
                         <div class="card">
                             <div class="card-body flex-fill">
                                 <div class="pt-2 pb-1">
-                                    <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/worldmap_01.png">
+                                    <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/book_01.jpeg">
                                 </div>
                                 <h4 class="card-title">Recommended Literature</h4>
                                 <p class="card-text text-muted">Quarterly Report of the Second Quarter</p>
+                                <a href="#" class="float-right word-hover3 text-size-small text-decoration-none"><cite>Condoleezza Rice</cite></a>
                             </div>
                             <div class="pb-3 pt-1">
                                 <a href="text_white paper.pdf" download="text_white paper.pdf" type="button" class="btn btn-outline-secondary">Buy</a>
@@ -100,7 +108,7 @@
                         <div class="card">
                             <div class="card-body flex-fill">
                                 <div class="pt-2 pb-1">
-                                    <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_05.png">
+                                    <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/book_02.jpeg">
                                 </div>
                                 <h4 class="card-title">Recommended Literature</h4> <!--Monitor-->
                                 <p class="card-text text-muted">For an overview about our political risk tool</p>
@@ -114,7 +122,7 @@
                         <div class="card">
                             <div class="card-body flex-fill">
                                 <div class="pt-2 pb-1">
-                                    <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_03.png">
+                                    <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/book_03.jpeg">
                                 </div>
                                 <h4 class="card-title">Recommended Literature</h4> <!--Forecast-->
                                 <p class="card-text text-muted">For a detailed information about the creation of our poltical risk tool</p>
@@ -129,7 +137,7 @@
         </div>
 
 <!--Section 6 - Carousel Companies-->
-            <div class="container padding" data-aos="fade-up">
+            <div class="container padding" data-aos="fade-up" id="riskproviders">
                 <div class="pb-5 text-center">
                     <h3>Political Risk Providers</h3>
                     <p>The following selection shows different political and country risk data providers</p>
@@ -139,25 +147,25 @@
                     <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="row d-flex justify-content-center">
-                            <div class="col-lg-4 col-sm-6 text-center">
+                            <div class="col-lg-4 col-sm-6 text-center d-flex">
                                 <div class="card">
-                                    <div class="card-body">
+                                    <div class="card-body flex-fill">
                                         <div class="pt-2 pb-1">
                                             <img class="d-block w-100" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_03.png" alt="First slide">
                                         </div>
-                                        <a class="card-title text-dark" type="button" target="_blank" href="https://www.prsgroup.com/explore-our-products/international-country-risk-guide/"><h5>Country Risk</h5></a>
+                                        <a class="card-title service_button stretched-link text-decoration-none" type="button" target="_blank" href="https://www.prsgroup.com/explore-our-products/international-country-risk-guide/"><h5>Country Risk</h5></a>
                                         <p class="card-text text-justify text-muted">The PRS Group provides many different political risk indices</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-sm-6 text-center">
+                            <div class="col-lg-4 col-sm-6 text-center d-flex">
                                 <div class="card">
-                                    <div class="card-body">
+                                    <div class="card-body flex-fill">
                                         <div class="pt-2 pb-1">
                                             <img class="d-block w-100" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_03.png" alt="First slide">
                                         </div>
-                                        <a class="card-title text-dark" type="button" target="_blank" href="https://www.prsgroup.com/explore-our-products/international-country-risk-guide/"><h5>PRS Group</h5></a>
-                                        <p class="card-text text-justify text-muted">The PRS Group provides many different political risk indices</p>
+                                        <a class="card-title service_button stretched-link text-decoration-none" type="button" target="_blank" href="https://www.policyuncertainty.com/"><h5>Economic Policy Uncertainty</h5></a>
+                                        <p class="card-text text-justify text-muted">The economic policy uncertainty index provides data based on newspaper articles</p>
                                     </div>
                                 </div>
                             </div>
@@ -166,25 +174,25 @@
     <!--Second Carousel Group-->
                     <div class="carousel-item">
                         <div class="row d-flex justify-content-center">
-                            <div class="col-lg-4 col-sm-6 text-center">
+                            <div class="col-lg-4 col-sm-6 text-center d-flex">
                                 <div class="card">
-                                    <div class="card-body">
+                                    <div class="card-body flex-fill">
                                         <div class="pt-2 pb-1">
                                             <img class="d-block w-100" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_03.png" alt="First slide">
                                         </div>
-                                        <a class="card-title text-dark" type="button" target="_blank" href="https://www.prsgroup.com/explore-our-products/international-country-risk-guide/"><h5>PRS Group</h5></a>
-                                        <p class="card-text text-justify text-muted">The PRS Group provides many different political risk indices</p>
+                                        <a class="card-title service_button stretched-link text-decoration-none" type="button" target="_blank" href="https://www.transparency.org/en/cpi/2020/index/nzl "><h5>Corruption Perception Index</h5></a>
+                                        <p class="card-text text-justify text-muted">Transparency international provides an political risk index specific for corruption</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-sm-6 text-center">
+                            <div class="col-lg-4 col-sm-6 text-center d-flex">
                                 <div class="card">
-                                    <div class="card-body">
+                                    <div class="card-body flex-fill">
                                         <div class="pt-2 pb-1">
                                             <img class="d-block w-100" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_03.png" alt="First slide">
                                         </div>
-                                        <a class="card-title text-dark" type="button" target="_blank" href="https://www.prsgroup.com/explore-our-products/international-country-risk-guide/"><h5>PRS Group</h5></a>
-                                        <p class="card-text text-justify text-muted">The PRS Group provides many different political risk indices</p>
+                                        <a class="card-title service_button stretched-link text-decoration-none" type="button" target="_blank" href="https://www.marsh.com/us/insights/research/political-risk-map-2020.html"><h5>Political Risk Map</h5></a>
+                                        <p class="card-text text-justify text-muted">The political risk map from the Marsh LLC is based on the data from Fitch Solutions</p>
                                     </div>
                                 </div>
                             </div>
@@ -193,19 +201,19 @@
                     
                     
                     </div>
-                    <a class="carousel-control-prev pr-6" href="#Carousel_Companies" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <a class="carousel-control-prev" href="#Carousel_Companies" role="button" data-slide="prev">
+                        <i class="fa fa-3x fa-angle-left" aria-hidden="true"></i> <!--normalerweise ist ein span tag hier, aber mit fa kann es besser gestyled werden-->
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next pl-6" href="#Carousel_Companies" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <a class="carousel-control-next" href="#Carousel_Companies" role="button" data-slide="next">
+                        <i class="fa fa-3x fa-angle-right" aria-hidden="true"></i>
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
             </div> 
 
 <!--Section 3-->
-        <div class="bg-light">
+        <div class="bg-light" id="downloads">
             <div data-aos="fade-up">
                 <div class="container padding">
                     <div class="text-center pb-5">
@@ -216,14 +224,9 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-6 col-md-12">
                             <ul>
-                                <li class="mr-2">White Paper <a href="text_white paper.pdf" download="text_white paper.pdf" type="button" class="text-muted outline-secondary">download</a></li>
-                                <li class="mr-2">Methodology <a href="text_white paper.pdf" download="text_white paper.pdf" type="button" class="text-muted outline-secondary">download</a></li>
-                                <li class="mr-2">XXX <a href="text_white paper.pdf" download="text_white paper.pdf" type="button" class="text-muted outline-secondary">download</a></li>
-                                <li class="mr-2">XXX <a href="text_white paper.pdf" download="text_white paper.pdf" type="button" class="text-muted outline-secondary">download</a></li>
-                                <li class="mr-2">XXX <a href="text_white paper.pdf" download="text_white paper.pdf" type="button" class="text-muted outline-secondary">download</a></li>
-                                <li class="mr-2">XXX <a href="text_white paper.pdf" download="text_white paper.pdf" type="button" class="text-muted outline-secondary">download</a></li>
-                                <li class="mr-2">XXX <a href="text_white paper.pdf" download="text_white paper.pdf" type="button" class="text-muted outline-secondary">download</a></li>
-                                <li class="mr-2">XXX <a href="text_white paper.pdf" download="text_white paper.pdf" type="button" class="text-muted outline-secondary">download</a></li>
+                                <li class="mr-2">White Paper <a href="text_white paper.pdf" download="text_white paper.pdf" type="button" class="service_button text-decoration-none">download</a></li>
+                                <li class="mr-2">Methodology <a href="text_white paper.pdf" download="text_white paper.pdf" type="button" class="service_button text-decoration-none">download</a></li>
+                                <li class="mr-2">Report (2021) <a href="{% url 'blog-coming-soon' %}" type="button" class="tools-hover2 text-decoration-none">coming soon</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-6 col-md-12">
@@ -238,7 +241,7 @@
         <div class="container-fluid backgroundimg7 position-relative d-flex align-items-center justify-content-center"> <!--nur so ist es möglich, dass der Content auch gecentert ist!-->
             <div class="row d-flex justify-content-center position-absolute">
                 <div class="col-md-12 text-center text-white" data-aos="zoom-in">
-                    <h1 class="align-middle">KNOWLEDGE is the KEY in a WORLD full of UNCERTAINTIES</h1>
+                    <h1 class="align-middle">Knowledge is the Key in a world full of uncertainties</h1>
                 </div>
             </div>
         </div>

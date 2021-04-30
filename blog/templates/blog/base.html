@@ -29,18 +29,18 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    <!--AOS Animation on Scroll-->
    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    {% if title %}
-        <title> World Info - {{title}}</title>
-    {% else %}
-        <title> World Info </title>
-    {% endif %}
+   {% if title %}
+   <title>Political (Un)Certainty | {{ title }}</title>
+   {% else %}
+   <title>Political (Un)Certainty</title>
+   {% endif %}
 </head>
 
 <body>
     <header class="site-header">
       <nav class="navbar navbar-expand-lg navbar-light fixed-top py-2"> <!--mit sticky top, beginnt der content erst nach der Navbar-->
-        <img class="svgsizing_005" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/Logo.png" alt="">
-        <a class="navbar-brand text-secondary" href="{% url 'blog-home' %}"><h5>sure - political risk evaluation</h5></a>
+        <img class="svg_sizing_005" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/Logo.png" alt="">
+        <a class="navbar-brand text-secondary" href="{% url 'blog-home' %}"><h5 class="d-inline">Political Un<span class="orange">certainty</span></h5></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
