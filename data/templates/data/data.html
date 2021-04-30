@@ -1,27 +1,155 @@
 {% extends "blog/base.html" %}
 
-{% block content %}  
-    <h1 class='jumbotron'>Get a look at our data</h1>
+
+{% block content %}
+
+<!--Introduction and menu-->
+        <div class="container-fluid text-center pt-6 pb-2">
+            <div class="row align-items-center">
+                <div class="col-lg-9">
+                    <h1 class="text-dark text-left">Political Risk Tools</h1>
+                    <p class="text-muted text-left">Create Certainty in an uncertain world for your business with our political risk tools. <br>
+                        Understand the principles of Political Risk <a type="button" class="service_button text-decoration-none ml-1" href="#"><u>Political Risk Explanation</u></a><br>
+                        The basis for our Political Risk Tools<sup>*</sup> is data from <a href="https://trends.google.de/trends/explore?q=uncertainty&geo=GB" type="button" target="_blank" class="text-decoration-none service_button"><u>Google Trend&trade;</u></a></p>
+                    <p class="fs-small text-left text-muted"><sup>*</sup>The newly approach of measuring political risk and the data we used for our political risk tools is explicitly described in our <a type="button" class="service_button text-decoration-none" href="{% url 'blog-archive' %}"><u>White Paper</u></a></p>
+                </div>
+                <div class="col-lg-3">
+                    <ul class="list-group">
+                        <a type="button" class="data_button text-decoration-none rounded mt-1 py-2" href="#">Subscribe Now</a>
+                        <a type="button" class="data_button text-decoration-none rounded my-2 py-2" href="mailto:politicaluncertainty@gmail.com">Get in Contact</a>
+                        <a type="button" class="data_button text-decoration-none rounded py-2" href="{% url 'blog-blogs' %}">Blog</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-light">
+            <div class="containter pt-3">
+                <div class="row justify-content-center">
+                    <div class="col-12 shadow-sm bg-white py-3 text-center">
+                        <a type="button" class="data_button data_button_custom text-decoration-none rounded px-2 py-1" href="#worldmap"><i class=" p-0 m-0 fa fa-globe mr-2"></i>Worldmap</a>
+                        <a type="button" class="data_button data_button_custom text-decoration-none rounded ml-4 mr-4 px-2 py-1" href="#countries"><i class=" p-0 m-0 fa fa-map mr-2"></i>Countries</a>
+                        <a type="button" class="data_button data_button_custom text-decoration-none rounded px-2 py-1" href="#trend"><i class=" p-0 m-0 fa fa-line-chart mr-2"></i>Trend</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--Graph 1-->
+        <div class="bg-light">
+            <div class="container py-3" id="worldmap">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 col-sm-12 py-3 bg-white shadow-sm rounded">
+                        <h3 class="text-muted text-center">Political Uncertainty (Worldwide)</h3>
+                        <div>{{ trendmapannual | safe }}</div>
+                    </div>
+                </div>
+            </div>
+
+<!--Graph 2-->
+            <div class="container pb-3" id="trend">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="shadow-sm bg-white rounded m-0 p-0"> <!--space only with the shadow class-->
+                            <h5 class="text-muted text-center pt-2">Trend 1</h5>
+                            <div class="text-muted">{{ trend | safe }}</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="shadow-sm bg-white rounded">
+                            <h5 class="text-muted text-center pt-2">Trend 2</h5>
+                            <div>{{ trend2 | safe }}</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="shadow-sm bg-white rounded">
+                            <h5 class="text-muted text-center pt-2">Trend 3</h5>
+                            <div>{{ trend3 | safe }}</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="shadow-sm bg-white rounded">
+                            <h5 class="text-muted text-center pt-2">Trend 4</h5>
+                            <div>{{ trend4 | safe }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!--Graph 3-->
+
+            <div class="container pb-3" id="categories">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="shadow-sm bg-white rounded"> 
+                            <h3 class="text-muted text-center">Political Sanctions (World<sup>**</sup>)</h3>
+                            <div>{{ trendmapannual | safe }}</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="shadow-sm bg-white rounded"> 
+                            <h3 class="text-muted text-center">Political Situation (World<sup>**</sup>)</h3>
+                            <div>{{ trendmap | safe }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+
+<!--Graph 4-->
+            <div class="container pb-3" id="countries">
+                <div class="row justify-content-center">
+                    <div class="col-12 py-3 bg-white shadow-sm rounded">
+                        <h3 class="text-muted text-center">Political Uncrtainty - Comparison Countries</h3>
+                        <div class="col-lg-12">{{ linegraph | safe }}</div>
+                    </div>
+                </div>
+            </div>
+
+<!--Google Trend, Twitter Trend einfügen-->
     
-    <div class="col-md-12">{{worldmap|safe}}</div>
-   
-    <div class="col-md-12">
-        {{linegraph|safe}}
-    </div>
+        <!--div class="container pb-3" id="trend">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="shadow-sm bg-white rounded"> 
+                            <h3 class="text-muted text-center">Trend - United Kingdom</h3>
+                            <div>
+                                <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/2431_RC04/embed_loader.js"></script> 
+                                <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"corruption","geo":"GB","time":"today 12-m"},{"keyword":"sanctions","geo":"GB","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"geo=GB&q=corruption,sanctions&date=today 12-m,today 12-m","guestPath":"https://trends.google.de:443/trends/embed/"}); </script> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="shadow-sm bg-white rounded"> 
+                            <h3 class="text-muted text-center">Trend - United Kingdom</h3>
+                            <div>
+                                <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/2431_RC04/embed_loader.js"></script> 
+                                <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"corruption","geo":"GB","time":"today 12-m"},{"keyword":"sanctions","geo":"GB","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"geo=GB&q=corruption,sanctions&date=today 12-m,today 12-m","guestPath":"https://trends.google.de:443/trends/embed/"}); </script> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
 
-    <div class="col-md-12">
-        {{trendmap|safe}}
-    </div>
+           
+<!--Test-->
+            <div class="container pb-3" id="political-sanctions">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 col-sm-12 py-3 bg-white shadow-sm rounded">
+                        <h3 class="text-muted text-center">Political Sanctions (World<sup>**</sup>)</h3>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+<!--Test-->
+            <div class="container pb-6" id="political-situation">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 col-sm-12 py-3 bg-white shadow-sm rounded">
+                        <h3 class="text-muted text-center">Political Regulation (World<sup>**</sup>)</h3>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div class="col-md-12">
-        {{trendmapannual|safe}}
-    </div>
-
-    {{array|safe}}
-   
-
-  
-   
 {% endblock content %}
-
-<! The data for our dataset [field.name for field in SBPRI._meta.get_fields()] [{% for item in SBPRI %}{{item.Bolivia}},{% endfor %}]  {% for item in SBPRI %}{{item.Bolivia}},{% endfor %} >

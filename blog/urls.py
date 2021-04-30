@@ -23,4 +23,5 @@ urlpatterns = [
     path('about/', AboutListView.as_view(), name='blog-about'),
     path('coming-soon/', views.comingsoon, name='blog-coming-soon'),
     path('blog/', PostListView.as_view(), name='blog-blogs'),
+    path('political-risk/', views.politicalrisk, name='blog-political-risk'),
 ]

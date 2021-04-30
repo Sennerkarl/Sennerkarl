@@ -5,9 +5,108 @@ body{
     line-height:1.5;
     font: 15px/1.5;
     background-color:#ffffff;
-
 }
+
+/*All h1 capitalized*/
+h1,
+h2,
+h3,
+h4,
+h6{
+    text-transform: capitalize;
+}
+
+h1{
+    font-size: 60px!important;
+}
+
+.svg_sizing_005{
+    height: 50px;
+    weight: 50px;
+}
+
+.text-size-big{
+    font-size: 21px;
+}
+
+.text-size-small{
+    font-size: 13px;
+}
+
+.orange{
+    color: #ff7f64;
+}
+
+.blue{
+    color: #6C63FF;
+}
+
+.grey{
+    color: #bfbfbf;
+}
+
 /*hover: if you go over, it changes the color; color doesn't change!!!!*/
+
+.service_button {
+    color: grey;
+}
+
+.service_button:hover{
+    color: #ff7f64;
+}
+
+.data_button {
+    color: grey;
+    border: 1px rgb(216, 216, 216) solid;
+    box-shadow: none;
+}
+
+.data_button_custom {
+    width: 8rem!important;
+}
+
+.data_button:hover{
+    color: #ff7f64;
+}
+
+.card-border{
+    border-color: white!important;
+}
+
+.card-border-color1{
+    border-left-color: rgb(223, 222, 222)!important;
+    border-right-color: rgb(223, 222, 222)!important;
+}
+
+.card-border-color2{
+    border-right-color: rgb(223, 222, 222)!important;
+}
+
+.word-hover1{
+    color: rgb(0, 0, 56);
+    background: linear-gradient(to top, #ffbead 20%, transparent 80%);
+}
+
+.word-hover1:hover{
+    color: #ff7f64;
+}
+
+.word-hover2{
+    color: red;
+    background: linear-gradient(to top, #ffbead 20%, transparent 80%);
+}
+
+.word-hover2:hover{
+    color: #ff7f64;
+}
+
+.word-hover3{
+    color: rgb(0, 0, 56);
+}
+
+.word-hover3:hover{
+    color: #ff7f64;
+}
 
 .nav a:hover{
     color:rgb(240, 240, 240);
@@ -17,8 +116,6 @@ body{
     background-color:rgb(231, 231, 231);
     padding-top: .1rem !important;
     padding-bottom: .1rem !important;
-    border-bottom-width: thin ;
-    border-bottom-color: #ff7f64;
 }
 
 .navbar-nav {
@@ -51,7 +148,7 @@ body{
 .backgroundimg{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/Hofburg.jpeg') no-repeat center center;
     background-position:center;
-    background-attachment:fixed;
+    background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -76,7 +173,7 @@ body{
 .backgroundimg3{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/harbour_03.jpeg') no-repeat center center;
     background-position:center;
-    background-attachment:fixed;
+    background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -88,7 +185,7 @@ body{
 .backgroundimg4{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/city_10.jpeg') no-repeat center center;
     background-position:center;
-    background-attachment:fixed;
+    background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -101,7 +198,7 @@ body{
 .backgroundimg5{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/Leopold2.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
     background-position:center;
-    background-attachment:fixed;
+    background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -114,7 +211,7 @@ body{
 .backgroundimg6{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/dark_03.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
     background-position:center;
-    background-attachment:fixed;
+    background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -138,7 +235,7 @@ body{
 .backgroundimg9{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/coming-soon_01.jpeg') no-repeat center center;
     background-position:center;
-    background-attachment:fixed;
+    background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -162,7 +259,7 @@ body{
 .backgroundimg11{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/coming-soon_02.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
     background-position:center;
-    background-attachment:fixed;
+    background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -170,6 +267,38 @@ body{
     opacity:0.7;
 }
 
+.backgroundimg12{
+    background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/coming-soon_03.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
+    background-position:center;
+    background-attachment: fixed;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height:30vh;
+    opacity:0.7;
+}
+
+.backgroundimg13{
+    background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/coming-soon_02.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
+    background-position:center;
+    background-attachment: fixed;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height:60vh;
+    opacity:0.7;
+}
+
+.backgroundimg14{
+    background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/coming-soon_02.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
+    background-position:center;
+    background-attachment: fixed;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height:80vh;
+    opacity:0.7;
+}
 
 
 div.card_4,
@@ -192,10 +321,6 @@ div.card_7{
 
 .svgsizing_01 {
     width:10%;
-}
-
-.svgsizing_005 {
-    width:5%;
 }
 
 /*Political Risk Image Opacity*/
@@ -226,7 +351,7 @@ div.card_7{
 }
 
 .opacity-bg {
-    opacity:0.8;
+    opacity:0.9;
 }
 
 /*Nav-pills*/
@@ -353,7 +478,7 @@ footer a {
     padding: 10px 20px;
     border: 1px solid #dddddd;
     border-radius: 3px;
-    margin-bottom: 20px;
+    margin-bottom: 8%;
   }
   
   .article-title {
@@ -403,6 +528,16 @@ footer a {
     font-size: 2.5rem;
   }
 
+  .backgroundimg-blog{
+    background-size: 100%!important;
+    height:30vh;
+}
+
+.blog-image{
+    height:25vh!important;
+    width: 50%!important;
+}
+
   /*3 Register*/
 
   /*background image*/
@@ -417,14 +552,14 @@ footer a {
     padding-bottom: 23%;
 }
 
-.colorlight1 {
-    color: #ff7f64;
+/*Archive*/
+
+/*Carousel*/
+.carousel-control-prev{
+    color: black !important;
 }
 
-.colorlight2 {
-    color: #c6b2eb;
+.carousel-control-next{
+    color: black !important;
 }
 
-.bg-color-light {
-    background-color: #c6b2eb;
-}

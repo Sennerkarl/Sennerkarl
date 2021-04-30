@@ -1,11 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.urls.base import reverse
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from plotly.offline import plot
 import plotly.graph_objects as go
 import plotly.io as pio
 from .models import SBPRI, WorldBorder
 import pandas as pd
+import webbrowser
 
 class DataView(ListView):
     template_name = 'data/data.html'
@@ -141,7 +144,6 @@ class DataView(ListView):
         fig2.update_layout(
                         template='plotly',
                         autosize=True,
-                        height=600,
                         sliders=sliders,
                         geo=dict(
                             showframe=False,
@@ -195,3 +197,56 @@ class DataView(ListView):
         return context
 
 # Create your views here.
+
+class DataDetailView(ListView):
+    model = SBPRI
+    template_name = 'data/data-detail.html' # set new template to look for
+    
+    # link from country https://community.plotly.com/t/hyperlink-to-markers-on-map/17858
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) 
+        country = self.kwargs['country'].capitalize()
+        context['country'] = country
+        
+        if country in list(SBPRI.objects.values().last())[2:]:
+            fig6 = go.Figure()
+            iso3 = list(WorldBorder.objects.filter(name=country).values_list('iso3'))[0][0]
+            second = list(SBPRI.objects.values_list(country).order_by('-id'))[1:2] #grab second last row from database by ordering by -id and picking the second one [1:2] and running it [0]
+            last = list(SBPRI.objects.values_list(country).last()) #grab last row
+            diff = ((last[0] / second[0][0]) - 1)*100 # divide the last and the second last value and rescale
+            fig6.add_trace(go.Choropleth(
+                                locations = [iso3], #borders to use
+                                z = [diff], #data with clever mapping function to get the data 
+                                text = country, #text when hovering
+                                autocolorscale=True,
+                                reversescale=True,
+                                marker_line_color='darkgray',
+                                marker_line_width=0.5,
+                                colorbar_tickprefix = '',
+                                colorbar_title = 'SBPRI<br>Month<br>Trend',
+                                zmin = -30,
+                                zmax = 30,
+                            ))
+
+            fig6.update_layout(
+                            template='plotly',
+                            autosize=True, 
+                            geo=dict(
+                                showframe=False,
+                                showcoastlines=False,
+                                projection_type='equirectangular'
+                            ),
+                            annotations = [dict(
+                                x=0.55,
+                                y=0.1,
+                                xref='paper',
+                                yref='paper',
+                                text='Source: <a href="">Google Trend Analysis by Senne & Reinthaler</a>',
+                                showarrow = False
+                            )]
+                        )
+            worldmap = plot(fig6, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+            context['worldmap'] = worldmap
+
+        return context
