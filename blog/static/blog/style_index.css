@@ -542,7 +542,7 @@ footer a {
 
   /*background image*/
 .backgroundimg8{
-    background: url('../img/login.jpeg');
+    background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/login.jpeg');
     background-size: cover;
 }
 
