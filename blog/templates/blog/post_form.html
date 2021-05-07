@@ -1,23 +1,31 @@
-<! naming convention - is expected to share template with update form>
-
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="content-section">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Post</legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit"> Post</button>
+
+<div class="bg-light">
+    <div role="main" class="container">
+        <div class="row padding">
+            <div class="col-md-12">
+                <div class="content-section">
+                <!--message for successfull login ist unter base.html-->
+                    <form method="POST" enctype="multipart/form-data"> <!--without this enctype it is not possible to upload images from the form directly-->
+                        {% csrf_token %}
+
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4">Blog Post</legend>
+                            {{ form|crispy }} <!--all of the form from django will be inserted here .as_p - render everything, crispy formates and styles everything-->
+                            <div class="rounded">
+                                {{ form.media }} <!--ist für ckeditor-->
+                            </div>
+                        </fieldset>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-outline-info">Post</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-        </form>
-
+        </div>
     </div>
+</div>
 
-    <!-- example icon -->
-    <i data-feather="circle"></i>
 {% endblock content %}

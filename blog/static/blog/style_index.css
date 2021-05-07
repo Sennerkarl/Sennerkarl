@@ -62,7 +62,7 @@ h1{
 }
 
 .data_button_custom {
-    width: 8rem!important;
+    width: 10rem!important;
 }
 
 .data_button:hover{
@@ -84,7 +84,8 @@ h1{
 
 .word-hover1{
     color: rgb(0, 0, 56);
-    background: linear-gradient(to top, #ffbead 20%, transparent 80%);
+    background: Rgb(255, 255, 255, 0);
+    background: linear-gradient(to top , #ffbead 10%, Rgb(255, 255, 255, 0) 40%);
 }
 
 .word-hover1:hover{
@@ -93,7 +94,7 @@ h1{
 
 .word-hover2{
     color: red;
-    background: linear-gradient(to top, #ffbead 20%, transparent 80%);
+    background: linear-gradient(to top, #ffbead 10%, Rgb(255, 255, 255, 0) 40%);
 }
 
 .word-hover2:hover{
@@ -279,7 +280,7 @@ h1{
 }
 
 .backgroundimg13{
-    background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/coming-soon_02.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
+    background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/Leopold.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
     background-position:center;
     background-attachment: fixed;
     -webkit-background-size:cover;
