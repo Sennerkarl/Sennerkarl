@@ -1,68 +1,71 @@
+<!--with extending it -> we can use the base.html, Interpolierung - damit wird alles von der base.html seite übernommen-->
 {% extends "blog/base.html" %}
 {% block content %}
+<!-- Navbar Right Side -->
+        <div class="bg-light">
+            <div role="main" class="container">
+                <div class="row padding">
+                    <div class="col-md-8">
+                        <h4 class="mb-3">Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h4>
+                    {% for post in posts %} <!--loop over posts-->
+                        <article class="media content-section">
+                            <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}" alt="">
+                            <div class="media-body">
+                                  <div class="article-metadata">
+                                      <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+                                      <small class="text-muted">{{ post.date_posted|date:"d. F, Y" }}</small>
+                                  </div>
+                                <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2> <!--post.id is the primary key-->
+                                <div class="row">
+                                  <div class="col-md-11">
+                                      <div class="container-fluid backgroundimg-blog rounded" style="background: url({{ post.picture.url }}) no-repeat center center">
+                                      </div>
+                                  </div>
+                                  <div class="col-md-11">
+                                    <p class="article-content pt-3 text-justify text-muted">{{ post.content|safe }}</p>
+                                    <a href="{% url 'blog-blogs' %}" class="article-title text-primary pt-2"><i class="fa fa-angle-left" aria-hidden="true"></i> Back to Blog Overview</a>
+                                  </div>
+                              </div>
+                            </div>
+                        </article>
+                    {% endfor %}
+                    {% if is_paginated %}
 
-<div class="behind-content">
-    <h5 class="article-metadata" style="padding-bottom: 10px;">Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h5>
+                        {% if page_obj.has_previous %}
+                            <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+                            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                        {% endif %}
 
-{% for post in posts %}
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                                <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                            {% endif %}
+                        {% endfor %}
 
-<article class="media content-section">
-    <img class="rounded-circle article-img" src="{{post.author.profile.image.url}}">
-    <div class="media-body">
-      <div class="article-metadata">
-        <a class="mr-2 text-secondary" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
-        <small class="text-muted">{{ post.date_posted|date:'d F Y' }}</small>
-        <form action="{% url 'like_post' post.pk %}" method="POST">
-          {%csrf_token%}
-          {%if user in post.likes.all %}
-          <button type="submit" name="post_id" class="btn btn-warning btn-small float-right align-baseline" value="{{post.id}}"> <! post.id to pass the post which is being liked to backend>
-            <i class="p-1" data-feather="feather"></i> {{post.total_likes}}
-          </button>
-          
-          {% else %}
-          <button type="submit" name="post_id" class="btn btn-secondary btn-small float-right align-baseline" value="{{post.id}}"> <! post.id to pass the post which is being liked to backend>
-            <i class="p-1" data-feather="feather"></i> {{post.total_likes}}
-          </button>
-          {% endif %}
-        </form>
-      </div>
-      <h2><a class="article-title" href="{% url 'post-detail' post.id%}">{{ post.title }}</a></h2>
-      <p class="article-content">{{ post.content }}</p>
-      
-    
+                        {% if page_obj.has_next %}
+                            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+                            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                        {% endif %}
 
-    <ul class="list-unstyled">
-    {% for comment in post.comments.all %}
-    
-    <li class="media mt-3 article-metadata">
-    <img class="rounded-circle content-img" src="{{comment.author.profile.image.url}}">
-      <div class="">
-        <a class="mr-1 text-secondary" href="">{{ comment.author }}</a>
-        <small class="text-muted">{{ comment.date_posted|date:'d N Y' }}</small>
-        <p>{{ comment.content|slice:":200" }}</p>
+                    {% endif %}
+                    </div>
+                    <div class="col-md-4">
+                        <div class="content-section">
+                        <h3>Our Sidebar</h3>
+                        <p class='text-muted'>You can put any information here you'd like.
+                            <ul class="list-group">
+                            <li class="list-group-item list-group-item-light">Latest Posts</li>
+                            <li class="list-group-item list-group-item-light">Announcements</li>
+                            <li class="list-group-item list-group-item-light">Calendars</li>
+                            <li class="list-group-item list-group-item-light">etc</li>
+                            </ul>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </li>
-    
-    {% endfor %} 
-    </ul> 
 
-    </div>
-</article>  
-{% endfor %}
-
-{% if is_paginated %}
-
-  {% for num in page_obj.paginator.page_range %}
-
-    {% if page_obj.number == num %}
-      <a href="?page={{num}}" class="btn btn-info mb-4">{{num}}</a>
-    {% elif num > page_obj.number|add:'-2' and num < page_obj.number|add:'2' %}
-      <a href="?page={{num}}" class="btn btn-outline-info mb-4">{{num}}</a>
-    {% endif %}
-
-  {% endfor %}
-
-{% endif %}
-
-</div>
 {% endblock content %}

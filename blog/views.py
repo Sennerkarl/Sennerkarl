@@ -78,7 +78,7 @@ class PostDetailView(FormMixin, DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView): #similar to login required
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'picture']
 
     def form_valid(self, form):
         form.instance.author = self.request.user #set loggedin user to author before validating since each post needs a valid author
@@ -86,7 +86,7 @@ class PostCreateView(LoginRequiredMixin, CreateView): #similar to login required
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView): #similar to login required
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'picture']
 
     def form_valid(self, form):
         form.instance.author = self.request.user #set loggedin user to author before validating since each post needs a valid author
