@@ -20,6 +20,16 @@ h1{
     font-size: 60px!important;
 }
 
+.feather_16{
+    width: 16px;
+    height: 16px;
+}
+
+.feather_28{
+    width: 28px;
+    height: 28px;
+}
+
 .svg_sizing_005{
     height: 50px;
     weight: 50px;
@@ -59,6 +69,15 @@ h1{
     color: grey;
     border: 1px rgb(216, 216, 216) solid;
     box-shadow: none;
+}
+
+.btn-custom{
+    border: 1px rgb(216, 216, 216) solid!important;
+}
+
+.btn-custom:hover{
+    background-color: transparent!important;
+    color: #ff7f64!important;
 }
 
 .data_button_custom {

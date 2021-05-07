@@ -9,15 +9,46 @@
                 <div class="col-lg-9">
                     <h1 class="text-dark text-left">Political Risk Tools</h1>
                     <p class="text-muted text-left">Create Certainty in an uncertain world for your business with our political risk tools. <br>
-                        Understand the principles of Political Risk <a type="button" class="service_button text-decoration-none ml-1" href="#"><u>Political Risk Explanation</u></a><br>
-                        The basis for our Political Risk Tools<sup>*</sup> is data from <a href="https://trends.google.de/trends/explore?q=uncertainty&geo=GB" type="button" target="_blank" class="text-decoration-none service_button"><u>Google Trend&trade;</u></a></p>
-                    <p class="fs-small text-left text-muted"><sup>*</sup>The newly approach of measuring political risk and the data we used for our political risk tools is explicitly described in our <a type="button" class="service_button text-decoration-none" href="{% url 'blog-archive' %}"><u>White Paper</u></a></p>
+                        Understand the principles of Political Risk <a role="button" class="word-hover1 text-decoration-none" href="{% url 'blog-political-risk' %}">Political Risk Explanation</a><br>
+                        The basis for our Political Risk Tools<sup>*</sup> is data from <a href="https://trends.google.de/trends/explore?q=uncertainty&geo=GB" role="button" target="_blank" class="word-hover1 text-decoration-none">Google Trend&trade;</a></p>
+                    <p class="fs-small text-left text-muted"><sup>*</sup>The newly approach of measuring political risk and the data we used for our political risk tools is explicitly described in our <a href="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" target="_blank" download="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" role="button" class="word-hover1 text-decoration-none">White Paper</a></p>
                 </div>
                 <div class="col-lg-3">
                     <ul class="list-group">
-                        <a type="button" class="data_button text-decoration-none rounded mt-1 py-2" href="#">Subscribe Now</a>
-                        <a type="button" class="data_button text-decoration-none rounded my-2 py-2" href="mailto:politicaluncertainty@gmail.com">Get in Contact</a>
-                        <a type="button" class="data_button text-decoration-none rounded py-2" href="{% url 'blog-blogs' %}">Blog</a>
+                        <a role="button" class="data_button text-decoration-none rounded mt-1 py-2 bg-white" href="#subscribe"><i class="ml-1 mt-1 orange pull-left feather_16" data-feather="send"></i>Subscribe Now</a>
+                        <!-- Button + Popp up, falls wir doch Popp up machen wollen
+                        <button type="button" class="data_button text-decoration-none rounded mt-1 py-2 bg-white" data-toggle="modal" data-target="#exampleModalCenter"><i class="ml-1 mt-1 orange pull-left feather_16" data-feather="send"></i>Subscribe Now</button>
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Subscribe Now</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="model-body">
+                                                <form action="{% url 'subscription'%}" method="POST">
+                                                    {% csrf_token %}
+                                                    {% for field in subscribeform %}
+                                                    <div class="input-group pt-4 pb-1 px-3">
+                                                        {{ field }}
+                                                        <div class="input-group-append">
+                                                            <input class="btn btn-secondary" type="submit" value="Subscribe now">
+                                                        </div>
+                                                    </div>
+                                                    {% endfor %}
+                                                </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <p class="text-muted">We look forward to send you valuable information about political risk and our tools</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        -->
+                        <a role="button" class="data_button text-decoration-none rounded my-2 py-2" href="mailto:politicaluncertainty@gmail.com"><i class="ml-2 mt-1 orange pull-left feather_16" data-feather="mail"></i>Get in Contact</a>
+                        <a role="button" class="data_button text-decoration-none rounded py-2" href="{% url 'blog-blogs' %}"><i class="ml-2 mt-1 orange pull-left feather_16" data-feather="file-text"></i>Blog</a>
                     </ul>
                 </div>
             </div>
@@ -25,11 +56,17 @@
 
         <div class="bg-light">
             <div class="containter pt-3">
-                <div class="row justify-content-center">
-                    <div class="col-12 shadow-sm bg-white py-3 text-center">
-                        <a type="button" class="data_button data_button_custom text-decoration-none rounded px-2 py-1" href="#worldmap"><i class=" p-0 m-0 fa fa-globe mt-1 pull-left"></i>Worldmap</a>
-                        <a type="button" class="data_button data_button_custom text-decoration-none rounded ml-4 mr-4 px-2 py-1" href="#countries"><i class=" p-0 m-0 fa fa-map mt-1 pull-left"></i>Countries</a>
-                        <a type="button" class="data_button data_button_custom text-decoration-none rounded px-2 py-1" href="#trend"><i class=" p-0 m-0 fa fa-line-chart mt-1 pull-left"></i>Trend</a>
+                <div class="row justify-content-center shadow-sm bg-white py-3 text-center">
+                    <div class="d-inline-flex">
+                        <div class="col-lg-4 col-sm-12">
+                            <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="#worldmap"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="globe"></i>Worldmap</a>
+                        </div>
+                        <div class="col-lg-4 col-sm-12">
+                            <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="#countries"><i class="mt-1 grey pull-left feather_16" data-feather="map"></i>Countries</a>
+                        </div>
+                        <div class="col-lg-4 col-sm-12">
+                            <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="#trend"><i class="mt-1 grey pull-left feather_16" data-feather="trending-up"></i>Trend</a>
+                        </div>
                     </div>
                 </div>
             </div>

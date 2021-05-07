@@ -11,13 +11,13 @@
                         <p class="pt-3 text-center">Want to know more?</p>
                         <div class="row d-inline-flex">
                             <div class="col-lg-4 col-sm-12 pt-2">
-                                <a href="mailto:politicaluncertainty@gmail.com" role="button" class="btn btn-secondary data_button_custom"><i class="fa fa-envelope mt-1 orange pull-left"></i>Get in Contact</a> 
+                                <a href="mailto:politicaluncertainty@gmail.com" role="button" class="btn btn-secondary data_button_custom"><i class="mt-1 orange pull-left feather_16" data-feather="mail"></i>Get in Contact</a> 
                             </div>
                             <div class="col-lg-4 col-sm-12 pt-2">
-                                <a href="{% url 'data-main' %}" role="button" class="btn btn-secondary data_button_custom"><i class="fa fa-line-chart mt-1 pull-left orange"></i>View Data</a>
+                                <a href="{% url 'data-main' %}" role="button" class="btn btn-secondary data_button_custom"><i class="mt-1 orange pull-left feather_16" data-feather="bar-chart"></i>View Data</a>
                             </div>
                             <div class="col-lg-4 col-sm-12 pt-2">
-                                <a href="#" role="button" class="btn btn-secondary data_button_custom"><i class="fa fa-mouse-pointer mt-1 pull-left orange"></i>Subscribe</a> 
+                                <a role="button" class="btn btn-secondary data_button_custom" href="#subscribe"><i class="mt-1 orange pull-left feather_16" data-feather="send"></i>Subscribe Now</a>
                             </div>
                         </div>
                     </div>
@@ -220,17 +220,17 @@
                 <div class="col-lg-8 col-md-12 text-center">
                     <div class="row">
                         <div class="col-md-4 col-sm-12">
-                            <i class=" p-0 m-0 fa fa-2x fa-line-chart grey"></i>
+                            <i class="p-0 m-0 grey feather_28" data-feather="trending-up"></i>
                             <h4 class="pt-2">Risks are rising</h4>
                             <p class="pt-2 text-muted text-justify">Political risk is a growing threat. It stems from more and more places<sup>*</sup></p>
                         </div>
                         <div class="col-md-4 col-sm-12">
-                            <i class=" p-0 m-0 fa fa-2x fa-thermometer-three-quarters grey"></i>
+                            <i class="p-0 m-0 grey feather_28" data-feather="alert-triangle"></i>
                             <h4 class="pt-2">Huge Threat</h4>
                             <p class="pt-2 text-muted text-justify">Experts agree that political risk is one of the most threatening risks for businesses abroad<sup>**</sup></p>
                         </div>
                         <div class="col-md-4 col-sm-12">
-                            <i class=" p-0 m-0 fa fa-2x fa-eye grey"></i>
+                            <i class="p-0 m-0 grey feather_28" data-feather="eye"></i>
                             <h4 class="pt-2">Often Hidden</h4>
                             <p class="pt-2 text-muted text-justify">Even though it is such a major risk political risk is often overlooked for a variety of reasons<sup>***</sup></p>
                         </div>
@@ -536,21 +536,22 @@
             Subscribe to our newsletter to receive information when new services are available.
             In order to keep our services free of charge, we are thankful for every donation to keep up doing what we love (See the imprint section).
             </p>
-                <div class="text-center">
-                        <form action="{% url 'subscription'%}" method="POST">
-                            {% csrf_token %}
-                            {% for field in subscribeform %}
-                            <div class="input-group">
-                                {{ field }}
-                                <div class="input-group-append">
-                                    <input class="btn btn-secondary" type="submit" value="Subscribe now">
-                                </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 col-sm-12">
+                    <form action="{% url 'subscription'%}" method="POST">
+                        {% csrf_token %}
+                        {% for field in subscribeform %}
+                        <div class="input-group">
+                            {{ field }}
+                            <div class="input-group-append">
+                                <input class="btn btn-secondary" type="submit" value="Subscribe now">
                             </div>
-                            {% endfor %}
-                        </form>
-
-                        <a href="#" type="" class="ml-3 word-hover1 text-decoration-none">Donate</a>
+                        </div>
+                        {% endfor %}
+                    </form>
+                    <a href="#" type="" class="ml-3 word-hover1 text-decoration-none">Donate</a>
                 </div>
+            </div>
         </div>
         <div class="d-lg-block d-none text-center">
             <img class="w-25 " src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/start_01.png">
@@ -565,7 +566,7 @@
                         </div>
                         <div class="col-lg-8">
                             <h5>PORTFOLIO</h5>
-                            <p class="card-title text-muted text-justify">Create and forecast your own political risk portfolio</p>
+                            <p class="card-title text-muted text-md-left text-lg-left text-center text-sm-center">Create and forecast your own political risk portfolio</p>
                         </div>
                     </div>
                 </div>
@@ -578,7 +579,7 @@
                         </div>
                         <div class="col-lg-8">
                             <h5>PROFILE</h5>
-                            <p class="card-title text-muted text-justify">Create your own porfile on our webpage</p>
+                            <p class="card-title text-muted text-md-left text-lg-left text-center text-sm-center">Create your own porfile on our webpage</p>
                         </div>
                     </div>
                 </div>
@@ -591,7 +592,7 @@
                         </div>
                         <div class="col-lg-8">
                             <h5>REPORTS</h5>
-                            <p class="card-title text-muted text-justify">Quarterly Political Risk Reports for different countries</p>
+                            <p class="card-title text-muted text-md-left text-lg-left text-center text-sm-center">Quarterly Political Risk Reports for different countries</p>
                         </div>
                     </div>
                 </div>
@@ -599,7 +600,8 @@
             <!--Maybe consulting services?-->
         </div>
     </div>    
-    </div>
+</div>
+
 
 
 <!--Section 12 Methodology - könnte wieder eingeführt werden, aber passt momentan nicht dazu
