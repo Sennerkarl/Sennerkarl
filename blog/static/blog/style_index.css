@@ -564,3 +564,7 @@ footer a {
     color: black !important;
 }
 
+.gradient{
+    background: linear-gradient(to right, #732c9c 0%, #e54c8a 50%, 
+    #eed7a1 100%);
+  }
