@@ -1,5 +1,5 @@
 from pathlib import Path
-from .models import WorldBorder, SBPRI
+from .models import WorldBorder, SBPRI, Data
 import web_project
 import pandas as pd
 
@@ -26,3 +26,23 @@ def update_SBPRI():
     df.rename(columns=lambda x: x.replace(' ', '_'), inplace=True)
     df['id'] = range(1, 1+len(df))
     SBPRI.objects.bulk_create(SBPRI(**vals) for vals in df.to_dict('records'))
+
+def update_Data(csv):
+    Data.objects.all().delete()
+
+    df = pd.read_csv(csv) #as set now
+    df['date'] = pd.to_datetime(df['date'], format='%Y-%m-%d')
+    df.set_index('date', inplace=True)
+    
+    for country in df:
+        for row in df.index:
+            Data.objects.create(date=row, country=country, category='SBPRI', value=df[country][row])
+
+def update_Category(csv, category):
+    df = pd.read_csv(csv) #as set now
+    df['date'] = pd.to_datetime(df['date'], format='%Y-%m-%d')
+    df.set_index('date', inplace=True)
+    
+    for country in df:
+        for row in df.index:
+            Data.objects.create(date=row, country=country, category=category, value=df[country][row])

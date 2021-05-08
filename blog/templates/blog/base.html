@@ -70,7 +70,7 @@
 
 
       {% if messages %}
-      <div class="container pt-2">
+      <div class="container pt-6" id="message_container"> <!--id ist für setTimout - message disappears afert 3 seconds - siehe code unten-->
       {% for message in messages %}
               <div class="alert alert-{{ message.tags }}">
               {{ message }}
@@ -84,9 +84,9 @@
 
 <!--Footer-->
 <footer class="p-1 bg-secondary">
-  <div class="container pb-4 pt-5">
+  <div class="container pb-4 pt-5" id="subscribe">
       <div class="row justify-content-center">
-          <div class="col-sm-6">
+          <div class="col-sm-12 col-lg-6 col-md-6">
               <div class="text-center">
                   <h2>STAY UP TO DATE</h2>
                   <form action="{% url 'subscription'%}" method="POST">
@@ -109,17 +109,17 @@
 <div class="pb-5">
   <div class="col-md-12 text-center">
       <ul class="ml-2 p-0 social-network social-circle">
-          <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-          <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="https://www.facebook.com/" target="_blank" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="https://twitter.com/" target="_blank" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="https://trends.google.de/trends/?geo=AT" target="_blank" class="icoGoogle" title="GoogleTrends"><i class="fa fa-google"></i></a></li>
+          <li><a href="https://at.linkedin.com/" target="_blank" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
       </ul>				
   </div>
 </div>
 <!--Sitemap + Footer-->
   <div class="container">
       <div class="row pt-1 pb-2">
-          <div class="col-lg-3 d-flex justify-content-center">
+          <div class="col-lg-3 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
               <ul class="list-unstyled m-0 p-0">
                 <h5> <a href="{% url 'blog-home' %}">Home</a></h5>
                   <li>- <a href="{% url 'data-main' %}">Data</a></li>
@@ -129,7 +129,7 @@
                   <li>- <a href="{% url 'blog-coming-soon' %}">Coming Soon</a></li>
               </ul>
           </div>
-          <div class="col-lg-3 d-flex justify-content-center">
+          <div class="col-lg-3 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
               <ul class="list-unstyled m-0 p-0">
                   <h5> <a href="{% url 'blog-blogs' %}">Blog</a></h5>
                   {{ grabpost }}
@@ -138,7 +138,7 @@
                   {% endfor %}
               </ul>
           </div>
-          <div class="col-lg-3 d-flex justify-content-center">
+          <div class="col-lg-3 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
               <ul class="list-unstyled m-0 p-0">
                   <h5>About Us</h5>
                   <li>- <a href="#">one</a></li>
@@ -148,7 +148,7 @@
                   <li>- <a href="#">five</a></li>
               </ul>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
                   <h5>Location</h5>
                   <p class="mb-0">1100 Vienna</p>
                   <p class="mb-1"><i class="fa fa-envelope pr-2"></i>politicalriskcorp@gmail.com</p>
@@ -178,6 +178,15 @@
 
     <script>
         feather.replace()
+    </script>
+
+<!--message disappear-->
+    <script>
+        var message_ele = document.getElementById("message_container");
+
+        setTimeout(function(){ 
+        message_ele.style.display = "none"; 
+        }, 5000);
     </script>
 </body>
 </html>

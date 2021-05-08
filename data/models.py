@@ -41,3 +41,8 @@ class WorldBorder(models.Model):
     def __str__(self):
         return self.name   
 
+class Data(models.Model):
+    date = models.DateField()
+    country = models.CharField(max_length=100)
+    category = models.CharField(max_length=100)
+    value = models.DecimalField(max_digits=8, decimal_places=5, blank=True, null=True, default='nan')

@@ -23,7 +23,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-10 pt-3">
-                                        <p class="article-content text-justify text-muted">{{ post.content|safe|truncatewords:20 }}
+                                        <p class="article-content text-justify text-muted">{{ post.content|safe|truncatewords:100 }}
                                             <a class="article-title" href="{% url 'post-detail' post.id %}">Read more <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
                                         </p> 
                                     </div>
