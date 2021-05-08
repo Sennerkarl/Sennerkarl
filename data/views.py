@@ -30,14 +30,14 @@ class DataView(ListView):
 
         #build trendmap monthly with Data Model
         
-        fig10 = go.Figure()
+        figmonth = go.Figure()
         category = 'SBPRI'
         dates = list(Data.objects.order_by('-date').values_list('date', flat=True).distinct()[0:2])
         diff = []
         for country in countries:
             diff += [str((Data.objects.filter(country=country, date=dates[0], category=category).values_list('value', flat=True)[0] / Data.objects.filter(country=country, date=dates[1], category=category).values_list('value', flat=True)[0] - 1)*100)]
         
-        fig10.add_trace(go.Choropleth(
+        figmonth.add_trace(go.Choropleth(
                             locations = iso3s, #borders to use
                             z = diff, #data with clever mapping function to get the data 
                             text = countries, #text when hovering
@@ -52,7 +52,133 @@ class DataView(ListView):
                             zmax = 30,
                         ))
 
-        fig10.update_layout(
+        figmonth.update_layout(
+                        template='plotly',
+                        autosize=True,
+                        height=600,
+                        geo=dict(
+                            showframe=False,
+                            showcoastlines=False,
+                            projection_type='equirectangular'
+                        ),
+                        annotations = [dict(
+                            x=0.55,
+                            y=0.1,
+                            xref='paper',
+                            yref='paper',
+                            text='Source: <a href="">Google Trend Analysis</a>',
+                            showarrow = False
+                        )]
+                    )
+
+        #trenmap political regulation
+        figreg = go.Figure()
+        category = 'Regulation'
+        dates = list(Data.objects.order_by('-date').values_list('date', flat=True).distinct()[0:2])
+        diff = []
+        for country in countries:
+            diff += [str((Data.objects.filter(country=country, date=dates[0], category=category).values_list('value', flat=True)[0] / Data.objects.filter(country=country, date=dates[1], category=category).values_list('value', flat=True)[0] - 1)*100)]
+        
+        figreg.add_trace(go.Choropleth(
+                            locations = iso3s, #borders to use
+                            z = diff, #data with clever mapping function to get the data 
+                            text = countries, #text when hovering
+                            colorscale='agsunset', #https://plotly.com/python/builtin-colorscales/
+                            reversescale=True,
+                            marker_line_color='darkgray',
+                            marker_line_width=0.5,
+                            colorbar_tickprefix = '',
+                            colorbar_title = 'SBPRI<br>Month<br>Trend',
+                            showscale = False,
+                            zmin = -30,
+                            zmax = 30,
+                        ))
+
+        figreg.update_layout(
+                        template='plotly',
+                        autosize=True,
+                        height=600,
+                        geo=dict(
+                            showframe=False,
+                            showcoastlines=False,
+                            projection_type='equirectangular'
+                        ),
+                        annotations = [dict(
+                            x=0.55,
+                            y=0.1,
+                            xref='paper',
+                            yref='paper',
+                            text='Source: <a href="">Google Trend Analysis</a>',
+                            showarrow = False
+                        )]
+                    )
+
+        #trenmap political sanctions
+        figsanc = go.Figure()
+        category = 'Sanctions'
+        dates = list(Data.objects.order_by('-date').values_list('date', flat=True).distinct()[0:2])
+        diff = []
+        for country in countries:
+            diff += [str((Data.objects.filter(country=country, date=dates[0], category=category).values_list('value', flat=True)[0] / Data.objects.filter(country=country, date=dates[1], category=category).values_list('value', flat=True)[0] - 1)*100)]
+        
+        figsanc.add_trace(go.Choropleth(
+                            locations = iso3s, #borders to use
+                            z = diff, #data with clever mapping function to get the data 
+                            text = countries, #text when hovering
+                            colorscale='agsunset', #https://plotly.com/python/builtin-colorscales/
+                            reversescale=True,
+                            marker_line_color='darkgray',
+                            marker_line_width=0.5,
+                            colorbar_tickprefix = '',
+                            colorbar_title = 'SBPRI<br>Month<br>Trend',
+                            showscale = False,
+                            zmin = -30,
+                            zmax = 30,
+                        ))
+
+        figsanc.update_layout(
+                        template='plotly',
+                        autosize=True,
+                        height=600,
+                        geo=dict(
+                            showframe=False,
+                            showcoastlines=False,
+                            projection_type='equirectangular'
+                        ),
+                        annotations = [dict(
+                            x=0.55,
+                            y=0.1,
+                            xref='paper',
+                            yref='paper',
+                            text='Source: <a href="">Google Trend Analysis</a>',
+                            showarrow = False
+                        )]
+                    )
+
+        #trenmap political situation
+        figsitu = go.Figure()
+        category = 'Sanctions'
+        dates = list(Data.objects.order_by('-date').values_list('date', flat=True).distinct()[0:2])
+        diff = []
+        for country in countries:
+            diff += [str((Data.objects.filter(country=country, date=dates[0], category=category).values_list('value', flat=True)[0] / Data.objects.filter(country=country, date=dates[1], category=category).values_list('value', flat=True)[0] - 1)*100)]
+        
+        figsitu.add_trace(go.Choropleth(
+                            locations = iso3s, #borders to use
+                            z = diff, #data with clever mapping function to get the data 
+                            text = countries, #text when hovering
+                            colorscale='agsunset', #https://plotly.com/python/builtin-colorscales/
+                            reversescale=True,
+                            marker_line_color='darkgray',
+                            marker_line_width=0.5,
+                            colorbar_tickprefix = '',
+                            colorbar_title = 'SBPRI<br>Month<br>Trend',
+                            showscale = False,
+                            zmin = -30,
+                            zmax = 30,
+                        ))
+
+        figsitu.update_layout(
                         template='plotly',
                         autosize=True,
                         height=600,
@@ -72,14 +198,14 @@ class DataView(ListView):
                     )
 
         #build trendmap annually
-        fig5 = go.Figure()
+        figannual = go.Figure()
         category = 'SBPRI'
         dates = list(Data.objects.order_by('-date').values_list('date', flat=True).distinct()[0:12])
         diff = []
         for country in countries:
             diff += [str((Data.objects.filter(country=country, date=dates[0], category=category).values_list('value', flat=True)[0] / Data.objects.filter(country=country, date=dates[-1], category=category).values_list('value', flat=True)[0] - 1)*100)]
         
-        fig5.add_trace(go.Choropleth(
+        figannual.add_trace(go.Choropleth(
                             locations = iso3s, #borders to use
                             z = diff, #data with clever mapping function to get the data 
                             text = countries, #text when hovering
@@ -94,7 +220,7 @@ class DataView(ListView):
                             zmax = 30,
                         ))
 
-        fig5.update_layout(
+        figannual.update_layout(
                         template='plotly',
                         autosize=True,
                         height=600,
@@ -139,13 +265,19 @@ class DataView(ListView):
         trend =  plot(fig3, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
         context['trend'] = trend
 
-        # trendmap =  plot(fig4, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
-        # context['trendmap'] = trendmap
+        trendmapreg =  plot(figreg, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+        context['trendmapreg'] = trendmapreg
 
-        trendmapannual =  plot(fig5, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+        trendmapsanc =  plot(figsanc, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+        context['trendmapsanc'] = trendmapsanc
+
+        trendmapsitu =  plot(figsitu, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+        context['trendmapsitu'] = trendmapsitu
+
+        trendmapannual =  plot(figannual, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
         context['trendmapannual'] = trendmapannual
 
-        trendmapmonth =  plot(fig10, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+        trendmapmonth =  plot(figmonth, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
         context['trendmapmonth'] = trendmapmonth
 
         #testing
