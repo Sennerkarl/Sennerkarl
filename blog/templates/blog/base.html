@@ -29,6 +29,8 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    <!--AOS Animation on Scroll-->
    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+   <!--Cookie Consent-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
    {% if title %}
    <title>Political (Un)Certainty | {{ title }}</title>
    {% else %}
@@ -81,6 +83,16 @@
 
 
       {% block content %}{% endblock content %} 
+
+<!--Cookie Consent-->
+    <div class="alert text-center cookiealert" role="alert">
+        This website uses Cookies, Google Analytics for analysis and statistics. Cookies help us to improve the user experience of the website. By using the website you agree with the usage of cookies. Further informations are in our data protection disclaimer. <a href="https://cookiesandyou.com/" class="service_button text-decoration-none" target="_blank">Learn more</a>
+
+        <button type="button" class="btn btn-primary btn-sm acceptcookies">
+            I agree
+        </button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
 
 <!--Footer-->
 <footer class="p-1 bg-secondary">
