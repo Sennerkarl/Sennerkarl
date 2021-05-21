@@ -78,10 +78,14 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-12 col-sm-12 py-3 bg-white border rounded">
                         <h3 class="text-muted text-center">Political Uncertainty (Worldwide)</h3>
+<<<<<<< HEAD
                         <p class="text-muted text-center">The Graph shows the Political Uncertainty changes worldwide monthly from March to April</p>
                         <div class="plotsizing">{{ trendmapannual | safe }}</div>
                         <div class="float-left ml-2"><p class="text-size-small">Source: <a href="" class="text-decoration-none">Political Risk Index by Senne & Reinthaler</a><br>*Percentage change in comparison to the previous month</p>
                         </div>
+=======
+                        <div>{{ trendmapmonth | safe }}</div>
+>>>>>>> a08e5d88b09c9cc7a1713d998f08be958f2be75c
                     </div>
                 </div>
             </div>
@@ -122,19 +126,31 @@
             <div class="container pb-3" id="categories">
                 <div class="row">
                     <div class="col-lg-6 col-sm-12">
+<<<<<<< HEAD
                         <div class="bg-white border rounded py-3">
-                            <h3 class="text-muted text-center">Political Sanctions (World<sup>**</sup>)</h3>
-                            <div class="plotsizing1">{{ trendmapmonth | safe }}</div>
+                            <h3 class="text-muted text-center">Investment Uncertainty (World<sup>**</sup>)</h3>
+                            <div class="plotsizing1">{{ trendmapreg | safe }}</div>
                             <p class="text-size-small ml-2 mb-0 pb-0">Source: <a href="" class="text-decoration-none">Political Risk Index by Senne & Reinthaler</a></p>
                             <p class="text-size-small flot-left ml-2">The Graph shows the Percentage change in comparison to the previous month</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-12">
                         <div class="bg-white border rounded py-3"> 
-                            <h3 class="text-muted text-center">Political Situation (World<sup>**</sup>)</h3>
-                            <div class="plotsizing1">{{ trendmap | safe }}</div>
+                            <h3 class="text-muted text-center">Trade Uncertainty (World<sup>**</sup>)</h3>
+                            <div class="plotsizing1">{{ trendmapsanc  | safe }}</div>
                             <p class="text-size-small ml-2 mb-0 pb-0">Source: <a href="" class="text-decoration-none">Political Risk Index by Senne & Reinthaler</a></p>
                             <p class="text-size-small flot-left ml-2">The Graph shows the Percentage change in comparison to the previous month</p>
+=======
+                        <div class="shadow-sm bg-white rounded"> 
+                            <h3 class="text-muted text-center">Investment Uncertainty (World<sup>**</sup>)</h3>
+                            <div>{{ trendmapreg | safe }}</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="shadow-sm bg-white rounded"> 
+                            <h3 class="text-muted text-center">Trade Uncertainty (World<sup>**</sup>)</h3>
+                            <div>{{ trendmapsanc | safe }}</div>
+>>>>>>> a08e5d88b09c9cc7a1713d998f08be958f2be75c
                         </div>
                     </div>
                 </div>
@@ -144,11 +160,17 @@
 <!--Graph 4-->
             <div class="container pb-3" id="countries">
                 <div class="row justify-content-center">
+<<<<<<< HEAD
                     <div class="col-lg-12 bg-white border rounded py-3">
-                        <h3 class="text-muted text-center">Political Uncrtainty - Comparison Countries</h3>
+                        <h3 class="text-muted text-center">Political Uncertainty - A Country Comparison</h3>
                         <div class="plotsizing2">{{ linegraph | safe }}</div>
                         <div class="float-left ml-2"><p class="text-size-small">Source: <a href="" class="text-decoration-none">Political Risk Index by Senne & Reinthaler</a><br>*Percentage change in comparison to the previous month</p>
                         </div>
+=======
+                    <div class="col-12 py-3 bg-white shadow-sm rounded">
+                        <h3 class="text-muted text-center">Political Uncertainty - A Country Comparison</h3>
+                        <div class="col-lg-12">{{ linegraph | safe }}</div>
+>>>>>>> a08e5d88b09c9cc7a1713d998f08be958f2be75c
                     </div>
                 </div>
             </div>
@@ -182,18 +204,30 @@
 <!--Test-->
             <div class="container pb-3" id="political-sanctions">
                 <div class="row justify-content-center">
+<<<<<<< HEAD
                     <div class="col-lg-12 col-sm-12 bg-white border rounded py-3">
-                        <h3 class="text-muted text-center">Political Sanctions (World<sup>**</sup>)</h3>
-                        <div></div>
+                        <h3 class="text-muted text-center">Mid-Term Uncertainty Trend (World<sup>**</sup>)</h3>
+                        <div>{{ trendmapannual | safe }}</div>
+=======
+                    <div class="col-lg-10 col-sm-12 py-3 bg-white shadow-sm rounded">
+                        <h3 class="text-muted text-center">Mid-Term Uncertainty Trend (World<sup>**</sup>)</h3>
+                        <div>{{ trendmapannual | safe }}</div>
+>>>>>>> a08e5d88b09c9cc7a1713d998f08be958f2be75c
                     </div>
                 </div>
             </div>
 <!--Test-->
             <div class="container pb-6" id="political-situation">
                 <div class="row justify-content-center">
+<<<<<<< HEAD
                     <div class="col-lg-12 col-sm-12 bg-white border rounded py-3">
-                        <h3 class="text-muted text-center">Political Regulation (World<sup>**</sup>)</h3>
-                        <div></div>
+                        <h3 class="text-muted text-center">Administration Uncertainty (World<sup>**</sup>)</h3>
+                        <div>{{ trendmapsitu | safe }}</div>
+=======
+                    <div class="col-lg-10 col-sm-12 py-3 bg-white shadow-sm rounded">
+                        <h3 class="text-muted text-center">Administration Uncertainty (World<sup>**</sup>)</h3>
+                        <div>{{ trendmapsitu | safe }}</div>
+>>>>>>> a08e5d88b09c9cc7a1713d998f08be958f2be75c
                     </div>
                 </div>
             </div>
