@@ -56,14 +56,15 @@
                 <li class="nav-item {% if url_name == 'blog-about' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-about' %}">About</a></li>
                 <li class="nav-item pr-3 {% if url_name == 'blog-archive' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-archive' %}">Archive</a></li>
                 {% endwith %}
-                    {% if user.is_authenticated %} <!--Conditional, when logged in than it only shows "logout" otherwise it shows login and register-->
-                    <li class="nav-item"><a class="nav-link text-dark" href="{% url 'post-create' %}">New Post</a></li>
+                <!--Development!-->
+                    <!--{% if user.is_authenticated %}--> <!--Conditional, when logged in than it only shows "logout" otherwise it shows login and register-->
+                    <!--<li class="nav-item"><a class="nav-link text-dark" href="{% url 'post-create' %}">New Post</a></li>
                     <li class="nav-item"><a class="nav-link text-dark" href="{% url 'profile' %}">Profile</a></li>
                     <li class="nav-item"><a class="nav-link text-dark" href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
                     <li class="nav-item"><a class="nav-link text-dark" href="{% url 'register' %}">Register</a></li>
                     <li class="nav-item"><a class="nav-link text-dark" href="{% url 'login' %}">Login</a></li>
-                    {% endif %}
+                    {% endif %}-->
             </ul>    
         </div>
     </nav>
@@ -131,7 +132,7 @@
 <!--Sitemap + Footer-->
   <div class="container">
       <div class="row pt-1 pb-2">
-          <div class="col-lg-3 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
+          <div class="col-lg-4 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
               <ul class="list-unstyled m-0 p-0">
                 <h5> <a href="{% url 'blog-home' %}">Home</a></h5>
                   <li>- <a href="{% url 'data-main' %}">Data</a></li>
@@ -142,7 +143,7 @@
                   <li>- <a href="{% url 'blog-political-risk' %}">Policital Uncertainty</a></li>
               </ul>
           </div>
-          <div class="col-lg-3 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
+          <div class="col-lg-4 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
               <ul class="list-unstyled m-0 p-0">
                   <h5><a href="{% url 'blog-blogs' %}">Blog</a></h5>
                   {{ grabpost }}
@@ -151,16 +152,7 @@
                   {% endfor %}
               </ul>
           </div>
-          <div class="col-lg-3 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
-              <ul class="list-unstyled m-0 p-0">
-                  <h5><a href="{% url 'data-main' %}">Data</a></h5>
-                  <li>- <a href="#">Europe</a></li>
-                  <li>- <a href="#">South America</a></li>
-                  <li>- <a href="#">North America</a></li>
-                  <li>- <a href="#">Asia</a></li>
-              </ul>
-          </div>
-          <div class="col-lg-3 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
+          <div class="col-lg-4 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
                   <h5>Location</h5>
                   <p class="mb-0">1100 Vienna</p>
                   <p class="mb-1"><i class="fa fa-envelope pr-2"></i>politicalriskcorp@gmail.com</p>
