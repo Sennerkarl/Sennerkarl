@@ -327,7 +327,7 @@ class DataView(ListView):
         trendmapannual =  plot(figannual, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
         context['trendmapannual'] = trendmapannual
 
-        
+        context['countries'] = countries
 
         #testing
         
@@ -347,56 +347,55 @@ class DataDetailView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs) 
-        country = self.kwargs['country'].capitalize()
+        country = self.kwargs['country'].replace('_',' ').title()
         context['country'] = country
-        
-        if country in list(SBPRI.objects.values().last())[2:]:
-            fig6 = go.Figure()
-            iso3 = list(WorldBorder.objects.filter(name=country).values_list('iso3'))[0][0]
-            second = list(SBPRI.objects.values_list(country).order_by('-id'))[1:2] #grab second last row from database by ordering by -id and picking the second one [1:2] and running it [0]
-            last = list(SBPRI.objects.values_list(country).last()) #grab last row
-            diff = ((last[0] / second[0][0]) - 1)*100 # divide the last and the second last value and rescale
-            fig6.add_trace(go.Choropleth(
-                                locations = [iso3], #borders to use
-                                z = [diff], #data with clever mapping function to get the data 
-                                text = country, #text when hovering
-                                autocolorscale=True,
-                                reversescale=True,
-                                marker_line_color='darkgray',
-                                marker_line_width=0.5,
-                                colorbar_tickprefix = '',
-                                colorbar_title = 'SBPRI<br>Month<br>Trend',
-                                zmin = -30,
-                                zmax = 30,
-                            ))
 
-            fig6.update_layout(
-                            template='plotly',
-                            autosize=True,
-                            margin=dict(l=0, r=0, b=20, t=0), 
-                            geo_scope="south america", #per country
-                            geo=dict(
-                                showframe=False,
-                                showcoastlines=False,
-                                projection_type='equirectangular',
-                            ),
-                            annotations = [dict(
-                                x=0.55,
-                                y=0.1,
-                                xref='paper',
-                                yref='paper',
-                                text='Source: <a href="">Google Trend Analysis by Senne & Reinthaler</a>',
-                                showarrow = False
-                            )]
-                        )
-            worldmap = plot(fig6, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
-            context['worldmap'] = worldmap
-
-
-        
         qs = WorldBorder.objects.filter(name=country) #queryset of country row
         iso = qs.values('iso3')
         iso3 = iso[0]['iso3']
+        
+        
+        fig6 = go.Figure()
+        category = "SBPRI"
+        dates = list(Data.objects.order_by('-date').values_list('date', flat=True).distinct()[0:2])
+        diff = [str((Data.objects.filter(country=country, date=dates[0], category=category).values_list('value', flat=True)[0] / Data.objects.filter(country=country, date=dates[-1], category=category).values_list('value', flat=True)[0] - 1)*100)]
+        fig6.add_trace(go.Choropleth(
+                            locations = [iso3], #borders to use
+                            z = diff, #data with clever mapping function to get the data 
+                            text = country, #text when hovering
+                            autocolorscale=True,
+                            reversescale=True,
+                            marker_line_color='darkgray',
+                            marker_line_width=0.5,
+                            colorbar_tickprefix = '',
+                            colorbar_title = 'SBPRI<br>Month<br>Trend',
+                            zmin = -30,
+                            zmax = 30,
+                        ))
+
+        fig6.update_layout(
+                        template='plotly',
+                        autosize=True,
+                        margin=dict(l=0, r=0, b=20, t=0), 
+                        geo_scope=qs.values_list('continent', flat=True)[0], #per country
+                        geo=dict(
+                            showframe=False,
+                            showcoastlines=False,
+                            projection_type='equirectangular',
+                        ),
+                        annotations = [dict(
+                            x=0.55,
+                            y=0.1,
+                            xref='paper',
+                            yref='paper',
+                            text='Source: <a href="">Google Trend Analysis by Senne & Reinthaler</a>',
+                            showarrow = False
+                        )]
+                    )
+        worldmap = plot(fig6, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+        context['worldmap'] = worldmap
+
+
         df = wb.data.DataFrame(['SP.POP.TOTL', 'CM.MKT.TRAD.CD', 'CM.MKT.TRAD.GD.ZS', 'NY.GDP.PCAP.KD', 'NY.GDP.MKTP.KD.ZG', 'NE.EXP.GNFS.KD', 'NE.IMP.GNFS.KD', 'BX.KLT.DINV.CD.WD', 'NY.GDP.MKTP.CD'], iso3 , mrnev=1)
         df.rename(columns={'CM.MKT.TRAD.CD':'VolumeStocksTraded', 'CM.MKT.TRAD.GD.ZS':'Stocks/GDP', 'NE.EXP.GNFS.KD':'ExportVolume',
          'NE.IMP.GNFS.KD':'ImportVolume','NY.GDP.PCAP.KD':'GDPPC', 'NY.GDP.MKTP.KD.ZG':'Growth',
