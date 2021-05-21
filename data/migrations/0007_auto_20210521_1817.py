@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='worldborder',
             name='currency',
-            field=models.CharField(default='still missing', max_length=10),
+            field=models.CharField(default='still missing', max_length=20),
         ),
         migrations.AddField(
             model_name='worldborder',
