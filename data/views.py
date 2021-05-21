@@ -65,14 +65,7 @@ class DataView(ListView):
                             showcoastlines=False,
                             projection_type='equirectangular'
                         ),
-                        annotations = [dict(
-                            x=0.55,
-                            y=0.1,
-                            xref='paper',
-                            yref='paper',
-                            text='Source: <a href="">"GG"</a>',
-                            showarrow = False
-                        )]
+                        
                     )
 
         trendmapmonth =  plot(figmonth, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
@@ -397,11 +390,17 @@ class DataDetailView(ListView):
         worldmap = plot(fig6, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
         context['worldmap'] = worldmap
 
-
+        #WorldbankData for Country
         df = wb.data.DataFrame(['SP.POP.TOTL', 'CM.MKT.TRAD.CD', 'CM.MKT.TRAD.GD.ZS', 'NY.GDP.PCAP.KD', 'NY.GDP.MKTP.KD.ZG', 'NE.EXP.GNFS.KD', 'NE.IMP.GNFS.KD', 'BX.KLT.DINV.CD.WD', 'NY.GDP.MKTP.CD'], iso3 , mrnev=1)
         df.rename(columns={'CM.MKT.TRAD.CD':'VolumeStocksTraded', 'CM.MKT.TRAD.GD.ZS':'Stocks/GDP', 'NE.EXP.GNFS.KD':'ExportVolume',
          'NE.IMP.GNFS.KD':'ImportVolume','NY.GDP.PCAP.KD':'GDPPC', 'NY.GDP.MKTP.KD.ZG':'Growth',
           'BX.KLT.DINV.CD.WD':'FDI', 'NY.GDP.MKTP.CD':'GDP', 'SP.POP.TOTL':'Population'}, inplace=True)
+        
+        #GDP Rank Globally
+        rank = wb.data.DataFrame('NY.GDP.MKTP.CD', mrv=1)
+        rank['rank'] = rank.rank(ascending=False)
+        
+        #Data from Database - WorldBorder
         countryimport = WorldBorder.objects.filter(name=country).first()
 
         context['FDI'] = format(df['FDI'][iso3]/10**6, ',.0f')
@@ -414,6 +413,7 @@ class DataDetailView(ListView):
         context['ImportVolume'] = format(df['ImportVolume'][iso3]/10**9, ',.2f')
         context['Population'] = format(df['Population'][iso3]/10**6, ',.0f')
         context['CountryData'] = countryimport
+        context['Rank'] = format(rank['rank'][iso3], '.0f')
         
         
 
