@@ -21,7 +21,7 @@ class DataView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)    # open context data which is sent to frontend  
         countries = sorted(list(Data.objects.values_list('country', flat=True).distinct())) # get country list from database
-        
+        context['title'] = 'Uncertainty Data'
 
         iso3s = [] # empty list
         for cty in countries:
@@ -349,6 +349,7 @@ class DataDetailView(ListView):
         context = super().get_context_data(**kwargs) 
         country = self.kwargs['country'].replace('_',' ').title()
         context['country'] = country
+        context['title'] = f'{country} Uncertainty'
 
         
         qs = WorldBorder.objects.filter(name=country) #queryset of country row
