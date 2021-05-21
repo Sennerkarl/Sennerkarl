@@ -59,7 +59,7 @@ class DataView(ListView):
         figmonth.update_layout(
                         template='plotly',
                         autosize=True,
-                        height=600,
+                        margin=dict(l=0, r=0, b=10, t=10),
                         geo=dict(
                             showframe=False,
                             showcoastlines=False,
@@ -158,7 +158,7 @@ class DataView(ListView):
         figreg.update_layout(
                         template='plotly',
                         autosize=True,
-                        height=600,
+                        margin=dict(l=0, r=0, b=10, t=10),
                         geo=dict(
                             showframe=False,
                             showcoastlines=False,
@@ -200,7 +200,7 @@ class DataView(ListView):
         figsanc.update_layout(
                         template='plotly',
                         autosize=True,
-                        height=600,
+                        margin=dict(l=0, r=0, b=10, t=10),
                         geo=dict(
                             showframe=False,
                             showcoastlines=False,

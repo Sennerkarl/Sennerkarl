@@ -45,11 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'storages',
-    'django_crontab',
-]
-
-CRONJOBS = [
-    ('* 23 15,28 * *', 'data.cron.getgoogledata')
+    'google_analytics',
 ]
 
 MIDDLEWARE = [

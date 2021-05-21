@@ -15,7 +15,8 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, include #include other routes to our other apps
+from django.urls import path, include
+from django.urls.conf import re_path #include other routes to our other apps
 from users import views as user_views # other option which makes possible to create urls in main project directory without creating urls.py in the app
 from django.contrib.auth import views as auth_views
 
@@ -38,6 +39,7 @@ urlpatterns = [
     path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'), name="password_reset_complete"),
     path('', include('blog.urls')),
     path('data/', include('data.urls')), # mapping to our blog.urls
+    re_path('djga/', include('google_analytics.urls')),
 ]
 
 if settings.DEBUG: # if currently in Debug mode
