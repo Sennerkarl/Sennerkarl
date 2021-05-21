@@ -29,6 +29,8 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    <!--AOS Animation on Scroll-->
    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+   <!--Cookie Consent-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
    {% if title %}
    <title>Political (Un)Certainty | {{ title }}</title>
    {% else %}
@@ -54,14 +56,15 @@
                 <li class="nav-item {% if url_name == 'blog-about' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-about' %}">About</a></li>
                 <li class="nav-item pr-3 {% if url_name == 'blog-archive' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-archive' %}">Archive</a></li>
                 {% endwith %}
-                    {% if user.is_authenticated %} <!--Conditional, when logged in than it only shows "logout" otherwise it shows login and register-->
-                    <li class="nav-item"><a class="nav-link text-dark" href="{% url 'post-create' %}">New Post</a></li>
+                <!--Development!-->
+                    <!--{% if user.is_authenticated %}--> <!--Conditional, when logged in than it only shows "logout" otherwise it shows login and register-->
+                    <!--<li class="nav-item"><a class="nav-link text-dark" href="{% url 'post-create' %}">New Post</a></li>
                     <li class="nav-item"><a class="nav-link text-dark" href="{% url 'profile' %}">Profile</a></li>
                     <li class="nav-item"><a class="nav-link text-dark" href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
                     <li class="nav-item"><a class="nav-link text-dark" href="{% url 'register' %}">Register</a></li>
                     <li class="nav-item"><a class="nav-link text-dark" href="{% url 'login' %}">Login</a></li>
-                    {% endif %}
+                    {% endif %}-->
             </ul>    
         </div>
     </nav>
@@ -81,6 +84,16 @@
 
 
       {% block content %}{% endblock content %} 
+
+<!--Cookie Consent-->
+    <div class="alert text-center cookiealert" role="alert">
+        This website uses Cookies, Google Analytics for analysis and statistics. Cookies help us to improve the user experience of the website. By using the website you agree with the usage of cookies. Further informations are in our data protection disclaimer. <a href="https://cookiesandyou.com/" class="service_button text-decoration-none" target="_blank">Learn more</a>
+
+        <button type="button" class="btn btn-primary btn-sm acceptcookies">
+            I agree
+        </button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
 
 <!--Footer-->
 <footer class="p-1 bg-secondary">
@@ -119,7 +132,7 @@
 <!--Sitemap + Footer-->
   <div class="container">
       <div class="row pt-1 pb-2">
-          <div class="col-lg-3 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
+          <div class="col-lg-4 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
               <ul class="list-unstyled m-0 p-0">
                 <h5> <a href="{% url 'blog-home' %}">Home</a></h5>
                   <li>- <a href="{% url 'data-main' %}">Data</a></li>
@@ -127,28 +140,19 @@
                   <li>- <a href="{% url 'blog-archive' %}">Archive</a></li>
                   <li>- <a href="{% url 'blog-about' %}">About Us</a></li>
                   <li>- <a href="{% url 'blog-coming-soon' %}">Coming Soon</a></li>
+                  <li>- <a href="{% url 'blog-political-risk' %}">Policital Uncertainty</a></li>
               </ul>
           </div>
-          <div class="col-lg-3 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
+          <div class="col-lg-4 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
               <ul class="list-unstyled m-0 p-0">
-                  <h5> <a href="{% url 'blog-blogs' %}">Blog</a></h5>
+                  <h5><a href="{% url 'blog-blogs' %}">Blog</a></h5>
                   {{ grabpost }}
                   {% for posts in Posts %}
                   <li>- <a href="{% url 'post-detail' posts.id %}">{{posts.title}}</a></li>
                   {% endfor %}
               </ul>
           </div>
-          <div class="col-lg-3 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
-              <ul class="list-unstyled m-0 p-0">
-                  <h5>About Us</h5>
-                  <li>- <a href="#">one</a></li>
-                  <li>- <a href="#">two</a></li>
-                  <li>- <a href="#">three</a></li>
-                  <li>- <a href="#">four</a></li>
-                  <li>- <a href="#">five</a></li>
-              </ul>
-          </div>
-          <div class="col-lg-3 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
+          <div class="col-lg-4 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
                   <h5>Location</h5>
                   <p class="mb-0">1100 Vienna</p>
                   <p class="mb-1"><i class="fa fa-envelope pr-2"></i>politicalriskcorp@gmail.com</p>
@@ -156,7 +160,7 @@
           </div>
       </div>
       <hr>
-      <p class="mt-3 text-small">Sure - Political Risk Corporation, Copyright &copy; {% now "jS F Y" %} |<a class="pl-1" href="{% url 'blog-impressum' %}">Impressum |</a><a class="pl-1" href="">AGB |</a><a class="pl-1" href="">Data Privacy</a></p>
+      <p class="mt-3 text-small">Sure - Political Risk Corporation, Copyright &copy; {% now "jS F Y" %} |<a class="pl-1" href="{% url 'blog-impressum' %}">Impressum </a><span>|</span><a class="pl-1" href="">AGB </a><span>|</span><a class="pl-1" href="">Data Privacy</a></p>
   </div>
 </footer> 
 

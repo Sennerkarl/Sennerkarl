@@ -26,6 +26,14 @@ class SBPRI(models.Model):
     Switzerland = models.DecimalField(max_digits=8, decimal_places=5, blank=True, null=True, default='nan')
     Spain = models.DecimalField(max_digits=8, decimal_places=5, blank=True, null=True, default='nan')
 
+continent_choices= (
+                    ('south america', 'south america'),
+                    ('north america', 'north america'),
+                    ('europe', 'europe'),
+                    ('africa', 'africa'),
+                    ('asia', 'asia'),
+                    ('world', 'world')
+                        )
 
 class WorldBorder(models.Model):
     # Regular Django fields corresponding to the attributes in the
@@ -36,6 +44,12 @@ class WorldBorder(models.Model):
     un = models.IntegerField('United Nations Code')
     lon = models.FloatField()
     lat = models.FloatField()
+    flag = models.ImageField(upload_to='flags', default='worldmap_02.png')
+    ctryimg = models.ImageField(upload_to='ctryimg', default='worldmap_02.png')
+    continent = models.CharField(choices=continent_choices, default="world", max_length=30)
+    currency = models.CharField(max_length=30, default='still missing')
+    capital = models.CharField(max_length=30, default='still missing')
+    language = models.CharField(max_length=30, default='still missing')
 
     # Returns the string representation of the model.
     def __str__(self):
