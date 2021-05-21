@@ -2,35 +2,35 @@
 
 {% block content %}  
 <!--Introduction and menu-->
-        <div class="container-fluid backgroundimg15 position-relative pt-6">
+        <div class="container-fluid backgroundimg15 position-relative padding_data-detail">
             <div class="row">
                 <div class="col-lg-9 pb-3">
                     <h1 class="text-white float-left">Uncertainty: {{country}}</h1>
                     <p class="text-white float-left">Create Certainty in an uncertain world for your business with our political risk tools.</p>
                 </div>
                 <div class="col-lg-3">
-                    <p class="card-text text-white text-size-small">Country Flag</p>
+                    <img class="backgroundimg-data-detail pt-3" src="{{CountryData.flag.url}}" alt="Flag">
                 </div>
                 <div class="col-sm-3">
                     <p class="text-white mb-0 pb-0 text-size-small font-weight-bold">2019</p>
                     <p class="text-white my-0 py-0 text-size-small">GDP | GDP/Capita</p>
-                    <p class="text-white mb-0 pb-0 text-size-small">$400B (+10%) | $400B</p>
+                    <p class="text-white mb-0 pb-0 text-size-small">${{GDP}}B ({{Growth}}%) | ${{GDPPC}}B</p>
                     <p class="text-white text-size-small">RANK 1 OF 20</p>
                 </div>
                 <div class="col-sm-3">
                     <p class="text-white mb-0 pb-0 text-size-small font-weight-bold">2019</p>
                     <p class="text-white my-0 py-0 text-size-small">Exports | Imports</p>
-                    <p class="text-white text-size-small">$400B | $400B</p>
+                    <p class="text-white text-size-small">${{ExportVolume}}B | ${{ImportVolume}}B</p>
                 </div>
                 <div class="col-sm-3">
                     <p class="text-white mb-0 pb-0 text-size-small font-weight-bold">2019</p>
                     <p class="text-white my-0 py-0 text-size-small">FDI</p>
-                    <p class="text-white text-size-small">$300B (+10%)</p>
+                    <p class="text-white text-size-small">${{FDI}}B</p>
                 </div>
                 <div class="col-sm-3">
                     <p class="text-white mb-0 pb-0 text-size-small font-weight-bold">2019</p>
                     <p class="text-white my-0 py-0 text-size-small">Volume Stock Traded</p>
-                    <p class="text-white text-size-small">$300B</p>
+                    <p class="text-white text-size-small">${{VolumeStocksTraded}}B</p>
                 </div>
             </div>
         </div>
@@ -40,38 +40,36 @@
             <div class="row">
                 <div class="col-lg-6">
                     <ul class="list-unstyled">
-                        <li>Official Language: Spanish</li>
-                        <li>Capital: Carracas</li>
-                        <li>Population: 14.000.000</li>
+                        <li><strong>Official Language:</strong> <p>{{CountryData.language}}</p></li>
+                        <li><strong>Capital:</strong> <p>{{CountryData.capital}}</p></li>
                     </ul>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-6">
                     <ul class="list-unstyled">
-                        <li>Official Language: Spanish</li>
-                        <li>Capital: Carracas</li>
-                        <li>People: Spanish</li>
+                        <li><strong>Population:</strong> <p>{{Population}} Mil.</p></li>
+                        <li><strong>Population:</strong> <p>{{Population}} Mil.</p></li>
                     </ul>
-                </div>
-                <div class="col-lg-3">
-                    <p>Country map</p>
                 </div>
             </div>
         </div>
 
     <div class="gradient">
         <div class="containter pt-3">
-            <div class="row justify-content-center shadow-sm bg-white py-3 text-center">
-                <div class="d-inline-flex">
-                    <div class="col-lg-4 col-sm-12">
-                        <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="#subscribe"><i class="ml-1 mt-1 orange pull-left feather_16" data-feather="send"></i>Subscribe Now</a>
-                    </div>
-                    <div class="col-lg-4 col-sm-12">
-                        <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="#mailto:politicaluncertainty@gmail.com"><i class="mt-1 orange pull-left feather_16" data-feather="mail"></i>Get in Contact</a>
-                    </div>
-                    <div class="col-lg-4 col-sm-12">
-                        <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="{% url 'blog-blogs' %}"><i class="mt-1 orange pull-left feather_16" data-feather="file-text"></i>Blog</a>
-                    </div>
+            <div class="row d-flex shadow-sm bg-white py-3">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-2 col-sm-12 justify-content-center">
+                    <a role="button" class="service_button text-decoration-none text-size-small" href="#subscribe"><i class="grey feather_16" data-feather="send"></i>Subscribe Now</a>
                 </div>
+                <div class="col-lg-2 col-sm-12 justify-content-center">
+                    <a role="button" class="service_button text-decoration-none text-size-small" href="#mailto:politicaluncertainty@gmail.com"><i class=" grey feather_16" data-feather="mail"></i>Get in Contact</a>
+                </div>
+                <div class="col-lg-2 col-sm-12 justify-content-center">
+                    <a role="button" class="service_button text-decoration-none text-size-small" href="{% url 'blog-blogs' %}"><i class="grey feather_16" data-feather="file-text"></i>Blog</a>
+                </div>
+                <div class="col-lg-2 col-sm-12 justify-content-center">
+                    <a role="button" class="service_button text-decoration-none text-size-small" href="{% url 'blog-blogs' %}"><i class="grey feather_16" data-feather="file-text"></i>Blog</a>
+                </div>
+                <div class="col-lg-2"></div>
             </div>
         </div>
     </div>

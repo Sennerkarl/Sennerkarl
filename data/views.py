@@ -392,7 +392,6 @@ class DataDetailView(ListView):
             worldmap = plot(fig6, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
             context['worldmap'] = worldmap
 
-
         
         qs = WorldBorder.objects.filter(name=country) #queryset of country row
         iso = qs.values('iso3')
@@ -401,16 +400,19 @@ class DataDetailView(ListView):
         df.rename(columns={'CM.MKT.TRAD.CD':'VolumeStocksTraded', 'CM.MKT.TRAD.GD.ZS':'Stocks/GDP', 'NE.EXP.GNFS.KD':'ExportVolume',
          'NE.IMP.GNFS.KD':'ImportVolume','NY.GDP.PCAP.KD':'GDPPC', 'NY.GDP.MKTP.KD.ZG':'Growth',
           'BX.KLT.DINV.CD.WD':'FDI', 'NY.GDP.MKTP.CD':'GDP', 'SP.POP.TOTL':'Population'}, inplace=True)
+        countryimport = WorldBorder.objects.filter(name=country).first()
 
         context['FDI'] = format(df['FDI'][iso3]/10**6, ',.0f')
         context['GDP'] = format(df['GDP'][iso3]/10**9, ',.2f')
         context['GDPPC'] = format(df['GDPPC'][iso3], ',.0f') 
-        context['Growth'] = format(df['Growth'][iso3]*100, ',.1f')
+        context['Growth'] = format(df['Growth'][iso3], ',.2f')
         context['VolumeStocksTraded'] = format(df['VolumeStocksTraded'][iso3]/10**9, ',.2f') 
         context['Stocks/GDP'] = format(df['Stocks/GDP'][iso3]*100, ',.1f')
         context['ExportVolume'] = format(df['ExportVolume'][iso3]/10**9, ',.2f')
         context['ImportVolume'] = format(df['ImportVolume'][iso3]/10**9, ',.2f')
         context['Population'] = format(df['Population'][iso3]/10**6, ',.0f')
+        context['CountryData'] = countryimport
+        
         
 
 
