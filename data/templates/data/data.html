@@ -78,9 +78,12 @@
         <div class="bg-light">
             <div class="container py-3" id="worldmap">
                 <div class="row justify-content-center">
-                    <div class="col-lg-12 col-sm-12 py-3 bg-white shadow-sm rounded">
+                    <div class="col-lg-12 col-sm-12 py-3 bg-white border rounded">
                         <h3 class="text-muted text-center">Political Uncertainty (Worldwide)</h3>
-                        <div id="82072c0d-ba8d-4e86-b000-0892be065ca8">{{ trendmapmonth | safe }}</div>
+                        <p class="text-muted text-center">The Graph shows the Political Uncertainty changes worldwide monthly from March to April</p>
+                        <div class="plotsizing">{{ trendmapannual | safe }}</div>
+                        <div class="float-left ml-2"><p class="text-size-small">Source: <a href="" class="text-decoration-none">Political Risk Index by Senne & Reinthaler</a><br>*Percentage change in comparison to the previous month</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -120,25 +123,25 @@
             <div class="container pb-3" id="trend" >
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">
-                        <div class="shadow-sm bg-white rounded m-0 p-0"> <!--space only with the shadow class-->
+                        <div class="bg-white border rounded"> <!--space only with the shadow class-->
                             <h5 class="text-muted text-center pt-2">Trend 1</h5>
-                            <div class="text-muted">{{ trend | safe }}</div>
+                            <div class="text-muted">{{ trend2 | safe }}</div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
-                        <div class="shadow-sm bg-white rounded">
+                        <div class="bg-white border rounded">
                             <h5 class="text-muted text-center pt-2">Trend 2</h5>
                             <div>{{ trend2 | safe }}</div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
-                        <div class="shadow-sm bg-white rounded">
+                        <div class="bg-white border rounded">
                             <h5 class="text-muted text-center pt-2">Trend 3</h5>
                             <div>{{ trend3 | safe }}</div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
-                        <div class="shadow-sm bg-white rounded">
+                        <div class="bg-white border rounded">
                             <h5 class="text-muted text-center pt-2">Trend 4</h5>
                             <div>{{ trend4 | safe }}</div>
                         </div>
@@ -151,15 +154,19 @@
             <div class="container pb-3" id="categories">
                 <div class="row">
                     <div class="col-lg-6 col-sm-12">
-                        <div class="shadow-sm bg-white rounded"> 
+                        <div class="bg-white border rounded py-3">
                             <h3 class="text-muted text-center">Investment Uncertainty (World<sup>**</sup>)</h3>
-                            <div>{{ trendmapreg | safe }}</div>
+                            <div class="plotsizing1">{{ trendmapreg | safe }}</div>
+                            <p class="text-size-small ml-2 mb-0 pb-0">Source: <a href="" class="text-decoration-none">Political Risk Index by Senne & Reinthaler</a></p>
+                            <p class="text-size-small flot-left ml-2">The Graph shows the Percentage change in comparison to the previous month</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-12">
-                        <div class="shadow-sm bg-white rounded"> 
+                        <div class="bg-white border rounded py-3"> 
                             <h3 class="text-muted text-center">Trade Uncertainty (World<sup>**</sup>)</h3>
-                            <div>{{ trendmapsanc | safe }}</div>
+                            <div class="plotsizing1">{{ trendmapsanc  | safe }}</div>
+                            <p class="text-size-small ml-2 mb-0 pb-0">Source: <a href="" class="text-decoration-none">Political Risk Index by Senne & Reinthaler</a></p>
+                            <p class="text-size-small flot-left ml-2">The Graph shows the Percentage change in comparison to the previous month</p>
                         </div>
                     </div>
                 </div>
@@ -169,9 +176,11 @@
 <!--Graph 4-->
             <div class="container pb-3" id="countries">
                 <div class="row justify-content-center">
-                    <div class="col-12 py-3 bg-white shadow-sm rounded">
+                    <div class="col-lg-12 bg-white border rounded py-3">
                         <h3 class="text-muted text-center">Political Uncertainty - A Country Comparison</h3>
-                        <div class="col-lg-12">{{ linegraph | safe }}</div>
+                        <div class="plotsizing2">{{ linegraph | safe }}</div>
+                        <div class="float-left ml-2"><p class="text-size-small">Source: <a href="" class="text-decoration-none">Political Risk Index by Senne & Reinthaler</a><br>*Percentage change in comparison to the previous month</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -205,7 +214,7 @@
 <!--Test-->
             <div class="container pb-3" id="political-sanctions">
                 <div class="row justify-content-center">
-                    <div class="col-lg-10 col-sm-12 py-3 bg-white shadow-sm rounded">
+                    <div class="col-lg-12 col-sm-12 bg-white border rounded py-3">
                         <h3 class="text-muted text-center">Mid-Term Uncertainty Trend (World<sup>**</sup>)</h3>
                         <div>{{ trendmapannual | safe }}</div>
                     </div>
@@ -214,7 +223,7 @@
 <!--Test-->
             <div class="container pb-6" id="political-situation">
                 <div class="row justify-content-center">
-                    <div class="col-lg-10 col-sm-12 py-3 bg-white shadow-sm rounded">
+                    <div class="col-lg-12 col-sm-12 bg-white border rounded py-3">
                         <h3 class="text-muted text-center">Administration Uncertainty (World<sup>**</sup>)</h3>
                         <div>{{ trendmapsitu | safe }}</div>
                     </div>
@@ -222,7 +231,66 @@
             </div>
         </div>
 
-        
-{{ array }}
+<!--Section 4-->
+        <div class="container padding" data-aos="fade-up">
+            <div class="text-center pb-5">
+                <h3>List of countries we monitor and forecast</h3>
+                <hr class="mt-0 mb-0 hr_sizing">
+            </div> 
+            <div class="row">
+                <div class="col-lg-3 col-sm-12">
+                    <h6>Products</h6>
+                    <div class="card card_1">
+                        <div class="card-body">
+                            <ul class="text-muted list-unstyled">
+                                <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="bar-chart"></i><a class="word-hover1 text-decoration-none" href="#worldmap">Risk Analysis</a></li>
+                                <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="pen-tool"></i><a class="word-hover1 text-decoration-none" href="{% url 'blog-blogs' %}" traget="_blank">Expert Blog</a></li>
+                                <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="file-text"></i><a class="word-hover1 text-decoration-none" href="{% url 'blog-coming-soon' %}" traget="_blank">Report</a></li>
+                                <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="mail"></i><a class="word-hover1 text-decoration-none" href="mailto:politicaluncertainty@gmail.com">Contact Us</a></li>
+                                <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="download"></i><a class="word-hover1 text-decoration-none" href="{% url 'blog-archive' %}#downloads" traget="_blank">Download</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-sm-12">
+                    <h6>Countries</h6>
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6">
+                            <ul class="text-muted list-unstyled">
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-main' %}" target="_blank">Africa</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-main' %}" target="_blank">Argentina</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-main' %}" target="_blank">Australia</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-main' %}" target="_blank">Austria</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <ul class="text-muted list-unstyled">
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-main' %}" target="_blank">Africa</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-main' %}" target="_blank">Africa</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-main' %}" target="_blank">Africa</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-main' %}" target="_blank">Africa</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <ul class="text-muted list-unstyled">
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-main' %}" target="_blank">Africa</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-main' %}" target="_blank">Africa</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-main' %}" target="_blank">Africa</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-main' %}" target="_blank">Africa</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <ul class="text-muted list-unstyled">
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-main' %}" target="_blank">Africa</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-main' %}" target="_blank">Africa</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-main' %}" target="_blank">Africa</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-main' %}" target="_blank">Africa</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="{% url 'blog-coming-soon' %}" role="button" class="word-hover2 text-decoration-none">More Countries are coming soon</a>
+                </div>
+            </div>
+        </div>
 
 {% endblock content %}

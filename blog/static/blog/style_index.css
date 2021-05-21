@@ -32,7 +32,43 @@ h1{
 
 .svg_sizing_005{
     height: 50px;
-    weight: 50px;
+    width: 50px;
+}
+/*responsive div for Plotly Charts*/
+@media screen and (max-width: 991px) {
+    .plotsizing {
+        height: 50vh;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .plotsizing {
+        height: 80vh;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .plotsizing1 {
+        height: 40vh;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .plotsizing1 {
+        height: 50vh;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .plotsizing2 {
+        height: 20vh;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .plotsizing2 {
+        height: 60vh;
+    }
 }
 
 .text-size-big{
@@ -53,6 +89,11 @@ h1{
 
 .grey{
     color: #bfbfbf;
+}
+
+/*color for the new background selecten*/
+.bg-new{
+    background-color:rgb(255, 247, 246);
 }
 
 /*hover: if you go over, it changes the color; color doesn't change!!!!*/
@@ -319,6 +360,19 @@ h1{
     height:80vh;
     opacity:0.7;
 }
+
+.backgroundimg15{
+    background: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/city_10.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
+    background-position:center;
+    background-attachment: center;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height:50vh;
+    opacity:0.9;
+}
+
+
 
 
 div.card_4,

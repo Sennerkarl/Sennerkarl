@@ -241,21 +241,13 @@ class DataView(ListView):
 
         figsitu.update_layout(
                         template='plotly',
-                        autosize=True,
-                        height=600,
+                        autosize=True, 
+                        margin=dict(l=0, r=0, b=10, t=10), 
                         geo=dict(
                             showframe=False,
                             showcoastlines=False,
                             projection_type='equirectangular'
                         ),
-                        annotations = [dict(
-                            x=0.55,
-                            y=0.1,
-                            xref='paper',
-                            yref='paper',
-                            text='Source: <a href="">Google Trend Analysis by Senne & Reinthaler</a>',
-                            showarrow = False
-                        )]
                     )
 
         #build trendmap annually
@@ -284,22 +276,13 @@ class DataView(ListView):
 
         figannual.update_layout(
                         template='plotly',
-                        autosize=True,
-                        height=600,
-                        margin={"r":0,"t":0,"l":0,"b":0},
+                        autosize=True, #responsive
+                        margin=dict(l=0, r=0, b=10, t=10), #sizing
                         geo=dict(
                             showframe=False,
                             showcoastlines=False,
-                            projection_type='equirectangular'
+                            projection_type='equirectangular',
                         ),
-                        annotations = [dict(
-                            x=0.55,
-                            y=0.1,
-                            xref='paper',
-                            yref='paper',
-                            text='Source: <a href="">Google Trend Analysis by Senne & Reinthaler</a>',
-                            showarrow = False
-                        )]
                     )
 
         fig3 = go.Figure(go.Indicator(
@@ -311,7 +294,11 @@ class DataView(ListView):
 
 
         fig = go.Figure()
-        fig.update_layout(height=400, template='plotly_white')
+        fig.update_layout(
+                        template='plotly_white',
+                        autosize=True,
+                        margin=dict(l=0, r=0, b=40, t=10),
+                        )
 
         x = [date.strftime('%Y-%m-%d') for date in Data.objects.values_list('date', flat=True).distinct()]
 
@@ -385,11 +372,13 @@ class DataDetailView(ListView):
 
             fig6.update_layout(
                             template='plotly',
-                            autosize=True, 
+                            autosize=True,
+                            margin=dict(l=0, r=0, b=20, t=0), 
+                            geo_scope="south america", #per country
                             geo=dict(
                                 showframe=False,
                                 showcoastlines=False,
-                                projection_type='equirectangular'
+                                projection_type='equirectangular',
                             ),
                             annotations = [dict(
                                 x=0.55,
