@@ -373,8 +373,6 @@ h1{
 }
 
 
-
-
 div.card_4,
 div.card_5,
 div.card_6,
@@ -388,6 +386,10 @@ div.card_7{
     padding-bottom: 8%;
 }
 
+.padding_data-detail{
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
 /*Sizing of SVG's*/
 .svgsizing {
     width: 45%;
@@ -605,6 +607,11 @@ footer a {
   .backgroundimg-blog{
     background-size: 100%!important;
     height:30vh;
+}
+
+.backgroundimg-data-detail{
+    background-size: 100%!important;
+    height:15vh;
 }
 
 .blog-image{
