@@ -4,6 +4,8 @@
 {% block content %}
 
 <!--Introduction and menu-->
+
+
         <div class="container-fluid text-center pt-6 pb-2">
             <div class="row align-items-center">
                 <div class="col-lg-9">
@@ -86,6 +88,36 @@
                 </div>
             </div>
 
+            <script>
+                .then(gd => {
+                    gd.on('plotly_click', d => {
+                        var pt = (d.points || [])[0]
+                        
+                        switch(pt.location) {
+                        case 'CAN':
+                            console.log('you clicked on CAN')
+                            window.open('https://www.google.com');
+                            break
+                        case 'USA':
+                            console.log('you clicked on USA')
+                            window.open('https://www.google.com');
+                            break
+                        }           
+                    })
+                })
+            </script>
+            
+            <script>
+                var plot_element = document.getElementById("{div_id}");
+                plot_element.on('plotly_click', function(data){{
+                    console.log(data);
+                    var point = data.points[0];
+                    if (point) {{
+                        console.log(point.customdata);
+                        window.open(point.customdata);
+                    }}
+                }})
+            </script>            
 
 <!--Graph 2-->
             <div class="container pb-3" id="trend" >
