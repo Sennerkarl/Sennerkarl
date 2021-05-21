@@ -1,3 +1,4 @@
+import webbrowser
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.urls.base import reverse
@@ -8,7 +9,8 @@ import plotly.graph_objects as go
 import plotly.io as pio
 from .models import Data, SBPRI, WorldBorder
 import pandas as pd
-import webbrowser
+import re
+import wbgapi as wb
 
 class DataView(ListView):
     template_name = 'data/data.html'
@@ -50,7 +52,9 @@ class DataView(ListView):
                             showscale = False,
                             zmin = -30,
                             zmax = 30,
+                            customdata = ['https://google.com']
                         ))
+
 
         figmonth.update_layout(
                         template='plotly',
@@ -66,10 +70,67 @@ class DataView(ListView):
                             y=0.1,
                             xref='paper',
                             yref='paper',
-                            text='Source: <a href="">Google Trend Analysis</a>',
+                            text='Source: <a href="">"GG"</a>',
                             showarrow = False
                         )]
                     )
+
+        trendmapmonth =  plot(figmonth, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+        context['trendmapmonth'] = trendmapmonth
+
+
+        # # Get id of html div element that looks like
+        # # <div id="301d22ab-bfba-4621-8f5d-dc4fd855bb33" ... >
+        # res = re.search('<div id="([^"]*)"', trendmapmonth)
+        # div_id = res.groups()[0]
+
+        # # Build JavaScript callback for handling clicks
+        # # and opening the URL in the trace's customdata 
+        # js_callback = """
+        # <script>
+        # .then(gd => {
+        #     gd.on('plotly_click', d => {
+        #         var pt = (d.points || [])[0]
+                
+        #         switch(pt.location) {
+        #         case 'CAN':
+        #             console.log('you clicked on CAN')
+        #             window.open('https://www.google.com');
+        #             break
+        #         case 'USA':
+        #             console.log('you clicked on USA')
+        #             window.open('https://www.google.com');
+        #             break
+        #         }           
+        #     })
+        # })
+        # </script>
+        # """
+
+        # context['array'] = js_callback
+
+        # # Build HTML string
+        # html_str = """
+        # <html>
+        # <body>
+        # {plot_div}
+        # {js_callback}
+        # </body>
+        # </html>
+        # """.format(plot_div=trendmapmonth, js_callback=js_callback)
+
+        # # Write out HTML file
+        # with open('hyperlink_fig.html', 'w') as f:
+        #     f.write(html_str)
+
+        
+
+        # add clickable countrie  
+        # https://community.plotly.com/t/hyperlink-to-markers-on-map/17858/10
+        # https://stackoverflow.com/questions/25148462/open-a-url-by-clicking-a-data-point-in-plotly
+        # https://community.plotly.com/t/click-events-in-maps/7783
+        # https://community.plotly.com/t/url-in-choropleth-map/6686
+        
 
         #trenmap political regulation
         figreg = go.Figure()
@@ -218,12 +279,14 @@ class DataView(ListView):
                             showscale = False,
                             zmin = -30,
                             zmax = 30,
+
                         ))
 
         figannual.update_layout(
                         template='plotly',
                         autosize=True,
                         height=600,
+                        margin={"r":0,"t":0,"l":0,"b":0},
                         geo=dict(
                             showframe=False,
                             showcoastlines=False,
@@ -254,9 +317,9 @@ class DataView(ListView):
 
         for cty in countries:
             if cty in ['Argentina', 'Austria', 'India']:
-                fig.add_trace(go.Scatter(x=x, y=list(Data.objects.filter(country=cty, category=category).values_list('value', flat=True)), name=cty, opacity=0.8))
+                fig.add_trace(go.Scatter(x=x, y=list(Data.objects.filter(country=cty, category='SBPRI').values_list('value', flat=True)), name=cty, opacity=0.8))
             else:
-                fig.add_trace(go.Scatter(x=x, y=list(Data.objects.filter(country=cty, category=category).values_list('value', flat=True)), name=cty, opacity=0.8, visible = "legendonly" ))
+                fig.add_trace(go.Scatter(x=x, y=list(Data.objects.filter(country=cty, category='SBPRI').values_list('value', flat=True)), name=cty, opacity=0.8, visible = "legendonly" ))
         
 
         linegraph = plot(fig, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
@@ -277,11 +340,10 @@ class DataView(ListView):
         trendmapannual =  plot(figannual, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
         context['trendmapannual'] = trendmapannual
 
-        trendmapmonth =  plot(figmonth, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
-        context['trendmapmonth'] = trendmapmonth
+        
 
         #testing
-        context['array'] = SBPRI.objects.values_list('date', flat=True).get(id=1)
+        
         
         return context
 
@@ -340,5 +402,27 @@ class DataDetailView(ListView):
                         )
             worldmap = plot(fig6, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
             context['worldmap'] = worldmap
+
+
+        
+        qs = WorldBorder.objects.filter(name=country) #queryset of country row
+        iso = qs.values('iso3')
+        iso3 = iso[0]['iso3']
+        df = wb.data.DataFrame(['SP.POP.TOTL', 'CM.MKT.TRAD.CD', 'CM.MKT.TRAD.GD.ZS', 'NY.GDP.PCAP.KD', 'NY.GDP.MKTP.KD.ZG', 'NE.EXP.GNFS.KD', 'NE.IMP.GNFS.KD', 'BX.KLT.DINV.CD.WD', 'NY.GDP.MKTP.CD'], iso3 , mrnev=1)
+        df.rename(columns={'CM.MKT.TRAD.CD':'VolumeStocksTraded', 'CM.MKT.TRAD.GD.ZS':'Stocks/GDP', 'NE.EXP.GNFS.KD':'ExportVolume',
+         'NE.IMP.GNFS.KD':'ImportVolume','NY.GDP.PCAP.KD':'GDPPC', 'NY.GDP.MKTP.KD.ZG':'Growth',
+          'BX.KLT.DINV.CD.WD':'FDI', 'NY.GDP.MKTP.CD':'GDP', 'SP.POP.TOTL':'Population'}, inplace=True)
+
+        context['FDI'] = format(df['FDI'][iso3]/10**6, ',.0f')
+        context['GDP'] = format(df['GDP'][iso3]/10**9, ',.2f')
+        context['GDPPC'] = format(df['GDPPC'][iso3], ',.0f') 
+        context['Growth'] = format(df['Growth'][iso3]*100, ',.1f')
+        context['VolumeStocksTraded'] = format(df['VolumeStocksTraded'][iso3]/10**9, ',.2f') 
+        context['Stocks/GDP'] = format(df['Stocks/GDP'][iso3]*100, ',.1f')
+        context['ExportVolume'] = format(df['ExportVolume'][iso3]/10**9, ',.2f')
+        context['ImportVolume'] = format(df['ImportVolume'][iso3]/10**9, ',.2f')
+        context['Population'] = format(df['Population'][iso3]/10**6, ',.0f')
+        
+
 
         return context
