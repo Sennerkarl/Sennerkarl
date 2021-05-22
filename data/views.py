@@ -71,61 +71,21 @@ class DataView(ListView):
         trendmapmonth =  plot(figmonth, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
         context['trendmapmonth'] = trendmapmonth
 
+        # Trends Diverging Deltas
+        def trends(date1, date2):
+            dates = list(Data.objects.order_by('-date').values_list('date', flat=True).distinct()[date1:date2])
+            diff = []
+            for country in countries:
+                diff += [format(((Data.objects.filter(country=country, date=dates[0], category=category).values_list('value', flat=True)[0] / Data.objects.filter(country=country, date=dates[-1], category=category).values_list('value', flat=True)[0] - 1)*100), '.2f')]
+            diff2 = [float(x) for x in diff] # convert strings in list to float
+            trenddata = dict(zip(countries, diff2))
+            trending = list(dict(sorted(trenddata.items(), key=lambda item: item[1])).items()) # sort values in dict
+            return trending
 
-        # # Get id of html div element that looks like
-        # # <div id="301d22ab-bfba-4621-8f5d-dc4fd855bb33" ... >
-        # res = re.search('<div id="([^"]*)"', trendmapmonth)
-        # div_id = res.groups()[0]
+        context['trendingmonth'] = trends(0,2)
+        context['trendingannual'] = trends(0,13)
 
-        # # Build JavaScript callback for handling clicks
-        # # and opening the URL in the trace's customdata 
-        # js_callback = """
-        # <script>
-        # .then(gd => {
-        #     gd.on('plotly_click', d => {
-        #         var pt = (d.points || [])[0]
-                
-        #         switch(pt.location) {
-        #         case 'CAN':
-        #             console.log('you clicked on CAN')
-        #             window.open('https://www.google.com');
-        #             break
-        #         case 'USA':
-        #             console.log('you clicked on USA')
-        #             window.open('https://www.google.com');
-        #             break
-        #         }           
-        #     })
-        # })
-        # </script>
-        # """
-
-        # context['array'] = js_callback
-
-        # # Build HTML string
-        # html_str = """
-        # <html>
-        # <body>
-        # {plot_div}
-        # {js_callback}
-        # </body>
-        # </html>
-        # """.format(plot_div=trendmapmonth, js_callback=js_callback)
-
-        # # Write out HTML file
-        # with open('hyperlink_fig.html', 'w') as f:
-        #     f.write(html_str)
-
-        
-
-        # add clickable countrie  
-        # https://community.plotly.com/t/hyperlink-to-markers-on-map/17858/10
-        # https://stackoverflow.com/questions/25148462/open-a-url-by-clicking-a-data-point-in-plotly
-        # https://community.plotly.com/t/click-events-in-maps/7783
-        # https://community.plotly.com/t/url-in-choropleth-map/6686
-        
-
-        #trenmap political regulation
+        #trendmap political regulation
         figreg = go.Figure()
         category = 'Regulation'
         dates = list(Data.objects.order_by('-date').values_list('date', flat=True).distinct()[0:2])
@@ -155,16 +115,8 @@ class DataView(ListView):
                         geo=dict(
                             showframe=False,
                             showcoastlines=False,
-                            projection_type='equirectangular'
+                            projection_type='orthographic'
                         ),
-                        annotations = [dict(
-                            x=0.55,
-                            y=0.1,
-                            xref='paper',
-                            yref='paper',
-                            text='Source: <a href="">Google Trend Analysis</a>',
-                            showarrow = False
-                        )]
                     )
 
         #trenmap political sanctions
@@ -197,16 +149,8 @@ class DataView(ListView):
                         geo=dict(
                             showframe=False,
                             showcoastlines=False,
-                            projection_type='equirectangular'
+                            projection_type='orthographic'
                         ),
-                        annotations = [dict(
-                            x=0.55,
-                            y=0.1,
-                            xref='paper',
-                            yref='paper',
-                            text='Source: <a href="">Google Trend Analysis</a>',
-                            showarrow = False
-                        )]
                     )
 
         #trenmap political situation
@@ -293,13 +237,13 @@ class DataView(ListView):
                         margin=dict(l=0, r=0, b=40, t=10),
                         )
 
-        x = [date.strftime('%Y-%m-%d') for date in Data.objects.values_list('date', flat=True).distinct()]
+        x = [date.strftime('%Y-%m-%d') for date in Data.objects.values_list('date', flat=True).distinct().order_by('date')]
 
         for cty in countries:
             if cty in ['Argentina', 'Austria', 'India']:
-                fig.add_trace(go.Scatter(x=x, y=list(Data.objects.filter(country=cty, category='SBPRI').values_list('value', flat=True)), name=cty, opacity=0.8))
+                fig.add_trace(go.Scatter(x=x, y=list(Data.objects.filter(country=cty, category='SBPRI').order_by('date').values_list('value', flat=True)), name=cty, opacity=0.8))
             else:
-                fig.add_trace(go.Scatter(x=x, y=list(Data.objects.filter(country=cty, category='SBPRI').values_list('value', flat=True)), name=cty, opacity=0.8, visible = "legendonly" ))
+                fig.add_trace(go.Scatter(x=x, y=list(Data.objects.filter(country=cty, category='SBPRI').order_by('date').values_list('value', flat=True)), name=cty, opacity=0.8, visible = "legendonly" ))
         
 
         linegraph = plot(fig, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
@@ -349,17 +293,22 @@ class DataDetailView(ListView):
         iso = qs.values('iso3')
         iso3 = iso[0]['iso3']
         
-        
-        fig6 = go.Figure()
+        # Uncertainty Country Monthly and Anually 
+        figctry = go.Figure()
         category = "SBPRI"
         dates = list(Data.objects.order_by('-date').values_list('date', flat=True).distinct()[0:2])
         diff = [str((Data.objects.filter(country=country, date=dates[0], category=category).values_list('value', flat=True)[0] / Data.objects.filter(country=country, date=dates[-1], category=category).values_list('value', flat=True)[0] - 1)*100)]
-        fig6.add_trace(go.Choropleth(
+        dates2 = list(Data.objects.order_by('-date').values_list('date', flat=True).distinct()[0:12])
+        diff2 = [str((Data.objects.filter(country=country, date=dates2[0], category=category).values_list('value', flat=True)[0] / Data.objects.filter(country=country, date=dates2[-1], category=category).values_list('value', flat=True)[0] - 1)*100)]
+
+        
+        figctry.add_trace(go.Choropleth(
                             locations = [iso3], #borders to use
                             z = diff, #data with clever mapping function to get the data 
                             text = country, #text when hovering
-                            autocolorscale=True,
+                            colorscale='agsunset',
                             reversescale=True,
+                            showscale = False,
                             marker_line_color='darkgray',
                             marker_line_width=0.5,
                             colorbar_tickprefix = '',
@@ -367,28 +316,57 @@ class DataDetailView(ListView):
                             zmin = -30,
                             zmax = 30,
                         ))
+        
+        button1 =  dict(method = "restyle",
+                args = [{'z': [diff] }],
+                label = "Monthly Trend")
+        button2 =  dict(method = "restyle",
+                args = [{'z': [diff2]}],
+                label = "Annual Trend")
+        
 
-        fig6.update_layout(
+        figctry.update_layout(
                         template='plotly',
                         autosize=True,
                         margin=dict(l=0, r=0, b=20, t=0), 
                         geo_scope=qs.values_list('continent', flat=True)[0], #per country
+                        updatemenus=[dict(y=0.9,
+                                    x=0.175,
+                                    xanchor='right',
+                                    yanchor='top',
+                                    active=0,
+                                    buttons=[button1, button2])
+                              ], 
                         geo=dict(
                             showframe=False,
                             showcoastlines=False,
                             projection_type='equirectangular',
                         ),
-                        annotations = [dict(
-                            x=0.55,
-                            y=0.1,
-                            xref='paper',
-                            yref='paper',
-                            text='Source: <a href="">Google Trend Analysis by Senne & Reinthaler</a>',
-                            showarrow = False
-                        )]
                     )
-        worldmap = plot(fig6, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+
+        worldmap = plot(figctry, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
         context['worldmap'] = worldmap
+
+        # Country Line Graph compared to all? or maybe just continent
+        countries = sorted(list(Data.objects.values_list('country', flat=True).distinct())) # get country list from database
+        datetimeline = [date.strftime('%Y-%m-%d') for date in Data.objects.values_list('date', flat=True).distinct().order_by('date')]
+
+        figline = go.Figure()
+        figline.update_layout(
+                        template='plotly_white',
+                        autosize=True,
+                        margin=dict(l=0, r=0, b=40, t=10),
+                        )
+
+        
+        figline.add_trace(go.Scatter(x=datetimeline, y=list(Data.objects.filter(country=country, category='SBPRI').order_by('date').values_list('value', flat=True)), name='Political Uncertainty', opacity=0.8))
+        figline.add_trace(go.Scatter(x=datetimeline, y=list(Data.objects.filter(country=country, category='Regulation').order_by('date').values_list('value', flat=True)), name='Investment Uncertainty', opacity=0.4))
+        figline.add_trace(go.Scatter(x=datetimeline, y=list(Data.objects.filter(country=country, category='Sanctions').order_by('date').values_list('value', flat=True)), name='Trade Uncertainty', opacity=0.4 ))
+        figline.add_trace(go.Scatter(x=datetimeline, y=list(Data.objects.filter(country=country, category='Situation').order_by('date').values_list('value', flat=True)), name='Administration Uncertainty', opacity=0.4, visible = "legendonly" ))
+
+        linegraph = plot(figline, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+        context['linegraph'] = linegraph
+        context['countries'] = countries
 
         #WorldbankData for Country
         df = wb.data.DataFrame(['SP.POP.TOTL', 'CM.MKT.TRAD.CD', 'CM.MKT.TRAD.GD.ZS', 'NY.GDP.PCAP.KD', 'NY.GDP.MKTP.KD.ZG', 'NE.EXP.GNFS.KD', 'NE.IMP.GNFS.KD', 'BX.KLT.DINV.CD.WD', 'NY.GDP.MKTP.CD'], iso3 , mrnev=1)
