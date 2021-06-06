@@ -172,6 +172,12 @@ def archive(request):
 def impressum(request):
     return render(request, 'blog/impressum.html', {'title': 'Impressum'})
 
+def disclaimer(request):
+    return render(request, 'blog/disclaimer.html', {'title': 'Disclaimer'})
+
+def dataprivacy(request):
+    return render(request, 'blog/data-privacy.html', {'title': 'Data-Privacy'})
+
 def comingsoon(request):
     return render(request, 'blog/coming-soon.html', {'title': 'Coming-Soon'})
 

@@ -24,8 +24,73 @@
                 </div>
             </div>
         </div>
+
+<!--Section 1 Our Services-->
+        <div class="container padding">
+            <div data-aos="fade-up">
+                <div class="pb-4">
+                    <h3 class="text-center">Our Services</h3>
+                    <p class="text-muted text-center">Political risks are on the rise - Let's overcome them</p>
+                    <hr class="mt-0 mb-0 hr_sizing pb-4">
+                    <p class="mb-0 mt-0 text-justify text-muted">
+                        <!--We want to provide you with the best possible political risk tools to monitor and forecast political risk for your business.
+                        Since, we think information is the key element to prevent/reduce political risks and uncertainties, we want to not only provide political risk tools but also many different services to help you overcome political risk.
+                        Therefore, we also provide you with a variety of information in form of a blog and quarterly reports. 
+                        Our blog entries are always about poltical risk topics, which could be from great relevance for your business.
+                        Also our quarterly reports dealing with the most relevant information for the specific topic.<sub>*</sub>-->
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12 text-center pt-2 d-flex">
+                        <div class="card rounded-0"> <!--dadurch sind die gerundeten Kanten weg-->
+                            <div class="card-body flex-fill">
+                                <div class="pt-2 pb-3">
+                                    <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/analysis_02.png">
+                                </div>
+                                <h4 class="card-title pt-3 pb-1">Political Risk Analysis</h4>
+                                <p class="card-text text-muted pb-5">Experience our Political Risk Analysis and Trend Analysis</p>
+                                <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="{% url 'data-main' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="bar-chart"></i>Data</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 text-center pt-2 d-flex">
+                        <div class="card rounded-0">
+                            <div class="card-body flex-fill">
+                                <div class="pt-2 pb-1">
+                                    <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_13.png">
+                                </div>
+                                <h4 class="card-title pt-4 pb-1">Political Risk Expertise</h4>
+                                <p class="card-text text-muted pb-5">Get further strategic insights on uncertainty and risk</p>
+                                <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="{% url 'blog-blogs' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="pen-tool"></i>Blog</a>
+                                <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom mt-2" href="{% url 'blog-coming-soon' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="file-text"></i>Reports</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 text-center pt-2 d-flex">
+                        <div class="card rounded-0">
+                            <div class="card-body flex-fill">
+                                <div class="pt-2 pb-1">
+                                    <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/trend_01.png">
+                                </div>
+                                <h4 class="card-title pt-4 pb-1">Specified Trend Analysis</h4>
+                                <p class="card-text text-muted pb-5">Stay up-to-date on your relevant business risks</p>
+                                <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="{% url 'blog-coming-soon' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="loader"></i>coming soon</a>
+                            </div>
+                            <!--<img class="card-img-bottom imgblack" src="img/trade_01.jpg" alt="Card image">--> <!--falls wir hier doch Bilder haben wollen-->
+                        </div>
+                    </div>
+                    <div class="pt-2 pl-3">
+                        <cite class="text-muted fs-small text-justify"><sup>*</sup>The following services are currently not available: Quarterly Reports, Political Risk Portfolios, Forecasting Tools and the Profile Function.</cite>
+                    </div>
+                    <div class="col-lg-12 pt-4 d-flex justify-content-center">
+                        <a href="#politicalrisktools" role="button" class="word-hover1 text-decoration-none">View All Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
             
 <!--Section 2 Keymessages-->
+<!-- Falls doch nochmal die erste Section irgendwo eingefügt werden soll
 <div class="container padding">
     <div class="text-center pb-5" data-aos="fade-up" data-aos-offset="200">
         <h3>Political Risks Are On The Rise</h3>
@@ -53,7 +118,6 @@
                     <a href="{% url 'data-main' %}" role="button" class="card-title service_button stretched-link text-decoration-none"><h4>Engage</h4></a>
                     <p class="card-text text-muted">risks with the monitoring and forecasting possibilities for the short and long term</p>
                 </div>
-                <!--<img class="card-img-bottom imgblack" src="img/trade_01.jpg" alt="Card image">--> <!--falls wir hier doch Bilder haben wollen-->
             </div>
         </div>
         <div class="col-lg-4 col-sm-12 text-center pt-2 d-flex" data-aos="fade-up" data-aos-offset="200">
@@ -69,10 +133,10 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
             
-<!--Section 3 - Our Services-->
+<!--Section 3 - Our Services
 <div class="bg-light">
     <div class="container padding">
         <div data-aos="fade-up" data-aos-offset="200">
@@ -91,7 +155,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-12 text-center pt-2 pl-0 pr-0 d-flex">
-                    <div class="card rounded-0 card-border shadow-sm"> <!--dadurch sind die gerundeten Kanten weg-->
+                    <div class="card rounded-0 card-border shadow-sm">
                         <div class="card-body flex-fill">
                             <div class="pt-2 pb-1">
                                 <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/analysis_01.png">
@@ -112,7 +176,6 @@
                         </div>
                     </div>
                 </div>
-    <!--Pop-up für Kontakt Formular-->
                 <div class="col-lg-3 col-sm-12 text-center pt-2 pl-0 pr-0 d-flex">
                     <div class="card rounded-0 card-border card-border-color2 shadow-sm">
                         <div class="card-body flex-fill">
@@ -122,7 +185,6 @@
                             <a href="{% url 'blog-coming-soon' %}" role="button" class="card-title service_button stretched-link text-decoration-none"><h4>Quarterly Reports</h4></a>
                             <p class="card-text text-muted">Stay up-to-date on your relevant business risks</p>
                         </div>
-                        <!--<img class="card-img-bottom imgblack" src="img/trade_01.jpg" alt="Card image">--> <!--falls wir hier doch Bilder haben wollen-->
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-12 text-center pt-2 pl-0 pr-0 d-flex">
@@ -134,7 +196,6 @@
                             <a href="{% url 'blog-coming-soon' %}" role="button" class="card-title service_button text-decoration-none stretched-link"><h4>Trend Analysis</h4></a>
                             <p class="card-text text-muted">Experience our specified Trend Analysis</p>
                         </div>
-                        <!--<img class="card-img-bottom imgblack" src="img/trade_01.jpg" alt="Card image">--> <!--falls wir hier doch Bilder haben wollen-->
                     </div>
                 </div>
                 <div class="col-lg-12 pt-4 d-flex justify-content-center">
@@ -143,28 +204,30 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
     
 <!--Section 4 Unique Political Risk Index-->
-<div class="container padding">
-    <div class="row d-flex align-items-center">
-        <div class="col-lg-5 col-md-12" data-aos="fade-right" data-aos-offset="260">
-            <h3>The Novel Political Risk Perspective</h3>
-            <h6 class="pt-3">The Genius of the Population</h6>
-            <p class="text-muted">Who is more confronted with country risks than the population? Their collective knowledge is the key data source for our political risk measures.</p>
-            <h6 class="pt-1">Google&trade; Search Requests</h6>
-            <p class="text-muted">Google Trend&trade; data has insights on how the population perceive risks. We extract this information enabling the genius of the collective to measure our unique political risk.<sup>*</sup><br>
-                <a href="#understandpoliticalrisk" role="button" class="word-hover1 text-decoration-none">learn more</a></p>
-            <div>
-                <p class="text-muted fs-small"><sup>*</sup>Our data represents a relevant proportion of the population</p>
+<div class="bg-light">
+    <div class="container padding">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-5 col-md-12" data-aos="fade-right" data-aos-offset="260">
+                <h3>The Novel Political Risk Perspective</h3>
+                <h6 class="pt-3">The Genius of the Population</h6>
+                <p class="text-muted">Who is more confronted with country risks than the population? Their collective knowledge is the key data source for our political risk measures.</p>
+                <h6 class="pt-1">Google&trade; Search Requests</h6>
+                <p class="text-muted">Google Trend&trade; data has insights on how the population perceive risks. We extract this information enabling the genius of the collective to measure our unique political risk.<sup>*</sup><br>
+                    <a href="#understandpoliticalrisk" role="button" class="word-hover1 text-decoration-none">learn more</a></p>
+                <div>
+                    <p class="text-muted fs-small"><sup>*</sup>Our data represents a relevant proportion of the population</p>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-12 text-center" data-aos="fade-left" data-aos-offset="270">
+                <img class="image-fluid w-75 float-sm-none float-md-none float-lg-right" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/new-isometric_04.png" alt="">
             </div>
         </div>
-        <div class="col-lg-7 col-md-12 text-center" data-aos="fade-left" data-aos-offset="270">
-            <img class="image-fluid w-75 float-sm-none float-md-none float-lg-right" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/new-isometric_04.png" alt="">
-        </div>
-    </div>
-</div>  
+    </div>  
+</div>
 
 <!--Section 7 BREAK-->
 <div class="container-fluid backgroundimg13 position-relative d-flex align-items-center justify-content-center"> <!--nur so ist es möglich, dass der Content auch gecentert ist!-->
@@ -190,7 +253,7 @@
             <h6 class="pt-3">“The biggest mistake is believing the future will look like the present. It almost never does.” - <a target="_blank" class="service_button text-decoration-none" href="https://www.forbes.com/profile/j-tomilson-hill/?sh=76f88d2e4bb4"> J. Tomilson Hill</a></h6>
             <p class="text-muted">In a business and scientific context political risk is seen as the influence political change by any political actor may have on investments.</p>
             
-            <a href="#politicalrisktools" class="word-hover1 text-decoration-none">learn more</a>
+            <a href="{% url 'blog-political-risk' %}" class="word-hover1 text-decoration-none">learn more</a>
         </div>
         <div class="col-lg-7 col-md-12 text-center" data-aos="fade-left" data-aos-offset="300">
             <img class="image-fluid w-75 float-sm-none float-md-none float-lg-right" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/information-isometric_02.png" alt="#">
@@ -423,73 +486,151 @@
     </div>  
 </div>
 
+
+
+<!--Section 12 Methodology - könnte wieder eingeführt werden, aber passt momentan nicht dazu
+    <div class="bg-light">  
+        <div class="container bg-light padding">  
+            <div class="pb-5 text-center">
+                <h3>Methodology</h3>
+                <hr class="mt-0 mb-0 hr_sizing">
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-sm-12">
+                    <div class="pr-2">
+                        <h3>Unique measuring</h3>
+                        <p>how is it done?</p>
+                        <div class="d-flex justify-content-between align-items-center my-2">
+                            <ul>
+                                <li class="text-muted">Political risk of each country is linked to Google Searches</li>
+                                <li class="text-muted">Google Searches show uncertainty in a country</li>
+                                <li class="text-muted">Wordlisting is very important to create index</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12 p-0 m-0">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img class="w-75" src="svg/unique_02.png" alt="Responsive image">
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-xs-12 p-0 m-0">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img class="w-75" src="svg/implement_01.png" alt="Responsive image">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-12">
+                    <div class="text-justify pt-3 pl-2 pr-1">
+                        <h3>Easy to implement</h3>
+                        <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum sit porro fuga tempore eos quod dolores, consequuntur, alias debitis sapiente expedita, sunt temporibus! Quod asperiores soluta sint corrupti veniam eveniet.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-xs-12">
+                    <div class="text-justify pt-3 pr-2">
+                        <h3>Changeable</h3>
+                        <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum sit porro fuga tempore eos quod dolores, consequuntur, alias debitis sapiente expedita, sunt temporibus! Quod asperiores soluta sint corrupti veniam eveniet.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12 p-0 m-0">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img class="w-75" src="svg/changeable_02.png" alt="Responsive image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>--> 
+
+
+<!--Section 15 BREAK-->
+<div class="container-fluid backgroundimg4 position-relative d-flex align-items-center justify-content-center"> <!--nur so ist es möglich, dass der Content auch gecentert ist!-->
+    <div class="row d-flex justify-content-center" data-aos="zoom-in">
+        <div class="col-md-12 text-center text-white">
+            <h1 class="align-middle">Construction of our Political Risk Tools</h1>
+            <h5 class="pt-1">We want to redefine the approach of measuring, customizing, monitoring and forecasting Political Risks and Uncertainties</h5>
+            <h5>Our approach is to measure political risk with the power of the population and not experts</h5>
+        </div>
+    </div>
+</div>
+
+       
+<!--Section 17 - Understand the new approach-->
+
+<div class="container pt-5 pb-5"> <!--mit container fluid schaut es auf dem kleinen bildschirm feiner aus, aber auf dem großen nicht mehr!!!-->
+    <div class="pb-6 text-center" data-aos="fade-up">
+        <h2>Overview Of The New Approach</h2>
+        <p class="text-muted">Our goal is to gain new insights on political risk. Our tools seek to understand the view of the population.
+            Research has shown a strong link between political risk and our evaluations.</p>
+        <hr class="hr_sizing">
+    </div>
+    <div class="row d-felx align-items-center">
+        <div class="col-lg-8 col-md-12 text-center"  data-aos="fade-right" data-aos-offset="180">
+            <h4>Modern measuring technique</h4> 
+            <p class="pt-2 text-muted text-justify">By utilizing Google data in a new way we are able to create specific and up-to-date political risk evaluations. 
+                We use modern algorithms and key words to extract the relevant data points for each region. 
+                This method also enables industry or company specific adaptations. 
+                For more information download our white paper.
+            </p>
+        </div>
+        <div class="col-lg-4 col-md-12 text-center" data-aos="fade-left" data-aos-offset="200">
+            <img class="img-fluid w-75 float-sm-none float-md-none float-lg-right" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/unique_02.png" alt="Card image">
+        </div>
+    </div>
+</div>  
+<div class="bg-light">
+    <div class="container pt-5 pb-5"> <!--mit container fluid schaut es auf dem kleinen bildschirm feiner aus, aber auf dem großen nicht mehr!!!-->
+        <div class="row d-felx align-items-center">
+            <div class="col-lg-4 col-md-12 text-center" data-aos="fade-right" data-aos-offset="200">
+                <img class="img-fluid w-75 float-sm-none float-md-none float-lg-left" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/implement_01.png" alt="Card image">
+            </div>
+            <div class="col-lg-8 col-md-12 text-justify" data-aos="fade-left" data-aos-offset="180">
+                <h4>Validation of our methods</h4>
+                <p class="pt-2 text-muted">We validated our data based on scientific standards. 
+                    Event studies and regression techniques were used to validate the data and test our main hypotheses. 
+                    The outcome of our research all pointed to a strong link between our data and political risk in the evaluated countries.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Section 16 Understand the SBPRI-->
+<div class="container padding" id="understandpoliticalrisk"> <!--mit container fluid schaut es auf dem kleinen bildschirm feiner aus, aber auf dem großen nicht mehr!!!-->
+    <div data-aos="fade-up">
+        <div class="text-center pb-5">
+            <h3>Understand the Basics of our Political Risk Measurement</h3>
+            <hr class="mt-0 mb-0 hr_sizing">
+        </div> 
+        <div class="row d-felx align-items-center pb-4">
+            <div class="col-lg-8 col-md-12 text-center">
+                <p class="text-justify text-muted">In the past years a few methods have established. 
+                    Primarily there are expert-based, news-based and data-based political risk measurements. 
+                    Since many of these political risk measures often rely on different parameters, like experts or newspaper authors, we wanted to find a different approach for measuring political risk.
+                    Our political risk index is search-based, which means that the data is collected via search requests made the global population on one of the biggest search enginges Google&trade;. 
+                    That means our poltical risk index does not rely on the opinion of experts or journalists, but relies on the felt uncertainty of the population in a country.
+                    If you want to learn more about the creation of our political risk tools, you can download our white paper with the link below.
+                </p>
+                <div class="d-flex justify-content-start pt-2"><!--mit dem "download" Attribut wird es direkt runtergeladen, ohne kann es zuerst angeschaut werden-->
+                    <a href="test_white paper.pdf" download="text_white paper.pdf" role="button" class="word-hover1 text-decoration-none">Download White Paper</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 text-center">
+                <img class="img-fluid w-75 float-sm-none float-md-none float-lg-right" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/understand_03.png" alt="Card image">
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--Section 11 BREAK-->
 <div class="container-fluid backgroundimg3 position-relative d-flex align-items-center justify-content-center"> <!--nur so ist es möglich, dass der Content auch gecentert ist!-->
     <div class="row d-flex justify-content-center" data-aos="zoom-in">
         <div class="col-md-12 text-center text-white">
             <h1 class="align-middle pb-2">Our Service Spectrum</h1>
             <h5>We want to provide you with a variety of political risk tools created with a newly approach of measuring uncertainties and risks</h5>
-            <h5>Since, we are just in the beginning, not all of the data is available </h5>
-        </div>
-    </div>
-</div>
-
-<!--Section 12 Our Services-->
-<div class="container padding">
-    <div data-aos="fade-up">
-        <div class="pb-4">
-            <h3 class="text-center">Our Services</h3>
-            <hr class="mt-0 mb-0 hr_sizing pb-4">
-            <p class="mb-0 mt-0 text-justify text-muted">
-                We want to provide you with the best possible political risk tools to monitor and forecast political risk for your business.
-                Since, we think information is the key element to prevent/reduce political risks and uncertainties, we want to not only provide political risk tools but also many different services to help you overcome political risk.
-                Therefore, we also provide you with a variety of information in form of a blog and quarterly reports. 
-                Our blog entries are always about poltical risk topics, which could be from great relevance for your business.
-                Also our quarterly reports dealing with the most relevant information for the specific topic.<sub>*</sub>
-            </p>
-            <div class="pt-2">
-                <cite class="text-muted fs-small text-justify"><sup>*</sup>Since we are only in the beginning, not all services are yet available. The following services are currently not available: Quarterly reports, specific political risk portfolios and forecasting of them, political risk profile.</cite>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-12 text-center pt-2 d-flex">
-                <div class="card rounded-0"> <!--dadurch sind die gerundeten Kanten weg-->
-                    <div class="card-body flex-fill">
-                        <div class="pt-2 pb-3">
-                            <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/analysis_02.png">
-                        </div>
-                        <h4 class="card-title pt-3 pb-1">Political Risk Analysis</h4>
-                        <p class="card-text text-muted pb-5 text-justify">Experience our political risk analysis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia tempore dolorum atque doloremque officiis.</p>
-                        <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="{% url 'data-main' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="bar-chart"></i>Data</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 text-center pt-2 d-flex">
-                <div class="card rounded-0">
-                    <div class="card-body flex-fill">
-                        <div class="pt-2 pb-1">
-                            <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_13.png">
-                        </div>
-                        <h4 class="card-title pt-4 pb-1">Political Risk Expertise</h4>
-                        <p class="card-text text-muted pb-5 text-justify">Experience our political risk perspective. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia tempore dolorum atque doloremque officiis.</p>
-                        <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="{% url 'blog-blogs' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="pen-tool"></i>Blog</a>
-                        <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom mt-2" href="{% url 'blog-coming-soon' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="file-text"></i>Reports</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-12 text-center pt-2 d-flex">
-                <div class="card rounded-0">
-                    <div class="card-body flex-fill">
-                        <div class="pt-2 pb-1">
-                            <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/trend_01.png">
-                        </div>
-                        <h4 class="card-title pt-4 pb-1">Specified Trend Analysis</h4>
-                        <p class="card-text text-muted pb-5 text-justify">Experience our specified trend analysis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia tempore dolorum atque doloremque officiis.</p>
-                        <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="{% url 'blog-coming-soon' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="loader"></i>coming soon</a>
-                    </div>
-                    <!--<img class="card-img-bottom imgblack" src="img/trade_01.jpg" alt="Card image">--> <!--falls wir hier doch Bilder haben wollen-->
-                </div>
-            </div>
+            <h5>And this is just the beginning</h5>
         </div>
     </div>
 </div>
@@ -595,144 +736,6 @@
             <!--Maybe consulting services?-->
         </div>
     </div>    
-</div>
-
-
-
-<!--Section 12 Methodology - könnte wieder eingeführt werden, aber passt momentan nicht dazu
-    <div class="bg-light">  
-        <div class="container bg-light padding">  
-            <div class="pb-5 text-center">
-                <h3>Methodology</h3>
-                <hr class="mt-0 mb-0 hr_sizing">
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-sm-12">
-                    <div class="pr-2">
-                        <h3>Unique measuring</h3>
-                        <p>how is it done?</p>
-                        <div class="d-flex justify-content-between align-items-center my-2">
-                            <ul>
-                                <li class="text-muted">Political risk of each country is linked to Google Searches</li>
-                                <li class="text-muted">Google Searches show uncertainty in a country</li>
-                                <li class="text-muted">Wordlisting is very important to create index</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-12 p-0 m-0">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img class="w-75" src="svg/unique_02.png" alt="Responsive image">
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-xs-12 p-0 m-0">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img class="w-75" src="svg/implement_01.png" alt="Responsive image">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xs-12">
-                    <div class="text-justify pt-3 pl-2 pr-1">
-                        <h3>Easy to implement</h3>
-                        <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum sit porro fuga tempore eos quod dolores, consequuntur, alias debitis sapiente expedita, sunt temporibus! Quod asperiores soluta sint corrupti veniam eveniet.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-xs-12">
-                    <div class="text-justify pt-3 pr-2">
-                        <h3>Changeable</h3>
-                        <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum sit porro fuga tempore eos quod dolores, consequuntur, alias debitis sapiente expedita, sunt temporibus! Quod asperiores soluta sint corrupti veniam eveniet.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-12 p-0 m-0">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img class="w-75" src="svg/changeable_02.png" alt="Responsive image">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>--> 
-
-
-<!--Section 15 BREAK-->
-<div class="container-fluid backgroundimg4 position-relative d-flex align-items-center justify-content-center"> <!--nur so ist es möglich, dass der Content auch gecentert ist!-->
-    <div class="row d-flex justify-content-center pt-6" data-aos="zoom-in">
-        <div class="col-md-12 text-center text-white">
-            <h1 class="align-middle">Construction of our Political Risk Tools</h1>
-            <h5 class="pt-1">We want to redefine the approach of measuring, customizing, monitoring and forecasting Political Risks and Uncertainties</h5>
-            <h5>Our approach is to measure political risk with the power of the population and not experts</h5>
-        </div>
-    </div>
-</div>
-
-       
-<!--Section 17 - Understand the new approach-->
-
-<div class="container pt-5 pb-5"> <!--mit container fluid schaut es auf dem kleinen bildschirm feiner aus, aber auf dem großen nicht mehr!!!-->
-    <div class="pb-6 text-center" data-aos="fade-up">
-        <h2>Overview Of The New Approach</h2>
-        <p class="text-muted">Our goal is to gain new insights on political risk. Our tools seek to understand the view of the population.
-            Research has shown a strong link between political risk and our evaluations.</p>
-        <hr class="hr_sizing">
-    </div>
-    <div class="row d-felx align-items-center">
-        <div class="col-lg-8 col-md-12 text-center"  data-aos="fade-right" data-aos-offset="180">
-            <h4>Modern measuring technique</h4> 
-            <p class="pt-2 text-muted text-justify">By utilizing Google data in a new way we are able to create specific and up-to-date political risk evaluations. 
-                We use modern algorithms and key words to extract the relevant data points for each region. 
-                This method also enables industry or company specific adaptations. 
-                For more information download our white paper.
-            </p>
-        </div>
-        <div class="col-lg-4 col-md-12 text-center" data-aos="fade-left" data-aos-offset="200">
-            <img class="img-fluid w-75 float-sm-none float-md-none float-lg-right" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/unique_02.png" alt="Card image">
-        </div>
-    </div>
-</div>  
-<div class="bg-light">
-    <div class="container pt-5 pb-5"> <!--mit container fluid schaut es auf dem kleinen bildschirm feiner aus, aber auf dem großen nicht mehr!!!-->
-        <div class="row d-felx align-items-center">
-            <div class="col-lg-4 col-md-12 text-center" data-aos="fade-right" data-aos-offset="200">
-                <img class="img-fluid w-75 float-sm-none float-md-none float-lg-left" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/implement_01.png" alt="Card image">
-            </div>
-            <div class="col-lg-8 col-md-12 text-justify" data-aos="fade-left" data-aos-offset="180">
-                <h4>Validation of our methods</h4>
-                <p class="pt-2 text-muted">We validated our data based on scientific standards. 
-                    Event studies and regression techniques were used to validate the data and test our main hypotheses. 
-                    The outcome of our research all pointed to a strong link between our data and political risk in the evaluated countries.
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--Section 16 Understand the SBPRI-->
-<div class="container padding" id="understandpoliticalrisk"> <!--mit container fluid schaut es auf dem kleinen bildschirm feiner aus, aber auf dem großen nicht mehr!!!-->
-    <div data-aos="fade-up">
-        <div class="text-center pb-5">
-            <h3>Understand the Basics of our Political Risk Measurement</h3>
-            <hr class="mt-0 mb-0 hr_sizing">
-        </div> 
-        <div class="row d-felx align-items-center pb-4">
-            <div class="col-lg-8 col-md-12 text-center">
-                <p class="text-justify text-muted">In the past years a few methods have established. 
-                    Primarily there are expert-based, news-based and data-based political risk measurements. 
-                    Since many of these political risk measures often rely on different parameters, like experts or newspaper authors, we wanted to find a different approach for measuring political risk.
-                    Our political risk index is search-based, which means that the data is collected via search requests made the global population on one of the biggest search enginges Google&trade;. 
-                    That means our poltical risk index does not rely on the opinion of experts or journalists, but relies on the felt uncertainty of the population in a country.
-                    If you want to learn more about the creation of our political risk tools, you can download our white paper with the link below.
-                </p>
-                <div class="d-flex justify-content-start pt-2"><!--mit dem "download" Attribut wird es direkt runtergeladen, ohne kann es zuerst angeschaut werden-->
-                    <a href="test_white paper.pdf" download="text_white paper.pdf" role="button" class="word-hover1 text-decoration-none">Download White Paper</a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-12 text-center">
-                <img class="img-fluid w-75 float-sm-none float-md-none float-lg-right" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/understand_03.png" alt="Card image">
-            </div>
-        </div>
-    </div>
 </div>
 
 

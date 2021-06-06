@@ -4,7 +4,7 @@
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, shrink-to-fit=no">
 
     
     <!-- Icons & Plotly -->
@@ -39,10 +39,12 @@
 </head>
 
 <body>
-    <header class="site-header">
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-2"> <!--mit sticky top, beginnt der content erst nach der Navbar-->
-        <img class="svg_sizing_005" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/Logo.png" alt="">
-        <a class="navbar-brand text-secondary" href="{% url 'blog-home' %}"><h5 class="d-inline">Political Un<span class="orange">certainty</span></h5></a>
+    <head class="site-header">
+      <nav class="navbar navbar-expand-sm navbar-light fixed-top py-2"> <!--mit sticky top, beginnt der content erst nach der Navbar-->
+        <div class="navbar-brand"> <!--dadurch bleibt die a class immer beim img und geht nicht ab irgendeinem viewport in die mitte-->
+            <img class="svg_sizing_005" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/Logo.png" alt="sure">
+            <a class="navbar-brand text-secondary" href="{% url 'blog-home' %}"><h5 class="d-inline">Political Un<span class="orange">certainty</span></h5></a>
+        </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -68,7 +70,7 @@
             </ul>    
         </div>
     </nav>
-      </header>
+</head>
 
 
 
@@ -98,7 +100,7 @@
 <footer class="p-1 bg-secondary">
   <div class="container pb-4 pt-5" id="subscribe">
       <div class="row justify-content-center">
-          <div class="col-sm-12 col-lg-6 col-md-6">
+          <div class="col-12 col-md-8 col-lg-6">
               <div class="text-center">
                   <h2>STAY UP TO DATE</h2>
                   <form action="{% url 'subscription'%}" method="POST">
@@ -131,35 +133,39 @@
 <!--Sitemap + Footer-->
   <div class="container">
       <div class="row pt-1 pb-2">
-          <div class="col-lg-4 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-6 pt-3 text-left text-size-footer">
               <ul class="list-unstyled m-0 p-0">
-                <h5> <a href="{% url 'blog-home' %}">Home</a></h5>
-                  <li>- <a href="{% url 'data-main' %}">Data</a></li>
-                  <li>- <a href="{% url 'blog-blogs' %}">Blog</a></li>
-                  <li>- <a href="{% url 'blog-archive' %}">Archive</a></li>
-                  <li>- <a href="{% url 'blog-about' %}">About Us</a></li>
-                  <li>- <a href="{% url 'blog-coming-soon' %}">Coming Soon</a></li>
-                  <li>- <a href="{% url 'blog-political-risk' %}">Policital Uncertainty</a></li>
+                <h6> <a href="{% url 'blog-home' %}">Home</a></h6>
+                  <li><a href="{% url 'data-main' %}">Data</a></li>
+                  <li><a href="{% url 'blog-blogs' %}">Blog</a></li>
+                  <li><a href="{% url 'blog-archive' %}">Archive</a></li>
+                  <li><a href="{% url 'blog-about' %}">About Us</a></li>
+                  <li><a href="{% url 'blog-coming-soon' %}">Coming Soon</a></li>
+                  <li><a href="{% url 'blog-political-risk' %}">Policital Uncertainty</a></li>
               </ul>
           </div>
-          <div class="col-lg-4 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-6 pt-3 text-left text-size-footer">
               <ul class="list-unstyled m-0 p-0">
-                  <h5><a href="{% url 'blog-blogs' %}">Blog</a></h5>
+                  <h6><a href="{% url 'blog-blogs' %}">Blog</a></h6>
                   {{ grabpost }}
                   {% for posts in Posts %}
-                  <li>- <a href="{% url 'post-detail' posts.id %}">{{posts.title}}</a></li>
+                  <li><a href="{% url 'post-detail' posts.id %}">{{posts.title}}</a></li>
                   {% endfor %}
               </ul>
           </div>
-          <div class="col-lg-4 col-sm-12 pt-3 text-sm-center text-md-left text-lg-left text-center">
-                  <h5>Location</h5>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-12 pt-3 text-left text-size-footer">
+                  <h6>Location</h6>
                   <p class="mb-0">1100 Vienna</p>
                   <p class="mb-1"><i class="fa fa-envelope pr-2"></i>politicalriskcorp@gmail.com</p>
                   <a href="#"><i class="fa fa-bitcoin pr-2"></i>Donate</a>
           </div>
       </div>
       <hr>
-      <p class="mt-3 text-small">Sure - Political Risk Corporation, Copyright &copy; {% now "jS F Y" %} |<a class="pl-1" href="{% url 'blog-impressum' %}">Impressum </a><span>|</span><a class="pl-1" href="">AGB </a><span>|</span><a class="pl-1" href="">Data Privacy</a></p>
+      <p class="mt-3 text-size-footer">Copyright &copy; Sure - Political Risk Corporation {% now "jS F Y" %} |
+        <a class="px-1" href="{% url 'blog-impressum' %}"> Legal Notice </a><span>|</span>
+        <a class="px-1" href="{% url 'blog-disclaimer' %}">Disclaimer </a><span>|</span>
+        <a class="px-1" href="{% url 'blog-data-privacy' %}">Data Privacy </a><span>|</span>
+        <a class="px-1" href="#">Site Map</a></p>
   </div>
 </footer> 
 

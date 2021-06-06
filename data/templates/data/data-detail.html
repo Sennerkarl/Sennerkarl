@@ -3,31 +3,32 @@
 {% block content %}  
 <!--Introduction and menu-->
         <div class="container-fluid backgroundimg15 position-relative padding_data-detail">
-            <div class="row">
-                <div class="col-lg-9 pb-3">
+            <div class="row pb-lg-6 padding_data-detail-country">
+                <div class="col-lg-9 col-md-6 col-sm-6">
                     <h1 class="text-white float-left">{{country}} Overview</h1>
-                    <p class="text-white float-left">Learn more about {{country}} and its political and economic situation.</p>
                 </div>
-                <div class="col-lg-3">
-                    <img class="backgroundimg-data-detail pt-3" src="{{CountryData.flag.url}}" alt="Flag">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <img class="backgroundimg-data-detail pt-3 float-lg-right float-left" src="{{CountryData.flag.url}}" alt="Flag">
                 </div>
-                <div class="col-sm-3">
+                </div>
+                <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                     <p class="text-white mb-0 pb-0 text-size-small font-weight-bold">2019</p>
                     <p class="text-white my-0 py-0 text-size-small">GDP | GDP/Capita</p>
                     <p class="text-white mb-0 pb-0 text-size-small">${{GDP}}B ({{Growth}}%) | ${{GDPPC}}B</p>
                     <p class="text-white text-size-small">RANK {{Rank}} OF 240</p>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                     <p class="text-white mb-0 pb-0 text-size-small font-weight-bold">2019</p>
                     <p class="text-white my-0 py-0 text-size-small">Exports | Imports</p>
                     <p class="text-white text-size-small">${{ExportVolume}}B | ${{ImportVolume}}B</p>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                     <p class="text-white mb-0 pb-0 text-size-small font-weight-bold">2019</p>
                     <p class="text-white my-0 py-0 text-size-small">FDI</p>
                     <p class="text-white text-size-small">${{FDI}}B</p>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                     <p class="text-white mb-0 pb-0 text-size-small font-weight-bold">2019</p>
                     <p class="text-white my-0 py-0 text-size-small">Volume Stock Traded</p>
                     <p class="text-white text-size-small">${{VolumeStocksTraded}}B</p>
@@ -36,15 +37,16 @@
         </div>
 
         <div class="container bg-white py-3">
-            <h3>About {{country}}</h3>
+            <h3 class="pb-0 mb-0">About {{country}}</h3>
+            <p class="text-muted text-size-small">Learn more about {{country}} and its political and economic situation.</p>
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-6">
                     <ul class="list-unstyled">
                         <li><strong>Official Language:</strong> <p>{{CountryData.language}}</p></li>
                         <li><strong>Capital:</strong> <p>{{CountryData.capital}}</p></li>
                     </ul>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-6">
                     <ul class="list-unstyled">
                         <li><strong>Population:</strong> <p>{{Population}} Mil.</p></li>
                         <li><strong>Population:</strong> <p>{{Population}} Mil.</p></li>
@@ -56,20 +58,20 @@
     <div class="gradient">
         <div class="containter pt-3">
             <div class="row d-flex shadow-sm bg-white py-3">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-2 col-sm-12 justify-content-center">
-                    <a role="button" class="service_button text-decoration-none text-size-small" href="#subscribe"><i class="grey feather_16" data-feather="send"></i>Subscribe Now</a>
+                <div class="col-md-2 col-lg-2 d-sm-block d-none"></div>
+                <div class="col-md-2 col-lg-2 col-6 justify-content-center">
+                    <a role="button" class="service_button text-decoration-none text-size-small" href="#subscribe"><i class="grey feather_16 mr-1" data-feather="send"></i>Subscribe Now</a>
                 </div>
-                <div class="col-lg-2 col-sm-12 justify-content-center">
-                    <a role="button" class="service_button text-decoration-none text-size-small" href="#mailto:politicaluncertainty@gmail.com"><i class=" grey feather_16" data-feather="mail"></i>Get in Contact</a>
+                <div class="col-md-2 col-lg-2 col-6 justify-content-center">
+                    <a role="button" class="service_button text-decoration-none text-size-small" href="#mailto:politicaluncertainty@gmail.com"><i class="grey feather_16 mr-1" data-feather="mail"></i>Get in Contact</a>
                 </div>
-                <div class="col-lg-2 col-sm-12 justify-content-center">
-                    <a role="button" class="service_button text-decoration-none text-size-small" href="{% url 'blog-blogs' %}"><i class="grey feather_16" data-feather="file-text"></i>Blog</a>
+                <div class="col-md-2 col-lg-2 col-6 justify-content-center">
+                    <a role="button" class="service_button text-decoration-none text-size-small" href="{% url 'blog-blogs' %}"><i class="grey feather_16 mr-1" data-feather="file-text"></i>Blog</a>
                 </div>
-                <div class="col-lg-2 col-sm-12 justify-content-center">
-                    <a role="button" class="service_button text-decoration-none text-size-small" href="{% url 'blog-blogs' %}"><i class="grey feather_16" data-feather="file-text"></i>Blog</a>
+                <div class="col-md-2 col-lg-2 col-6 justify-content-center">
+                    <a role="button" class="service_button text-decoration-none text-size-small" href="{% url 'blog-blogs' %}"><i class="grey feather_16 mr-1" data-feather="file-text"></i>Blog</a>
                 </div>
-                <div class="col-lg-2"></div>
+                <div class="col-md-2 col-lg-2 d-sm-block d-none"></div>
             </div>
         </div>
     </div>
@@ -82,49 +84,43 @@
                     <h3 class="text-muted text-center">Political Uncertainty - {{country}}</h3>
                     <p class="text-muted text-center">The change of uncertainty a month and a year before {% now "F Y" %}  </p>
                     <div class="plotsizing">{{ worldmap | safe }}</div>
-                    <div class="float-left ml-2"><p class="text-size-small">Source: <a href="" class="text-decoration-none">Political Risk Index by Senne & Reinthaler</a><br>*Percentage change in comparison to the previous month</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-<!--Section 3-->
-        <div class="container pb-3" id="trend" >
-            <div class="row">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="bg-white border rounded"> <!--space only with the shadow class-->
-                        <h5 class="text-muted text-center pt-2">Trend 1</h5>
-                        <div class="text-muted">{{ trend2 | safe }}</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="bg-white border rounded">
-                        <h5 class="text-muted text-center pt-2">Trend 2</h5>
-                        <div>{{ trend2 | safe }}</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="bg-white border rounded">
-                        <h5 class="text-muted text-center pt-2">Trend 3</h5>
-                        <div>{{ trend3 | safe }}</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="bg-white border rounded">
-                        <h5 class="text-muted text-center pt-2">Trend 4</h5>
-                        <div>{{ trend4 | safe }}</div>
+                    <div class="float-left ml-2"><p class="text-size-small pb-0 mb-0">Source: <a href="#" target="_blank" class="text-decoration-none service_button">Political Uncertainty by Senne & Reinthaler</a> | Data: <a href="https://trends.google.com/" target="_blank" class="text-decoration-none service_button">Google Trend&trade;</a>
+                        <br>The Graph "Political Uncertainty Trends - Global" shows the percentage change of political uncertainty in comparison to the previous month</p>
+                        <p class="p-0 m-0 text-size-small">The grey countries in the Graph are not yet available | <a href="{% url 'blog-coming-soon' %}" class="text-decoration-none service_button">coming soon</a></p>
+                        <p class="p-0 m-0 text-size-small"><a href="{% url 'blog-disclaimer' %}" class="text-decoration-none service_button">Data Disclaimer</a></p>
                     </div>
                 </div>
             </div>
         </div>
 
 <!--Section 2-->
+        <div class="container pb-3" id="trend" >
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="bg-white border rounded"> <!--space only with the shadow class-->
+                        <h5 class="text-muted text-center pt-2">Trend (Timeline)</h5>
+                        <div class="text-muted">{{ trend2 | safe }}</div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="bg-white border rounded">
+                        <h5 class="text-muted text-center pt-2">Categories (Timeline)</h5>
+                        <div>{{ trend4 | safe }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--Section 3-->
         <div class="container pb-3" id="countries">
             <div class="row justify-content-center">
                 <div class="col-lg-12 bg-white border rounded py-3">
                     <h3 class="text-muted text-center">Uncertainty Timeline - {{country}}</h3>
                     <div class="plotsizing2">{{ linegraph | safe }}</div>
-                    <div class="float-left ml-2"><p class="text-size-small">Source: <a href="" class="text-decoration-none">Political Risk Index by Senne & Reinthaler</a><br></p>
+                    <div class="float-left ml-2"><p class="text-size-small pb-0 mb-0">Source: <a href="#" target="_blank" class="text-decoration-none service_button">Political Uncertainty by Senne & Reinthaler</a> | Data: <a href="https://trends.google.com/" target="_blank" class="text-decoration-none service_button">Google Trend&trade;</a>
+                        <br>The Graph "Political Uncertainty Trends - Global" shows the percentage change of political uncertainty in comparison to the previous month</p>
+                        <p class="p-0 m-0 text-size-small">The grey countries in the Graph are not yet available | <a href="{% url 'blog-coming-soon' %}" class="text-decoration-none service_button">coming soon</a></p>
+                        <p class="p-0 m-0 text-size-small"><a href="{% url 'blog-disclaimer' %}" class="text-decoration-none service_button">Data Disclaimer</a></p>
                     </div>
                 </div>
             </div>
@@ -135,11 +131,11 @@
 <!--Section 4-->
 <div class="container padding" data-aos="fade-up">
     <div class="text-center pb-5">
-        <h3>List of countries we monitor and forecast</h3>
+        <h4>List of countries we monitor and forecast</h4>
         <hr class="mt-0 mb-0 hr_sizing">
     </div> 
     <div class="row">
-        <div class="col-lg-3 col-sm-12">
+        <div class="col-lg-3 col-12">
             <h6>Products</h6>
             <div class="card card_1">
                 <div class="card-body">
@@ -153,10 +149,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-9 col-sm-12">
-            <h6>Countries</h6>
+        <div class="col-lg-9 col-12">
+            <h6 class="padding_data-countries">Countries</h6>
             <div class="row">
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-3">
                     <ul class="text-muted list-unstyled">
                         {% for country in countries %}
                         {% if forloop.counter|add:3|divisibleby:4 %}
@@ -166,7 +162,7 @@
                         {%endfor %}
                     </ul>
                 </div>
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-3">
                     <ul class="text-muted list-unstyled">
                         {% for country in countries %}
                         {% if forloop.counter|add:2|divisibleby:4 %}
@@ -176,7 +172,7 @@
                         {%endfor %}
                     </ul>
                 </div>
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-3">
                     <ul class="text-muted list-unstyled">
                         {% for country in countries %}
                         {% if forloop.counter|add:1|divisibleby:4 %}
@@ -186,7 +182,7 @@
                         {%endfor %}
                     </ul>
                 </div>
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-3">
                     <ul class="text-muted list-unstyled">
                         {% for country in countries %}
                         {% if forloop.counter|add:0|divisibleby:4 %}

@@ -1,10 +1,17 @@
 /*GENERAL*/
+html{
+    font-size: calc(0.7em + 0.4vw); /*responsive font sizes*/
+    overflow-x: hidden;
+    width: 100%;
+}
+
 body{
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 16px;
     line-height:1.5;
     font: 15px/1.5;
     background-color:#ffffff;
+    overflow-x: hidden; /*dadurch ist das horizontale scrollen nicht mehr möglich*/
+    width: 100%;
 }
 
 /*All h1 capitalized*/
@@ -17,7 +24,16 @@ h6{
 }
 
 h1{
-    font-size: 60px!important;
+    font-size: 3rem!important;
+}
+
+@media (max-width: 48em) /* @grid-float-breakpoint -1 - braucht man dafür, dass die navbar ihre default größe anpasst*/
+{
+    .fixed-top
+    {
+    position: relative!important;
+    top: auto!important;
+    }
 }
 
 .feather_16{
@@ -34,16 +50,16 @@ h1{
     height: 50px;
     width: 50px;
 }
+
 /*responsive div for Plotly Charts*/
-@media screen and (max-width: 991px) {
-    .plotsizing {
-        height: 50vh;
-    }
+
+.plotsizing{
+    height: calc(15vh + 30vw);
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 85.375em) {
     .plotsizing {
-        height: 60vh;
+        height: calc(40vh + 5vw);
     }
 }
 
@@ -67,17 +83,54 @@ h1{
 
 @media screen and (min-width: 992px) {
     .plotsizing2 {
-        height: 60vh;
+        height: calc(20vh + 10vw);
     }
 }
+
+/*responsive sizing*/
+.padding {
+    padding-top: 8%;
+    padding-bottom: 8%;
+}
+
+.padding_data-detail{
+    padding-top: calc(1.8vw + 7.5vh);
+}
+
+.padding_data-detail-country{
+    padding-bottom: calc(4vw + 2vh)
+}
+
+@media screen and (max-width: 62em) {
+    .padding_data-countries {
+        padding-top: 3vw;
+    }
+}
+
+.bg-trend-green{
+    background-color: rgb(177, 255, 177);
+    color: rgb(0, 140, 0);
+}
+
+.bg-trend-red{
+    background-color: rgb(255, 177, 177);
+    color: rgb(140, 0, 0);
+}
+
 
 .text-size-big{
     font-size: 21px;
 }
 
 .text-size-small{
-    font-size: 13px;
+    font-size: 0.7rem!important;
 }
+
+.text-size-footer{
+    font-size: 0.9rem!important;
+}
+
+
 
 .orange{
     color: #ff7f64;
@@ -208,12 +261,12 @@ h1{
 /*no-repeat center center fixed! mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
 .backgroundimg{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/Hofburg.jpeg') no-repeat center center;
-    background-position:center;
-    background-attachment: fixed;
+    background-attachment: scroll;
+    background-size: cover;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
-    height:90vh;
+    height: calc(70vh + 10vw);
     opacity:0.7;
 }
 
@@ -221,7 +274,7 @@ h1{
 /*Background Image 2*/
 .backgroundimg2{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/city_05.jpeg') no-repeat center center;
-    background-position:center;
+    background-position: center;
     background-attachment: fixed; /*damit wird das hintergrundbild fixiert*/
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -233,7 +286,7 @@ h1{
 /*Background Image 3*/
 .backgroundimg3{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/harbour_03.jpeg') no-repeat center center;
-    background-position:center;
+    background-position: center;
     background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -245,7 +298,7 @@ h1{
 /*Background Image 4*/
 .backgroundimg4{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/city_10.jpeg') no-repeat center center;
-    background-position:center;
+    background-position: center;
     background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -258,7 +311,7 @@ h1{
 /*Background Image 5*/
 .backgroundimg5{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/Leopold2.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
-    background-position:center;
+    background-position: center;
     background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -271,12 +324,12 @@ h1{
 
 .backgroundimg6{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/dark_03.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
-    background-position:center;
+    background-position: center;
     background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
-    height:70vh;
+    height: calc(60vh + 10vw);
     opacity:0.7;
 }
 
@@ -284,7 +337,7 @@ h1{
 
 .backgroundimg7{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/harbour_03.jpeg') no-repeat center center;
-    background-position:center;
+    background-position: center;
     background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -295,7 +348,7 @@ h1{
 
 .backgroundimg9{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/coming-soon_01.jpeg') no-repeat center center;
-    background-position:center;
+    background-position: center;
     background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -306,7 +359,7 @@ h1{
 
 .backgroundimg10{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/coming-soon_05.jpeg') no-repeat center center;
-    background-position:center;
+    background-position: center;
     background-attachment: fixed; /*damit wird das hintergrundbild fixiert*/
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -319,18 +372,18 @@ h1{
 
 .backgroundimg11{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/coming-soon_02.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
-    background-position:center;
+    background-position: center;
     background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
-    height:70vh;
+    height: calc(60vh + 10vw);
     opacity:0.7;
 }
 
 .backgroundimg12{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/coming-soon_03.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
-    background-position:center;
+    background-position: center;
     background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -341,7 +394,7 @@ h1{
 
 .backgroundimg13{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/Leopold.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
-    background-position:center;
+    background-position: center;
     background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
@@ -352,23 +405,23 @@ h1{
 
 .backgroundimg14{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/coming-soon_02.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
-    background-position:center;
+    background-position: center;
     background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
-    height:80vh;
+    height: calc(60vh + 10vw);
     opacity:0.7;
 }
 
 .backgroundimg15{
     background: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/city_10.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
-    background-position:center;
-    background-attachment: center;
+    background-position: center;
+    background-attachment: fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
-    height:50vh;
+    height: calc(48vh + 10vw);
     opacity:0.9;
 }
 
@@ -380,16 +433,6 @@ div.card_7{
     background:rgb(255, 255, 255, 0.6);
 }
 
-/*responsive sizing*/
-.padding {
-    padding-top: 8%;
-    padding-bottom: 8%;
-}
-
-.padding_data-detail{
-    padding-top: 5%;
-    padding-bottom: 5%;
-}
 /*Sizing of SVG's*/
 .svgsizing {
     width: 45%;
@@ -611,7 +654,7 @@ footer a {
 
 .backgroundimg-data-detail{
     background-size: 100%!important;
-    height:15vh;
+    height: calc(6vh + 2vw);
 }
 
 .blog-image{
