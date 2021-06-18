@@ -54,9 +54,10 @@
                 {% with url_name=request.resolver_match.url_name %} <!--currently using url is active-->
                 <li class="nav-item {% if url_name == 'blog-home' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-home' %}" >Home</a></li>
                 <li class="nav-item {% if url_name == 'data-main' %}active{% endif %}"><a class="nav-link" href="{% url 'data-main' %}">Data</a></li>
+                <li class="nav-item {% if url_name == 'blog-political-risk' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-political-risk' %}">Political Risk</a></li>
                 <li class="nav-item {% if url_name == 'blog-blogs' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-blogs' %}">Blog</a></li>
                 <li class="nav-item {% if url_name == 'blog-about' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-about' %}">About</a></li>
-                <li class="nav-item pr-3 {% if url_name == 'blog-archive' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-archive' %}">Archive</a></li>
+                <li class="nav-item pr-3 {% if url_name == 'blog-archive' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-archive' %}">Further Literature</a></li>
                 {% endwith %}
                 <!--Development!-->
                     <!--{% if user.is_authenticated %}--> <!--Conditional, when logged in than it only shows "logout" otherwise it shows login and register-->
