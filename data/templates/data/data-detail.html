@@ -38,7 +38,7 @@
 
         <div class="container bg-white py-3">
             <h3 class="pb-0 mb-0">About {{country}}</h3>
-            <p class="text-muted text-size-small">Learn more about {{country}} and its political and economic situation.</p>
+            <p class="text-muted text-size-small">Some Key facts about {{country}}</p>
             <div class="row">
                 <div class="col-6">
                     <ul class="list-unstyled">
@@ -49,7 +49,7 @@
                 <div class="col-6">
                     <ul class="list-unstyled">
                         <li><strong>Population:</strong> <p>{{Population}} Mil.</p></li>
-                        <li><strong>Population:</strong> <p>{{Population}} Mil.</p></li>
+                        <li><strong>Currency:</strong> <p>{{Population}} Mil.</p></li>
                     </ul>
                 </div>
             </div>
@@ -63,13 +63,13 @@
                     <a role="button" class="service_button text-decoration-none text-size-small" href="#subscribe"><i class="grey feather_16 mr-1" data-feather="send"></i>Subscribe Now</a>
                 </div>
                 <div class="col-md-2 col-lg-2 col-6 justify-content-center">
-                    <a role="button" class="service_button text-decoration-none text-size-small" href="#mailto:politicaluncertainty@gmail.com"><i class="grey feather_16 mr-1" data-feather="mail"></i>Get in Contact</a>
+                    <a role="button" class="service_button text-decoration-none text-size-small" href="mailto:politicaluncertainty@gmail.com"><i class="grey feather_16 mr-1" data-feather="mail"></i>Get in Contact</a>
                 </div>
                 <div class="col-md-2 col-lg-2 col-6 justify-content-center">
                     <a role="button" class="service_button text-decoration-none text-size-small" href="{% url 'blog-blogs' %}"><i class="grey feather_16 mr-1" data-feather="file-text"></i>Blog</a>
                 </div>
                 <div class="col-md-2 col-lg-2 col-6 justify-content-center">
-                    <a role="button" class="service_button text-decoration-none text-size-small" href="{% url 'blog-blogs' %}"><i class="grey feather_16 mr-1" data-feather="file-text"></i>Blog</a>
+                    <a role="button" class="service_button text-decoration-none text-size-small" href="{% url 'blog-coming-soon' %}"><i class="grey feather_16 mr-1" data-feather="bar-chart"></i>Risk Analysis</a>
                 </div>
                 <div class="col-md-2 col-lg-2 d-sm-block d-none"></div>
             </div>
@@ -140,11 +140,11 @@
             <div class="card card_1">
                 <div class="card-body">
                     <ul class="text-muted list-unstyled">
-                        <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="bar-chart"></i><a class="word-hover1 text-decoration-none" href="#worldmap">Risk Analysis</a></li>
-                        <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="pen-tool"></i><a class="word-hover1 text-decoration-none" href="{% url 'blog-blogs' %}" traget="_blank">Expert Blog</a></li>
-                        <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="file-text"></i><a class="word-hover1 text-decoration-none" href="{% url 'blog-coming-soon' %}" traget="_blank">Report</a></li>
+                        <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="bar-chart"></i><a class="word-hover1 text-decoration-none" href="{% url 'blog-coming-soon' %}">Risk Analysis</a></li>
+                        <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="pen-tool"></i><a class="word-hover1 text-decoration-none" href="{% url 'blog-blogs' %}">Expert Blog</a></li>
+                        <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="file-text"></i><a class="word-hover1 text-decoration-none" href="{% url 'blog-coming-soon' %}">Report</a></li>
                         <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="mail"></i><a class="word-hover1 text-decoration-none" href="mailto:politicaluncertainty@gmail.com">Contact Us</a></li>
-                        <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="download"></i><a class="word-hover1 text-decoration-none" href="{% url 'blog-archive' %}#downloads" traget="_blank">Download</a></li>
+                        <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="download"></i><a class="word-hover1 text-decoration-none" href="{% url 'blog-archive' %}#downloads">Download</a></li>
                     </ul>
                 </div>
             </div>
@@ -156,7 +156,7 @@
                     <ul class="text-muted list-unstyled">
                         {% for country in countries %}
                         {% if forloop.counter|add:3|divisibleby:4 %}
-                        <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}" target="_blank">{{country}}</a></li>
+                        <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}">{{country}}</a></li>
                         
                         {% endif %}
                         {%endfor %}
@@ -166,7 +166,7 @@
                     <ul class="text-muted list-unstyled">
                         {% for country in countries %}
                         {% if forloop.counter|add:2|divisibleby:4 %}
-                        <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}" target="_blank">{{country}}</a></li>
+                        <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}">{{country}}</a></li>
                         
                         {% endif %}
                         {%endfor %}
@@ -176,7 +176,7 @@
                     <ul class="text-muted list-unstyled">
                         {% for country in countries %}
                         {% if forloop.counter|add:1|divisibleby:4 %}
-                        <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}" target="_blank">{{country}}</a></li>
+                        <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}">{{country}}</a></li>
                         
                         {% endif %}
                         {%endfor %}
@@ -186,7 +186,7 @@
                     <ul class="text-muted list-unstyled">
                         {% for country in countries %}
                         {% if forloop.counter|add:0|divisibleby:4 %}
-                        <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}" target="_blank">{{country}}</a></li>
+                        <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}">{{country}}</a></li>
                         
                         {% endif %}
                         {%endfor %}
