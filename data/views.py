@@ -153,7 +153,7 @@ class DataView(ListView):
                         ),
                     )
 
-        #trenmap political situation
+        #trendmap political situation
         figsitu = go.Figure()
         category = 'Sanctions'
         dates = list(Data.objects.order_by('-date').values_list('date', flat=True).distinct()[0:2])
@@ -397,3 +397,4 @@ class DataDetailView(ListView):
 
 
         return context
+

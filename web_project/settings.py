@@ -73,6 +73,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'blog.context_processors.grabpost',
                 'blog.context_processors.subscribeform',
+                'data.context_processors.grabcountries',
             ],
         },
     },
