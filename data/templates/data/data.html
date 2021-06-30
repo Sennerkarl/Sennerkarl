@@ -11,7 +11,7 @@
                 <div class="col-lg-9">
                     <h1 class="text-dark text-left">Political Risk Tools</h1>
                     <p class="text-muted text-left">Create certainty in an uncertain world for your business by better understanding the political shifts <br>
-                        Get insights on the principles of political risk <a role="button" class="word-hover1 text-decoration-none" href="{% url 'blog-political-risk' %}">Political Risk Explanation</a><br>
+                        Get insights on the principles of political risk - <a role="button" class="word-hover1 text-decoration-none" href="{% url 'blog-political-risk' %}">Political Risk Explanation</a><br>
                         The foundation of our Political Risk Tools<sup>*</sup> is  powerful data from <a href="https://trends.google.de/trends/explore?q=uncertainty&geo=GB" role="button" target="_blank" class="word-hover1 text-decoration-none">Google Trend&trade;</a></p>
                     <p class="fs-small text-left text-muted"><sup>*</sup>This novel approach of
                          measuring political risk is explicitly described in our <a href="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" target="_blank" download="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" role="button" class="word-hover1 text-decoration-none">White Paper</a></p>
@@ -200,14 +200,14 @@
         <div class="container pb-3">
             <div class="row justify-content-center">
                 <div class="col-12 bg-white border rounded py-3">
-                    <h6 class="pb-3">Countries Categorization</h6>
+                    <h6 class="pb-3">Countries Categorization - for {% now "F" %}</h6>
                     <div class="row">
                         <div class="col-3">
                             <ul class="text-muted list-unstyled">
                                 <p class="text-dark pb-0 mb-0">Category A</p>
                                 {% for country in countries %}
                                 {% if forloop.counter|add:3|divisibleby:4 %}
-                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}" target="_blank">{{country}}</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}">{{country}}</a></li>
                                 
                                 {% endif %}
                                 {%endfor %}
@@ -218,7 +218,7 @@
                                 <p class="text-dark pb-0 mb-0">Category B</p>
                                 {% for country in countries %}
                                 {% if forloop.counter|add:2|divisibleby:4 %}
-                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}" target="_blank">{{country}}</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}">{{country}}</a></li>
                                 
                                 {% endif %}
                                 {%endfor %}
@@ -229,7 +229,7 @@
                                 <p class="text-dark pb-0 mb-0">Category C</p>
                                 {% for country in countries %}
                                 {% if forloop.counter|add:1|divisibleby:4 %}
-                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}" target="_blank">{{country}}</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}">{{country}}</a></li>
                                 
                                 {% endif %}
                                 {%endfor %}
@@ -240,7 +240,7 @@
                                 <p class="text-dark pb-0 mb-0">Category D</p>
                                 {% for country in countries %}
                                 {% if forloop.counter|add:0|divisibleby:4 %}
-                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}" target="_blank">{{country}}</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}">{{country}}</a></li>
                                 
                                 {% endif %}
                                 {%endfor %}

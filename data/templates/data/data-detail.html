@@ -38,7 +38,7 @@
 
         <div class="container bg-white py-3">
             <h3 class="pb-0 mb-0">About {{country}}</h3>
-            <p class="text-muted text-size-small">Learn more about {{country}} and its political and economic situation.</p>
+            <p class="text-muted text-size-small">Some Key facts about {{country}}</p>
             <div class="row">
                 <div class="col-6">
                     <ul class="list-unstyled">
@@ -49,7 +49,7 @@
                 <div class="col-6">
                     <ul class="list-unstyled">
                         <li><strong>Population:</strong> <p>{{Population}} Mil.</p></li>
-                        <li><strong>Population:</strong> <p>{{Population}} Mil.</p></li>
+                        <li><strong>Currency:</strong> <p>{{CountryData.currency}}</p></li>
                     </ul>
                 </div>
             </div>
@@ -63,13 +63,13 @@
                     <a role="button" class="service_button text-decoration-none text-size-small" href="#subscribe"><i class="grey feather_16 mr-1" data-feather="send"></i>Subscribe Now</a>
                 </div>
                 <div class="col-md-2 col-lg-2 col-6 justify-content-center">
-                    <a role="button" class="service_button text-decoration-none text-size-small" href="#mailto:politicaluncertainty@gmail.com"><i class="grey feather_16 mr-1" data-feather="mail"></i>Get in Contact</a>
+                    <a role="button" class="service_button text-decoration-none text-size-small" href="mailto:politicaluncertainty@gmail.com"><i class="grey feather_16 mr-1" data-feather="mail"></i>Get in Contact</a>
                 </div>
                 <div class="col-md-2 col-lg-2 col-6 justify-content-center">
                     <a role="button" class="service_button text-decoration-none text-size-small" href="{% url 'blog-blogs' %}"><i class="grey feather_16 mr-1" data-feather="file-text"></i>Blog</a>
                 </div>
                 <div class="col-md-2 col-lg-2 col-6 justify-content-center">
-                    <a role="button" class="service_button text-decoration-none text-size-small" href="{% url 'blog-blogs' %}"><i class="grey feather_16 mr-1" data-feather="file-text"></i>Blog</a>
+                    <a role="button" class="service_button text-decoration-none text-size-small" href="{% url 'blog-coming-soon' %}"><i class="grey feather_16 mr-1" data-feather="bar-chart"></i>Risk Analysis</a>
                 </div>
                 <div class="col-md-2 col-lg-2 d-sm-block d-none"></div>
             </div>
@@ -94,18 +94,39 @@
         </div>
 
 <!--Section 2-->
-        <div class="container pb-3" id="trend" >
+        <!--Graph 2-->
+        <div class="container pb-3" id="trend">
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div class="bg-white border rounded"> <!--space only with the shadow class-->
-                        <h5 class="text-muted text-center pt-2">Trend (Timeline)</h5>
-                        <div class="text-muted">{{ trend2 | safe }}</div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="bg-white border rounded pt-1 pb-2"> <!--space only with the shadow class-->
+                        <h5 class="text-muted text-center pt-2">Monthly Champ (Index)</h5>
+                        <div class="text-center pb-2 pt-1">
+                            <span class="text-center rounded py-2 px-2 bg-trend-green"><i class="mr-1 feather_16" data-feather="arrow-down"></i>{{ trendingmonth|first|first | safe }} {{ trendingmonth|first|last | safe }}%</span>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div class="bg-white border rounded">
-                        <h5 class="text-muted text-center pt-2">Categories (Timeline)</h5>
-                        <div>{{ trend4 | safe }}</div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="bg-white border rounded pt-1 pb-2">
+                        <h5 class="text-muted text-center pt-2">Monthly Champ (Category 1)</h5>
+                        <div class="text-center pb-2 pt-1">
+                            <span class="text-center rounded py-2 px-2 bg-trend-red"><i class="mr-1 feather_16" data-feather="arrow-up"></i>{{ trendingmonth|last|first | safe }} {{ trendingmonth|last|last | safe }}%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="bg-white border rounded pt-1 pb-2">
+                        <h5 class="text-muted text-center pt-2">Monthly Champ (Category 2)</h5>
+                        <div class="text-center pb-2 pt-1">
+                            <span class="text-center rounded py-2 px-2 bg-trend-green"><i class="mr-1 feather_16" data-feather="arrow-down"></i>{{ trendingannual|first|first | safe }} {{ trendingannual|first|last | safe }}%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="bg-white border rounded pt-1 pb-2">
+                        <h5 class="text-muted text-center pt-2">Monthly Champ (Category 3)</h5>
+                        <div class="text-center pb-2 pt-1">
+                            <span class="text-center rounded py-2 px-2 bg-trend-red"><i class="mr-1 feather_16" data-feather="arrow-up"></i>{{ trendingannual|last|first | safe }} {{ trendingannual|last|last | safe }}%</span>
+                        </div>
                     </div>
                 </div>
             </div>
