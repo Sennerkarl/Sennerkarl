@@ -15,17 +15,16 @@
                                 <div class="article-metadata">
                                     <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
                                     <small class="text-muted">{{ post.date_posted|date:"d. F, Y" }}</small>
+                                    <a class="float-right" href="{% url 'post-detail' post.id %}"><small>Read more</small></a>
                                 </div>
-                                <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2> <!--post.id is the primary key-->
                                 <div class="row">
-                                    <div class="col-md-10">
-                                        <div class="container-fluid backgroundimg-blog rounded" style="background: url({{ post.picture.url }}) no-repeat center center">
-                                        </div>
+                                    <div class="col-md-12 pt-1">
+                                        <a href="{% url 'post-detail' post.id %}"><div class="container-fluid backgroundimg-blog rounded" style="background: url({{ post.picture.url }}) no-repeat center center"></div></a>
                                     </div>
                                     <div class="col-md-10 pt-3">
-                                        <p class="article-content text-justify text-muted">{{ post.content|safe|truncatewords:100 }}
-                                            <a class="article-title" href="{% url 'post-detail' post.id %}">Read more <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
-                                        </p> 
+                                        <h3><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h3> <!--post.id is the primary key-->
+                                        <p class="article-content text-justify text-muted pt-2 pb-3">{{ post.content|safe|truncatewords:100 }}</p> 
+                                        
                                     </div>
                                 </div>
                                 <!--<div class="row pt-3">

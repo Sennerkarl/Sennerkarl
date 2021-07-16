@@ -5,15 +5,15 @@
         <div class="container-fluid backgroundimg14 position-relative d-flex align-items-center justify-content-center"> <!--nur so ist es möglich, dass der Content auch gecentert ist!-->
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-md-12 text-center rounded py-4 px-6">
-                    <h1 class="align-middle pb-2 text-white">Political Risk in the international business context</h1>
+                    <h1 class="align-middle pb-2 text-white">Political Risk in international business</h1> <!--vorher war: Political Risk in the international business context-->
                     <div class="card_7 rounded py-3 px-3">
-                        <h5>Political risk and uncertainty are strongly linked</h5>
+                        <h5>Political risk and uncertainty are strongly linked and from great importance in international business activities</h5>
                         <div class="row d-inline-flex">
                             <div class="col-lg-4 col-sm-12 pt-2">
                                 <a href="#" role="button" class="btn btn-secondary data_button_custom"><i class="mt-1 orange pull-left feather_16" data-feather="dollar-sign"></i>Donate</a> 
                             </div>
                             <div class="col-lg-4 col-sm-12 pt-2">
-                                <a href="mailto:politicaluncertainty@gmail.com" role="button" class="btn btn-secondary data_button_custom"><i class="mt-1 orange pull-left feather_16" data-feather="globe"></i>Cooperations</a>
+                                <a href="#riskproviders" role="button" class="btn btn-secondary data_button_custom"><i class="mt-1 orange pull-left feather_16" data-feather="home"></i>Risk Providers</a>
                             </div>
                             <div class="col-lg-4 col-sm-12 pt-2">
                                 <a href="#politicalrisk" role="button" class="btn btn-secondary data_button_custom"><i class="mt-1 orange pull-left feather_16" data-feather="key"></i>Political Risk</a> 
@@ -46,7 +46,7 @@
                             With the creation of our masterthesis the passion for political risk rose tremendously. 
                             Our mission was to create an index, which comes form the people and represents the peoples uncertainty about a countries political situation, regulation and sanctions. 
                             All of these we wanted to create with a newly approached tool, which all of us are using every day: GOOGLE.&trade; 
-                            With the data provision of <a class="word-hover1 text-decoration-none" role="button" href="https://trends.google.de/trends/" target="_blank">Google Trends&trade;</a> this became reality. We are in the beginning of our development phase and want to provide a solution for small, middle and big companies to monitor and forecast political risk in certain countries in many different time periods (yearly, monthly, daily and even hourly) at the expanse of very little costs. 
+                            With the data provision of <a class="word-hover3 text-decoration-none" role="button" href="https://trends.google.de/trends/" target="_blank">Google Trends</a>&trade; this became reality. We are in the beginning of our development phase and want to provide a solution for small, middle and big companies to monitor and forecast political risk in certain countries in many different time periods (yearly, monthly, daily and even hourly) at the expanse of very little costs. 
                             It was important for us to create a plitical risk tool, which can be used from everyone and can be adapted in any given way.
                             For more information about our approach of measuring political risks download our white paper.<br>
                         </p>
@@ -71,7 +71,7 @@
                                     <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_03.png">
                                 </div>
                                 <h4 class="card-title">National Actors</h4>
-                                <p class="text-muted list-unstyled">
+                                <p class="text-muted list-unstyled text-justify">
                                     Typically political events are triggered by high ranking politicians. They clearly have the strongest link to politic
                                     However, the introduction of social media has made it much easier for individuals or political groups to take political action.
                                     This shift in the political influence landscape makes understanding and forecasting risks much more nuanced.
@@ -86,7 +86,7 @@
                                     <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_02.png">
                                 </div>
                                 <h4 class="card-title">International Actors</h4>
-                                <p class="text-muted list-unstyled">
+                                <p class="text-muted list-unstyled text-justify">
                                     On top of the classical and new political national actors international infleunce has become a recurring topic 
                                     in political risk. International activists and terrorist groups can have major influence on the political risks
                                     a country witnesses. "more in blog on"
@@ -102,7 +102,7 @@
                                     <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/worldmap_01.png">
                                 </div>
                                 <h4 class="card-title">Institutional Strength</h4>
-                                <p class="text-muted list-unstyled">
+                                <p class="text-muted list-unstyled text-justify">
                                     Individual Actors can always influence a political system, however the institutional strength sets the boundries of how effectively 
                                     they push the boundries. Steady institutions are a main factor for longterm stability. They are however, no guarantee.
                                 </p>
@@ -114,11 +114,8 @@
         </div>
 
 
-<!--Section 4-->
-{% include "data/countries.html" %}
-
-<!--Donation, Subscription Area-->
-        <div class="bg-light">
+<!--Section 4 - Donation, Subscription Area-->
+        <div>
             <div class="container padding" data-aos="fade-up">
                 <div class="text-center pb-5">
                     <h3>Accounting for all Political Risk Catalysts</h3>
@@ -131,7 +128,7 @@
                             Political risk inducers can come from pretty much any corner of the globe. How can we detect how high the risk for 
                             a political event really is? <br>
                             The first link is from political risk to uncertainty. Which is actually just a wording issue.
-                            Risk as defined by <a href="https://archive.org/details/riskuncertaintyp00knigrich">Frank Knight in 1921</a> 
+                            Risk as defined by <a href="https://archive.org/details/riskuncertaintyp00knigrich" traget="_blank" role="button" class="word-hover text-decoration-none">Frank Knight in 1921</a> 
                             states clearly that political risk is an uncertainty, since risks only capture clearly defined outcomes. <br>
                             We then start by proxying political risk with the percieved uncertainty of the population.
                             When individuals feel uncertain about a topic lets say buying a house they will tend to try and reduce this uncertainty by improving their 
@@ -155,6 +152,87 @@
                 </div>
             </div>
         </div>
+
+<!--Section 5 - Risk Providers (Carousel)-->
+        <div class="bg-light">
+            <div class="container padding" data-aos="fade-up" id="riskproviders">
+                <div class="pb-5 text-center">
+                    <h3>Political Risk Providers</h3>
+                    <p>The following selection shows different political and country risk data providers</p>
+                    <hr class="hr_sizing">
+                </div>
+                <div id="Carousel_Companies" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-lg-4 col-sm-6 text-center d-flex">
+                                <div class="card">
+                                    <div class="card-body flex-fill">
+                                        <div class="pt-2 pb-1">
+                                            <img class="d-block w-100" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_03.png" alt="First slide">
+                                        </div>
+                                        <a class="card-title service_button stretched-link text-decoration-none" role="button" target="_blank" href="https://www.prsgroup.com/explore-our-products/international-country-risk-guide/"><h5>Country Risk</h5></a>
+                                        <p class="card-text text-justify text-muted">The PRS Group provides many different political risk indices</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 text-center d-flex">
+                                <div class="card">
+                                    <div class="card-body flex-fill">
+                                        <div class="pt-2 pb-1">
+                                            <img class="d-block w-100" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_03.png" alt="First slide">
+                                        </div>
+                                        <a class="card-title service_button stretched-link text-decoration-none" role="button" target="_blank" href="https://www.policyuncertainty.com/"><h5>Economic Policy Uncertainty</h5></a>
+                                        <p class="card-text text-justify text-muted">The economic policy uncertainty index is based on newspaper articles</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    <!--Second Carousel Group-->
+                    <div class="carousel-item">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-lg-4 col-sm-6 text-center d-flex">
+                                <div class="card">
+                                    <div class="card-body flex-fill">
+                                        <div class="pt-2 pb-1">
+                                            <img class="d-block w-100" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_03.png" alt="First slide">
+                                        </div>
+                                        <a class="card-title service_button stretched-link text-decoration-none" role="button" target="_blank" href="https://www.transparency.org/en/cpi/2020/index/nzl "><h5>Corruption Perception Index</h5></a>
+                                        <p class="card-text text-justify text-muted">Transparency international provides an political risk index specific for corruption</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 text-center d-flex">
+                                <div class="card">
+                                    <div class="card-body flex-fill">
+                                        <div class="pt-2 pb-1">
+                                            <img class="d-block w-100" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_03.png" alt="First slide">
+                                        </div>
+                                        <a class="card-title service_button stretched-link text-decoration-none" role="button" target="_blank" href="https://www.marsh.com/us/insights/research/political-risk-map-2020.html"><h5>Political Risk Map</h5></a>
+                                        <p class="card-text text-justify text-muted">The political risk map from the Marsh LLC is based on the data from Fitch Solutions</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    </div>
+                    <a class="carousel-control-prev" href="#Carousel_Companies" role="button" data-slide="prev">
+                        <i class="fa fa-3x fa-angle-left" aria-hidden="true"></i> <!--normalerweise ist ein span tag hier, aber mit fa kann es besser gestyled werden-->
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#Carousel_Companies" role="button" data-slide="next">
+                        <i class="fa fa-3x fa-angle-right" aria-hidden="true"></i>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+<!--Section 6 - List Countries-->
+{% include "data/countries.html" %}
 
 
 {% endblock content %}
