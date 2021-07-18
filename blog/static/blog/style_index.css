@@ -93,6 +93,14 @@ h1{
     padding-bottom: 8%;
 }
 
+.margin-posts {
+    margin-bottom: 6%;
+}
+
+.padding-post-detail {
+    padding-top: calc(6vw + 4vh);
+}
+
 .padding_data-detail{
     padding-top: calc(1.8vw + 7.5vh);
 }
@@ -108,13 +116,15 @@ h1{
 }
 
 .bg-trend-green{
-    background-color: rgb(177, 255, 177);
-    color: rgb(0, 140, 0);
+    background-color: #eed7a1;
+    color: black;
+    opacity: 0.8;
 }
 
 .bg-trend-red{
-    background-color: rgb(255, 177, 177);
-    color: rgb(140, 0, 0);
+    background-color: #732c9c;
+    color: white;
+    opacity: 0.8;
 }
 
 
@@ -129,8 +139,6 @@ h1{
 .text-size-footer{
     font-size: 0.9rem!important;
 }
-
-
 
 .orange{
     color: #ff7f64;
@@ -600,7 +608,6 @@ footer a {
     padding: 10px 20px;
     border: 1px solid #dddddd;
     border-radius: 3px;
-    margin-bottom: 8%;
   }
   
   .article-title {
@@ -620,17 +627,6 @@ footer a {
     height: 65px;
     width: 65px;
     margin-right: 16px;
-  }
-
-  .article-header-right {
-    color:black;
-    background: Rgb(255, 255, 255, 0);
-    background: linear-gradient(to top , #ffbead 5%, Rgb(255, 255, 255, 0) 35%);
-  }
-
-  .article-header-right:hover {
-    color: #ff7f64;
-    text-decoration: none;
   }
   
   .article-metadata {
@@ -669,7 +665,7 @@ footer a {
 
   .backgroundimg-blog{
     background-size: 100%!important;
-    height: calc(5vh + 20vw);
+    height: calc(5vh + 15vw);
 }
 
 .backgroundimg-data-detail{
@@ -710,4 +706,12 @@ footer a {
 .gradient{
     background: linear-gradient(to right, #732c9c 0%, #e54c8a 50%, 
     #eed7a1 100%);
+    height: calc(1vw + 1.5vh);
+    opacity: 0.8;
   }
+
+.border-legend-data {
+    border-right: 2px solid white;
+    height: calc(1vw + 1.5vh);
+    vertical-align: middle;
+}
