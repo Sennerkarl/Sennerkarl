@@ -57,7 +57,7 @@
                 <li class="nav-item {% if url_name == 'blog-political-risk' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-political-risk' %}">Political Risk</a></li>
                 <li class="nav-item {% if url_name == 'blog-blogs' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-blogs' %}">Blog</a></li>
                 <li class="nav-item {% if url_name == 'blog-about' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-about' %}">About</a></li>
-                <li class="nav-item pr-3 {% if url_name == 'blog-archive' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-archive' %}">Archive</a></li>
+                <li class="nav-item pr-3 {% if url_name == 'blog-library' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-library' %}">Library</a></li>
                 {% endwith %}
                 <!--Development!-->
                     <!--{% if user.is_authenticated %}--> <!--Conditional, when logged in than it only shows "logout" otherwise it shows login and register-->
@@ -139,7 +139,7 @@
                 <h6> <a href="{% url 'blog-home' %}">Home</a></h6>
                   <li><a href="{% url 'data-main' %}">Data</a></li>
                   <li><a href="{% url 'blog-blogs' %}">Blog</a></li>
-                  <li><a href="{% url 'blog-archive' %}">Archive</a></li>
+                  <li><a href="{% url 'blog-library' %}">Library</a></li>
                   <li><a href="{% url 'blog-about' %}">About Us</a></li>
                   <li><a href="{% url 'blog-coming-soon' %}">Coming Soon</a></li>
                   <li><a href="{% url 'blog-political-risk' %}">Policital Uncertainty</a></li>
