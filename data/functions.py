@@ -1,45 +1,44 @@
-import numpy as np
-from matplotlib import colors
+import plotly.colors
 
-def hex_to_rgb(value):
-            '''
-            Converts hex to rgb colours
-            value: string of 6 characters representing a hex colour.
-            Returns: list length 3 of RGB values'''
-            value = value.strip("#") # removes hash symbol if present
-            lv = len(value)
-            return tuple(int(value[i:i + lv // 3], 16) for i in range(0, lv, lv // 3))
+def get_continuous_color(colorscale, intermed):
+    """
+    Plotly continuous colorscales assign colors to the range [0, 1]. This function computes the intermediate
+    color for any value in that range.
 
+    Plotly doesn't make the colorscales directly accessible in a common format.
+    Some are ready to use:
+    
+        colorscale = plotly.colors.PLOTLY_SCALES["Greens"]
 
-def rgb_to_dec(value):
-    '''
-    Converts rgb to decimal colours (i.e. divides each value by 256)
-    value: list (length 3) of RGB values
-    Returns: list (length 3) of decimal values'''
-    return [v/256 for v in value]
+    Others are just swatches that need to be constructed into a colorscale:
 
-def get_continuous_cmap(hex_list, float_list=None):
-    ''' creates and returns a color map that can be used in heat map figures.
-        If float_list is not provided, colour map graduates linearly between each color in hex_list.
-        If float_list is provided, each color in hex_list is mapped to the respective location in float_list. 
-        
-        Parameters
-        ----------
-        hex_list: list of hex code strings
-        float_list: list of floats between 0 and 1, same length as hex_list. Must start with 0 and end with 1.
-        
-        Returns
-        ----------
-        colour map'''
-    rgb_list = [rgb_to_dec(hex_to_rgb(i)) for i in hex_list]
-    if float_list:
-        pass
-    else:
-        float_list = list(np.linspace(0,1,len(rgb_list)))
-        
-    cdict = dict()
-    for num, col in enumerate(['red', 'green', 'blue']):
-        col_list = [[float_list[i], rgb_list[i][num], rgb_list[i][num]] for i in range(len(float_list))]
-        cdict[col] = col_list
-    cmp = colors.LinearSegmentedColormap('my_cmp', segmentdata=cdict, N=256)
-    return cmp
+        viridis_colors, scale = plotly.colors.convert_colors_to_same_type(plotly.colors.sequential.Viridis)
+        colorscale = plotly.colors.make_colorscale(viridis_colors, scale=scale)
+
+    :param colorscale: A plotly continuous colorscale defined with RGB string colors.
+    :param intermed: value in the range [0, 1]
+    :return: color in rgb string format
+    :rtype: str
+    """
+    intermed = float(intermed) / 100 + 0.5 
+
+    if len(colorscale) < 1:
+        raise ValueError("colorscale must have at least one color")
+
+    if intermed <= 0 or len(colorscale) == 1:
+        return colorscale[0][1]
+    if intermed >= 1:
+        return colorscale[-1][1]
+
+    for cutoff, color in colorscale:
+        if intermed > cutoff:
+            low_cutoff, low_color = cutoff, color
+        else:
+            high_cutoff, high_color = cutoff, color
+            break
+
+    # noinspection PyUnboundLocalVariable
+    return plotly.colors.find_intermediate_color(
+        lowcolor=low_color, highcolor=high_color,
+        intermed=((intermed - low_cutoff) / (high_cutoff - low_cutoff)),
+        colortype="rgb")

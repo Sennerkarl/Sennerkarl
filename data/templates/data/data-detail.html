@@ -108,15 +108,22 @@
             </div>
         </div>
 
+
+        
 <!--Section 2-->
         <!--Graph 2-->
-        <div class="container pb-3" id="trend">
+        <div class="container pb-3 color1" id="trend" style="">
             <div class="row">
                 <div class="col-lg-3 col-sm-6 colorpick">
                     <div class="bg-white border rounded pt-1 pb-2"> <!--space only with the shadow class-->
                         <h5 class="text-muted text-center pt-2">Political Uncertainty {% now "F Y" %}</h5>
                         <div class="text-center pb-2 pt-1">
-                            <span class="text-center rounded py-2 px-2 bg-trend-green"><i class="mr-1 feather_16" data-feather="arrow-down"></i>{{ df }}%</span>
+                            {% if SBPRI < 0 %}
+                            <span class="text-center rounded py-2 px-2" style="background-color: {{colorSBPRI}}"><i class="mr-1 feather_16" data-feather="arrow-down"></i>{{ SBPRI }}%</span>
+                            {% endif %}
+                            {% if SBPRI > 0 %}
+                            <span class="text-center rounded py-2 px-2" style="background-color: {{colorSBPRI}}"><i class="mr-1 feather_16" data-feather="arrow-up"></i>{{ SBPRI }}%</span>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -124,7 +131,12 @@
                     <div class="bg-white border rounded pt-1 pb-2">
                         <h5 class="text-muted text-center pt-2">Investment Uncertainty {% now "F Y" %}</h5>
                         <div class="text-center pb-2 pt-1">
-                            <span class="text-center rounded py-2 px-2 bg-trend-red"><i class="mr-1 feather_16" data-feather="arrow-up"></i>{{ trendingmonth|last|first | safe }} {{ trendingmonth|last|last | safe }}%</span>
+                            {% if REGULATION < 0 %}
+                            <span class="text-center rounded py-2 px-2" style="background-color: {{colorREG}}"><i class="mr-1 feather_16" data-feather="arrow-down"></i>{{ REGULATION }}%</span>
+                            {% endif %}
+                            {% if REGULATION > 0 %}
+                            <span class="text-center rounded py-2 px-2" style="background-color: {{colorREG}}"><i class="mr-1 feather_16" data-feather="arrow-up"></i>{{ REGULATION }}%</span>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -132,7 +144,12 @@
                     <div class="bg-white border rounded pt-1 pb-2">
                         <h5 class="text-muted text-center pt-2">Trade Uncertainty {% now "F Y" %}</h5>
                         <div class="text-center pb-2 pt-1">
-                            <span class="text-center rounded py-2 px-2 bg-trend-green"><i class="mr-1 feather_16" data-feather="arrow-down"></i>{{ trendingannual|first|first | safe }} {{ trendingannual|first|last | safe }}%</span>
+                            {% if SANCTIONS < 0 %}
+                            <span class="text-center rounded py-2 px-2 " style="background-color: {{colorSANC}}"><i class="mr-1 feather_16" data-feather="arrow-down"></i>{{ SANCTIONS }}%</span>
+                            {% endif %}
+                            {% if SANCTIONS > 0 %}               
+                            <span class="text-center rounded py-2 px-2 " style="background-color: {{colorSANC}}"><i class="mr-1 feather_16" data-feather="arrow-up"></i>{{ SANCTIONS }}%</span>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -140,7 +157,12 @@
                     <div class="bg-white border rounded pt-1 pb-2">
                         <h5 class="text-muted text-center pt-2">Administration Uncertainty {% now "F Y" %}</h5>
                         <div class="text-center pb-2 pt-1">
-                            <span class="text-center rounded py-2 px-2 bg-trend-red"><i class="mr-1 feather_16" data-feather="arrow-up"></i>{{ trendingannual|last|first | safe }} {{ trendingannual|last|last | safe }}%</span>
+                            {% if SITUATION < 0 %}
+                            <span class="text-center rounded py-2 px-2" style="background-color: {{colorSIT}}"><i class="mr-1 feather_16" data-feather="arrow-down"></i>{{ SITUATION }}%</span>
+                            {% endif %}
+                            {% if SITUATION > 0 %} 
+                            <span class="text-center rounded py-2 px-2" style="background-color: {{colorSIT}}"><i class="mr-1 feather_16" data-feather="arrow-up"></i>{{ SITUATION }}%</span>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -164,7 +186,6 @@
     </div>
 
 <!--Section 4-->
-    <div>{{color}}</div>
 
 {% include "data/countries.html" %}
   
