@@ -3,15 +3,13 @@
 
 {% block content %}
 
-<!--Introduction and menu-->
-
-
+<!--Section 1 - Introduction and menu-->
         <div class="container-fluid text-center pt-6 pb-2">
             <div class="row align-items-center">
                 <div class="col-lg-9">
                     <h1 class="text-dark text-left">Political Risk Tools</h1>
                     <p class="text-muted text-left">Create certainty in an uncertain world for your business by better understanding the political shifts <br>
-                        Get insights on the principles of political risk - <a role="button" class="word-hover1 text-decoration-none" href="{% url 'blog-political-risk' %}">Political Risk Explanation</a><br>
+                        Get insights on the principles of political risk - <a role="button" class="word-hover1 text-decoration-none" href="{% url 'blog-political-risk' %}">Political Risk Explanation</a> & <a role="button" class="word-hover1 text-decoration-none" href="{% url 'blog-library' %}#recommendedliterature"> Recommended Literature</a><br>
                         The foundation of our Political Risk Tools<sup>*</sup> is  powerful data from <a href="https://trends.google.de/trends/explore?q=uncertainty&geo=GB" role="button" target="_blank" class="word-hover1 text-decoration-none">Google Trend&trade;</a></p>
                     <p class="fs-small text-left text-muted"><sup>*</sup>This novel approach of
                          measuring political risk is explicitly described in our <a href="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" target="_blank" download="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" role="button" class="word-hover1 text-decoration-none">White Paper</a></p>
@@ -95,92 +93,90 @@
             </div>
         </div>
 
-<!--Graph 1-->
-            <div class="bg-light" id="worldmap">
-                <div class="container py-3">
-                    <div class="row justify-content-center">
-                        <div class="col-12 py-3 bg-white border rounded">
-                            <h4 class="text-muted text-center">Political Uncertainty Trends - Global</h4>
-                            <p class="text-muted text-center mb-0">Analyse the short term country uncertainty trends based on Google Trend for {% now "F Y" %}</p>
-                            <div class="plotsizing">{{ trendmapmonth | safe }}</div>
-                            {% include "data/legend.html" %}
-                            <div class="float-left ml-2"><p class="text-size-small pb-0 mb-0">Source: <a href="#" target="_blank" class="text-decoration-none service_button">Political Uncertainty by Senne & Reinthaler</a> | Data: <a href="https://trends.google.com/" target="_blank" class="text-decoration-none service_button">Google Trend&trade;</a>
-                                <br>The Graph "Political Uncertainty Trends - Global" shows the percentage change of political uncertainty in comparison to the previous month</p>
-                                <p class="p-0 m-0 text-size-small">The grey countries in the Graph are not yet available | <a href="{% url 'blog-coming-soon' %}" class="text-decoration-none service_button">coming soon</a></p>
-                                <p class="p-0 m-0 text-size-small"><a href="{% url 'blog-disclaimer' %}" class="text-decoration-none service_button">Data Disclaimer</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>  
-
-<!--Graph 2-->
-                <div class="container pb-3" id="trend">
-                    <div class="row">
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="bg-white border rounded pt-1 pb-2"> <!--space only with the shadow class-->
-                                <h5 class="text-muted text-center pt-2">Shortterm Champ</h5>
-                                <div class="text-center pb-2 pt-1">
-                                    <span class="text-center rounded py-2 px-2 bg-trend-green"><i class="mr-1 feather_16" data-feather="arrow-down"></i>{{ trendingmonth|first|first | safe }} {{ trendingmonth|first|last | safe }}%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="bg-white border rounded pt-1 pb-2">
-                                <h5 class="text-muted text-center pt-2">Shortrun Bust</h5>
-                                <div class="text-center pb-2 pt-1">
-                                    <span class="text-center rounded py-2 px-2 bg-trend-red"><i class="mr-1 feather_16" data-feather="arrow-up"></i>{{ trendingmonth|last|first | safe }} {{ trendingmonth|last|last | safe }}%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="bg-white border rounded pt-1 pb-2">
-                                <h5 class="text-muted text-center pt-2">Longterm Champ</h5>
-                                <div class="text-center pb-2 pt-1">
-                                    <span class="text-center rounded py-2 px-2 bg-trend-green"><i class="mr-1 feather_16" data-feather="arrow-down"></i>{{ trendingannual|first|first | safe }} {{ trendingannual|first|last | safe }}%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="bg-white border rounded pt-1 pb-2">
-                                <h5 class="text-muted text-center pt-2">Longrun Bust</h5>
-                                <div class="text-center pb-2 pt-1">
-                                    <span class="text-center rounded py-2 px-2 bg-trend-red"><i class="mr-1 feather_16" data-feather="arrow-up"></i>{{ trendingannual|last|first | safe }} {{ trendingannual|last|last | safe }}%</span>
-                                </div>
-                            </div>
+<!--Section 2 - Graph 1-->
+        <div class="bg-light" id="worldmap">
+            <div class="container py-3">
+                <div class="row justify-content-center">
+                    <div class="col-12 py-3 bg-white border rounded">
+                        <h4 class="text-muted text-center">Political Uncertainty Trends - Global</h4>
+                        <p class="text-muted text-center mb-0">Analyse the short term country uncertainty trends based on Google Trend for {% now "F Y" %}</p>
+                        <div class="plotsizing">{{ trendmapmonth | safe }}</div>
+                        {% include "data/legend.html" %}
+                        <div class="float-left ml-2"><p class="text-size-small pb-0 mb-0">Source: <a href="#" target="_blank" class="text-decoration-none service_button">Political Uncertainty by Senne & Reinthaler</a> | Data: <a href="https://trends.google.com/" target="_blank" class="text-decoration-none service_button">Google Trend&trade;</a>
+                            <br>The Graph "Political Uncertainty Trends - Global" shows the percentage change of political uncertainty in comparison to the previous month</p>
+                            <p class="p-0 m-0 text-size-small">The grey countries in the Graph are not yet available | <a href="{% url 'blog-coming-soon' %}" class="text-decoration-none service_button">coming soon</a></p>
+                            <p class="p-0 m-0 text-size-small"><a href="{% url 'blog-disclaimer' %}" class="text-decoration-none service_button">Data Disclaimer</a></p>
                         </div>
                     </div>
                 </div>
+            </div>  
+
+<!--Section 3 - Graph 2-->
+        <div class="container pb-3" id="trend">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="bg-white border rounded pt-1 pb-2"> <!--space only with the shadow class-->
+                        <h5 class="text-muted text-center pt-2">Shortterm Champ</h5>
+                        <div class="text-center pb-2 pt-1">
+                            <span class="text-center rounded py-2 px-2 bg-trend-green"><i class="mr-1 feather_16" data-feather="arrow-down"></i>{{ trendingmonth|first|first | safe }} {{ trendingmonth|first|last | safe }}%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="bg-white border rounded pt-1 pb-2">
+                        <h5 class="text-muted text-center pt-2">Shortrun Bust</h5>
+                        <div class="text-center pb-2 pt-1">
+                            <span class="text-center rounded py-2 px-2 bg-trend-red"><i class="mr-1 feather_16" data-feather="arrow-up"></i>{{ trendingmonth|last|first | safe }} {{ trendingmonth|last|last | safe }}%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="bg-white border rounded pt-1 pb-2">
+                        <h5 class="text-muted text-center pt-2">Longterm Champ</h5>
+                        <div class="text-center pb-2 pt-1">
+                            <span class="text-center rounded py-2 px-2 bg-trend-green"><i class="mr-1 feather_16" data-feather="arrow-down"></i>{{ trendingannual|first|first | safe }} {{ trendingannual|first|last | safe }}%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="bg-white border rounded pt-1 pb-2">
+                        <h5 class="text-muted text-center pt-2">Longrun Bust</h5>
+                        <div class="text-center pb-2 pt-1">
+                            <span class="text-center rounded py-2 px-2 bg-trend-red"><i class="mr-1 feather_16" data-feather="arrow-up"></i>{{ trendingannual|last|first | safe }} {{ trendingannual|last|last | safe }}%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
                 
-
-
-<!--Graph 3-->
-                <div class="container pb-3">
-                    <div class="row">
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="bg-white border rounded py-3">
-                                <h4 class="text-muted text-center">Investment Uncertainty</h4>
-                                <div class="plotsizing1">{{ trendmapreg | safe }}</div>
-                                <p class="text-size-small ml-2 mb-0 pb-0">Source: <a href="" class="text-decoration-none service_button">Political Risk Index by Senne & Reinthaler</a> | Data: <a href="https://trends.google.com/" target="_blank" class="text-decoration-none service_button">Google Trend&trade;</a>
-                                <br>The Graph "Political Uncertainty Trends - Global" shows the percentage change of political uncertainty in comparison to the previous month</p>
-                                <p class="pb-0 mb-0 text-size-small float-left ml-2">The grey countries in the Graph are not yet available | <a href="{% url 'blog-coming-soon' %}" class="text-decoration-none service_button">coming soon</a></p>
-                                <br><p class="pt-0 mt-0 text-size-small ml-2"><a href="{% url 'blog-disclaimer' %}" class="text-decoration-none service_button">Data Disclaimer</a></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="bg-white border rounded py-3"> 
-                                <h4 class="text-muted text-center">Trade Uncertainty</h4>
-                                <div class="plotsizing1">{{ trendmapsanc  | safe }}</div>
-                                <p class="text-size-small ml-2 mb-0 pb-0">Source: <a href="" class="text-decoration-none service_button">Political Risk Index by Senne & Reinthaler</a> | Data: <a href="https://trends.google.com/" target="_blank" class="text-decoration-none service_button">Google Trend&trade;</a>
-                                    <br>The Graph "Political Uncertainty Trends - Global" shows the percentage change of political uncertainty in comparison to the previous month</p>
-                                    <p class="pb-0 mb-0 text-size-small float-left ml-2">The grey countries in the Graph are not yet available | <a href="{% url 'blog-coming-soon' %}" class="text-decoration-none service_button">coming soon</a></p>
-                                    <br><p class="pt-0 mt-0 text-size-small ml-2"><a href="{% url 'blog-disclaimer' %}" class="text-decoration-none service_button">Data Disclaimer</a></p>
-                            </div>
-                        </div>
+<!--Section 4 - Graph 3-->
+        <div class="container pb-3">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                    <div class="bg-white border rounded py-3">
+                        <h4 class="text-muted text-center">Investment Uncertainty</h4>
+                        <div class="plotsizing1">{{ trendmapreg | safe }}</div>
+                        <p class="text-size-small ml-2 mb-0 pb-0">Source: <a href="" class="text-decoration-none service_button">Political Risk Index by Senne & Reinthaler</a> | Data: <a href="https://trends.google.com/" target="_blank" class="text-decoration-none service_button">Google Trend&trade;</a>
+                        <br>The Graph "Political Uncertainty Trends - Global" shows the percentage change of political uncertainty in comparison to the previous month</p>
+                        <p class="pb-0 mb-0 text-size-small float-left ml-2">The grey countries in the Graph are not yet available | <a href="{% url 'blog-coming-soon' %}" class="text-decoration-none service_button">coming soon</a></p>
+                        <br><p class="pt-0 mt-0 text-size-small ml-2"><a href="{% url 'blog-disclaimer' %}" class="text-decoration-none service_button">Data Disclaimer</a></p>
                     </div>
                 </div>
+                <div class="col-lg-6 col-sm-12">
+                    <div class="bg-white border rounded py-3"> 
+                        <h4 class="text-muted text-center">Trade Uncertainty</h4>
+                        <div class="plotsizing1">{{ trendmapsanc  | safe }}</div>
+                        <p class="text-size-small ml-2 mb-0 pb-0">Source: <a href="" class="text-decoration-none service_button">Political Risk Index by Senne & Reinthaler</a> | Data: <a href="https://trends.google.com/" target="_blank" class="text-decoration-none service_button">Google Trend&trade;</a>
+                            <br>The Graph "Political Uncertainty Trends - Global" shows the percentage change of political uncertainty in comparison to the previous month</p>
+                            <p class="pb-0 mb-0 text-size-small float-left ml-2">The grey countries in the Graph are not yet available | <a href="{% url 'blog-coming-soon' %}" class="text-decoration-none service_button">coming soon</a></p>
+                            <br><p class="pt-0 mt-0 text-size-small ml-2"><a href="{% url 'blog-disclaimer' %}" class="text-decoration-none service_button">Data Disclaimer</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
            
-<!--Graph 4-->
+<!--Section 5 - Graph 4-->
         <div id="comparison">
             <div class="container pb-3">
                 <div class="row justify-content-center">
@@ -197,7 +193,7 @@
             </div>
         </div>
 
-<!--Graph 5-->
+<!--Section 6 - Graph 5-->
         <div class="container pb-3">
             <div class="row justify-content-center">
                 <div class="col-12 bg-white border rounded py-3">
@@ -279,7 +275,7 @@
             </div>-->
 
            
-<!--Graph 6-->
+<!--Section 7 - Graph 6-->
             <div class="container pb-3" id="political-sanctions">
                 <div class="row justify-content-center">
                     <div class="col-lg-12 col-sm-12 bg-white border rounded py-3">
@@ -294,7 +290,7 @@
                     </div>
                 </div>
             </div>
-<!--Graph 7-->
+<!--Section 8 - Graph 7-->
             <div class="container pb-6" id="political-situation">
                 <div class="row justify-content-center">
                     <div class="col-lg-12 col-sm-12 bg-white border rounded py-3">
@@ -311,7 +307,7 @@
             </div>
         </div>
 
-<!--Endsection-->
+<!--Section 9 - Endsection/Countries-->
 {% include "data/countries.html" %}
         
 

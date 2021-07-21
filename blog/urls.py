@@ -18,7 +18,7 @@ urlpatterns = [
     
     path('like/<int:pk>', LikeView, name='like_post'),
 
-    path('archive/', views.archive, name='blog-archive'),
+    path('library/', views.library, name='blog-library'),
     path('impressum/', views.impressum, name='blog-impressum'),
     path('disclaimer/', views.disclaimer, name='blog-disclaimer'),
     path('data-privacy/', views.dataprivacy, name='blog-data-privacy'),
