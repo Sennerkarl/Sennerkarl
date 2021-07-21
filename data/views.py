@@ -7,10 +7,13 @@ from django.views.generic.detail import DetailView
 from plotly.offline import plot
 import plotly.graph_objects as go
 import plotly.io as pio
+import plotly
 from .models import Data, SBPRI, WorldBorder
 import pandas as pd
+import numpy as np
 import re
 import wbgapi as wb
+from data.functions import get_continuous_color
 
 class DataView(ListView):
     template_name = 'data/data.html'
@@ -352,10 +355,13 @@ class DataDetailView(ListView):
         countries = sorted(list(Data.objects.values_list('country', flat=True).distinct())) # get country list from database
         datetimeline = [date.strftime('%Y-%m-%d') for date in Data.objects.values_list('date', flat=True).distinct().order_by('date')]
         
-        listSBPRI = list(Data.objects.filter(country=country, category='SBPRI').order_by('date').values_list('value', flat=True))
-        listREGULATION = list(Data.objects.filter(country=country, category='Regulation').order_by('date').values_list('value', flat=True))
-        listSANCTIONS = list(Data.objects.filter(country=country, category='Sanctions').order_by('date').values_list('value', flat=True))
-        listSITUATION = list(Data.objects.filter(country=country, category='Situation').order_by('date').values_list('value', flat=True))
+        listSBPRI = list(Data.objects.filter(country=country, category='SBPRI').order_by('-date').values_list('value', flat=True))
+        listREGULATION = list(Data.objects.filter(country=country, category='Regulation').order_by('-date').values_list('value', flat=True))
+        listSANCTIONS = list(Data.objects.filter(country=country, category='Sanctions').order_by('-date').values_list('value', flat=True))
+        listSITUATION = list(Data.objects.filter(country=country, category='Situation').order_by('-date').values_list('value', flat=True))
+        deltaREG = listREGULATION[-1] - listREGULATION[-2]
+        deltaSANC = listSANCTIONS[-1] - listSANCTIONS[-2]
+        deltaSIT = listSITUATION[-1] - listSITUATION[-2]
 
         figline = go.Figure()
         figline.update_layout(
@@ -381,18 +387,23 @@ class DataDetailView(ListView):
         df = wb.data.DataFrame(list(dictforwb), iso3 , mrnev=2)
 
         for key, value in dictforwb.items():
-            dictvar = df.loc[key].dropna().to_dict()
-            df.loc[key, 'Year'] = list(dictvar)[1][2:]
+            try:
+                dictvar = df.loc[key].dropna().to_dict()
+                df.loc[key, 'Year'] = list(dictvar)[1][2:]
+
+                if value in ['FDI', 'Population']:
+                    df.loc[key, 'Value'] = format(list(dictvar.values())[1]/10**6, ',.0f')
+                if value in ['GDP', 'VolumeStocksTraded', 'ExportVolume', 'ImportVolume']:
+                    df.loc[key, 'Value'] = format(list(dictvar.values())[1]/10**9, ',.2f')
+                if value in [ 'Stocks/GDP']:
+                    df.loc[key, 'Value'] = format(list(dictvar.values())[1]*100, ',.2f')
+                if value in ['GDPPC', 'Growth']:
+                    df.loc[key, 'Value'] = format(list(dictvar.values())[1], ',.2f')
             
-            if value in ['FDI', 'Population']:
-                df.loc[key, 'Value'] = format(list(dictvar.values())[1]/10**6, ',.0f')
-            if value in ['GDP', 'VolumeStocksTraded', 'ExportVolume', 'ImportVolume']:
-                df.loc[key, 'Value'] = format(list(dictvar.values())[1]/10**9, ',.2f')
-            if value in [ 'Stocks/GDP']:
-                df.loc[key, 'Value'] = format(list(dictvar.values())[1]*100, ',.2f')
-            if value in ['GDPPC', 'Growth']:
-                df.loc[key, 'Value'] = format(list(dictvar.values())[1], ',.2f')
-        
+            except Exception:
+                df.loc[key, 'Value'] = ' - '
+                df.loc[key, 'Year'] = ' - '
+                
             df = df.rename(index={key:value})
         df = df.loc[:, ['Year','Value']]
 
@@ -414,9 +425,26 @@ class DataDetailView(ListView):
         context['Population'] = df.loc['Population'].to_list()
         context['CountryData'] = countryimport
         context['Rank'] = format(rank['rank'][iso3], '.0f')
-        context['df'] = listSBPRI[-1]
+        context['SBPRI'] = int(float(diff[-1])) #careful could break everything
+        context['REGULATION'] = int(deltaREG)
+        context['SANCTIONS'] = int(deltaSANC)
+        context['SITUATION'] = int(deltaSIT)
         
 
+        #import colors
+        agsunset, _ = plotly.colors.convert_colors_to_same_type(plotly.colors.sequential.Agsunset)
+        colorscale = plotly.colors.make_colorscale(agsunset)
 
+        
+        
+        
+
+        context['colorSBPRI'] = get_continuous_color(colorscale, intermed=diff[-1])
+        context['colorREG'] = get_continuous_color(colorscale, intermed=deltaREG)
+        context['colorSANC'] = get_continuous_color(colorscale, intermed=deltaSANC)
+        context['colorSIT'] = get_continuous_color(colorscale, intermed=(deltaSIT))
+        
         return context
+
+
 

@@ -204,7 +204,7 @@
                                 <p class="text-dark pb-0 mb-0">Strong positive trend</p>
                                 {% for country in trendingannual %}
                                 {% if country|last < -15 %}
-                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}">{{country|first}}</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country|first %}">{{country|first}}</a></li>
                                 
                                 {% endif %}
                                 {%endfor %}
@@ -215,7 +215,7 @@
                                 <p class="text-dark pb-0 mb-0">Positive trend</p>
                                 {% for country in trendingannual %}
                                 {% if country|last > -15 and country|last < 0 %}
-                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}">{{country|first}}</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country|first %}">{{country|first}}</a></li>
                                 
                                 {% endif %}
                                 {%endfor %}
@@ -226,7 +226,7 @@
                                 <p class="text-dark pb-0 mb-0">Negative trend</p>
                                 {% for country in trendingannual %}
                                 {% if country|last < 15 and country|last > 0 %}
-                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}">{{country|first}}</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country|first %}">{{country|first}}</a></li>
                                 
                                 {% endif %}
                                 {%endfor %}
@@ -237,7 +237,7 @@
                                 <p class="text-dark pb-0 mb-0">Strong negative trend</p>
                                 {% for country in trendingannual %}
                                 {% if country|last > 15 %}
-                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}">{{country|first}}</a></li>
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country|first %}">{{country|first}}</a></li>
                                 
                                 {% endif %}
                                 {%endfor %}
