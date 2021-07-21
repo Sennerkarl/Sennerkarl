@@ -1,7 +1,6 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-
 <div class="container-fluid backgroundimg6 position-relative d-flex align-items-center justify-content-center"> <!--nur so ist es möglich, dass der Content auch gecentert ist!-->
     <div class="row d-flex justify-content-center align-items-center">
         <div class="col-md-12 text-center rounded py-4 px-6">
@@ -25,7 +24,7 @@
     </div>
 </div>
 
-<!--Section 1-->
+<!--Section 1 - Our Mission-->
 <div class="container pt-5 pb-6"  id="ourmission">
     <div class="text-center pb-5">
         <h3>Our Mission</h3>
@@ -70,7 +69,7 @@
     </div>
 </div>
 
-<!--Section 1 - How it all started-->
+<!--Section 2 - How it all started-->
 <div class="bg-light">
     <div class="container padding" data-aos="fade-up">
         <div class="text-center">
@@ -83,7 +82,7 @@
                 We wanted data which could grasp a wide variety of perspectives and information which is easily accessible to most. This lead to Google&trade;. 
                 Since then we have been advancing or research and our approaches to enable a solution for political risk for small, middle and large businesses. 
                 The goal is to advance the understanding of political risk of as many as possible. Learn more about ou <br>
-                <a href="test_white paper.pdf" download="text_white paper.pdf" role="button" class="word-hover1 text-decoration-none">Learn More & Download The White Paper</a>
+                <a href="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" target="_blank" download="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" role="button" class="word-hover1 text-decoration-none">Learn More & Download The White Paper</a>
             </p>
         </div>
         <div class="row pb-3 justify-content-center">
@@ -92,7 +91,7 @@
     </div>
 </div>
 
-<!--Donation Area-->
+<!--Section 3 - Just the beginning-->
 <div class="container padding">
     <div class="text-center pb-5" data-aos="fade-up">
         <h3>Just the Beginning of Something Big</h3>
@@ -117,7 +116,7 @@
 </div>
 
 
-<!--Section 6 BREAK-->
+<!--Section 4 BREAK-->
 <div class="container-fluid backgroundimg10 position-relative d-flex align-items-center justify-content-center"> <!--nur so ist es möglich, dass der Content auch gecentert ist!-->
     <div class="row d-flex justify-content-center position-absolute">
         <div class="col-md-12 text-center text-white" data-aos="zoom-in">
@@ -126,7 +125,7 @@
     </div>
 </div>
 
-<!--Team-->
+<!--Section 5 - The Team-->
 <div class="container padding"  data-aos="fade-up">
     <div class="text-center pb-5">
         <h3>The Team</h3>
@@ -143,6 +142,7 @@
                     </div>
                     <h4 class="card-title">Alexander Senne</h4>
                     <p class="card-text text-muted">Head of Research and Development</p>
+                    <a href="mailto:politicaluncertainty@gmail.com" role="button" class="text-center"><i class="mt-1 orange feather_16" data-feather="mail"></i></a>
                 </div>
             </div>
         </div>
@@ -150,10 +150,11 @@
             <div class="card">
                 <div class="card-body flex-fill">
                     <div class="pt-2 pb-1">
-                        <img class="svgsizing" src="">
+                        <img class="svgsizing" src="{{profilesenne.image.url}}">
                     </div>
                     <h4 class="card-title">David Reinthaler</h4> <!--Monitor-->
                     <p class="card-text text-muted">Head of Operations and Finance</p>
+                    <a href="mailto:politicaluncertainty@gmail.com" role="button" class="text-center"><i class="mt-1 orange feather_16" data-feather="mail"></i></a>
                 </div>
             </div>
         </div>

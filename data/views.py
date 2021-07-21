@@ -84,6 +84,7 @@ class DataView(ListView):
 
         context['trendingmonth'] = trends(0,2)
         context['trendingannual'] = trends(0,13)
+        
 
         #trendmap political regulation
         figreg = go.Figure()
@@ -153,7 +154,7 @@ class DataView(ListView):
                         ),
                     )
 
-        #trenmap political situation
+        #trendmap political situation
         figsitu = go.Figure()
         category = 'Sanctions'
         dates = list(Data.objects.order_by('-date').values_list('date', flat=True).distinct()[0:2])
@@ -350,6 +351,11 @@ class DataDetailView(ListView):
         # Country Line Graph compared to all? or maybe just continent
         countries = sorted(list(Data.objects.values_list('country', flat=True).distinct())) # get country list from database
         datetimeline = [date.strftime('%Y-%m-%d') for date in Data.objects.values_list('date', flat=True).distinct().order_by('date')]
+        
+        listSBPRI = list(Data.objects.filter(country=country, category='SBPRI').order_by('date').values_list('value', flat=True))
+        listREGULATION = list(Data.objects.filter(country=country, category='Regulation').order_by('date').values_list('value', flat=True))
+        listSANCTIONS = list(Data.objects.filter(country=country, category='Sanctions').order_by('date').values_list('value', flat=True))
+        listSITUATION = list(Data.objects.filter(country=country, category='Situation').order_by('date').values_list('value', flat=True))
 
         figline = go.Figure()
         figline.update_layout(
@@ -359,21 +365,37 @@ class DataDetailView(ListView):
                         )
 
         
-        figline.add_trace(go.Scatter(x=datetimeline, y=list(Data.objects.filter(country=country, category='SBPRI').order_by('date').values_list('value', flat=True)), name='Political Uncertainty', opacity=0.8))
-        figline.add_trace(go.Scatter(x=datetimeline, y=list(Data.objects.filter(country=country, category='Regulation').order_by('date').values_list('value', flat=True)), name='Investment Uncertainty', opacity=0.4))
-        figline.add_trace(go.Scatter(x=datetimeline, y=list(Data.objects.filter(country=country, category='Sanctions').order_by('date').values_list('value', flat=True)), name='Trade Uncertainty', opacity=0.4 ))
-        figline.add_trace(go.Scatter(x=datetimeline, y=list(Data.objects.filter(country=country, category='Situation').order_by('date').values_list('value', flat=True)), name='Administration Uncertainty', opacity=0.4, visible = "legendonly" ))
+        figline.add_trace(go.Scatter(x=datetimeline, y=listSBPRI, name='Political Uncertainty', opacity=0.8))
+        figline.add_trace(go.Scatter(x=datetimeline, y=listREGULATION, name='Investment Uncertainty', opacity=0.4))
+        figline.add_trace(go.Scatter(x=datetimeline, y=listSANCTIONS, name='Trade Uncertainty', opacity=0.4 ))
+        figline.add_trace(go.Scatter(x=datetimeline, y=listSITUATION, name='Administration Uncertainty', opacity=0.4, visible = "legendonly" ))
 
         linegraph = plot(figline, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
         context['linegraph'] = linegraph
         context['countries'] = countries
 
         #WorldbankData for Country
-        df = wb.data.DataFrame(['SP.POP.TOTL', 'CM.MKT.TRAD.CD', 'CM.MKT.TRAD.GD.ZS', 'NY.GDP.PCAP.KD', 'NY.GDP.MKTP.KD.ZG', 'NE.EXP.GNFS.KD', 'NE.IMP.GNFS.KD', 'BX.KLT.DINV.CD.WD', 'NY.GDP.MKTP.CD'], iso3 , mrnev=1)
-        df.rename(columns={'CM.MKT.TRAD.CD':'VolumeStocksTraded', 'CM.MKT.TRAD.GD.ZS':'Stocks/GDP', 'NE.EXP.GNFS.KD':'ExportVolume',
+        dictforwb = {'CM.MKT.TRAD.CD':'VolumeStocksTraded', 'CM.MKT.TRAD.GD.ZS':'Stocks/GDP', 'NE.EXP.GNFS.KD':'ExportVolume',
          'NE.IMP.GNFS.KD':'ImportVolume','NY.GDP.PCAP.KD':'GDPPC', 'NY.GDP.MKTP.KD.ZG':'Growth',
-          'BX.KLT.DINV.CD.WD':'FDI', 'NY.GDP.MKTP.CD':'GDP', 'SP.POP.TOTL':'Population'}, inplace=True)
+          'BX.KLT.DINV.CD.WD':'FDI', 'NY.GDP.MKTP.CD':'GDP', 'SP.POP.TOTL':'Population'}
+        df = wb.data.DataFrame(list(dictforwb), iso3 , mrnev=2)
+
+        for key, value in dictforwb.items():
+            dictvar = df.loc[key].dropna().to_dict()
+            df.loc[key, 'Year'] = list(dictvar)[1][2:]
+            
+            if value in ['FDI', 'Population']:
+                df.loc[key, 'Value'] = format(list(dictvar.values())[1]/10**6, ',.0f')
+            if value in ['GDP', 'VolumeStocksTraded', 'ExportVolume', 'ImportVolume']:
+                df.loc[key, 'Value'] = format(list(dictvar.values())[1]/10**9, ',.2f')
+            if value in [ 'Stocks/GDP']:
+                df.loc[key, 'Value'] = format(list(dictvar.values())[1]*100, ',.2f')
+            if value in ['GDPPC', 'Growth']:
+                df.loc[key, 'Value'] = format(list(dictvar.values())[1], ',.2f')
         
+            df = df.rename(index={key:value})
+        df = df.loc[:, ['Year','Value']]
+
         #GDP Rank Globally
         rank = wb.data.DataFrame('NY.GDP.MKTP.CD', mrv=1)
         rank['rank'] = rank.rank(ascending=False)
@@ -381,19 +403,20 @@ class DataDetailView(ListView):
         #Data from Database - WorldBorder
         countryimport = WorldBorder.objects.filter(name=country).first()
 
-        context['FDI'] = format(df['FDI'][iso3]/10**6, ',.0f')
-        context['GDP'] = format(df['GDP'][iso3]/10**9, ',.2f')
-        context['GDPPC'] = format(df['GDPPC'][iso3], ',.0f') 
-        context['Growth'] = format(df['Growth'][iso3], ',.2f')
-        context['VolumeStocksTraded'] = format(df['VolumeStocksTraded'][iso3]/10**9, ',.2f') 
-        context['Stocks/GDP'] = format(df['Stocks/GDP'][iso3]*100, ',.1f')
-        context['ExportVolume'] = format(df['ExportVolume'][iso3]/10**9, ',.2f')
-        context['ImportVolume'] = format(df['ImportVolume'][iso3]/10**9, ',.2f')
-        context['Population'] = format(df['Population'][iso3]/10**6, ',.0f')
+        context['FDI'] = df.loc['FDI'].to_list()
+        context['GDP'] = df.loc['GDP'].to_list()
+        context['GDPPC'] = df.loc['GDPPC'].to_list() 
+        context['Growth'] = df.loc['Growth'].to_list()
+        context['VolumeStocksTraded'] = df.loc['VolumeStocksTraded'].to_list()
+        context['Stocks/GDP'] = df.loc['Stocks/GDP'].to_list()
+        context['ExportVolume'] = df.loc['ExportVolume'].to_list()
+        context['ImportVolume'] = df.loc['ImportVolume'].to_list()
+        context['Population'] = df.loc['Population'].to_list()
         context['CountryData'] = countryimport
         context['Rank'] = format(rank['rank'][iso3], '.0f')
-        
+        context['df'] = listSBPRI[-1]
         
 
 
         return context
+

@@ -3,15 +3,13 @@
 
 {% block content %}
 
-<!--Introduction and menu-->
-
-
+<!--Section 1 - Introduction and menu-->
         <div class="container-fluid text-center pt-6 pb-2">
             <div class="row align-items-center">
                 <div class="col-lg-9">
                     <h1 class="text-dark text-left">Political Risk Tools</h1>
                     <p class="text-muted text-left">Create certainty in an uncertain world for your business by better understanding the political shifts <br>
-                        Get insights on the principles of political risk <a role="button" class="word-hover1 text-decoration-none" href="{% url 'blog-political-risk' %}">Political Risk Explanation</a><br>
+                        Get insights on the principles of political risk - <a role="button" class="word-hover1 text-decoration-none" href="{% url 'blog-political-risk' %}">Political Risk Explanation</a> & <a role="button" class="word-hover1 text-decoration-none" href="{% url 'blog-library' %}#recommendedliterature"> Recommended Literature</a><br>
                         The foundation of our Political Risk Tools<sup>*</sup> is  powerful data from <a href="https://trends.google.de/trends/explore?q=uncertainty&geo=GB" role="button" target="_blank" class="word-hover1 text-decoration-none">Google Trend&trade;</a></p>
                     <p class="fs-small text-left text-muted"><sup>*</sup>This novel approach of
                          measuring political risk is explicitly described in our <a href="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" target="_blank" download="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" role="button" class="word-hover1 text-decoration-none">White Paper</a></p>
@@ -57,105 +55,199 @@
             </div>
         </div>
 
-        <div class="gradient">
+        <!--OLD VERSION nicht responsive!
+            <div class="gradient">
             <div class="containter pt-3">
                 <div class="row justify-content-center shadow-sm bg-white py-3 text-center">
                     <div class="d-inline-flex">
-                        <div class="col-lg-4 col-sm-12">
+                        <div class="col-4">
                             <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="#worldmap"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="globe"></i>Worldmap</a>
                         </div>
-                        <div class="col-lg-4 col-sm-12">
+                        <div class="col-4">
                             <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="#countries"><i class="mt-1 grey pull-left feather_16" data-feather="map"></i>Countries</a>
                         </div>
-                        <div class="col-lg-4 col-sm-12">
+                        <div class="col-4">
                             <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="#trend"><i class="mt-1 grey pull-left feather_16" data-feather="trending-up"></i>Trend</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <div class="gradient"></div>
+        <div class="containter">
+            <div class="row d-flex shadow-sm bg-white py-3">
+                <div class="col-md-2 col-lg-2 d-sm-block d-none"></div>
+                <div class="col-md-2 col-lg-2 col-6 justify-content-center">
+                    <a role="button" class="service_button text-decoration-none text-size-small" href="#worldmap"><i class="grey feather_16 mr-1" data-feather="globe"></i>Worldmap</a>
+                </div>
+                <div class="col-md-2 col-lg-2 col-6 justify-content-center">
+                    <a role="button" class="service_button text-decoration-none text-size-small" href="#countries"><i class="grey feather_16 mr-1" data-feather="map"></i>Countries</a>
+                </div>
+                <div class="col-md-2 col-lg-2 col-6 justify-content-center">
+                    <a role="button" class="service_button text-decoration-none text-size-small" href="#trend"><i class="grey feather_16 mr-1" data-feather="trending-up"></i>Trend</a>
+                </div>
+                <div class="col-md-2 col-lg-2 col-6 justify-content-center">
+                    <a role="button" class="service_button text-decoration-none text-size-small" href="#comparison"><i class="grey feather_16 mr-1" data-feather="file-text"></i>Comparison</a>
+                </div>
+                <div class="col-md-2 col-lg-2 d-sm-block d-none"></div>
+            </div>
+        </div>
+
+<!--Section 2 - Graph 1-->
+        <div class="bg-light" id="worldmap">
+            <div class="container py-3">
+                <div class="row justify-content-center">
+                    <div class="col-12 py-3 bg-white border rounded">
+                        <h4 class="text-muted text-center">Political Uncertainty Trends - Global</h4>
+                        <p class="text-muted text-center mb-0">Analyse the short term country uncertainty trends based on Google Trend for {% now "F Y" %}</p>
+                        <div class="plotsizing">{{ trendmapmonth | safe }}</div>
+                        {% include "data/legend.html" %}
+                        <div class="float-left ml-2"><p class="text-size-small pb-0 mb-0">Source: <a href="#" target="_blank" class="text-decoration-none service_button">Political Uncertainty by Senne & Reinthaler</a> | Data: <a href="https://trends.google.com/" target="_blank" class="text-decoration-none service_button">Google Trend&trade;</a>
+                            <br>The Graph "Political Uncertainty Trends - Global" shows the percentage change of political uncertainty in comparison to the previous month</p>
+                            <p class="p-0 m-0 text-size-small">The grey countries in the Graph are not yet available | <a href="{% url 'blog-coming-soon' %}" class="text-decoration-none service_button">coming soon</a></p>
+                            <p class="p-0 m-0 text-size-small"><a href="{% url 'blog-disclaimer' %}" class="text-decoration-none service_button">Data Disclaimer</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+
+<!--Section 3 - Graph 2-->
+        <div class="container pb-3" id="trend">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="bg-white border rounded pt-1 pb-2"> <!--space only with the shadow class-->
+                        <h5 class="text-muted text-center pt-2">Shortterm Champ</h5>
+                        <div class="text-center pb-2 pt-1">
+                            <span class="text-center rounded py-2 px-2 bg-trend-green"><i class="mr-1 feather_16" data-feather="arrow-down"></i>{{ trendingmonth|first|first | safe }} {{ trendingmonth|first|last | safe }}%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="bg-white border rounded pt-1 pb-2">
+                        <h5 class="text-muted text-center pt-2">Shortrun Bust</h5>
+                        <div class="text-center pb-2 pt-1">
+                            <span class="text-center rounded py-2 px-2 bg-trend-red"><i class="mr-1 feather_16" data-feather="arrow-up"></i>{{ trendingmonth|last|first | safe }} {{ trendingmonth|last|last | safe }}%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="bg-white border rounded pt-1 pb-2">
+                        <h5 class="text-muted text-center pt-2">Longterm Champ</h5>
+                        <div class="text-center pb-2 pt-1">
+                            <span class="text-center rounded py-2 px-2 bg-trend-green"><i class="mr-1 feather_16" data-feather="arrow-down"></i>{{ trendingannual|first|first | safe }} {{ trendingannual|first|last | safe }}%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="bg-white border rounded pt-1 pb-2">
+                        <h5 class="text-muted text-center pt-2">Longrun Bust</h5>
+                        <div class="text-center pb-2 pt-1">
+                            <span class="text-center rounded py-2 px-2 bg-trend-red"><i class="mr-1 feather_16" data-feather="arrow-up"></i>{{ trendingannual|last|first | safe }} {{ trendingannual|last|last | safe }}%</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-<!--Graph 1-->
-        <div class="bg-light">
-            <div class="container py-3" id="worldmap">
-                <div class="row justify-content-center">
-                    <div class="col-lg-12 col-sm-12 py-3 bg-white border rounded">
-                        <h3 class="text-muted text-center">Political Uncertainty Trends - Global</h3>
-                        <p class="text-muted text-center">Analyse the short term country uncertainty trends based on Google Trend for {% now "F Y" %}</p>
-                        <div class="plotsizing">{{ trendmapmonth | safe }}</div>
-                        <div class="float-left ml-2"><p class="text-size-small">Source: <a href="" class="text-decoration-none">Political Risk Index by Senne & Reinthaler</a><br>*Percentage change in comparison to the previous month</p>
-                        </div>
+                
+<!--Section 4 - Graph 3-->
+        <div class="container pb-3">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                    <div class="bg-white border rounded py-3">
+                        <h4 class="text-muted text-center">Investment Uncertainty</h4>
+                        <div class="plotsizing1">{{ trendmapreg | safe }}</div>
+                        <p class="text-size-small ml-2 mb-0 pb-0">Source: <a href="" class="text-decoration-none service_button">Political Risk Index by Senne & Reinthaler</a> | Data: <a href="https://trends.google.com/" target="_blank" class="text-decoration-none service_button">Google Trend&trade;</a>
+                        <br>The Graph "Political Uncertainty Trends - Global" shows the percentage change of political uncertainty in comparison to the previous month</p>
+                        <p class="pb-0 mb-0 text-size-small float-left ml-2">The grey countries in the Graph are not yet available | <a href="{% url 'blog-coming-soon' %}" class="text-decoration-none service_button">coming soon</a></p>
+                        <br><p class="pt-0 mt-0 text-size-small ml-2"><a href="{% url 'blog-disclaimer' %}" class="text-decoration-none service_button">Data Disclaimer</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <div class="bg-white border rounded py-3"> 
+                        <h4 class="text-muted text-center">Trade Uncertainty</h4>
+                        <div class="plotsizing1">{{ trendmapsanc  | safe }}</div>
+                        <p class="text-size-small ml-2 mb-0 pb-0">Source: <a href="" class="text-decoration-none service_button">Political Risk Index by Senne & Reinthaler</a> | Data: <a href="https://trends.google.com/" target="_blank" class="text-decoration-none service_button">Google Trend&trade;</a>
+                            <br>The Graph "Political Uncertainty Trends - Global" shows the percentage change of political uncertainty in comparison to the previous month</p>
+                            <p class="pb-0 mb-0 text-size-small float-left ml-2">The grey countries in the Graph are not yet available | <a href="{% url 'blog-coming-soon' %}" class="text-decoration-none service_button">coming soon</a></p>
+                            <br><p class="pt-0 mt-0 text-size-small ml-2"><a href="{% url 'blog-disclaimer' %}" class="text-decoration-none service_button">Data Disclaimer</a></p>
                     </div>
                 </div>
             </div>
-        
-          
-
-<!--Graph 2-->
-            <div class="container pb-3" id="trend" >
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="bg-white border rounded"> <!--space only with the shadow class-->
-                            <h5 class="text-muted text-center pt-2">Monthly Champ</h5>
-                            <div class="text-muted">{{ trendingmonth|first|first | safe }} {{ trendingmonth|first|last | safe }}</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="bg-white border rounded">
-                            <h5 class="text-muted text-center pt-2">Monthly Bust</h5>
-                            <div class="text-muted">{{ trendingmonth|last|first | safe }} {{ trendingmonth|last|last | safe }}</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="bg-white border rounded">
-                            <h5 class="text-muted text-center pt-2">Annual Champ</h5>
-                            <div>{{ trendingannual|first|first | safe }} {{ trendingannual|first|last | safe }}</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="bg-white border rounded">
-                            <h5 class="text-muted text-center pt-2">Annual Bust</h5>
-                            <div>{{ trendingannual|last|first | safe }} {{ trendingannual|last|last | safe }}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-<!--Graph 3-->
-
-            <div class="container pb-3" id="categories">
-                <div class="row">
-                    <div class="col-lg-6 col-sm-12">
-                        <div class="bg-white border rounded py-3">
-                            <h3 class="text-muted text-center">Investment Uncertainty</h3>
-                            <div class="plotsizing1">{{ trendmapreg | safe }}</div>
-                            <p class="text-size-small ml-2 mb-0 pb-0">Source: <a href="" class="text-decoration-none">Political Risk Index by Senne & Reinthaler</a></p>
-                            <p class="text-size-small flot-left ml-2">The Graph shows the Percentage change in comparison to the previous month</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-12">
-                        <div class="bg-white border rounded py-3"> 
-                            <h3 class="text-muted text-center">Trade Uncertainty</h3>
-                            <div class="plotsizing1">{{ trendmapsanc  | safe }}</div>
-                            <p class="text-size-small ml-2 mb-0 pb-0">Source: <a href="" class="text-decoration-none">Political Risk Index by Senne & Reinthaler</a></p>
-                            <p class="text-size-small flot-left ml-2">The Graph shows the Percentage change in comparison to the previous month</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
            
-
-<!--Graph 4-->
-            <div class="container pb-3" id="countries">
+<!--Section 5 - Graph 4-->
+        <div id="comparison">
+            <div class="container pb-3">
                 <div class="row justify-content-center">
                     <div class="col-lg-12 bg-white border rounded py-3">
-                        <h3 class="text-muted text-center">Political Uncertainty - A Country Comparison</h3>
+                        <h4 class="text-muted text-center">Political Uncertainty - A Country Comparison</h4>
                         <div class="plotsizing2">{{ linegraph | safe }}</div>
-                        <div class="float-left ml-2"><p class="text-size-small">Source: <a href="" class="text-decoration-none">Political Risk Index by Senne & Reinthaler</a><br>*Percentage change in comparison to the previous month</p>
+                        <div class="float-left ml-2"><p class="text-size-small pb-0 mb-0">Source: <a href="#" target="_blank" class="text-decoration-none service_button">Political Uncertainty by Senne & Reinthaler</a> | Data: <a href="https://trends.google.com/" target="_blank" class="text-decoration-none service_button">Google Trend&trade;</a>
+                            <br>The Graph "Political Uncertainty Trends - Global" shows the percentage change of political uncertainty in comparison to the previous month</p>
+                            <p class="p-0 m-0 text-size-small">The grey countries in the Graph are not yet available | <a href="{% url 'blog-coming-soon' %}" class="text-decoration-none service_button">coming soon</a></p>
+                            <p class="p-0 m-0 text-size-small"><a href="{% url 'blog-disclaimer' %}" class="text-decoration-none service_button">Data Disclaimer</a></p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+<!--Section 6 - Graph 5-->
+        <div class="container pb-3">
+            <div class="row justify-content-center">
+                <div class="col-12 bg-white border rounded py-3">
+                    <h6 class="pb-3">Categorization - Uncertainty Annual Trend Levels  - for {% now "F" %}</h6>
+                    <div class="row">
+                        <div class="col-3">
+                            <ul class="text-muted list-unstyled">
+                                <p class="text-dark pb-0 mb-0">Strong positive trend</p>
+                                {% for country in trendingannual %}
+                                {% if country|last < -15 %}
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}">{{country|first}}</a></li>
+                                
+                                {% endif %}
+                                {%endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-3">
+                            <ul class="text-muted list-unstyled">
+                                <p class="text-dark pb-0 mb-0">Positive trend</p>
+                                {% for country in trendingannual %}
+                                {% if country|last > -15 and country|last < 0 %}
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}">{{country|first}}</a></li>
+                                
+                                {% endif %}
+                                {%endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-3">
+                            <ul class="text-muted list-unstyled">
+                                <p class="text-dark pb-0 mb-0">Negative trend</p>
+                                {% for country in trendingannual %}
+                                {% if country|last < 15 and country|last > 0 %}
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}">{{country|first}}</a></li>
+                                
+                                {% endif %}
+                                {%endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-3">
+                            <ul class="text-muted list-unstyled">
+                                <p class="text-dark pb-0 mb-0">Strong negative trend</p>
+                                {% for country in trendingannual %}
+                                {% if country|last > 15 %}
+                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}">{{country|first}}</a></li>
+                                
+                                {% endif %}
+                                {%endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="p-0 m-0 ml-2 text-size-small"><a href="{% url 'blog-disclaimer' %}" class="text-decoration-none service_button">Data Disclaimer</a></p>
+                </div>
+            </div>
+        </div>
 
 <!--Google Trend, Twitter Trend einfügen-->
     
@@ -183,94 +275,40 @@
             </div>-->
 
            
-<!--Test-->
+<!--Section 7 - Graph 6-->
             <div class="container pb-3" id="political-sanctions">
                 <div class="row justify-content-center">
                     <div class="col-lg-12 col-sm-12 bg-white border rounded py-3">
-                        <h3 class="text-muted text-center">Mid-Term Uncertainty Trend</h3>
+                        <h4 class="text-muted text-center">Mid-Term Uncertainty Trend</h4>
                         <div class="plotsizing">{{ trendmapannual | safe }}</div>
+                        {% include "data/legend.html" %}
+                        <div class="float-left ml-2"><p class="text-size-small pb-0 mb-0">Source: <a href="#" target="_blank" class="text-decoration-none service_button">Political Uncertainty by Senne & Reinthaler</a> | Data: <a href="https://trends.google.com/" target="_blank" class="text-decoration-none service_button">Google Trend&trade;</a>
+                            <br>The Graph "Political Uncertainty Trends - Global" shows the percentage change of political uncertainty in comparison to the previous month</p>
+                            <p class="p-0 m-0 text-size-small">The grey countries in the Graph are not yet available | <a href="{% url 'blog-coming-soon' %}" class="text-decoration-none service_button">coming soon</a></p>
+                            <p class="p-0 m-0 text-size-small"><a href="{% url 'blog-disclaimer' %}" class="text-decoration-none service_button">Data Disclaimer</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
-<!--Test-->
+<!--Section 8 - Graph 7-->
             <div class="container pb-6" id="political-situation">
                 <div class="row justify-content-center">
                     <div class="col-lg-12 col-sm-12 bg-white border rounded py-3">
-                        <h3 class="text-muted text-center">Administration Uncertainty</h3>
+                        <h4 class="text-muted text-center">Administration Uncertainty</h4>
                         <div class="plotsizing">{{ trendmapsitu | safe }}</div>
+                        {% include "data/legend.html" %}
+                        <div class="float-left ml-2"><p class="text-size-small pb-0 mb-0">Source: <a href="#" target="_blank" class="text-decoration-none service_button">Political Uncertainty by Senne & Reinthaler</a> | Data: <a href="https://trends.google.com/" target="_blank" class="text-decoration-none service_button">Google Trend&trade;</a>
+                            <br>The Graph "Political Uncertainty Trends - Global" shows the percentage change of political uncertainty in comparison to the previous month</p>
+                            <p class="p-0 m-0 text-size-small">The grey countries in the Graph are not yet available | <a href="{% url 'blog-coming-soon' %}" class="text-decoration-none service_button">coming soon</a></p>
+                            <p class="p-0 m-0 text-size-small"><a href="{% url 'blog-disclaimer' %}" class="text-decoration-none service_button">Data Disclaimer</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-<!--Section 4-->
-        <div class="container padding" data-aos="fade-up">
-            <div class="text-center pb-5">
-                <h3>List of countries we monitor and forecast</h3>
-                <hr class="mt-0 mb-0 hr_sizing">
-            </div> 
-            <div class="row">
-                <div class="col-lg-3 col-sm-12">
-                    <h6>Products</h6>
-                    <div class="card card_1">
-                        <div class="card-body">
-                            <ul class="text-muted list-unstyled">
-                                <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="bar-chart"></i><a class="word-hover1 text-decoration-none" href="#worldmap">Risk Analysis</a></li>
-                                <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="pen-tool"></i><a class="word-hover1 text-decoration-none" href="{% url 'blog-blogs' %}" traget="_blank">Expert Blog</a></li>
-                                <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="file-text"></i><a class="word-hover1 text-decoration-none" href="{% url 'blog-coming-soon' %}" traget="_blank">Report</a></li>
-                                <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="mail"></i><a class="word-hover1 text-decoration-none" href="mailto:politicaluncertainty@gmail.com">Contact Us</a></li>
-                                <li class="pt-3"><i class="mr-4 mt-1 grey pull-left feather_16" data-feather="download"></i><a class="word-hover1 text-decoration-none" href="{% url 'blog-archive' %}#downloads" traget="_blank">Download</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-9 col-sm-12">
-                    <h6>Countries</h6>
-                    <div class="row">
-                        <div class="col-lg-3 col-sm-6">
-                            <ul class="text-muted list-unstyled">
-                                {% for country in countries %}
-                                {% if forloop.counter|add:3|divisibleby:4 %}
-                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}" target="_blank">{{country}}</a></li>
-                                
-                                {% endif %}
-                                {%endfor %}
-                            </ul>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <ul class="text-muted list-unstyled">
-                                {% for country in countries %}
-                                {% if forloop.counter|add:2|divisibleby:4 %}
-                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}" target="_blank">{{country}}</a></li>
-                                
-                                {% endif %}
-                                {%endfor %}
-                            </ul>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <ul class="text-muted list-unstyled">
-                                {% for country in countries %}
-                                {% if forloop.counter|add:1|divisibleby:4 %}
-                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}" target="_blank">{{country}}</a></li>
-                                
-                                {% endif %}
-                                {%endfor %}
-                            </ul>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <ul class="text-muted list-unstyled">
-                                {% for country in countries %}
-                                {% if forloop.counter|add:0|divisibleby:4 %}
-                                <li class="pt-3"><a class="service_button text-decoration-none" href="{% url 'data-detail' country %}" target="_blank">{{country}}</a></li>
-                                
-                                {% endif %}
-                                {%endfor %}
-                            </ul>
-                        </div>
-                    </div>
-                    <a href="{% url 'blog-coming-soon' %}" role="button" class="word-hover2 text-decoration-none">More Countries are coming soon</a>
-                </div>
-            </div>
-        </div>
+<!--Section 9 - Endsection/Countries-->
+{% include "data/countries.html" %}
+        
 
 {% endblock content %}

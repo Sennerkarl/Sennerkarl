@@ -9,23 +9,21 @@
                 <div class="row padding">
                     <div class="col-md-8">
                     {% for post in posts %} <!--loop over posts-->
-                        <article class="media content-section">
+                        <article class="media content-section margin-posts">
                             <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}" alt="">
                             <div class="media-body">
                                 <div class="article-metadata">
                                     <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
                                     <small class="text-muted">{{ post.date_posted|date:"d. F, Y" }}</small>
+                                    <a class="float-right" href="{% url 'post-detail' post.id %}"><small>Read more</small></a>
                                 </div>
-                                <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2> <!--post.id is the primary key-->
                                 <div class="row">
-                                    <div class="col-md-10">
-                                        <div class="container-fluid backgroundimg-blog rounded" style="background: url({{ post.picture.url }}) no-repeat center center">
-                                        </div>
+                                    <div class="col-md-12 pt-1">
+                                        <a href="{% url 'post-detail' post.id %}"><div class="container-fluid backgroundimg-blog rounded" style="background: url({{ post.picture.url }}) no-repeat center center"></div></a>
                                     </div>
                                     <div class="col-md-10 pt-3">
-                                        <p class="article-content text-justify text-muted">{{ post.content|safe|truncatewords:100 }}
-                                            <a class="article-title" href="{% url 'post-detail' post.id %}">Read more <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
-                                        </p> 
+                                        <h3><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h3> <!--post.id is the primary key-->
+                                        <p class="article-content text-justify text-muted pt-2 pb-3">{{ post.content|safe|truncatewords:100 }}</p> 
                                     </div>
                                 </div>
                                 <!--<div class="row pt-3">
@@ -45,21 +43,21 @@
                     {% if is_paginated %}
 
                         {% if page_obj.has_previous %}
-                            <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
-                            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                            <a class="btn btn-outline-secondary mb-4" href="?page=1">First</a>
+                            <a class="btn btn-outline-secondary mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
                         {% endif %}
 
                         {% for num in page_obj.paginator.page_range %}
                             {% if page_obj.number == num %}
-                                <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                                <a class="btn btn-secondary mb-4" href="?page={{ num }}">{{ num }}</a>
                             {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-                                <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                                <a class="btn btn-outline-secondary mb-4" href="?page={{ num }}">{{ num }}</a>
                             {% endif %}
                         {% endfor %}
 
                         {% if page_obj.has_next %}
-                            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
-                            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                            <a class="btn btn-outline-secondary mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+                            <a class="btn btn-outline-secondary mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
                         {% endif %}
 
                     {% endif %}
@@ -87,7 +85,7 @@
                                     <p class="card-text text-muted">Want to know more about political risk? we recommend the following literature</p>
                                 </div>
                                 <div class="pb-3 pt-1">
-                                    <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="{% url 'blog-archive' %}#recommendedliterature"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="shopping-cart"></i>Buy</a> 
+                                    <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="{% url 'blog-library' %}#recommendedliterature"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="shopping-cart"></i>Buy</a> 
                                 </div>
                             </div>
                         </div>

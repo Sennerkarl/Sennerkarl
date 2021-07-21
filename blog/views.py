@@ -166,11 +166,17 @@ def home(request):
     form = EmailSignupForm
     return render(request, 'blog/home.html', {'form': form})
 
-def archive(request):
-    return render(request, 'blog/archive.html', {'title': 'Archive'})
+def library(request):
+    return render(request, 'blog/library.html', {'title': 'Library'})
 
 def impressum(request):
     return render(request, 'blog/impressum.html', {'title': 'Impressum'})
+
+def disclaimer(request):
+    return render(request, 'blog/disclaimer.html', {'title': 'Disclaimer'})
+
+def dataprivacy(request):
+    return render(request, 'blog/data-privacy.html', {'title': 'Data-Privacy'})
 
 def comingsoon(request):
     return render(request, 'blog/coming-soon.html', {'title': 'Coming-Soon'})

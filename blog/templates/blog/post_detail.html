@@ -5,14 +5,15 @@
 <!-- Navbar Right Side -->
         <div class="bg-light">
             <div role="main" class="container">
-                <div class="row padding">
-                    <div class="col-md-12">
+                <div class="row padding-post-detail">
+                    <div class="col-12">
                         <article class="media content-section">
-                            <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}" alt="">
+                            <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}" alt="{{ object.author }}">
                             <div class="media-body">
                                 <div class="article-metadata">
                                     <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
                                     <small class="text-muted">{{ object.date_posted|date:"d. F, Y" }}</small>
+                                    <a class="float-right" href="{% url 'blog-blogs' %}"><small>Back to the Blog Overview</small></a>
                                     {% if object.author == user %}
                                     <div>
                                         <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
@@ -20,19 +21,63 @@
                                     </div>
                                     {% endif %}
                                 </div>
-                                <h2 class="article-title">{{ object.title }}</h2>
                                 <div class="row">
-                                    <div class="col-md-11">
+                                    <div class="col-12 pt-1">
                                         <div class="container-fluid backgroundimg-blog rounded" style="background: url({{ post.picture.url }}) no-repeat center center">
                                     </div>
                                 </div>
-                                    <div class="col-md-11">
+                                    <div class="col-12">
+                                    <h3 class="article-title">{{ object.title }}</h3>
                                     <p class="article-content pt-3 text-justify text-muted">{{ object.content|safe }}</p>
-                                    <a href="{% url 'blog-blogs' %}" class="article-title text-primary pt-2"><i class="fa fa-angle-left" aria-hidden="true"></i> Back to Blog Overview</a>
                                     </div>
                                 </div>
                             </div>
                         </article>
+                        <div class="col-12 py-3">
+                            <h4 class="card-title">articles from {{ object.author }}</h4>
+                            {% for post in object.author.post_set.all %}
+                            <a href="{% url 'post-detail' post.id %}" class="word-hover1 text-decoration-none mr-2">{{ post.title }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--Werbung-->
+        <div class="container">
+            <div class="row padding">
+                <div class="col-4 d-flex">
+                    <div class="card">
+                        <div class="card-body flex-fill">
+                            <div class="pt-2 pb-1 text-center">
+                                <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/worldmap_01.png">
+                            </div>
+                            <h4 class="card-title">Werbung</h4>
+                            <p class="card-text text-muted">Want to get notified as soon as a new blog post is published?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 d-flex">
+                    <div class="card">
+                        <div class="card-body flex-fill">
+                            <div class="pt-2 pb-1 text-center">
+                                <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/worldmap_01.png">
+                            </div>
+                            <h4 class="card-title">Werbung</h4>
+                            <p class="card-text text-muted">Want to get notified as soon as a new blog post is published?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 d-flex">
+                    <div class="card">
+                        <div class="card-body flex-fill">
+                            <div class="pt-2 pb-1 text-center">
+                                <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/worldmap_01.png">
+                            </div>
+                            <h4 class="card-title">Werbung</h4>
+                            <p class="card-text text-muted">Want to get notified as soon as a new blog post is published?</p>
+                        </div>
                     </div>
                 </div>
             </div>
