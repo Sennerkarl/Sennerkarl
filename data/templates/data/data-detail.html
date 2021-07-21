@@ -16,7 +16,7 @@
                     <p class="text-white mb-0 pb-0 text-size-small font-weight-bold">{{GDP|first}}</p>
                     <p class="text-white my-0 py-0 text-size-small">GDP | GDP/Capita</p>
                     <p class="text-white mb-0 pb-0 text-size-small">${{GDP|last}}B ({{Growth|last}}%) | ${{GDPPC|last}}B</p>
-                    <p class="text-white text-size-small">RANK {{Rank}} OF 240</p>
+                    <p class="text-white text-size-small">GDP per Capita - RANK {{Rank}} of 240 </p>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                     <p class="text-white mb-0 pb-0 text-size-small font-weight-bold">{{ExportVolume|first}}</p>
@@ -26,7 +26,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                     <p class="text-white mb-0 pb-0 text-size-small font-weight-bold">{{FDI|first | safe}}</p>
                     <p class="text-white my-0 py-0 text-size-small">FDI</p>
-                    <p class="text-white text-size-small">${{FDI|last | safe}}B</p>
+                    <p class="text-white text-size-small">${{FDI|last | safe}}M</p>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                     <p class="text-white mb-0 pb-0 text-size-small font-weight-bold">{{VolumeStocksTraded|first}}</p>
@@ -97,7 +97,7 @@
         <!--Graph 2-->
         <div class="container pb-3" id="trend">
             <div class="row">
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-3 col-sm-6 colorpick">
                     <div class="bg-white border rounded pt-1 pb-2"> <!--space only with the shadow class-->
                         <h5 class="text-muted text-center pt-2">Political Uncertainty {% now "F Y" %}</h5>
                         <div class="text-center pb-2 pt-1">
@@ -149,7 +149,8 @@
     </div>
 
 <!--Section 4-->
-    <div>{{df}}</div>
+    <div>{{color}}</div>
+
 {% include "data/countries.html" %}
   
    

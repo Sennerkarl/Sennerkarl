@@ -9,8 +9,11 @@ import plotly.graph_objects as go
 import plotly.io as pio
 from .models import Data, SBPRI, WorldBorder
 import pandas as pd
+import numpy as np
+from matplotlib import colors
 import re
 import wbgapi as wb
+from data.functions import rgb_to_dec, hex_to_rgb, get_continuous_cmap
 
 class DataView(ListView):
     template_name = 'data/data.html'
@@ -381,18 +384,23 @@ class DataDetailView(ListView):
         df = wb.data.DataFrame(list(dictforwb), iso3 , mrnev=2)
 
         for key, value in dictforwb.items():
-            dictvar = df.loc[key].dropna().to_dict()
-            df.loc[key, 'Year'] = list(dictvar)[1][2:]
+            try:
+                dictvar = df.loc[key].dropna().to_dict()
+                df.loc[key, 'Year'] = list(dictvar)[1][2:]
+
+                if value in ['FDI', 'Population']:
+                    df.loc[key, 'Value'] = format(list(dictvar.values())[1]/10**6, ',.0f')
+                if value in ['GDP', 'VolumeStocksTraded', 'ExportVolume', 'ImportVolume']:
+                    df.loc[key, 'Value'] = format(list(dictvar.values())[1]/10**9, ',.2f')
+                if value in [ 'Stocks/GDP']:
+                    df.loc[key, 'Value'] = format(list(dictvar.values())[1]*100, ',.2f')
+                if value in ['GDPPC', 'Growth']:
+                    df.loc[key, 'Value'] = format(list(dictvar.values())[1], ',.2f')
             
-            if value in ['FDI', 'Population']:
-                df.loc[key, 'Value'] = format(list(dictvar.values())[1]/10**6, ',.0f')
-            if value in ['GDP', 'VolumeStocksTraded', 'ExportVolume', 'ImportVolume']:
-                df.loc[key, 'Value'] = format(list(dictvar.values())[1]/10**9, ',.2f')
-            if value in [ 'Stocks/GDP']:
-                df.loc[key, 'Value'] = format(list(dictvar.values())[1]*100, ',.2f')
-            if value in ['GDPPC', 'Growth']:
-                df.loc[key, 'Value'] = format(list(dictvar.values())[1], ',.2f')
-        
+            except Exception:
+                df.loc[key, 'Value'] = ' - '
+                df.loc[key, 'Year'] = ' - '
+                
             df = df.rename(index={key:value})
         df = df.loc[:, ['Year','Value']]
 
@@ -417,6 +425,11 @@ class DataDetailView(ListView):
         context['df'] = listSBPRI[-1]
         
 
+        #import colors
+        hex_list = ['#732c9c','#e54c8a','#eed7a1']
+        cmap = get_continuous_cmap(hex_list)
+        
 
+        context['color'] = "rgba"+str(cmap(.2))
         return context
 
