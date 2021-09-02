@@ -186,6 +186,10 @@ h1{
     width: 10rem!important;
 }
 
+.service_button_custom {
+    width: 12rem!important;
+}
+
 .data_button:hover{
     color: #ff7f64;
 }
@@ -290,6 +294,12 @@ h1{
     height:60vh;
     opacity:0.7;
 }
+/*background-attachment: fixed funktioniert auf ios nicht, einzige Lösung! Ab Größe Ipad wird umgestellt*/
+@media screen and (max-width:770px) {
+    .backgroundimg2 {
+        background-attachment: initial;
+    }
+}
 
 /*Background Image 3*/
 .backgroundimg3{
@@ -303,6 +313,12 @@ h1{
     opacity:0.7;
 }
 
+@media screen and (max-width:770px) {
+    .backgroundimg3 {
+        background-attachment: initial;
+    }
+}
+
 /*Background Image 4*/
 .backgroundimg4{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/city_10.jpeg') no-repeat center center;
@@ -313,6 +329,12 @@ h1{
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     height:60vh;
     opacity:0.7;
+}
+
+@media screen and (max-width:770px) {
+    .backgroundimg4 {
+        background-attachment: initial;
+    }
 }
 
 
@@ -328,6 +350,12 @@ h1{
     opacity:0.7;
 }
 
+@media screen and (max-width:770px) {
+    .backgroundimg5 {
+        background-attachment: initial;
+    }
+}
+
 /*Background Image 6*/
 
 .backgroundimg6{
@@ -339,6 +367,12 @@ h1{
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     height: calc(60vh + 10vw);
     opacity:0.7;
+}
+
+@media screen and (max-width:770px) {
+    .backgroundimg6 {
+        background-attachment: initial;
+    }
 }
 
 /*Background Image 7*/
@@ -354,6 +388,12 @@ h1{
     opacity:0.7;
 }
 
+@media screen and (max-width:770px) {
+    .backgroundimg7 {
+        background-attachment: initial;
+    }
+}
+
 .backgroundimg9{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/coming-soon_01.jpeg') no-repeat center center;
     background-position: center;
@@ -365,6 +405,12 @@ h1{
     opacity:0.7;
 }
 
+@media screen and (max-width:770px) {
+    .backgroundimg8 {
+        background-attachment: initial;
+    }
+}
+
 .backgroundimg10{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/coming-soon_05.jpeg') no-repeat center center;
     background-position: center;
@@ -374,6 +420,12 @@ h1{
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     height:50vh;
     opacity:0.7;
+}
+
+@media screen and (max-width:770px) {
+    .backgroundimg10 {
+        background-attachment: initial;
+    }
 }
 
 /*Background Image 11*/
@@ -389,6 +441,12 @@ h1{
     opacity:0.7;
 }
 
+@media screen and (max-width:770px) {
+    .backgroundimg11 {
+        background-attachment: initial;
+    }
+}
+
 .backgroundimg12{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/coming-soon_03.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
     background-position: center;
@@ -398,6 +456,12 @@ h1{
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     height:30vh;
     opacity:0.7;
+}
+
+@media screen and (max-width:770px) {
+    .backgroundimg12 {
+        background-attachment: initial;
+    }
 }
 
 .backgroundimg13{
@@ -411,6 +475,12 @@ h1{
     opacity:0.7;
 }
 
+@media screen and (max-width:770px) {
+    .backgroundimg13 {
+        background-attachment: initial;
+    }
+}
+
 .backgroundimg14{
     background: url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/harbour_03.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
     background-position: center;
@@ -422,6 +492,12 @@ h1{
     opacity:0.7;
 }
 
+@media screen and (max-width:770px) {
+    .backgroundimg14 {
+        background-attachment: initial;
+    }
+}
+
 .backgroundimg15{
     background: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/city_10.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
     background-position: center;
@@ -431,6 +507,28 @@ h1{
     -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
     height: calc(48vh + 10vw);
     opacity:0.9;
+}
+
+@media screen and (max-width:770px) {
+    .backgroundimg15 {
+        background-attachment: initial;
+    }
+}
+
+.backgroundimg20{
+    background: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/city_10.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
+    background-position: center;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height: calc(40vh + 10vw);
+    opacity:0.9;
+}
+
+@media screen and (max-width:770px) {
+    .backgroundimg20 {
+        background-attachment: initial;
+    }
 }
 
 div.card_4,
@@ -450,6 +548,10 @@ div.card_7{
 
 .svgsizing_01 {
     width:10%;
+}
+
+.svgsizing_02 {
+    width:30%;
 }
 
 /*Political Risk Image Opacity*/
