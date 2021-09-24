@@ -3,12 +3,14 @@ from pytrends.request import TrendReq
 import datetime
 import random
 import time
+from apscheduler.schedulers.blocking import BlockingScheduler
 
 from .models import WorldBorder, SBPRI, Data
 
 # Import Statsmodels
 from statsmodels.tsa.seasonal import seasonal_decompose
 
+@BlockingScheduler().scheduled_job('cron', day_of_week='sun', hour=23)
 def getgoogledata():
     
     languages = ['Eng', 'Ger', 'Esp']
@@ -172,4 +174,6 @@ def getgoogledata():
     for country in weighted_situation_df:
         for row in weighted_situation_df.index:
             Data.objects.create(date=row, country=country, category=categories[3], value=weighted_situation_df[country][row])                 
-       
+    return   
+
+BlockingScheduler().start()
