@@ -14,7 +14,7 @@
                                 <a href="mailto:politicaluncertainty@gmail.com" role="button" class="btn btn-secondary data_button_custom"><i class="mt-1 orange pull-left feather_16" data-feather="mail"></i>Get in Contact</a> 
                             </div>
                             <div class="col-lg-4 col-sm-12 pt-2">
-                                <a href="{% url 'data-main' %}" role="button" class="btn btn-secondary data_button_custom"><i class="mt-1 orange pull-left feather_16" data-feather="bar-chart"></i>View Data</a>
+                                <a href="{% url 'data-main' %}" role="button" class="btn btn-secondary data_button_custom"><i class="mt-1 orange pull-left feather_16" data-feather="bar-chart"></i>View Index</a>
                             </div>
                             <div class="col-lg-4 col-sm-12 pt-2">
                                 <a role="button" class="btn btn-secondary data_button_custom" href="#subscribe"><i class="mt-1 orange pull-left feather_16" data-feather="send"></i>Subscribe Now</a>
@@ -23,192 +23,175 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>    
 
 <!--Section 2 - Our Services-->
-        <div class="container padding">
-            <div data-aos="fade-up">
-                <div class="pb-4">
-                    <h3 class="text-center">Our Services</h3>
-                    <p class="text-muted text-center">Protect your international investments from political shifts with our poltical risk analysis</p>
-                    <hr class="mt-0 mb-0 hr_sizing pb-4">
-                    <p class="mb-0 mt-0 text-justify text-muted">
-                        <!--We want to provide you with the best possible political risk tools to monitor and forecast political risk for your business.
-                        Since, we think information is the key element to prevent/reduce political risks and uncertainties, we want to not only provide political risk tools but also many different services to help you overcome political risk.
-                        Therefore, we also provide you with a variety of information in form of a blog and quarterly reports. 
-                        Our blog entries are always about poltical risk topics, which could be from great relevance for your business.
-                        Also our quarterly reports dealing with the most relevant information for the specific topic.<sub>*</sub>-->
-                    </p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-12 text-center pt-2 d-flex">
-                        <div class="card rounded-0"> <!--dadurch sind die gerundeten Kanten weg-->
-                            <div class="card-body flex-fill">
-                                <div class="pt-2 pb-3">
-                                    <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/analysis_02.png">
+            <div class="container padding">
+                <div data-aos="fade-up">
+                    <div class="pb-4">
+                        <!--This section should become later our subscriptions menu-->
+                        <h3 class="text-center">Our services - Experience them for Free<sup>*</sup></h3>
+                        <p class="text-muted text-center">Protect your international investments from political shifts with our poltical risk tools and analysis</p>
+                        <hr class="mt-0 mb-0 hr_sizing pb-4">
+                        <p class="mb-0 mt-0 text-justify text-muted">
+                            <!--We want to provide you with the best possible political risk tools to monitor and forecast political risk for your business.
+                            Since, we think information is the key element to prevent/reduce political risks and uncertainties, we want to not only provide political risk tools but also many different services to help you overcome political risk.
+                            Therefore, we also provide you with a variety of information in form of a blog and quarterly reports. 
+                            Our blog entries are always about poltical risk topics, which could be from great relevance for your business.
+                            Also our quarterly reports dealing with the most relevant information for the specific topic.<sub>*</sub>-->
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-12 text-center pt-2 d-flex">
+                            <div class="card rounded-0"> <!--dadurch sind die gerundeten Kanten weg-->
+                                <div class="card-body flex-fill">
+                                    <div class="pt-2 pb-3">
+                                        <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/analysis_02.png">
+                                    </div>
+                                    <h4 class="card-title pt-3 pb-1">Political Risk Index</h4>
+                                    <p class="card-text text-muted pb-4">Discover trends and increase your action capacity</p>
+                                    <a role="button" class="btn btn-outline-secondary btn-custom service_button_custom" href="{% url 'data-main' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="bar-chart"></i>Index<sup>*</sup></a>
+                                    <a role="button" class="btn btn-outline-secondary btn-custom service_button_custom mt-lg-2" href="{% url 'blog-library' %}#downloads"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="bar-chart"></i>Country Dataset<sup>*</sup></a>
+                                    <a role="button" class="btn btn-outline-secondary btn-custom service_button_custom mt-lg-2 mt-md-2" href="{% url 'blog-library' %}#downloads"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="bar-chart"></i>Raw Dataset<sup>*</sup></a>
                                 </div>
-                                <h4 class="card-title pt-3 pb-1">Political Risk Index</h4>
-                                <p class="card-text text-muted pb-5">Discover trends and increase your action capacity</p>
-                                <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="{% url 'data-main' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="bar-chart"></i>Data</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 text-center pt-2 d-flex">
-                        <div class="card rounded-0">
-                            <div class="card-body flex-fill">
-                                <div class="pt-2 pb-1">
-                                    <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_13.png">
+                        <div class="col-lg-4 col-md-6 col-sm-12 text-center pt-2 d-flex">
+                            <div class="card rounded-0">
+                                <div class="card-body flex-fill">
+                                    <div class="pt-2 pb-1">
+                                        <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_13.png">
+                                    </div>
+                                    <h4 class="card-title pt-4 pb-1">Political Risk Expertise</h4>
+                                    <p class="card-text text-muted pb-4">Get further strategic insights on uncertainty and risk</p>
+                                    <a role="button" class="btn btn-outline-secondary btn-custom service_button_custom" href="{% url 'blog-blogs' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="pen-tool"></i>Blog<sup>*</sup></a>
+                                    <a role="button" class="btn btn-outline-secondary btn-custom service_button_custom mt-lg-2" href="{% url 'blog-coming-soon' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="file-text"></i>Reports<sup>*</sup></a>
                                 </div>
-                                <h4 class="card-title pt-4 pb-1">Political Risk Expertise</h4>
-                                <p class="card-text text-muted pb-5">Get further strategic insights on uncertainty and risk</p>
-                                <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="{% url 'blog-blogs' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="pen-tool"></i>Blog</a>
-                                <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom mt-2" href="{% url 'blog-coming-soon' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="file-text"></i>Reports</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-12 text-center pt-2 d-flex">
-                        <div class="card rounded-0">
-                            <div class="card-body flex-fill">
-                                <div class="pt-2 pb-1">
-                                    <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/trend_01.png">
+                        <div class="col-lg-4 col-sm-12 text-center pt-2 d-flex">
+                            <div class="card rounded-0">
+                                <div class="card-body flex-fill">
+                                    <div class="pt-2 pb-1">
+                                        <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/trend_01.png">
+                                    </div>
+                                    <h4 class="card-title pt-4 pb-1">Individual Services</h4>
+                                    <p class="card-text text-muted pb-4">Need further political risk evaluations or analysis?</p>
+                                    <a role="button" class="btn btn-outline-secondary btn-custom service_button_custom" href="mailto:politicaluncertainty@gmail.com"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="loader"></i>Get in Contact<sup>*</sup></a>
                                 </div>
-                                <h4 class="card-title pt-4 pb-1">Individual Services</h4>
-                                <p class="card-text text-muted pb-5">Need further political risk evaluations or analysis?</p>
-                                <a role="button" class="btn btn-outline-secondary btn-custom data_button_custom" href="mailto:politicaluncertainty@gmail.com"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="loader"></i>Get in Contact</a>
+                                <!--<img class="card-img-bottom imgblack" src="img/trade_01.jpg" alt="Card image">--> <!--falls wir hier doch Bilder haben wollen-->
                             </div>
-                            <!--<img class="card-img-bottom imgblack" src="img/trade_01.jpg" alt="Card image">--> <!--falls wir hier doch Bilder haben wollen-->
+                        </div>
+                        <div class="pt-2 pl-3">
+                            <cite class="text-muted fs-small text-justify"><sup>*</sup>All of our services are currently for FREE and therefore for information purposes only! See our <a class="word-hover1 text-decoration-none" href="{% url 'blog-disclaimer' %}">Disclaimer</a></cite>
+                        </div>
+                        <div class="col-lg-12 pt-4 d-flex justify-content-center">
+                            <a href="#politicalrisktools" role="button" class="word-hover1 text-decoration-none">View All Services</a>
                         </div>
                     </div>
-                    <div class="pt-2 pl-3">
-                        <cite class="text-muted fs-small text-justify"><sup>*</sup>The following services are currently not available: Quarterly Reports, Political Risk Portfolios, Forecasting Tools and the Profile Function.</cite>
+                </div>
+            </div>
+        
+<!--Section 3 - Services - Examples (Jumbatron)-->  
+    <div class="bg-light">
+        <div class="container padding" id="politicalriskexamples">
+            <div data-aos="fade-up" data-aos-offset="300">
+                <h3 class="text-center">Our Services - Examples</h3>
+                <p class="text-center text-muted">Above are examples of our services. Click them to gain knowledge on global political risk trends and improve your business decisions.</p> <!--To make the tabs toggleable, add the data-toggle="pill" attribute to each link. Then add a .tab-pane class with a unique ID for every tab and wrap them inside a div element with class .tab-content.-->
+                <hr class="hr_sizing">
+                <ul class="nav nav-pills pt-3">
+                    <li class="nav-item"><a href="#world" class="nav-link active pill-link-color" data-toggle="tab">Worldmap</a></li>
+                    <li class="nav-item"><a href="#timeline" class="nav-link pill-link-color" data-toggle="tab">Timeline</a></li>
+                    <li class="nav-item"><a href="#countries" class="nav-link pill-link-color" data-toggle="tab">Countries</a></li>
+                    <li class="nav-item"><a href="#dataset" class="nav-link pill-link-color" data-toggle="tab">Dataset</a></li>
+                    <li class="nav-item"><a href="#blog" class="nav-link pill-link-color" data-toggle="tab">Blog</a></li>
+                    <li class="nav-item"><a href="#reports" class="nav-link pill-link-color" data-toggle="tab">Reports</a></li>
+                </ul>
+                
+                <div class="tab-content">
+                    <div id="world" class="tab-pane fade show active pt-2" role="tabpanel">
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="text-muted pt-2">Always up-to date. Request quarterly, monthly or even weekly updates on the political situation.<sup>*</sup></p>
+                                <p><a  class="word-hover1 text-decoration-none" role="button" href="{% url 'data-main' %}#worldmap">Worldmap</a></p>
+                                <p class="text-muted fs-small"><sup>*</sup>The following countries are currently available: Argentina, Australia, Austria, Bolivia, Canada, Colombia, Chile, Ecuador, Germany, India, Ireland, Mexico, Pakistan, Peru, Paraguay, Singapore, South Africa, Spain, Switzerland, United States, Uruguay, Venezuela |
+                                All our services are currently free of charge and for information purposes only. For further information see our <a class="word-hover1 text-decoration-none">Disclaimer</a></p>
+                            </div>
+                            <div class="col-12">
+                                <div class="container-fluid backgroundimg20 position-relative d-flex"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-12 pt-4 d-flex justify-content-center">
-                        <a href="#politicalrisktools" role="button" class="word-hover1 text-decoration-none">View All Services</a>
+                    <div id="timeline" class="tab-pane fade pt-2" role="tabpanel">
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="text-muted pt-2">Always up-to date. Request quarterly, monthly or even weekly updates on the political situation.<sup>*</sup></p>
+                                <p><a  class="word-hover1 text-decoration-none" role="button" href="{% url 'data-main' %}#comparison">Timeline</a></p>
+                                <p class="text-muted fs-small"><sup>*</sup>The following countries are currently available: Argentina, Australia, Austria, Bolivia, Canada, Colombia, Chile, Ecuador, Germany, India, Ireland, Mexico, Pakistan, Peru, Paraguay, Singapore, South Africa, Spain, Switzerland, United States, Uruguay, Venezuela |
+                                    All our services are currently free of charge and for information purposes only. For further information see our <a class="word-hover1 text-decoration-none">Disclaimer</a></p>
+                            </div>
+                            <div class="col-12">
+                                <div class="container-fluid backgroundimg20 position-relative d-flex"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="countries" class="tab-pane fade pt-2" role="tabpanel">
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="text-muted pt-2">Always up-to date. Request quarterly, monthly or even weekly updates on the political situation.<sup>*</sup></p>
+                                <p><a  class="word-hover1 text-decoration-none" role="button" href="{% url 'data-main' %}#countries">Countries</a></p>
+                                <p class="text-muted fs-small"><sup>*</sup>The following countries are currently available: Argentina, Australia, Austria, Bolivia, Canada, Colombia, Chile, Ecuador, Germany, India, Ireland, Mexico, Pakistan, Peru, Paraguay, Singapore, South Africa, Spain, Switzerland, United States, Uruguay, Venezuela |
+                                    All our services are currently free of charge and for information purposes only. For further information see our <a class="word-hover1 text-decoration-none">Disclaimer</a></p>
+                            </div>
+                            <div class="col-12">
+                                <div class="container-fluid backgroundimg20 position-relative d-flex"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dataset" class="tab-pane fade pt-2" role="tabpanel">
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="text-muted pt-2">Always up-to date. Request quarterly, monthly or even weekly updates on the political situation.<sup>*</sup></p>
+                                <p><a class="word-hover1 text-decoration-none" role="button" href="{% url 'blog-library' %}#downloads">Datasets</a></p>
+                                <p class="text-muted fs-small"><sup>*</sup>The following countries are currently available: Argentina, Australia, Austria, Bolivia, Canada, Colombia, Chile, Ecuador, Germany, India, Ireland, Mexico, Pakistan, Peru, Paraguay, Singapore, South Africa, Spain, Switzerland, United States, Uruguay, Venezuela |
+                                    All our services are currently free of charge and for information purposes only. For further information see our <a class="word-hover1 text-decoration-none">Disclaimer</a></p>
+                            </div>
+                            <div class="col-12">
+                                <div class="container-fluid backgroundimg20 position-relative d-flex"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="blog" class="tab-pane fade pt-2" role="tabpanel">
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="text-muted pt-2">Always up-to date. Request quarterly, monthly or even weekly updates on the political situation.<sup>*</sup></p>
+                                <p><a class="word-hover1 text-decoration-none" role="button" href="{% url 'blog-blogs' %}">Blog</a></p>
+                                <p class="text-muted fs-small"><sup>*</sup>All our services are currently free of charge and for information purposes only. For further information see our <a class="word-hover1 text-decoration-none">Disclaimer</a></p>
+                            </div>
+                            <div class="col-12">
+                                <div class="container-fluid backgroundimg20 position-relative d-flex"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="reports" class="tab-pane fade pt-2" role="tabpanel">
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="text-muted pt-2">Always up-to date. Request quarterly, monthly or even weekly updates on the political situation.<sup>*</sup></p>
+                                <p><a class="word-hover1 text-decoration-none" role="button" href="{% url 'blog-coming-soon' %}">Reports</a></p>
+                                <p class="text-muted fs-small"><sup>*</sup>The following countries are currently available: Argentina, Australia, Austria, Bolivia, Canada, Colombia, Chile, Ecuador, Germany, India, Ireland, Mexico, Pakistan, Peru, Paraguay, Singapore, South Africa, Spain, Switzerland, United States, Uruguay, Venezuela |
+                                    All our services are currently free of charge and for information purposes only. For further information see our <a class="word-hover1 text-decoration-none">Disclaimer</a></p>
+                            </div>
+                            <div class="col-12">
+                                <div class="container-fluid backgroundimg20 position-relative d-flex"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-            
-<!--Section 2 Keymessages-->
-<!-- Falls doch nochmal die erste Section irgendwo eingefügt werden soll
-<div class="container padding">
-    <div class="text-center pb-5" data-aos="fade-up" data-aos-offset="200">
-        <h3>Political Risks Are On The Rise</h3>
-        <p class="text-muted">Let's overcome them</p>
-        <hr class="hr_sizing">
-    </div>
-    <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12 pt-2 text-center d-flex" data-aos="fade-up" data-aos-offset="170">
-            <div class="card card_1">
-                <div class="card-body flex-fill">
-                    <div class="pt-2 pb-1">
-                        <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/worldmap_01.png">
-                    </div>
-                    <a href="{% url 'blog-political-risk' %}" role="button" class="card-title service_button stretched-link text-decoration-none"><h4>Understand</h4></a>
-                    <p class="card-text text-muted">the political risk spectrum and tackle these risks with our unique approach</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center pt-2 d-flex" data-aos="fade-up" data-aos-offset="185">
-            <div class="card card_2">
-                <div class="card-body flex-fill">
-                    <div class="pt-2 pb-1">
-                        <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_03.png">
-                    </div>
-                    <a href="{% url 'data-main' %}" role="button" class="card-title service_button stretched-link text-decoration-none"><h4>Engage</h4></a>
-                    <p class="card-text text-muted">risks with the monitoring and forecasting possibilities for the short and long term</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-12 text-center pt-2 d-flex" data-aos="fade-up" data-aos-offset="200">
-            <div class="card card_3">
-                <div class="card-body flex-fill">
-                    <div class="pt-2 pb-1">
-                        <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_05.png">
-                    </div>
-                    <a href="{% url 'blog-coming-soon' %}" role="button" class="card-title service_button stretched-link text-decoration-none"><h4>Create</h4></a>
-                    <p class="card-text text-muted">personalised political risk tools - <br>
-                        easily, quickly and precisely</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
-
-            
-<!--Section 3 - Our Services
-<div class="bg-light">
-    <div class="container padding">
-        <div data-aos="fade-up" data-aos-offset="200">
-            <div class="pb-4 row justify-content-center">
-                <div class="col-md-10">
-                    <h3 class="text-center">Our Services</h3>
-                    <hr class="mt-0 mb-0 hr_sizing pb-4">
-                    <p class="mb-0 mt-0 text-muted">
-                         Information is a key element to overcoming political uncertainty. Therefore, we provide capable political risk tools to monitor and forecast political risk for your business.
-                    <sub>*</sub>
-                    </p>
-                    <div class="pt-2">
-                        <cite class="text-muted fs-small text-justify"><sup>*</sup>The following services are currently not available: Quarterly Reports, Political Risk Portfolios Forecasting Tools and the Profile Function.</cite>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-12 text-center pt-2 pl-0 pr-0 d-flex">
-                    <div class="card rounded-0 card-border shadow-sm">
-                        <div class="card-body flex-fill">
-                            <div class="pt-2 pb-1">
-                                <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/analysis_01.png">
-                            </div>
-                            <a href="{% url 'data-main' %}" role="button"class="card-title service_button stretched-link text-decoration-none"><h4>Uncertainty Analysis</h4></a>
-                            <p class="card-text text-muted">Experience our Political Risk Analysis</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 text-center pt-2 pl-0 pr-0 d-flex">
-                    <div class="card rounded-0 card-border card-border-color1 shadow-sm">
-                        <div class="card-body flex-fill">
-                            <div class="pt-2 pb-1">
-                                <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/blog_02.png">
-                            </div>
-                            <a href="{% url 'blog-blogs' %}" role="button" class="card-title service_button stretched-link text-decoration-none"><h4>Expert Blog</h4></a>
-                            <p class="card-text text-muted">Get further strategic insights on uncertainty and risk</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-12 text-center pt-2 pl-0 pr-0 d-flex">
-                    <div class="card rounded-0 card-border card-border-color2 shadow-sm">
-                        <div class="card-body flex-fill">
-                            <div class="pt-2 pb-1">
-                                <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/report_01.png">
-                            </div>
-                            <a href="{% url 'blog-coming-soon' %}" role="button" class="card-title service_button stretched-link text-decoration-none"><h4>Quarterly Reports</h4></a>
-                            <p class="card-text text-muted">Stay up-to-date on your relevant business risks</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-12 text-center pt-2 pl-0 pr-0 d-flex">
-                    <div class="card rounded-0 card-border shadow-sm">
-                        <div class="card-body flex-fill">
-                            <div class="pt-2 pb-1">
-                                <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/specify_01.png">
-                            </div>
-                            <a href="{% url 'blog-coming-soon' %}" role="button" class="card-title service_button text-decoration-none stretched-link"><h4>Trend Analysis</h4></a>
-                            <p class="card-text text-muted">Experience our specified Trend Analysis</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 pt-4 d-flex justify-content-center">
-                    <a href="#politicalrisktools" role="button" class="word-hover1 text-decoration-none">View All Services</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
-
+    </div>  
     
-<!--Section 3 - Unique Political Risk Index-->
-<div class="bg-light">
+<!--Section 4 - Unique Political Risk Index-->
     <div class="container padding">
         <div class="row d-flex align-items-center">
             <div class="col-lg-5 col-md-12" data-aos="fade-right" data-aos-offset="260">
@@ -227,7 +210,140 @@
             </div>
         </div>
     </div>  
-</div>
+
+    <!--Section 5 Overview Services-->
+    <div class="bg-light">
+        <div class="container padding" id="politicalrisktools">
+            <div data-aos="fade-up" data-aos-offset="300">
+                <h3 class="text-center">Experience our unique political risk tools - for free<sup>*</sup></h3>
+                <p class="text-center text-muted">Understanding is the first step to successful risk management.
+                Gain knowledge on global political risk trends and improve your business decisions. All of our products are only for information purposes. Further imformation see our <a href="{% url 'blog-disclaimer' %}" class="text-decoration-none service_button text-size-small">Disclaimer</a></p> <!--To make the tabs toggleable, add the data-toggle="pill" attribute to each link. Then add a .tab-pane class with a unique ID for every tab and wrap them inside a div element with class .tab-content.-->
+                <hr class="hr_sizing">
+                <ul class="nav nav-pills pt-3">
+                    <li class="nav-item"><a href="#index" class="nav-link active pill-link-color" data-toggle="tab">Index</a></li>
+                    <li class="nav-item"><a href="#analysis" class="nav-link pill-link-color" data-toggle="tab">Analysis</a></li>
+                    <li class="nav-item"><a href="#expertise" class="nav-link pill-link-color" data-toggle="tab">Expertise</a></li>
+                    <li class="nav-item"><a href="#more" class="nav-link pill-link-color" data-toggle="tab">More</a></li>
+                </ul>
+                
+                <div class="tab-content">
+                    <div id="index" class="tab-pane fade show active pt-2" role="tabpanel">
+                        <div class="row">
+                            <div class="col-lg-6 col-12">
+                                <img class="img-fluid w-75 mx-sm-auto mx-md-auto d-sm-block d-md-block float-lg-left" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_09.png" alt="#"> 
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <h4>Sure Political Risk - Index<sup>**</sup></h4>
+                                <p class="text-muted">Always up-to date. Quarterly, monthly or even weekly changes on the political situation via our webapplication</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-unstyled">
+                                            <li class="text-muted">Political Risk Index</li>
+                                            <li class="text-muted">Political Risk Portfolio</li>
+                                            <li class="text-muted">Individual Services</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul class="list-unstyled">
+                                            <li><a class="word-hover1 text-decoration-none" role="button" href="{% url 'data-main' %}">View Index</a></li>
+                                            <li><a class="word-hover2 text-decoration-none" role="button" href="{% url 'blog-coming-soon' %}">Coming Soon</a></li>
+                                            <li><a class="word-hover1 text-decoration-none" role="button" href="mailto:politicaluncertainty@gmail.com">Get In Contact</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="pt-4">
+                                    <p class="text-muted fs-small"><sup>**</sup>The following countries are currently available: Argentina, Australia, Austria, Bolivia, Canada, Colombia, Chile, Ecuador, Germany, India, Ireland, Mexico, Pakistan, Peru, Paraguay, Singapore, South Africa, Spain, Switzerland, United States, Uruguay, Venezuela</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="analysis" class="tab-pane fade pt-2" role="tabpanel">
+                        <div class="row">
+                            <div class="col-lg-6 col-12">
+                                <img class="img-fluid w-75 mx-sm-auto mx-md-auto d-sm-block d-md-block float-lg-left" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_12.png" alt="#"> 
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <h4>Sure Political Risk - Analysis<sup>**</sup></h4>
+                                <p class="text-muted">Know the trend before a disturbance unfolds. Forecasting data helps deal with the uncertainty of the future. Start forecasting today or send us inquiry for further assistance<sup>*</sup></p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-unstyled">
+                                            <li class="text-muted">Political Risk Dataset</li>
+                                            <li class="text-muted">Political Risk Dataset</li>
+                                            <li class="text-muted">Specified Risk Analysis</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul class="list-unstyled">
+                                            <li><a class="word-hover1 text-decoration-none" role="button" href="{% url 'blog-library' %}#downloads"> Country Data</a></li>
+                                            <li><a class="word-hover1 text-decoration-none" role="button" href="{% url 'blog-library' %}#downloads"> Raw Data</a></li>
+                                            <li><a class="word-hover2 text-decoration-none" role="button" href="{% url 'blog-coming-soon' %}">Coming Soon</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="pt-4">
+                                    <p class="text-muted fs-small"><sup>**</sup>The following countries are currently available: Argentina, Australia, Austria, Bolivia, Canada, Colombia, Chile, Ecuador, Germany, India, Ireland, Mexico, Pakistan, Peru, Paraguay, Singapore, South Africa, Spain, Switzerland, United States, Uruguay, Venezuela</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="expertise" class="tab-pane fade pt-2" role="tabpanel">
+                        <div class="row">
+                            <div class="col-lg-6 col-12">
+                                <img class="img-fluid w-75 mx-sm-auto mx-md-auto d-sm-block d-md-block float-lg-left" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_10.png" alt="#"> 
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <h4>Sure Political Risk - Expertise</h4>
+                                <p class="text-muted">Create your personalized political risk portfolio. We know some risks are more important for your busniess than others. We can customize our methods to your needs.<sup>*</sup></p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-unstyled">
+                                            <li class="text-muted">Political Risk Reports</li>
+                                            <li class="text-muted">Political Risk Blog</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul class="list-unstyled">
+                                            <li><a class="word-hover2 text-decoration-none" role="button" href="{% url 'blog-coming-soon' %}">Coming Soon</a></li>
+                                            <li><a class="word-hover1 text-decoration-none" role="button" href="{% url 'blog-blogs' %}">View Blog</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="more" class="tab-pane fade pt-2" role="tabpanel">
+                        <div class="row">
+                            <div class="col-lg-6 col-12">
+                                <img class="img-fluid w-75 mx-sm-auto mx-md-auto d-sm-block d-md-block float-lg-left" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/forecast_01.png" alt="#"> 
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <h4>Sure Political Risk - More</h4>
+                                <p class="text-muted">With our political risk reports and blog posts we want to keep you updated on current changes.</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-unstyled">
+                                            <li class="text-muted">Individual Services</li>
+                                            <li class="text-muted">Recommended Literature</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul class="list-unstyled">
+                                            <li><a class="word-hover1 text-decoration-none" role="button" href="mailto:politicaluncertainty@gmail.com">Get In Contact</a></li>
+                                            <li><a class="word-hover1 text-decoration-none" role="button" href="{% url 'blog-library' %}#recommendedliterature">Learn More</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <cite class="text-muted text-size-small pt-2"><sup>*</sup>All our Services are free of charge for now because they are only for information purposes. In the near future we will provide more services and therefore charge them. For further information see our:<a href="{% url 'blog-disclaimer' %}" class="text-decoration-none word-hover1 text-size-small"> Disclaimer</a></cite>
+                </div>
+            </div>
+        </div>
+    </div>    
 
 <!--Section 4 - BREAK-->
 <div class="container-fluid backgroundimg13 position-relative d-flex align-items-center justify-content-center"> <!--nur so ist es möglich, dass der Content auch gecentert ist!-->
@@ -242,19 +358,19 @@
 
 <!--Section 5 - What is political risk-->
 <div class="container padding">
-    <div class="pb-2 text-center" data-aos="fade-up" data-aos-offset="300">
+    <div class="pb-2 text-center" data-aos="fade-up" data-aos-offset="160">
         <h3>What is Political Risk</h3>
         <p class="text-muted">International business is strongly influenced by political change</p>
         <hr class="hr_sizing">
     </div>
     <div class="row d-flex align-items-center">
-        <div class="col-lg-5 col-md-12" data-aos="fade-right" data-aos-offset="300">
+        <div class="col-lg-5 col-md-12" data-aos="fade-right" data-aos-offset="160">
             <h6 class="pt-3">“The biggest mistake is believing the future will look like the present. It almost never does.” - <a target="_blank" class="service_button text-decoration-none" href="https://www.forbes.com/profile/j-tomilson-hill/?sh=76f88d2e4bb4"> J. Tomilson Hill</a></h6>
             <p class="text-muted">In a business and scientific context political risk is seen as the influence political change by any political actor may have on investments.</p>
             
             <a href="{% url 'blog-political-risk' %}" class="word-hover1 text-decoration-none">learn more</a>
         </div>
-        <div class="col-lg-7 col-md-12 text-center" data-aos="fade-left" data-aos-offset="300">
+        <div class="col-lg-7 col-md-12 text-center" data-aos="fade-left" data-aos-offset="260">
             <img class="image-fluid w-75 float-sm-none float-md-none float-lg-right" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/information-isometric_02.png" alt="#">
         </div>
     </div>
@@ -336,91 +452,8 @@
     </div>
 </div>
 
-
-<!--Section 9 - Political Risk Tools-->
-<div class="container padding" id="politicalrisktools">
-    <div data-aos="fade-up" data-aos-offset="300">
-        <h3 class="text-center">Experience our Unique Political Risk Tools</h3>
-        <p class="text-center text-muted">Understanding is the first step to successful risk management.
-        Gain knowledge on global political risk trends and improve your business decisions.</p> <!--To make the tabs toggleable, add the data-toggle="pill" attribute to each link. Then add a .tab-pane class with a unique ID for every tab and wrap them inside a div element with class .tab-content.-->
-        <hr class="hr_sizing">
-        <ul class="nav nav-pills pt-3">
-            <li class="nav-item"><a href="#monitor" class="nav-link active pill-link-color" data-toggle="tab">Monitor</a></li>
-            <li class="nav-item"><a href="#forecast" class="nav-link pill-link-color" data-toggle="tab">Forecast</a></li>
-            <li class="nav-item"><a href="#profile" class="nav-link pill-link-color" data-toggle="tab">Profile</a></li>
-            <li class="nav-item"><a href="#others" class="nav-link pill-link-color" data-toggle="tab">Others</a></li>
-        </ul>
-        
-        <div class="tab-content">
-            <div id="monitor" class="tab-pane fade show active pt-2" role="tabpanel">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <img class="img-fluid w-75" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_12.png" alt="#"> 
-                    </div>
-                    <div class="col-sm-6">
-                        <h4>Monitor Political Risk</h4>
-                        <p class="text-muted">Always up-to date. Request quarterly, monthly or even weekly updates on the political situation.<sup>*</sup></p>
-                        <a class="word-hover1 text-decoration-none" role="button" href="{% url 'data-main' %}">learn more</a><br>
-                        <div class="pt-5">
-                            <p class="text-muted fs-small"><sup>*</sup>the following countries are available: Argentina, Australia, Austria, Bolivia, Canada, Colombia, Chile, Ecuador, Germany, India, Ireland, Mexico, Pakistan, Peru, Paraguay, Singapore, South Africa, Spain, Switzerland, United States, Uruguay, Venezuela</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="forecast" class="tab-pane fade pt-2" role="tabpanel">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <img class="img-fluid w-75" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_09.png" alt="#"> 
-                    </div>
-                    <div class="col-sm-6">
-                        <h4>Forecast Political Risk</h4>
-                        <p class="text-muted">Know the trend before a disturbance unfolds. Forecasting data helps deal with the uncertainty of the future. Start forecasting today or send us inquiry for further assistance<sup>*</sup></p>
-                        <a class="word-hover1 text-decoration-none" role="button" href="{% url 'blog-coming-soon' %}">learn more</a>
-                        <div class="pt-5">
-                            <p class="text-muted fs-small"><sup>*</sup>Currently not available on the webpage. Only available via e-mail inquiry.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="profile" class="tab-pane fade pt-2" role="tabpanel">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <img class="img-fluid w-75" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/forecast_01.png" alt="#"> 
-                    </div>
-                    <div class="col-sm-6">
-                        <h4>Create your own Political Risk Portfolio</h4>
-                        <p class="text-muted">Create your personalized political risk portfolio. We know some risks are more important for your busniess than others. We can customize our methods to your needs.<sup>*</sup></p>
-                        <a class="word-hover2 text-decoration-none" role="button" href="{% url 'blog-coming-soon' %}">coming soon</a>
-                        <div class="pt-5">
-                            <p class="text-muted fs-small"><sup>*</sup>Currently not available, will come soon.</cite>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="others" class="tab-pane fade pt-2" role="tabpanel">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <img class="img-fluid w-75" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/monitor_10.png" alt=""> 
-                    </div>
-                    <div class="col-sm-6">
-                        <h4>Use our spectrum of political risk data</h4>
-                        <p class="text-muted">With our political risk reports and blog posts we want to keep you updated on current changes.</p>
-                        <ul>
-                            <li class="text-muted">Political Risk Expertise <sup>*</sup> <a class="word-hover2 text-decoration-none ml-2" role="button" href="{% url 'blog-coming-soon' %}">Reports</a></li>
-                            <li class="text-muted">Political Risk Strategies <a class="word-hover1 text-decoration-none ml-3" role="button" href="{% url 'blog-blogs' %}">Blog</a></li>
-                        </ul>
-                        <div class="pt-5">
-                            <p class="text-muted fs-small"><sup>*</sup>Political Risk Reports are not yet available! coming soon</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!--Section 10 - Vorteile - Fast-->
-<div class="bg-light">
+
     <div class="container pt-5 pb-5"> <!--mit container fluid schaut es auf dem kleinen bildschirm feiner aus, aber auf dem großen nicht mehr!!!-->
         <div class="pb-6" data-aos="fade-up">
             <h2 class="text-center">Your advantages</h2>
@@ -442,30 +475,31 @@
             </div>
         </div>
     </div>  
-</div>
+
 
 <!--Section 11 - Vorteile - Predict-->
-<div class="container pt-5 pb-5"> <!--mit container fluid schaut es auf dem kleinen bildschirm feiner aus, aber auf dem großen nicht mehr!!!-->
-    <div class="row d-felx align-items-center" data-aos="fade-right">
-        <div class="col-lg-4 col-md-12 text-center">
-            <img class="img-fluid w-75 float-sm-none float-md-none float-lg-left" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/fast_01.png" alt="Card image">
-        </div>
-        <div class="col-lg-8 col-md-12" data-aos="fade-left">
-            <h4 class="text-center">Customizable - Weight your Political Risks</h4>
-            <p class="pt-2 text-muted text-justify">Our analytical tools contain of a variety of risks and uncertainties, which can be customized.
-                Therefore, it is possible to weight the most important political risks for your business.
-                With this possibility the monitoring of potential risks and uncertainties is more accurate than with a pre determined political risk tool.
-                Even though political risk is such a major risk, it is often overlooked for a variety of reasons, therefore make your business saver with our political risk tools.
-                <sup>*</sup></p>
-            <div class="pt-2">
-                <cite class="text-muted fs-small text-justify"><sup>*</sup>This service is currently only available via e-mail inquiry and only for a specific time period. No further tools, like up-to-date monitoring or forecasting is currently available on the webpage. To receive your specific political risk portfolio for a specific time period, just send us an e-mail and we will prepare your political risk portfolio. Since, we are just in the beginning, this service is currently FREE of CHARGE.</cite>
+<div class="bg-light">
+    <div class="container pt-5 pb-5"> <!--mit container fluid schaut es auf dem kleinen bildschirm feiner aus, aber auf dem großen nicht mehr!!!-->
+        <div class="row d-felx align-items-center" data-aos="fade-right">
+            <div class="col-lg-4 col-md-12 text-center">
+                <img class="img-fluid w-75 float-sm-none float-md-none float-lg-left" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/fast_01.png" alt="Card image">
+            </div>
+            <div class="col-lg-8 col-md-12" data-aos="fade-left">
+                <h4 class="text-center">Customizable - Weight your Political Risks</h4>
+                <p class="pt-2 text-muted text-justify">Our analytical tools contain of a variety of risks and uncertainties, which can be customized.
+                    Therefore, it is possible to weight the most important political risks for your business.
+                    With this possibility the monitoring of potential risks and uncertainties is more accurate than with a pre determined political risk tool.
+                    Even though political risk is such a major risk, it is often overlooked for a variety of reasons, therefore make your business saver with our political risk tools.
+                    <sup>*</sup></p>
+                <div class="pt-2">
+                    <cite class="text-muted fs-small text-justify"><sup>*</sup>This service is currently only available via e-mail inquiry and only for a specific time period. No further tools, like up-to-date monitoring or forecasting is currently available on the webpage. To receive your specific political risk portfolio for a specific time period, just send us an e-mail and we will prepare your political risk portfolio. Since, we are just in the beginning, this service is currently FREE of CHARGE.</cite>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!--Section 12 - Vorteile - Customize-->
-<div class="bg-light">
     <div class="container pt-5 pb-5" data-aos="fade-right"> <!--mit container fluid schaut es auf dem kleinen bildschirm feiner aus, aber auf dem großen nicht mehr!!!-->
         <div class="row d-felx align-items-center">
             <div class="col-lg-8 col-md-12">
@@ -483,66 +517,6 @@
             </div>
         </div>
     </div>  
-</div>
-
-
-
-<!--Section 12 Methodology - könnte wieder eingeführt werden, aber passt momentan nicht dazu
-    <div class="bg-light">  
-        <div class="container bg-light padding">  
-            <div class="pb-5 text-center">
-                <h3>Methodology</h3>
-                <hr class="mt-0 mb-0 hr_sizing">
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-sm-12">
-                    <div class="pr-2">
-                        <h3>Unique measuring</h3>
-                        <p>how is it done?</p>
-                        <div class="d-flex justify-content-between align-items-center my-2">
-                            <ul>
-                                <li class="text-muted">Political risk of each country is linked to Google Searches</li>
-                                <li class="text-muted">Google Searches show uncertainty in a country</li>
-                                <li class="text-muted">Wordlisting is very important to create index</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-12 p-0 m-0">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img class="w-75" src="svg/unique_02.png" alt="Responsive image">
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-xs-12 p-0 m-0">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img class="w-75" src="svg/implement_01.png" alt="Responsive image">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xs-12">
-                    <div class="text-justify pt-3 pl-2 pr-1">
-                        <h3>Easy to implement</h3>
-                        <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum sit porro fuga tempore eos quod dolores, consequuntur, alias debitis sapiente expedita, sunt temporibus! Quod asperiores soluta sint corrupti veniam eveniet.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-xs-12">
-                    <div class="text-justify pt-3 pr-2">
-                        <h3>Changeable</h3>
-                        <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum sit porro fuga tempore eos quod dolores, consequuntur, alias debitis sapiente expedita, sunt temporibus! Quod asperiores soluta sint corrupti veniam eveniet.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-12 p-0 m-0">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img class="w-75" src="svg/changeable_02.png" alt="Responsive image">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>--> 
-
 
 <!--Section 13 - BREAK-->
 <div class="container-fluid backgroundimg4 position-relative d-flex align-items-center justify-content-center"> <!--nur so ist es möglich, dass der Content auch gecentert ist!-->
@@ -634,31 +608,6 @@
     </div>
 </div>
 
-<!--Section 13 - Quarterly Reports-->
-    <!--<div class="bg-light">
-        <div data-aos="fade-up">
-            <div class="container padding">
-                <div class="text-center">
-                    <h3 class="mb-2 mt-0">Further Services - Quarterly Reports</h3>
-                    <hr class="mt-0 mb-0 pb-5 hr_sizing">
-                    <p class="mb-0 mt-0 text-justify text-muted"> In Addition to our frequent Political Risk Analysis in our Blog section, we also provide you with our Quarterly Reports.
-                        The quarterly reports consist of important political risk analysis of different countries on a quarterly basis.
-                        We will introduce the most and least important political risks to be aware of in specific countries.
-                        Furthermore, we discuss the overall political situation and also provide a forecast for different countries.
-                        If you want to know more about our quarterly reports, just download the latest version below and subscribe to our newsletter to get notified, when a new report is availabe.
-                        Tis service is currently free of charge.
-                    </p>
-                </div>
-            <div class="row pb-3 justify-content-center">
-                <img class="svgsizing" src="../static/svg/reports_01.png">
-            </div> 
-            <div class="text-center">
-                <a href="test_white paper.pdf" download="text_white paper.pdf" type="button" class="btn btn-outline-danger">coming soon</a>
-            </div>
-        </div>
-    </div>
-    </div> -->
-
 <!--Section 17 - just the beginning-->
 <div class="bg-light">
     <div class="container padding" data-aos="fade-up" data-aos-offset="300">
@@ -668,9 +617,14 @@
             <p class="text-justify text-muted pt-2">Since we are just in the beginning, some of our services are currently not available on the webpage.
             If you have any other ideas, which services we should provide, just send us an e-mail.
             Subscribe to our newsletter to receive information when new services are available.
-            In order to keep our services free of charge, we are thankful for every donation. We want to push the understanding for uncertainty around the world (See the imprint section).
+            In order to keep our services free of charge, we are thankful for every <a href="{% url 'blog-coming-soon'%}" type="" class="word-hover1 text-decoration-none">Donation</a>. We want to push the understanding for uncertainty around the world (See the imprint section).
             </p>
-            <div class="row d-flex justify-content-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 d-lg-block d-none text-center">
+                    <img class="w-50" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/start_01.png">
+                </div> 
+            </div>
+            <div class="row pt-2 d-flex justify-content-center align-items-center">
                 <div class="col-lg-6 col-sm-12">
                     <form action="{% url 'subscription'%}" method="POST">
                         {% csrf_token %}
@@ -683,16 +637,14 @@
                         </div>
                         {% endfor %}
                     </form>
-                    <a href="#" type="" class="ml-3 word-hover1 text-decoration-none">Donate</a>
                 </div>
             </div>
         </div>
-        <div class="d-lg-block d-none text-center">
-            <img class="w-25 " src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/start_01.png">
-        </div> 
-        
-        <div class="row pt-3">
-            <div class="col-lg-4 col-md-6 col-sm-12 pt-2 text-center d-flex">
+        <div>
+            <a href="{% url 'blog-coming-soon'%}" type="" class="ml-3 word-hover1 text-decoration-none">Coming soon:</a>
+        </div>
+        <div class="row pt-1">
+            <div class="col-lg-4 col-md-6 col-sm-12 text-center d-flex">
                 <div class="card card_1 flex-fill">
                     <div class="card-body row d-flex align-items-center">
                         <div class="col-lg-4">
@@ -705,7 +657,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 text-center pt-2 d-flex">
+            <div class="col-lg-4 col-md-6 col-sm-12 text-center d-flex">
                 <div class="card card_2 flex-fill">
                     <div class="card-body row d-flex align-items-center">
                         <div class="col-lg-4">
@@ -718,7 +670,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-12 text-center pt-2 d-flex">
+            <div class="col-lg-4 col-sm-12 text-center d-flex">
                 <div class="card card_3 flex-fill">
                     <div class="card-body row d-flex align-items-center">
                         <div class="col-lg-4">
@@ -736,7 +688,6 @@
     </div>    
 </div>
 
-
 <!--18 - Join PoliticalRisk-->
     <div class="container-fluid backgroundimg5 position-relative d-flex align-items-center justify-content-center"> <!--nur so ist es möglich, dass der Content auch gecentert ist!-->
         <div class="row d-flex justify-content-center" data-aos="zoom-in">
@@ -748,8 +699,6 @@
     </div>
 
 {% endblock content %}
-
-
 
 
 
