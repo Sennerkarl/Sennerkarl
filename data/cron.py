@@ -10,7 +10,8 @@ from .models import WorldBorder, SBPRI, Data
 # Import Statsmodels
 from statsmodels.tsa.seasonal import seasonal_decompose
 
-@BlockingScheduler().scheduled_job('cron', day_of_week='sun', hour=23)
+sched = BlockingScheduler()
+@sched.scheduled_job('cron', day_of_week='sun', hour=23)
 def getgoogledata():
     
     languages = ['Eng', 'Ger', 'Esp']
@@ -176,4 +177,4 @@ def getgoogledata():
             Data.objects.create(date=row, country=country, category=categories[3], value=weighted_situation_df[country][row])                 
     return   
 
-BlockingScheduler().start()
+sched.start()
