@@ -80,14 +80,14 @@
 
 <!--Section 3 - Recommended Literature-->
         <div class="bg-light">
-            <div class="container padding" id="recommendedliterature">
+            <div class="container padding" id="recommendedliterature" data-aos="fade-up">
                 <div class="text-center">
                     <h3>Recommended Literature</h3>
                     <p class="text-muted">Bellow is a selection of literatures which provide a useful insight in the world of political risks</p>
                     <hr class="hr_sizing">
                     <!--<img class="svgsizing" src="svg/worldmap_01.svg"> d-flex und flex-fill-> Cards with different Text-lenghts same heigt when word wrapping-->
                 </div>
-                <div class="row" data-aos="fade-up">
+                <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-12 text-center pt-2 d-flex">
                         <div class="card">
                             <div class="card-body flex-fill">
@@ -149,16 +149,31 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-6 col-md-12 text-lg-left text-center">
                             <h3>Downloads:</h3>
-                            <ul class="list-unstyled">
-                                <li class="mr-2">White Paper <a href="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" target="_blank" download="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" role="button" class="word-hover1 text-decoration-none">download</a></li>
-                                <li class="mr-2">Methodology <a href="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" target="_blank" download="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" role="button" class="word-hover1 text-decoration-none">download</a></li>
-                                <li class="mr-2">Report (2021) <a href="{% url 'blog-coming-soon' %}" role="button" class="word-hover2 text-decoration-none">coming soon</a></li>
-                            </ul>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="text-muted">White Paper</li>
+                                        <li class="text-muted">Methodology</li>
+                                        <li class="text-muted">Country Data</li>
+                                        <li class="text-muted">Raw Data</li>
+                                        <li class="text-muted">Report (2021)</li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li><a href="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" target="_blank" download="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" role="button" class="word-hover1 text-decoration-none">download</a></li>
+                                        <li><a href="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" target="_blank" download="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" role="button" class="word-hover1 text-decoration-none">download</a></li>
+                                        <li><a href="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" target="_blank" download="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" role="button" class="word-hover1 text-decoration-none">download</a></li>
+                                        <li><a href="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" target="_blank" download="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Downloads/White+Paper+2021.pdf" role="button" class="word-hover1 text-decoration-none">download</a></li>
+                                        <li><a href="{% url 'blog-coming-soon' %}" role="button" class="word-hover2 text-decoration-none">coming soon</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                             <h3 class="pt-2">Literatures:</h3>
                             <ul class="list-unstyled">
-                                <li class="mr-2">Policital Risk by <cite>Condoleezza Rice </cite><a href="#" target="_blank" role="button" class="word-hover1 text-decoration-none">buy</a></li>
-                                <li class="mr-2">Policital Risk by <cite>Condoleezza Rice </cite><a href="#" target="_blank" role="button" class="word-hover1 text-decoration-none">buy</a></li>
-                                <li class="mr-2">Policital Risk by <cite>Condoleezza Rice </cite><a href="#" target="_blank" role="button" class="word-hover1 text-decoration-none">buy</a></li>
+                                <li class="mr-2 text-muted">Policital Risk by <cite>Condoleezza Rice </cite><a href="#" target="_blank" role="button" class="word-hover1 text-decoration-none">buy</a></li>
+                                <li class="mr-2 text-muted">Policital Risk by <cite>Condoleezza Rice </cite><a href="#" target="_blank" role="button" class="word-hover1 text-decoration-none">buy</a></li>
+                                <li class="mr-2 text-muted">Policital Risk by <cite>Condoleezza Rice </cite><a href="#" target="_blank" role="button" class="word-hover1 text-decoration-none">buy</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-6 col-md-12 text-center">

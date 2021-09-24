@@ -53,8 +53,8 @@
             <ul class="nav navbar-nav" id="navmenu">
                 {% with url_name=request.resolver_match.url_name %} <!--currently using url is active-->
                 <li class="nav-item {% if url_name == 'blog-home' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-home' %}" >Home</a></li>
-                <li class="nav-item {% if url_name == 'data-main' %}active{% endif %}"><a class="nav-link" href="{% url 'data-main' %}">Data</a></li>
-                <li class="nav-item {% if url_name == 'blog-political-risk' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-political-risk' %}">Political Risk</a></li>
+                <li class="nav-item {% if url_name == 'data-main' %}active{% endif %}"><a class="nav-link" href="{% url 'data-main' %}">Political-Risk|Index</a></li>
+                <li class="nav-item {% if url_name == 'blog-political-risk' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-political-risk' %}">Methodology</a></li>
                 <li class="nav-item {% if url_name == 'blog-blogs' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-blogs' %}">Blog</a></li>
                 <li class="nav-item {% if url_name == 'blog-about' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-about' %}">About</a></li>
                 <li class="nav-item pr-3 {% if url_name == 'blog-library' %}active{% endif %}"><a class="nav-link" href="{% url 'blog-library' %}">Library</a></li>
