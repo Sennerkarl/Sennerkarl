@@ -15,6 +15,7 @@ import re
 import wbgapi as wb
 from data.functions import get_continuous_color
 
+
 class DataView(ListView):
     template_name = 'data/data.html'
     model = SBPRI

@@ -4,11 +4,12 @@ import datetime
 import random
 import time
 from apscheduler.schedulers.blocking import BlockingScheduler
+from statsmodels.tsa.seasonal import seasonal_decompose
 
-from .models import WorldBorder, SBPRI, Data
+from .models import Data
 
 # Import Statsmodels
-from statsmodels.tsa.seasonal import seasonal_decompose
+
 
 sched = BlockingScheduler()
 @sched.scheduled_job('cron', day_of_week='sun', hour=23)
