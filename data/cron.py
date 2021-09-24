@@ -6,7 +6,7 @@ import time
 from apscheduler.schedulers.blocking import BlockingScheduler
 from statsmodels.tsa.seasonal import seasonal_decompose
 
-from .models import Data
+from data.models import Data
 
 # Import Statsmodels
 
