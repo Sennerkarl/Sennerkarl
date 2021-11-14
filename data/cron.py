@@ -176,6 +176,6 @@ def getgoogledata():
     for country in weighted_situation_df:
         for row in weighted_situation_df.index:
             Data.objects.create(date=row, country=country, category=categories[3], value=weighted_situation_df[country][row])                 
-    return   
+    
 
 sched.start()
