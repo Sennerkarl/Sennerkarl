@@ -21,6 +21,7 @@ class DataView(ListView):
     model = SBPRI
     context_object_name = 'SBPRI'
 
+    
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)    # open context data which is sent to frontend  
@@ -34,6 +35,74 @@ class DataView(ListView):
             iso3s += [iso3[0]['iso3']]                  #grab first value (only value) in new qs
         
 
+        # Country Risk Level
+
+            # Variance per Country
+        category = 'SBPRI'
+        ctyindicators = pd.DataFrame(columns=countries)
+        for cty in countries:
+            sbprivalues = list(Data.objects.filter(country=cty, category=category).values_list('value', flat=True))
+            sbprivariancealltime = np.var([float(x) for x in sbprivalues])
+
+            ctyindicators.loc['historic',cty] = sbprivariancealltime
+            ctyindicators.loc['longterm',cty] = np.var([float(x) for x in sbprivalues[60:]])
+            ctyindicators.loc['midterm',cty] = np.var([float(x) for x in sbprivalues[12:]])
+
+        for i in range(len(list(ctyindicators.index))): #
+            ctyindicators.iloc[i] = ((ctyindicators.iloc[i] - ctyindicators.iloc[i].min()) / (ctyindicators.iloc[i].max() - ctyindicators.iloc[i].min()))*5 + 0.1
+            ctyindicators.iloc[i] = ctyindicators.iloc[i].astype(int)
+
+        
+        worldmap = go.Figure()
+        worldmap.add_trace(go.Choropleth(
+                            locations = iso3s, #borders to use
+                            z = ctyindicators.iloc[1].values, #data with clever mapping function to get the data 
+                            text = countries, #text when hovering
+                            colorscale='agsunset',
+                            reversescale=True,
+                            showscale = False,
+                            marker_line_color='darkgray',
+                            marker_line_width=0.5,
+                            colorbar_tickprefix = '',
+                            colorbar_title = 'SBPRI<br>Month<br>Trend',
+                            zmin = 0,
+                            zmax = 5,
+                        ))
+        
+        button1 =  dict(method = "update",
+                args = [{'z': [ctyindicators.iloc[0].values]}],
+                label = "historic")
+        button2 =  dict(method = "update",
+                args = [{'z': [ctyindicators.iloc[1].values]}],
+                label = "longterm")
+        button3 =  dict(method = "update",
+                args = [{'z': [ctyindicators.iloc[2].values]}],
+                label = "midterm")
+        
+
+        worldmap.update_layout(
+                        template='plotly',
+                        autosize=True,
+                        margin=dict(l=0, r=0, b=20, t=0), 
+                        updatemenus=[dict(y=0.9,
+                                    x=0.175,
+                                    xanchor='right',
+                                    yanchor='top',
+                                    active=1,
+                                    buttons=[button1, button2, button3])
+                              ], 
+                        geo=dict(
+                            showframe=False,
+                            showcoastlines=False,
+                            projection_type='equirectangular',
+                            projection_rotation_lon=300
+                        ),
+                    )
+        
+        # worldmap.update_geos(projection_rotation_lon=300, projection_scale=1)
+        context['worldmap'] = ctyindicators.iloc[1].values
+
+
         #build trendmap monthly with Data Model
         
         figmonth = go.Figure()
@@ -41,7 +110,8 @@ class DataView(ListView):
         dates = list(Data.objects.order_by('-date').values_list('date', flat=True).distinct()[0:2])
         diff = []
         for country in countries:
-            diff += [str((Data.objects.filter(country=country, date=dates[0], category=category).values_list('value', flat=True)[0] / Data.objects.filter(country=country, date=dates[1], category=category).values_list('value', flat=True)[0] - 1)*100)]
+            diff += [str((Data.objects.filter(country=country, date=dates[0], category=category).values_list('value', flat=True)[0] /
+             Data.objects.filter(country=country, date=dates[1], category=category).values_list('value', flat=True)[0] - 1)*100)]
         
         figmonth.add_trace(go.Choropleth(
                             locations = iso3s, #borders to use
@@ -72,8 +142,7 @@ class DataView(ListView):
                         
                     )
 
-        trendmapmonth =  plot(figmonth, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
-        context['trendmapmonth'] = trendmapmonth
+        
 
         # Trends Diverging Deltas
         def trends(date1, date2):
@@ -86,7 +155,7 @@ class DataView(ListView):
             trending = list(dict(sorted(trenddata.items(), key=lambda item: item[1])).items()) # sort values in dict
             return trending
 
-        context['trendingmonth'] = trends(0,2)
+        context['trendingmonth'] = trends(0,2) # grab certain data points in this case first and third
         context['trendingannual'] = trends(0,13)
         
 
@@ -123,6 +192,7 @@ class DataView(ListView):
                             projection_type='orthographic'
                         ),
                     )
+        figreg.update_geos(projection_rotation_lon=300, projection_scale=1)
 
         #trenmap political sanctions
         figsanc = go.Figure()
@@ -251,22 +321,33 @@ class DataView(ListView):
                 fig.add_trace(go.Scatter(x=x, y=list(Data.objects.filter(country=cty, category='SBPRI').order_by('date').values_list('value', flat=True)), name=cty, opacity=0.8, visible = "legendonly" ))
         
 
-        linegraph = plot(fig, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+        output_type='div'
+        include_plotlyjs=False
+        displayModeBar=True
+        displaylogo = False
+
+        worldmap = plot(worldmap, output_type=output_type, include_plotlyjs=include_plotlyjs, config={'displayModeBar': displayModeBar, 'displaylogo': displaylogo})
+        context['worldmap'] = worldmap
+
+        trendmapmonth =  plot(figmonth, output_type=output_type, include_plotlyjs=include_plotlyjs, config={'displayModeBar': displayModeBar, 'displaylogo': displaylogo})
+        context['trendmapmonth'] = trendmapmonth
+
+        linegraph = plot(fig, output_type=output_type, include_plotlyjs=include_plotlyjs, config={'displayModeBar': displayModeBar, 'displaylogo': displaylogo})
         context['linegraph'] = linegraph
 
-        trend =  plot(fig3, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+        trend =  plot(fig3, output_type=output_type, include_plotlyjs=include_plotlyjs, config={'displayModeBar': displayModeBar, 'displaylogo': displaylogo})
         context['trend'] = trend
 
-        trendmapreg =  plot(figreg, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+        trendmapreg =  plot(figreg, output_type=output_type, include_plotlyjs=include_plotlyjs, config={'displayModeBar': displayModeBar, 'displaylogo': displaylogo})
         context['trendmapreg'] = trendmapreg
 
-        trendmapsanc =  plot(figsanc, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+        trendmapsanc =  plot(figsanc, output_type=output_type, include_plotlyjs=include_plotlyjs, config={'displayModeBar': displayModeBar, 'displaylogo': displaylogo})
         context['trendmapsanc'] = trendmapsanc
 
-        trendmapsitu =  plot(figsitu, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+        trendmapsitu =  plot(figsitu, output_type=output_type, include_plotlyjs=include_plotlyjs, config={'displayModeBar': displayModeBar, 'displaylogo': displaylogo})
         context['trendmapsitu'] = trendmapsitu
 
-        trendmapannual =  plot(figannual, output_type='div', include_plotlyjs=False, config={'displayModeBar': False, 'displaylogo': False})
+        trendmapannual =  plot(figannual, output_type=output_type, include_plotlyjs=include_plotlyjs, config={'displayModeBar': displayModeBar, 'displaylogo': displaylogo})
         context['trendmapannual'] = trendmapannual
 
         context['countries'] = countries

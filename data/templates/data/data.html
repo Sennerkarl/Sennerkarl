@@ -100,6 +100,25 @@
                     <div class="col-12 py-3 bg-white border rounded">
                         <h4 class="text-muted text-center">Political Uncertainty Trends - Global</h4>
                         <p class="text-muted text-center mb-0">Analyse the short term country uncertainty trends based on Google Trend for {% now "F Y" %}</p>
+                        <div class="plotsizing">{{ worldmap | safe }}</div>
+                        {% include "data/legend.html" %}
+                        <div class="float-left ml-2"><p class="text-size-small pb-0 mb-0">Source: <a href="#" target="_blank" class="text-decoration-none service_button">Political Uncertainty by Senne & Reinthaler</a> | Data: <a href="https://trends.google.com/" target="_blank" class="text-decoration-none service_button">Google Trend&trade;</a>
+                            <br>The Graph "Political Uncertainty Trends - Global" shows the percentage change of political uncertainty in comparison to the previous month</p>
+                            <p class="p-0 m-0 text-size-small">The grey countries in the Graph are not yet available | <a href="{% url 'blog-coming-soon' %}" class="text-decoration-none service_button">coming soon</a></p>
+                            <p class="p-0 m-0 text-size-small"><a href="{% url 'blog-disclaimer' %}" class="text-decoration-none service_button">Data Disclaimer</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>         
+
+
+<!--Section 2 - Graph 1-->
+        <div class="bg-light" id="worldmap">
+            <div class="container py-3">
+                <div class="row justify-content-center">
+                    <div class="col-12 py-3 bg-white border rounded">
+                        <h4 class="text-muted text-center">Political Uncertainty Trends - Global</h4>
+                        <p class="text-muted text-center mb-0">Analyse the short term country uncertainty trends based on Google Trend for {% now "F Y" %}</p>
                         <div class="plotsizing">{{ trendmapmonth | safe }}</div>
                         {% include "data/legend.html" %}
                         <div class="float-left ml-2"><p class="text-size-small pb-0 mb-0">Source: <a href="#" target="_blank" class="text-decoration-none service_button">Political Uncertainty by Senne & Reinthaler</a> | Data: <a href="https://trends.google.com/" target="_blank" class="text-decoration-none service_button">Google Trend&trade;</a>
