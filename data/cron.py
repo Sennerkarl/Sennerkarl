@@ -3,12 +3,16 @@ from pytrends.request import TrendReq
 import datetime
 import random
 import time
-
-from .models import WorldBorder, SBPRI, Data
-
-# Import Statsmodels
+from apscheduler.schedulers.blocking import BlockingScheduler
 from statsmodels.tsa.seasonal import seasonal_decompose
 
+from data.models import Data
+
+# Import Statsmodels
+
+
+sched = BlockingScheduler()
+@sched.scheduled_job('cron', day_of_week='sun', hour=23)
 def getgoogledata():
     
     languages = ['Eng', 'Ger', 'Esp']
@@ -115,41 +119,45 @@ def getgoogledata():
         # After Thrid Loop Correct data Per Country
             
         # seasonal correction to each search term since words have different seasonality (trabjar) searched more beginning of year other words much less in the beginning 
-            delta_df = whole_df
-            delta_df.dropna(axis=1, inplace=True)
-            delta_df.replace(0, 0.1, inplace=True)
-            for i in delta_df.columns:
-                result_mul = seasonal_decompose(delta_df[i], model='multiplicative', extrapolate_trend='freq')
-                delta_df[i] = (delta_df[i] / result_mul.seasonal)
+            
+                delta_df = whole_df
+                delta_df.dropna(axis=1, inplace=True)
+                delta_df.replace(0, 0.1, inplace=True)
+                for i in delta_df.columns:
+                    result_mul = seasonal_decompose(delta_df[i], model='multiplicative', extrapolate_trend='freq')
+                    delta_df[i] = (delta_df[i] / result_mul.seasonal)
 
-            # create change deltas for search term !! check if this may ruin data !!
-            delta_df = delta_df - delta_df.min()
-            delta_df = delta_df / delta_df.max() * 100
+                # create change deltas for search term !! check if this may ruin data !!
+                delta_df = delta_df - delta_df.min()
+                delta_df = delta_df / delta_df.max() * 100
 
-        #         set delta_df which is delta per word and seasonally corrected as whole_df
-            whole_df = delta_df
+            #         set delta_df which is delta per word and seasonally corrected as whole_df
+                whole_df = delta_df
+            
 
-            # create mean column for every country    
-            x = whole_df[terms[0]] * 0    # create dataframe with same amount of rows as whole_df and 0 values
-            for i in whole_df.columns:
-                x += whole_df[i]
+                # create mean column for every country    
+                x = whole_df[terms[0]] * 0    # create dataframe with same amount of rows as whole_df and 0 values
+                for i in whole_df.columns:
+                    x += whole_df[i]
+                    if tpc == list(kw_dict[lang])[0]:
+                        all_terms_df[i] = whole_df[i]
+                x = x / len(whole_df.columns)
+                whole_df['Mean'] = x
+
+                # After Data correcting and Mean creation add Categories to weighted df with the necessary weights
                 if tpc == list(kw_dict[lang])[0]:
-                    all_terms_df[i] = whole_df[i]
-            x = x / len(whole_df.columns)
-            whole_df['Mean'] = x
+                    weighted_sbpri_df[country] += weights[list(kw_dict[lang])[0]]*whole_df['Mean']
+                    weighted_regulation_df[country] = whole_df['Mean']
 
-            # After Data correcting and Mean creation add Categories to weighted df with the necessary weights
-            if tpc == list(kw_dict[lang])[0]:
-                weighted_sbpri_df[country] += weights[list(kw_dict[lang])[0]]*whole_df['Mean']
-                weighted_regulation_df[country] = whole_df['Mean']
+                if tpc == list(kw_dict[lang])[1]:
+                    weighted_sbpri_df[country] += weights[list(kw_dict[lang])[1]]*whole_df['Mean']
+                    weighted_sanctions_df[country] = whole_df['Mean']
 
-            if tpc == list(kw_dict[lang])[1]:
-                weighted_sbpri_df[country] += weights[list(kw_dict[lang])[1]]*whole_df['Mean']
-                weighted_sanctions_df[country] = whole_df['Mean']
-
-            if tpc == list(kw_dict[lang])[2]:
-                weighted_sbpri_df[country] += weights[list(kw_dict[lang])[2]]*whole_df['Mean']
-                weighted_situation_df[country] = whole_df['Mean']
+                if tpc == list(kw_dict[lang])[2]:
+                    weighted_sbpri_df[country] += weights[list(kw_dict[lang])[2]]*whole_df['Mean']
+                    weighted_situation_df[country] = whole_df['Mean']
+            
+            
 
 
     weighted_sbpri_df = weighted_sbpri_df.applymap(lambda x: x/sum(weights.values()))
@@ -172,5 +180,6 @@ def getgoogledata():
     for country in weighted_situation_df:
         for row in weighted_situation_df.index:
             Data.objects.create(date=row, country=country, category=categories[3], value=weighted_situation_df[country][row])                 
+    
 
-getgoogledata        
+sched.start()

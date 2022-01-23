@@ -1,2 +1,2 @@
 web: gunicorn web_project.wsgi
-web: data/cron.py
+cron: python data/cron.py
