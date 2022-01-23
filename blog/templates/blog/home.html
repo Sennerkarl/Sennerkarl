@@ -10,15 +10,17 @@
                         <h5>We measure, monitor and forecast political risks based on the view of the population</h5>
                         <p class="pt-3 text-center">Want to know more?</p>
                         <div class="row d-inline-flex">
-                            <div class="col-lg-4 col-sm-12 pt-2">
+                            <div class="col-lg-6 col-sm-12 pt-2">
                                 <a href="mailto:politicaluncertainty@gmail.com" role="button" class="btn btn-secondary data_button_custom"><i class="mt-1 orange pull-left feather_16" data-feather="mail"></i>Get in Contact</a> 
                             </div>
-                            <div class="col-lg-4 col-sm-12 pt-2">
+                            <div class="col-lg-6 col-sm-12 pt-2">
                                 <a href="{% url 'data-main' %}" role="button" class="btn btn-secondary data_button_custom"><i class="mt-1 orange pull-left feather_16" data-feather="bar-chart"></i>View Index</a>
                             </div>
+                            <!-- Blog Style
                             <div class="col-lg-4 col-sm-12 pt-2">
                                 <a role="button" class="btn btn-secondary data_button_custom" href="#subscribe"><i class="mt-1 orange pull-left feather_16" data-feather="send"></i>Subscribe Now</a>
                             </div>
+                        -->
                         </div>
                     </div>
                 </div>
@@ -51,6 +53,10 @@
                                     <h4 class="card-title pt-3 pb-1">Political Risk Index</h4>
                                     <p class="card-text text-muted pb-4">Discover trends and increase your action capacity</p>
                                     <a role="button" class="btn btn-outline-secondary btn-custom service_button_custom" href="{% url 'data-main' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="bar-chart"></i>Index<sup>*</sup></a>
+                                    <!-- Blog Style
+                                    <a role="button" class="btn btn-outline-secondary btn-custom service_button_custom mt-lg-2" href="{% url 'blog-library' %}#downloads"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="bar-chart"></i>Country Dataset<sup>*</sup></a>
+                                    <a role="button" class="btn btn-outline-secondary btn-custom service_button_custom mt-lg-2 mt-md-2" href="{% url 'blog-library' %}#downloads"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="bar-chart"></i>Raw Dataset<sup>*</sup></a>
+                                -->
                                     <a role="button" class="btn btn-outline-secondary btn-custom service_button_custom mt-lg-2 mt-md-2" href="{% url 'blog-library' %}#downloads"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="bar-chart"></i>Country Dataset<sup>*</sup></a>
                                     <a role="button" class="btn btn-outline-secondary btn-custom service_button_custom mt-2" href="{% url 'blog-library' %}#downloads"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="bar-chart"></i>Raw Dataset<sup>*</sup></a>
                                 </div>
@@ -62,9 +68,12 @@
                                     <div class="pt-2 pb-1">
                                         <img class="svgsizing" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_svg/02_expertise_blue.png">
                                     </div>
-                                    <h4 class="card-title pt-4 pb-1">Political Risk Expertise</h4>
+                                    <h4 class="card-title pt-4 pb-1">Risk Expertise</h4>
                                     <p class="card-text text-muted pb-4">Get further strategic insights on uncertainty and risk</p>
                                     <a role="button" class="btn btn-outline-secondary btn-custom service_button_custom" href="{% url 'blog-blogs' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="pen-tool"></i>Blog<sup>*</sup></a>
+                                    <!-- Blog Style
+                                    <a role="button" class="btn btn-outline-secondary btn-custom service_button_custom mt-lg-2" href="{% url 'blog-coming-soon' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="file-text"></i>Reports<sup>*</sup></a>
+                                    -->
                                     <a role="button" class="btn btn-outline-secondary btn-custom service_button_custom mt-lg-2 mt-md-2" href="{% url 'blog-coming-soon' %}"><i class="ml-1 mt-1 grey pull-left feather_16" data-feather="file-text"></i>Reports<sup>*</sup></a>
                                 </div>
                             </div>
@@ -103,9 +112,9 @@
                     <li class="nav-item"><a href="#world" class="nav-link active pill-link-color" data-toggle="tab">Worldmap</a></li>
                     <li class="nav-item"><a href="#timeline" class="nav-link pill-link-color" data-toggle="tab">Timeline</a></li>
                     <li class="nav-item"><a href="#countries" class="nav-link pill-link-color" data-toggle="tab">Countries</a></li>
-                    <li class="nav-item"><a href="#dataset" class="nav-link pill-link-color" data-toggle="tab">Dataset</a></li>
+                    <!-- Blog Style <li class="nav-item"><a href="#dataset" class="nav-link pill-link-color" data-toggle="tab">Dataset</a></li> -->
                     <li class="nav-item"><a href="#blog" class="nav-link pill-link-color" data-toggle="tab">Blog</a></li>
-                    <li class="nav-item"><a href="#reports" class="nav-link pill-link-color" data-toggle="tab">Reports</a></li>
+                    <!-- Blog Style <li class="nav-item"><a href="#reports" class="nav-link pill-link-color" data-toggle="tab">Reports</a></li> -->
                 </ul>
                 
                 <div class="tab-content">
@@ -221,7 +230,7 @@
                 <hr class="hr_sizing">
                 <ul class="nav nav-pills pt-3">
                     <li class="nav-item"><a href="#index" class="nav-link active pill-link-color" data-toggle="tab">Index</a></li>
-                    <li class="nav-item"><a href="#analysis" class="nav-link pill-link-color" data-toggle="tab">Analysis</a></li>
+                    <!-- Blog Style<li class="nav-item"><a href="#analysis" class="nav-link pill-link-color" data-toggle="tab">Analysis</a></li> -->
                     <li class="nav-item"><a href="#expertise" class="nav-link pill-link-color" data-toggle="tab">Expertise</a></li>
                     <li class="nav-item"><a href="#more" class="nav-link pill-link-color" data-toggle="tab">More</a></li>
                 </ul>
@@ -239,14 +248,14 @@
                                     <div class="col-6">
                                         <ul class="list-unstyled">
                                             <li class="text-muted">Political Risk Index</li>
-                                            <li class="text-muted">Political Risk Portfolio</li>
+                                            <!-- Blog Style <li class="text-muted">Political Risk Portfolio</li> -->
                                             <li class="text-muted">Individual Services</li>
                                         </ul>
                                     </div>
                                     <div class="col-6">
                                         <ul class="list-unstyled">
                                             <li><a class="word-hover1 text-decoration-none" role="button" href="{% url 'data-main' %}">View Index</a></li>
-                                            <li><a class="word-hover2 text-decoration-none" role="button" href="{% url 'blog-coming-soon' %}">Coming Soon</a></li>
+                                            <!-- Blog Style <li><a class="word-hover2 text-decoration-none" role="button" href="{% url 'blog-coming-soon' %}">Coming Soon</a></li> -->
                                             <li><a class="word-hover1 text-decoration-none" role="button" href="mailto:politicaluncertainty@gmail.com">Get In Contact</a></li>
                                         </ul>
                                     </div>
@@ -269,15 +278,15 @@
                                     <div class="col-6">
                                         <ul class="list-unstyled">
                                             <li class="text-muted">Political Risk Dataset</li>
-                                            <li class="text-muted">Political Risk Dataset</li>
-                                            <li class="text-muted">Specified Risk Analysis</li>
+                                            <li class="text-muted">Political Risk Dataset</li> 
+                                            <li class="text-muted">Specified Risk Analysis</li> 
                                         </ul>
                                     </div>
                                     <div class="col-6">
                                         <ul class="list-unstyled">
                                             <li><a class="word-hover1 text-decoration-none" role="button" href="{% url 'blog-library' %}#downloads"> Country Data</a></li>
-                                            <li><a class="word-hover1 text-decoration-none" role="button" href="{% url 'blog-library' %}#downloads"> Raw Data</a></li>
-                                            <li><a class="word-hover2 text-decoration-none" role="button" href="{% url 'blog-coming-soon' %}">Coming Soon</a></li>
+                                            <li><a class="word-hover1 text-decoration-none" role="button" href="{% url 'blog-library' %}#downloads"> Raw Data</a></li> 
+                                            <li><a class="word-hover2 text-decoration-none" role="button" href="{% url 'blog-coming-soon' %}">Coming Soon</a></li> 
                                         </ul>
                                     </div>
                                 </div>
@@ -298,13 +307,13 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <ul class="list-unstyled">
-                                            <li class="text-muted">Political Risk Reports</li>
+                                            <!-- Blog Style <li class="text-muted">Political Risk Reports</li> -->
                                             <li class="text-muted">Political Risk Blog</li>
                                         </ul>
                                     </div>
                                     <div class="col-6">
                                         <ul class="list-unstyled">
-                                            <li><a class="word-hover2 text-decoration-none" role="button" href="{% url 'blog-coming-soon' %}">Coming Soon</a></li>
+                                            <!-- Blog Style <li><a class="word-hover2 text-decoration-none" role="button" href="{% url 'blog-coming-soon' %}">Coming Soon</a></li> -->
                                             <li><a class="word-hover1 text-decoration-none" role="button" href="{% url 'blog-blogs' %}">View Blog</a></li>
                                         </ul>
                                     </div>
@@ -339,7 +348,7 @@
                     </div>
                 </div>
                 <div>
-                    <cite class="text-muted text-size-small pt-2"><sup>*</sup>All our Services are free of charge for now because they are only for information purposes. In the near future we will provide more services and therefore charge them. For further information see our:<a href="{% url 'blog-disclaimer' %}" class="text-decoration-none word-hover1 text-size-small"> Disclaimer</a></cite>
+                    <cite class="text-muted text-size-small pt-2"><sup>*</sup>All our Services are free of charge for now because they are only for information purposes. For further information see our:<a href="{% url 'blog-disclaimer' %}" class="text-decoration-none word-hover1 text-size-small"> Disclaimer</a></cite>
                 </div>
             </div>
         </div>
