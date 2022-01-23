@@ -40,7 +40,7 @@
 
 <body>
     <head class="site-header">
-      <nav class="navbar navbar-expand-sm navbar-light fixed-top py-1"> <!--mit sticky top, beginnt der content erst nach der Navbar-->
+      <nav class="navbar fixed-top navbar-expand-sm navbar-light py-1"> <!--mit sticky top, beginnt der content erst nach der Navbar-->
         <div class="navbar-brand"> <!--dadurch bleibt die a class immer beim img und geht nicht ab irgendeinem viewport in die mitte-->
             <img class="svg_sizing_005" src="https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/Home_Pics/Logo.png" alt="sure">
             <a class="navbar-brand text-secondary" href="{% url 'blog-home' %}"><h5 class="d-inline">Political Un<span class="orange">certainty</span></h5></a>
@@ -197,6 +197,15 @@
         setTimeout(function(){ 
         message_ele.style.display = "none"; 
         }, 5000);
+    </script>
+
+<!--navbar collapse onclick-->
+    <script>
+    $(document).on('click','.navbar-collapse.in',function(e) {
+        if( $(e.target).is('a:not(".dropdown-toggle")') ) {
+            $(this).collapse('hide');
+        }
+    });
     </script>
 </body>
 </html>
