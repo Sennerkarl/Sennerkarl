@@ -51,6 +51,10 @@ h1{
     width: 50px;
 }
 
+.navbar-expand-sm {
+    position: fixed !important;
+}
+
 /*responsive div for Plotly Charts*/
 
 .plotsizing{
@@ -516,6 +520,56 @@ h1{
 }
 
 .backgroundimg20{
+    background: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/worldmap_01.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
+    background-position: center;
+ /*mit "background-size: contain" würde man immer das gesamte bild sehen*/
+    background-attachment: initial;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height: calc(40vh + 10vw);
+    opacity:0.9;
+}
+
+@media screen and (max-width:770px) {
+    .backgroundimg20 {
+        background-attachment: initial;
+    }
+}
+
+.backgroundimg21{
+    background: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/countries_01.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
+    background-position: center;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height: calc(40vh + 10vw);
+    opacity:0.9;
+}
+
+@media screen and (max-width:770px) {
+    .backgroundimg21 {
+        background-attachment: initial;
+    }
+}
+
+.backgroundimg22{
+    background: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/timeline_01.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
+    background-position: center;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height: calc(40vh + 10vw);
+    opacity:0.9;
+}
+
+@media screen and (max-width:770px) {
+    .backgroundimg22 {
+        background-attachment: initial;
+    }
+}
+
+.backgroundimg23{
     background: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/city_10.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
     background-position: center;
     -webkit-background-size:cover;
@@ -526,7 +580,39 @@ h1{
 }
 
 @media screen and (max-width:770px) {
-    .backgroundimg20 {
+    .backgroundimg23 {
+        background-attachment: initial;
+    }
+}
+
+.backgroundimg24{
+    background: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/blog_01.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
+    background-position: center;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height: calc(40vh + 10vw);
+    opacity:0.9;
+}
+
+@media screen and (max-width:770px) {
+    .backgroundimg24 {
+        background-attachment: initial;
+    }
+}
+
+.backgroundimg25{
+    background: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('https://django-politicalrisk-files.s3.eu-central-1.amazonaws.com/home_imgs/report_01.jpeg') no-repeat center center; /*"no-repeat center center fixed!" mit fixed nur, wenn Bild über die gesamte Seite gehen soll!!*/
+    background-position: center;
+    -webkit-background-size:cover;
+    -moz-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    -o-background-size:cover; /*damit sollte es bei allen browsern funktionieren*/
+    height: calc(40vh + 10vw);
+    opacity:0.9;
+}
+
+@media screen and (max-width:770px) {
+    .backgroundimg25 {
         background-attachment: initial;
     }
 }
